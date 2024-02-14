@@ -9,11 +9,12 @@
 
             <li class="flex items-center justify-center w-1/12"><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/">University MIS</router-link></li>
+            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dean">Dean</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center">Profile</li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dashboard">Dahsboard</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dataset">Dataset</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/pbb">PBB</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center">Offices</li>
+            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/offices">Offices</router-link></li>
         </ul>
     </nav>
 </template>

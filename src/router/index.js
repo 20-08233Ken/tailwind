@@ -8,6 +8,8 @@ import Home from '../Views/Home.vue'
 import Dashboard from '../Views/Planning/Dashboard.vue'
 import Dataset from '../Views/Planning/Dataset.vue'
 import PBB from '../Views/Planning/PBB.vue'
+import Offices from '../Views/Planning/Offices.vue'
+import Dean from '../Views/Dean/Dean.vue'
 
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
@@ -23,6 +25,12 @@ const router = createRouter ({
             component:Home
 
         },  
+        {
+            path:'/dean',
+            name:'dean',
+            component:Dean
+
+        },
         {
             path:'/dashboard',
             name:'dashboard',
@@ -41,6 +49,14 @@ const router = createRouter ({
             component:PBB
 
         },
+        {
+            path:'/offices',
+            name:'offices',
+            component:Offices
+
+        },
+
+
         {
             path:'/advancedEd',
             name:'advancedEd',
