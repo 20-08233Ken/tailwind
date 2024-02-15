@@ -5,7 +5,8 @@
     export default{
         data(){
             return{
-                currentComponent:null
+                currentComponent:null,
+                activeBtn:null
             };
         },
         components:{
@@ -13,8 +14,10 @@
             OPI
         },
         methods:{
-            showComponent(componentName){
+            showComponent(componentName,btnNumber){
                 this.currentComponent = componentName
+                this.activeBtn = btnNumber
+                
             }
 
         }
@@ -26,8 +29,8 @@
         <p class="text-Red-Rose text-xl font-Header">Advanced Education</p>
 
         <span class="w-100 flex mt-4 gap-3">
-            <button @click="showComponent('OPI')" class="border-1 w-2/12 py-2 rounded-md bg-white ">Output Indicator</button>
-            <button @click="showComponent('OCI')" class="border-1 w-2/12 py-2 rounded-md bg-white">Outcome Indicator</button>
+            <button :class="{ 'active': activeBtn === 1 }" @click="showComponent('OPI',1)" class="border-1 w-2/12 py-2 rounded-md bg-white">Output Indicator</button>
+            <button :class="{ 'active': activeBtn === 2 }" @click="showComponent('OCI',2)" class="border-1 w-2/12 py-2 rounded-md bg-white" >Outcome Indicator</button>
         </span>
 
         <div class="w-full">
@@ -39,3 +42,10 @@
     </div>
     
 </template>
+<style scoped>
+.active {
+  background-color: #D00412;
+  color: white;
+ 
+}
+</style>

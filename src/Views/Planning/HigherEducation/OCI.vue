@@ -1,3 +1,9 @@
+<script setup>
+    import modal1 from './HEmodal1.vue';
+    import modal2 from './HEmodal2.vue';
+</script>
+
+
 <template>
     <div class="flex flex-col w-full">
         <div class="flex flex-col items-end w-full bg-white mt-8 shadow-card2 px-10 py-10">
@@ -10,7 +16,8 @@
                 </span>
 
                 <h5 class="w-8/12 font-Subheader">Percentage of first time licensure exam takers</h5>
-                <button class="bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2">Data Entry</button>
+                <!-- <button class="bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2">Data Entry</button> -->
+                <modal1/>
             </span>
 
             <ol class="flex flex-col mt-4  w-10/12" style="list-style-type: decimal;">
@@ -41,7 +48,7 @@
                 </span>
 
                 <h5 class="w-8/12 font-Subheader">Percentage of graduates (2 years prior) that are employed</h5>
-                <button class="bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2">Data Entry</button>
+                <modal2/>
             </span>
 
             <ol class="flex flex-col mt-4  w-10/12" style="list-style-type: decimal;">
