@@ -1,47 +1,15 @@
-<script>
-        import Dataset from './Planning/Dataset.vue'
-        import Dashboard from './Planning/Dashboard.vue'
-        import Offices from './Planning/Offices.vue'
-        import PBB from './Planning/PBB.vue'
-        import Dean from './Dean/Dean.vue'
-        import Landing from './Planning/Landing.vue'
-        import Graph1 from '../components/graph/graph1.vue'
-        import Graph2 from '../components/graph/graph2.vue'
-        import Graph3 from '../components/graph/graph3.vue'
-        import Footer from './Footer.vue'
-        import Navigation from '../components/Others/Navigation.vue'
-        export default{
-            data(){
-                return{
-                    activeTab: null,
-                    currentComponent:null
-                }
-            },  
-            components:{
-                Dataset,
-                Dashboard,
-                Offices,
-                PBB,
-                Dean,
-                Landing,
-                Graph1,
-                Graph2,
-                Graph3,
-                Footer,
-                Navigation
-            },  
-              methods:{
-                showActive(componentName,tabNumber){
-                    this.activeTab = tabNumber
-                    this.currentComponent = componentName
-                }
-            }
-        }
-
+<script setup>  
+    import Graph1 from '../../components/graph/graph1.vue'
+    import Graph2 from '../../components/graph/graph2.vue'
+    import Graph3 from '../../components/graph/graph3.vue'
+    import Footer from '../Footer.vue';
+    import Header from '../../components/Others/Navigation.vue'
 </script>
+
 <template>
         <main class="flex flex-col w-100">
-            <Navigation/>
+
+
 
             <section class="flex flex-col w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw">
             
@@ -177,8 +145,3 @@
 
 
 </template>
-<style scoped>
-.active{
-    background-color: rgb(153 27 27);
-}
-</style>

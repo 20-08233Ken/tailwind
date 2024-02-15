@@ -1,0 +1,104 @@
+<template>
+    <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Graduate school faculty engaged in research work</h1>
+    <p class="w-full text-center text-gray-400">College of Engineering</p>
+    <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
+
+
+
+
+    <div class="w-full overflow-x-auto">
+        <div role="tablist" class="tabs tabs-lifted">
+            <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                
+                <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
+                <select class="select select-bordered w-full mt-2">
+                    <option disabled selected>Select Program ...</option>
+                    <option>Han Solo</option>
+                    <option>Greedo</option>
+                </select>
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
+                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Lastname</p>
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Middle Initial</p>
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">PLANTILLA Position</p>
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Faculty Engagement</p>
+                <select class="select select-bordered w-full mt-2">
+                    <option disabled selected>Select Program ...</option>
+                    <option>Han Solo</option>
+                    <option>Greedo</option>
+                </select>
+                
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                <input type="file" class="file-input file-input-bordered w-full mt-2" />
+
+                <span class="w-full flex items-center justify-end gap-2 mt-5">
+                    <button class="btn w-2/12 bg-white border-0">Add</button>
+                    <button class="btn btn-accent w-2/12">Submit</button>
+
+                </span>
+            </div>
+
+            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table" checked />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                
+                <table class="table-zebra table-md">
+                    <thead>
+                    <tr class ="bg-cyan-50">
+                        <th></th> 
+                        <th class="text-0.9">Campus</th> 
+                        <th class="text-0.9">Department</th> 
+                        <th class="text-0.9">Program</th> 
+                        <th class="text-0.9">Name</th> 
+                        <th class="text-0.9">PLANTILLA Position</th> 
+                        <th class="text-0.9">Faculty Engagement</th>
+                        <th class="text-0.9">Duration</th>
+                    </tr>
+                    </thead> 
+                    <tbody>
+                    <tr>
+                        <th>1</th> 
+                        <td>Cy Ganderton</td> 
+                        <td>Quality Control Specialist</td> 
+                        <td>Littel, Schaden and Vandervort</td> 
+                        <td>Canada</td> 
+                        <td>12/16/2020</td> 
+                        <td>Blue</td>
+                    </tr>
+                    <tr>
+                        <th>1</th> 
+                        <td>Cy Ganderton</td> 
+                        <td>Quality Control Specialist</td> 
+                        <td>Littel, Schaden and Vandervort</td> 
+                        <td>Canada</td> 
+                        <td>12/16/2020</td> 
+                        <td>Blue</td>
+                    </tr>
+
+                </tbody>
+                </table>
+            </div>
+
+          
+        </div>
+
+    </div>
+</template>

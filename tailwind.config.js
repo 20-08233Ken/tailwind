@@ -23,6 +23,9 @@ export default {
             'Subheader':['Inter-SemiBold'],
             'Regular':['Inter-Regular']
         },
+        fontSize:{
+            '0.9':'.9rem'
+        },
         colors:{
             'Red-Darken':"#94080D",
             'Red-Rose':"#D00412",

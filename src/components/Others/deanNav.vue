@@ -1,6 +1,14 @@
-<template>
+<script setup>
 
-    <div class="w-7/12 flex flex-col shadow-card2 px-16 py-16 mt-8">
+    // import HE_OCI_1 from '../../Views/Dean/HE_OCI_1.vue'; 
+    import Navigation from './Navigation.vue';
+
+</script>
+
+<template>
+    <Navigation/>
+    <main class="w-full flex items-center">
+    <div class="w-7/12 flex flex-col items-center shadow-card2 px-16 py-16 mt-8">
         <h1 class="font-Header text-3xl text-Red-Rose text-center">Performace Result</h1>
         <p class="font-Subheader text-md text-Red-Darken text-center mt-2">Higher Education</p>
         
@@ -78,6 +86,11 @@
 
         </div>
     </div>
+
+    <div class="w-7/12 flex flex-col shadow-card2 px-16 py-16 mt-8">
+            <!-- <HE_OCI_1/> -->
+    </div>
+</main>
 
 </template>
 

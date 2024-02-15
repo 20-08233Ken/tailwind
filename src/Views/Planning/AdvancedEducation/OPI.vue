@@ -1,3 +1,8 @@
+<script setup>
+    import AEmodal2 from './AEmodal2.vue';
+    import AEmodal3 from './AEmodal3.vue';
+</script>
+
 <template>
     <div class="flex flex-col w-full">
         <div class="flex flex-col items-end w-full bg-white mt-8 shadow-card2 px-10 py-10">
@@ -10,7 +15,7 @@
                 </span>
 
                 <h5 class="w-8/12 font-Subheader">Percentage of graduate students enrolled in research degree programs</h5>
-                <button class="bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2">Data Entry</button>
+                <AEmodal2/>
             </span>
 
             <ol class="flex flex-col mt-4  w-10/12" style="list-style-type: decimal;">
@@ -41,7 +46,7 @@
                 </span>
 
                 <h5 class="w-8/12 font-Subheader">Percentage of accredited graduate Programs</h5>
-                <button class="bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2">Data Entry</button>
+                <AEmodal3/>
             </span>
 
             <ol class="flex flex-col mt-4  w-10/12" style="list-style-type: decimal;">
