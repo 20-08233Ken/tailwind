@@ -67,7 +67,7 @@
                 <div class="flex items-center gap-2 w-3/12 px-4 py-4 hover:bg-sky-100">
                     <img id ="img-1" src="../../assets/img/icons8-graduate-64.png" style="width:15%; height: auto;" alt="">
                     <span class="w-9/12 ">
-                        <h4 class="font-Subheader text-Red-Rose">Outcome Indicator 2</h4>
+                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 1</h4>
                         <p class="text-sm  indicator_title" >Percentage of first-time licensure exam-takers that pass the licensure exams</p>
                     </span>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="flex items-center gap-2 w-3/12 px-4 py-4 hover:bg-sky-100">
                     <img id ="img-1" src="../../assets/img/icons8-credit-50.png" style="width:15%; height: auto;" alt="">
                     <span class="w-9/12 ">
-                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 1</h4>
+                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 2</h4>
                         <p class="text-sm  indicator_title" >Percentage of first-time licensure exam-takers that pass the licensure exams</p>
                     </span>
                 </div>

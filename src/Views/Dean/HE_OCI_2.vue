@@ -1,3 +1,58 @@
+
+<script>
+    export default{
+        data(){
+            return{
+                // in_campus:'',
+                // in_department:'',
+                in_program:'',
+                in_fname:'',
+                in_mname:'',
+                in_lname:'',
+                in_status:'',
+                in_business:'',
+
+                // Data base from the Account Info of Dean
+                data:[
+                    {
+                        in_campus:"Alangilan Campus",
+                        in_department:"College of Engineering"
+                    }
+                ],
+
+                // Options of Select Program Input
+                collegeProgram:[
+                    {
+                        program:"Bachelor of Science in Computer Engineer",
+                    },{
+                        program:"Bachelor of Science in Civil Engineer",
+                    },{
+                        program:"Bachelor of Science in Chemical Engineer",
+                    },{
+                        program:"Bachelor of Science in Electrical Engineer",
+                    }
+                ],
+
+            }
+        },
+        methods:{
+            addData(){
+                console.log("Added Data")
+                console.log(this.data[0].in_campus);
+                console.log(this.data[0].in_department);
+                console.log(this.in_program);
+                console.log(this.in_fname);
+                console.log(this.in_mname);
+                console.log(this.in_lname);
+                console.log(this.in_status);
+                console.log(this.in_business);
+            }
+        }
+    }
+
+
+</script>
+
 <template>
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Employed Graduates</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
@@ -11,32 +66,33 @@
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
                 <select class="select select-bordered w-full mt-2">
                     <option disabled selected>Select Program ...</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                    <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
+
                 </select>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_fname"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Lastname</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_lname"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Middle Initial</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_mname"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status</p>
                 <select class="select select-bordered w-full mt-2">
                     <option disabled selected> ...</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                    <option>Employed</option>
+                    <option>Unemployed</option>
+                    <option>Not Tracked</option>
                 </select>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Company's Business / Type of Business</p>
@@ -47,7 +103,7 @@
                 <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0">Add</button>
+                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
                     <button class="btn btn-accent w-2/12">Submit</button>
 
                 </span>
