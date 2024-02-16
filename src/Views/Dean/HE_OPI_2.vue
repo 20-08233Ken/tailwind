@@ -1,3 +1,57 @@
+<script>
+    export default{
+        data(){
+            return{
+                // in_campus:'',
+                // in_department:'',
+                in_program:'',
+                in_operation:'',
+                in_status:'',
+                in_from:'',
+                in_to:'',
+                in_remarks:'',
+
+                // Data base from the Account Info of Dean
+                data:[
+                    {
+                        in_campus:"Alangilan Campus",
+                        in_department:"College of Engineering"
+                    }
+                ],
+
+                // Options of Select Program Input
+                collegeProgram:[
+                    {
+                        program:"Bachelor of Science in Computer Engineer",
+                    },{
+                        program:"Bachelor of Science in Civil Engineer",
+                    },{
+                        program:"Bachelor of Science in Chemical Engineer",
+                    },{
+                        program:"Bachelor of Science in Electrical Engineer",
+                    }
+                ],
+
+            }
+        },
+        methods:{
+            addData(){
+                console.log("Added Data")
+                console.log(this.data[0].in_campus);
+                console.log(this.data[0].in_department);
+                console.log(this.in_program);
+                console.log(this.in_operation);
+                console.log(this.in_status);
+                console.log(this.in_from);
+                console.log(this.in_to);
+                console.log(this.in_remarks);
+            }
+        }
+    }
+
+
+</script>
+
 <template>
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Undergraduate programs with accreditation</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
@@ -11,49 +65,53 @@
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
                 <select class="select select-bordered w-full mt-2">
                     <option disabled selected>Select Program ...</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                    <option v-for="x in collegeProgram" :value="x.program">{{x.program}}</option>
+
                 </select>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of Initial Operation</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full "  v-model="in_operation"/>
            
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Status</p>
-                <select class="select select-bordered w-full mt-2">
-                    <option disabled selected>Select ...</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                <select class="select select-bordered w-full mt-2" v-model="in_status">
+                    <option disabled selected>Level Status ...</option>
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                    <option>Level 4</option>
+                    <option>Level CS</option>
+                    <option>NA</option>
                 </select>
 
                 <h4 class="mt-8 font-Subheader text-Red-Rose text-base">Period of Validity</h4>
                 <span class="w-full flex gap-2">
                     <span class="w-2/4">
                         <p class="text-0.9 font-Subheader text-gray-500 mt-4">From</p>
-                        <input type="date" placeholder=" " class="input mt-2 input-bordered w-full " />
+                        <input type="date" placeholder=" " class="input mt-2 input-bordered w-full " v-model="in_from" />
                     </span>
                     <span class="w-2/4">
                         <p class="text-0.9 font-Subheader text-gray-500 mt-4">To</p>
-                        <input type="data" placeholder="" class="input mt-2 input-bordered w-full " />
+                        <input type="date" placeholder="" class="input mt-2 input-bordered w-full " v-model="in_to"/>
                     </span>
                 </span>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Remarks</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_remarks"/>
 
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
                 <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0">Add</button>
+                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
                     <button class="btn btn-accent w-2/12">Submit</button>
 
                 </span>

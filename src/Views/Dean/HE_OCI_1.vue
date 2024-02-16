@@ -1,3 +1,51 @@
+<script>
+    export default{
+        data(){
+            return{
+                in_program:'',
+                in_examDate:'',
+                in_takers:'',
+                in_passers:'',
+
+                 // Data base from the Account Info of Dean
+                data:[
+                    {
+                        in_campus:"Alangilan Campus",
+                        in_department:"College of Engineering"
+                    }
+                ],
+
+                // Options of Select Program Input
+                collegeProgram:[
+                    {
+                        program:"Bachelor of Science in Computer Engineer",
+                    },{
+                        program:"Bachelor of Science in Civil Engineer",
+                    },{
+                        program:"Bachelor of Science in Chemical Engineer",
+                    },{
+                        program:"Bachelor of Science in Electrical Engineer",
+                    }
+                ],
+            }
+        },
+        methods:{
+            addData(){
+                console.log("Added Data")
+                console.log(this.data[0].in_campus);
+                console.log(this.data[0].in_department);
+                console.log(this.in_program);
+                console.log(this.in_examDate);
+                console.log(this.in_takers);
+                console.log(this.in_passers);
+            }
+        }
+    }
+
+</script>
+
+
+
 <template>
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Passed first-time licensure exam takers</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
@@ -36,32 +84,32 @@
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_campus"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                <select class="select select-bordered w-full mt-2">
+                <select class="select select-bordered w-full mt-2"  v-model="in_program">
                     <option disabled selected>Select Program ...</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                    <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
+
                 </select>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Exam Date</p>
-                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_examDate"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Takers</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_takers"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Passers</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_passers"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
                 <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0">Add</button>
+                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
                     <button class="btn btn-accent w-2/12">Submit</button>
 
                 </span>

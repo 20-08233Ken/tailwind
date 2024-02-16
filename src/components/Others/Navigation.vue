@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-full bg-red-700 flex px-20 h-auto">
+    <nav class="w-full bg-red-700 flex px-20 h-auto sticky top-0 z-50">
         <ul class="flex text-white gap-2 w-full">
             <li class="py-8 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -10,10 +10,10 @@
             <li class="flex items-center justify-center w-1/12"><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/">University MIS</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dean">Dean</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center">Profile</li>
+            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/profile">Profile</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dashboard">Dahsboard</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dataset">Dataset</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/pbb">PBB</router-link></li>
+            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/pbb2">PBB</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/offices">Offices</router-link></li>
         </ul>
     </nav>

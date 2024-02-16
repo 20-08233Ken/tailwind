@@ -104,7 +104,7 @@
                 <button class="flex items-center gap-2 w-3/12 px-4 py-4 hover:bg-sky-100" :class="{'active':activeBtn===6}" @click="showComponent('AE_OPI_1',6)">
                     <img id ="img-1" src="../../assets/img/icons8-graduate-64.png" style="width:15%; height: auto;" alt="">
                     <span class="w-9/12 ">
-                        <h4 class="font-Subheader text-Red-Rose">Outcome Indicator 2</h4>
+                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 1</h4>
                         <p class="text-sm  indicator_title" >Graduate students enrolled in research degree program</p>
                     </span>
                 </button>
@@ -112,7 +112,7 @@
                 <button class="flex items-center gap-2 w-3/12 px-4 py-4 hover:bg-sky-100" :class="{'active':activeBtn===7}" @click="showComponent('AE_OPI_2',7)">
                     <img id ="img-1" src="../../assets/img/icons8-credit-50.png" style="width:15%; height: auto;" alt="">
                     <span class="w-9/12 ">
-                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 1</h4>
+                        <h4 class="font-Subheader text-Red-Rose">Output Indicator 2</h4>
                         <p class="text-sm  indicator_title" >Graduate programs with accreditation</p>
                     </span>
                 </button>
