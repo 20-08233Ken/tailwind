@@ -1,7 +1,6 @@
 <template>
     
     <v-chart class="chart" :option="option" autoresize />
-
     
   </template>
   
@@ -29,48 +28,44 @@
   
   const option = {
 
-color:[
-'#D00412',
-'#d9d9d9',
-],
+ 
 
-series: [
-{
-  name: 'Access From',
-  type: 'pie',
-  radius: ['70%', '100%'],
-  center: ['50%', '70%'],
+    color: [
+    '#EC061D',
+    '#06ECC3',
+    
 
-  startAngle: 180,
-  data: [
-    { value: 50},
-    { value: 50},
-
+  ],
+  series: [
     {
-      // make an record to fill the bottom 50%
-      value: 50 + 50,
-      itemStyle: {
-        // stop the chart from rendering this piece
-        color: 'none',
-        decal: {
-          symbol: 'none'
-        }
-      },
+      name: 'Total Admissions (Undegraduate)',
+      type: 'pie',
+      radius: ['60%', '100%'],
+      avoidLabelOverlap: false,
       label: {
+        show: false,
+        position: 'center'
+      },
+
+      labelLine: {
         show: false
-      }
+      },
+      data: [
+        { value: 98, name: 'Target' },      
+        { value: 10, name: 'None' },
+
+
+      ]
     }
   ]
-}
-]
 };
   </script>
   
   <style scoped>
   .chart {
-    height: 30vh;
-    width: 45%;
-    
+    height: 25vh;
+    width: 100%;
+
    
   }
   </style>

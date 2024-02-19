@@ -5,8 +5,8 @@
     export default{
         data(){
             return{
-                currentComponent:null,
-                activeButton:null
+                currentComponent:OPI,
+                activeButton:1
             };
         },
         components:{

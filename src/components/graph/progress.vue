@@ -69,10 +69,11 @@
   
   <style scoped>
   .chart {
-    height: 30vh;
-    width: 100%;
+    height: 22vh;
+    padding: 2px;
+    width: 35%;
+    margin-top: 1rem;
 
-   
   }
   </style>
   

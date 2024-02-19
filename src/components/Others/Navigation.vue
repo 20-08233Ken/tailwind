@@ -13,7 +13,7 @@
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/profile">Profile</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dashboard">Dahsboard</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/dataset">Dataset</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/pbb2">PBB</router-link></li>
+            <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/pbb">PBB</router-link></li>
             <li class="w-1/12 py-8 hover:bg-red-800 text-center"><router-link to="/offices">Offices</router-link></li>
         </ul>
     </nav>
