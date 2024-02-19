@@ -8,7 +8,11 @@ import Home from '../Views/Home.vue'
 import Dashboard from '../Views/Planning/Dashboard.vue'
 import Dataset from '../Views/Planning/Dataset.vue'
 import PBB from '../Views/Planning/PBB.vue'
-import PBB2 from '../Views/Planning/PBB2.vue'
+
+import PPB_Higher from '../Views/Planning/PBB/PPB_Higher.vue'
+import PPB_Adv from '../Views/Planning/PBB/PPB_Adv.vue'
+import PBB_Summary from '../Views/Planning/PBB/PBB_Summary.vue'
+import PBB3 from '../Views/Planning/PBB3.vue'
 
 import Offices from '../Views/Planning/Offices.vue'
 import Dean from '../Views/Dean/Dean.vue'
@@ -58,13 +62,31 @@ const router = createRouter ({
             name:'pbb',
             component:PBB
 
-        },
-        {
-            path:'/pbb2',
-            name:'pbb2',
-            component:PBB2
+        },        
+                {
+                    path:'/PPB_Higher',
+                    name:'PPB_Higher',
+                    component:PPB_Higher
 
-        },
+                },
+                {
+                    path:'/PPB_Adv',
+                    name:'PPB_Adv',
+                    component:PPB_Adv
+
+                },
+                {
+                    path:'/PBB_Summary',
+                    name:'PBB_Summary',
+                    component:PBB_Summary
+
+                },
+                {
+                    path:'/pbb3',
+                    name:'pbb3',
+                    component:PBB3
+
+                },
         {
             path:'/offices',
             name:'offices',
