@@ -1,10 +1,11 @@
 <script>
-    import OPI from '../AdvancedEducation/OPI.vue';
-    import OCI from '../AdvancedEducation/OCI.vue';
+    import OPI from '../ResearchService/RS_OPI.vue';
+
     import {markRaw} from 'vue'
 
-    const hold_OCI = markRaw(OCI);
+
     const hold_OPI = markRaw(OPI);
+    
     export default{
         data(){
             return{
@@ -13,15 +14,11 @@
             };
         },
         components:{
-            OCI,
+
             OPI
         },
         methods:{
-            showComponent(componentName,btnNumber){
-                this.currentComponent = componentName
-                this.activeBtn = btnNumber
-                
-            }
+
 
         }
     }
@@ -45,7 +42,7 @@
                                 :to="{
                                     name:'PBB_Summary',
                                     query:{
-                                        program:'PBB_Summary3'
+                                        program:'PBB_Summary4'
                                     }
                                     }"
                             >
@@ -57,21 +54,9 @@
                     
                     </ul>
                 </div>
-        <p class="text-Red-Rose text-xl font-Header">Advanced Education</p>
+        <p class="text-Red-Rose text-xl font-Header">Research Services</p>
 
-        <span class="w-full flex justify-between items-center mt-4 gap-3">
 
-            <span class="w-full flex mt-4 gap-3">
-                <button :class="{ 'active': activeBtn === 1 }" @click="showComponent('OPI',1)" class="border-1 w-3/12 py-2 rounded-md bg-white">Output Indicator</button>
-                <button :class="{ 'active': activeBtn === 2 }" @click="showComponent('OCI',2)" class="border-1 w-3/12 py-2 rounded-md bg-white" >Outcome Indicator</button>
-            </span>
-
-            <select class="select select-bordered w-full max-w-xs">
-                <option>College of Engineering</option>
-                <option>College of Informatics and Computing Sciences</option>
-                <option>College of Technology and Engineering</option>
-            </select>
-        </span>
 
         <div class="w-full">
 

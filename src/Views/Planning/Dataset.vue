@@ -1,5 +1,51 @@
-<script setup>
+<script >
     import Navigation from '../../components/Others/Navigation.vue';
+
+    export default{
+        data(){
+            return{
+                offices:[
+                {
+                        office:"KSIT Park Development Office"
+                    },
+                    {
+                        office:"ACTION Center"
+                    },
+                    {
+                        office:"Office of the Secretary"
+                    },
+                    {
+                        office:"Office of the Board of Regents"
+                    },
+                    {
+                        office:"Office of Internal Services"
+                    },
+                    {
+                        office:"Presedential Project Management Office"
+                    },
+                    {
+                        office:"Center for Innovation in Engineering Education"
+                    },
+                    {
+                        office:"Office of Sports"
+                    },
+                    {
+                        office:"Curriculum and Instruction Office"
+                    },
+                    {
+                        office:"Student Affairs and Services Office"
+                    },
+                    {
+                        office:"Testing and Admission Office"
+                    },
+
+                ]
+            }
+        },
+        components:{
+            Navigation
+        }
+    }
 
 </script>
 
@@ -31,8 +77,8 @@
 
         <section class="flex px-6vw mt-4 pb-8 ">
             <div class=" w-2/4">
-                <div class="flex flex-col bg-white w-10/12 py-12 px-16 shadow-card2 rounded-2xl">
-                    <h2 class="font-Subheader text-2xl">Office of Human Resource</h2>
+                <div class="flex flex-col bg-white w-10/12 py-12 px-16 shadow-card2 rounded-2xl" id="office">
+                    <h2 class="font-Subheader text-xl">Office of Human Resource</h2>
                     <ul class="mt-4 ml-4 flex flex-col gap-2" style="list-style-type: disc;">
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Maecenas vehicula purus vitae sapien malesuada, eget pretium justo lacinia</li>
@@ -52,96 +98,15 @@
                 </div>
             </div>
 
-            <div class="w-2/4">
+            <div class="w-2/4" id="office-2">
                 <ul class="w-full flex flex-col gap-3 items-end ">
 
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        KSIT Park Development Office
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        ACTION Center
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Legal Affairs Office
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Office of the Secretary
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Office of the Board of Regents
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Office of Internal Services
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Presedential Project Management Office
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Center for Innovation in Engineering Educ
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Office of Culture and Arts
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Office of Sports
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Curriculum and Instruction Office
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Student Affairs and Services Office
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                    </li>
-
-                    <li class="flex justify-between w-10/12 border-1 border-Red-Rose py-4 px-8 text-Red-Rose rounded-xl">
-                        Testing and Admission Office
+                    <li 
+                        class="flex justify-between w-10/12 border-1 border-Red-Rose py-3 px-8 text-Red-Rose rounded-xl " 
+                        v-for="(x , index) in offices" :key='index'
+                        
+                    >
+                        {{ x.office }}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -154,3 +119,13 @@
 
     </main>
 </template>
+
+<style scoped>
+    #office > ul >li{
+        font-size: 14px;
+    }
+
+    #office-2 > ul >li{
+        font-size: 14px;
+    }
+</style>

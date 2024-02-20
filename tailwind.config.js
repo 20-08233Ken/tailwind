@@ -16,7 +16,8 @@ export default {
         },
         spacing:{
           '8vw':'8vw',
-          '20%':"20%"
+          '20%':"20%",
+          '12%':"12%"
         },
         fontFamily:{
             'Header':['Inter-Bold'],
@@ -24,7 +25,8 @@ export default {
             'Regular':['Inter-Regular']
         },
         fontSize:{
-            '0.9':'.9rem'
+            '0.9':'.9rem',
+            '0.8':'.8rem'
         },
         colors:{
             'Red-Darken':"#94080D",

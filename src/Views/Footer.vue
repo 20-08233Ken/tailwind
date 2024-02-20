@@ -1,9 +1,56 @@
+<script>
+    export default{
+        data(){
+            return{
+                offices:[
+                    {
+                        office:"KSIT Park Development Office"
+                    },
+                    {
+                        office:"ACTION Center"
+                    },
+                    {
+                        office:"Office of the Secretary"
+                    },
+                    {
+                        office:"Office of the Board of Regents"
+                    },
+                    {
+                        office:"Office of Internal Services"
+                    },
+                    {
+                        office:"Presedential Project Management Office"
+                    },
+                    {
+                        office:"Center for Innovation in Engineering Education"
+                    },
+                    {
+                        office:"Office of Sports"
+                    },
+                    {
+                        office:"Curriculum and Instruction Office"
+                    },
+                    {
+                        office:"Student Affairs and Services Office"
+                    },
+                    {
+                        office:"Testing and Admission Office"
+                    },
+                ]
+            }
+        },
+        
+    }
+
+</script>
+
+
 <template>
 
         <h1 class="w-2/4 px-6vw text-3xl font-Header pt-16 bg-Red-Rose text-white" style="clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);">University Dataset</h1>
 
         <div class="flex w-100 bg-Red-Rose pb-8">
-            <div class="flex justify-center w-2/4 gap-8">
+            <div class="flex justify-center w-8/12 gap-8">
 
                 <span class="flex flex-col w-2/5 bg-white text-black rounded-t-2xl rounded-b-2xl mt-16">
 
@@ -119,20 +166,20 @@
                 </span>
             </div>
         
-            <div class="flex flex-col w-2/4">
+            <div class="flex flex-col w-4/12">
 
                 <h2 class="mt-16 font-Header text-3xl text-white">Data Documentation</h2>
                 <p class="text-white">per Offices</p>
 
                 <ul class="mt-8 w-11/12 ">
-                    <li class="flex justify-between w-full border-1 border-white px-8 py-3 rounded-xl mt-2 text-white">
-                        KSIT Park Development Office
+                    <li class="flex justify-between w-full border-1 border-white px-8 py-3 rounded-xl mt-2 text-white text-0.9" v-for="(x, index) in offices" :key="index">
+                    {{ x.office }}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                     </li>
 
-                    <li class="flex justify-between w-full border-1 border-white px-8 py-3 rounded-xl mt-2 text-white">
+                    <!-- <li class="flex justify-between w-full border-1 border-white px-8 py-3 rounded-xl mt-2 text-white">
                         ACTION Center
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -206,7 +253,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <button class="flex text-white bg-Red-Darken font-Regular text-sm py-3 px-8 self-center rounded-md items-center justify-center  mt-8"> 

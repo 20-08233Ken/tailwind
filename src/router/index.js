@@ -13,6 +13,8 @@ import PPB_Higher from '../Views/Planning/PBB/PPB_Higher.vue'
 import PPB_Adv from '../Views/Planning/PBB/PPB_Adv.vue'
 import PBB_Summary from '../Views/Planning/PBB/PBB_Summary.vue'
 import PBB3 from '../Views/Planning/PBB3.vue'
+import PBB_Research from '../Views/Planning/PBB/PBB_Research.vue'
+
 
 import Offices from '../Views/Planning/Offices.vue'
 import Dean from '../Views/Dean/Dean.vue'
@@ -21,7 +23,7 @@ import Profile from '../Views/Planning/Profile.vue'
 
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
-
+import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
 const router = createRouter ({
 
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -85,6 +87,18 @@ const router = createRouter ({
                     path:'/pbb3',
                     name:'pbb3',
                     component:PBB3
+
+                },
+                {
+                    path:'/PBB_Research',
+                    name:'PBB_Research',
+                    component:PBB_Research
+
+                },
+                {
+                    path:'/ResearchServices',
+                    name:'ResearchServices',
+                    component:ResearchServices
 
                 },
         {

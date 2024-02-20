@@ -17,8 +17,9 @@
         </span>
         <section class="w-full flex shadow-card2 bg-white rounded-b-2xl">
             <div class="w-5/12 px-6vw py-3vw flex flex-col justify-center">
-                <h1 class="font-Header text-3xl text-Red-Darken">Performance-based Bonus</h1>
-                <h2 class="font-Subheader">FY 2023</h2>
+                <!-- <h1 class="font-Header text-3xl text-Red-Darken">Performance-based Bonus</h1> -->
+                <h1 class="font-Header text-4xl text-Red-Darken">Quarterly Physical Report of Operation</h1>
+                <h2 class="font-Subheader mt-2">FY 2023</h2>
                 <h2 class="mt-4 font-Subheader">Current Quarter</h2>
             </div>
             
@@ -202,6 +203,24 @@
 
                 </ul>
                
+                <span class="flex w-11/12 items-center ml-4 mt-8">
+                    <h4 class="flex w-2/12  font-Subheader ">Research Extension </h4>
+                        <span class="w-5/12 flex items-center gap-4">
+                            <progress class="progress progress-error w-full" value="45" max="100"></progress>
+                            <p class="text-Red-Rose text-sm">45%</p>
+                        </span>
+                </span>
+                <ul class="w-10/12 mt-4">
+                            <router-link to="/PBB_Research">
+                                <li class="flex items-center gap-4">
+                                    <input type="checkbox" checked="checked">
+                                    Outcome Indicator 1: Percentage of graduate school faculty engaged in research work
+                                </li>
+                            </router-link>
+                        </ul>
+
+
+                
             </div>
 
         </section>

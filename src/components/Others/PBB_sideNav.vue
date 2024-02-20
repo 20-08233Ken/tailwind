@@ -10,8 +10,12 @@
                         <router-link to="/PPB_Adv">
                         <li class="py-1 w-8/12 "> Advanced Education</li>
                         </router-link>
+
+                        <router-link to="/PBB_Research">
                         <li class="py-1 w-8/12 "> Research Services</li>
+                        </router-link>
                         <li class="py-1 w-8/12 "> Technical Advisory Extension</li>
+                       
                     </ul>
 
                 <h4 class="w-8/12 bg-Red-Darken text-white px-4 py-1 mt-6">Process Results</h4>

@@ -1,7 +1,7 @@
 
 
 <template>
-    <button class="btn bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2" onclick="my_modal_3.showModal()">Data Entry</button>
+    <button class="btn bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2" onclick="my_modal_3.showModal()">View</button>
     <dialog id="my_modal_3" class="modal">
 
     <div class="modal-box w-11/12 max-w-full">
