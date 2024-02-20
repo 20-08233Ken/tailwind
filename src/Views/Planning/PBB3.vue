@@ -3,7 +3,14 @@
     import Navigation from '../../components/Others/Navigation.vue';
     import HigherEd from './Indicators/HigherEd.vue';
     import AdvanceEd from './Indicators/AdvanceEd.vue';
+    import ResearchServices from './Indicators/ResearchServices.vue';
     import PBB_sideNav from '../../components/Others/PBB_sideNav.vue';
+
+    import {markRaw} from 'vue'
+
+    const raw_HigherEd = markRaw(HigherEd);
+    const raw_AdvanceEd = markRaw(AdvanceEd);
+    
     export default{
         data(){
             return{
@@ -14,7 +21,8 @@
             Navigation,
             HigherEd,
             AdvanceEd,
-            PBB_sideNav
+            PBB_sideNav,
+            ResearchServices
 
         },
         watch:{
@@ -28,7 +36,12 @@
                     }else if(value == "AdvancedEd"){
                         this.currentComponent = AdvanceEd
                         
+                    }else if(value == "ResearchServices"){
+                        this.currentComponent = ResearchServices
+                        
                     }
+                    
+                    
                 },
                 immediate:true,
                 deep:true

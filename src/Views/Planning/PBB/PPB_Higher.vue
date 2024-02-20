@@ -5,10 +5,120 @@
     import HigherEd from '../Indicators/AdvanceEd.vue';
 
     import PBB_sideNav from '../../../components/Others/PBB_sideNav.vue';
+
+    import {markRaw} from 'vue'
     export default{
         data(){
             return{
-                currentComponent:null
+                currentComponent:null,
+                OCI_1:[
+                    {
+                        status:"submitted",
+                        title:"BSED September 2021",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"Elementary Education September 2021",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"	Accountancy December 2021",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"Nutritionist Dietitian October 2021",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"Nursing November 2021",
+                        date:"07-12-2023"
+                    },
+                ],
+                OCI_2:[
+                    {
+                        status:"submitted",
+                        title:"Annex A: Graduates Tracer Study or Summary results of survey of employment",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"List of Graduates March 2019",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"	List of Graduates June 2019",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"List of Graduates September 2019",
+                        date:"07-12-2023"
+                    }
+                    
+                ],
+                OPI_1:[
+                    {
+                        status:"submitted",
+                        title:"Annex A Board Resolutions",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"Annex B Enrollment List - Pablo Borbon",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"not submitted",
+                        title:"	Enrollment List -Alangilan",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"not submitted",
+                        title:"Enrollment List - ARASOF-Nasugbu",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"not submitted",
+                        title:"Enrollment List - JLPC Malvar",
+                        date:"07-12-2023"
+                    }
+                    
+                ],
+                OPI_2:[
+                    {
+                        status:"submitted",
+                        title:"Summary of Accre Cert for Main I revised",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"Summary Accre Cert for Main II",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"not submitted",
+                        title:"	BatStateU Accreditation Schedule for FY 2022",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"submitted",
+                        title:"2020 ACCUP Technical Review and Board Action",
+                        date:"07-12-2023"
+                    },
+                    {
+                        status:"not submitted",
+                        title:"2021 ACCUP Technical Review and Board Action",
+                        date:"07-12-2023"
+                    }
+                    
+                ]
+                
+
             };
         },
         components:{
@@ -19,6 +129,10 @@
         methods:{
             showComponent(componentName){
                 this.currentComponent = componentName
+            },
+
+            getStatusColor(status){
+                return status === "submitted" ? "green":"red";
             }
         }
     }
@@ -31,7 +145,7 @@
 
         <section class="w-full flex  px-6vw pt-6vw">
             <div class="w-2/4">
-                <h1 class="font-Header text-4xl text-Red-Darken">Performanced-Based Bonus</h1>
+                <h1 class="font-Header text-4xl text-Red-Darken">Quarterly Physical Report of Operation</h1>
                 <h4 class="font-Subheader text-Red-Rose">Current Quarter: Q1</h4>
                 <p>FY 2023</p>
             </div>
@@ -50,6 +164,18 @@
 
 
             <div class="flex w-8/12 flex-col">
+
+                <div class="text-sm breadcrumbs w-full">
+                    <ul>
+                        <li class="text-gray-500">
+                            <router-link to="/pbb">
+                                <a>PBB</a>
+                            </router-link>
+                        </li> 
+                        <li class="text-gray-500"><a>PBB Logs</a></li> 
+                    
+                    </ul>
+                </div>
             
                 <h3 class="font-Header text-Red-Rose text-xl">Higher Education</h3>
 
@@ -64,30 +190,10 @@
                     </h4>
 
                     <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr>
-                            <td><span class="green"></span></td>
-                            <td>BSED September 2021</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Elementary Education September 2021</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Accountancy December 2021</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Nutritionist Dietitian October 2021</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Nursing November 2021</td>
-                            <td>07-12-2023</td>
+                        <tr v-for="(x,index) in OCI_1" :key='index'>
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
+                            <td>{{ x.title }}</td>
+                            <td>{{x.date}}</td>
                         </tr>
                     </table>
 
@@ -118,25 +224,10 @@
                         Outcome Indicator 2: Percentage of graduates (2 years prior) that are employed
                     </h4>
                     <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr>
-                            <td><span class="green"></span></td>
-                            <td>Annex A: Graduates Tracer Study or Summary results of survey of employment</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>List of Graduates March 2019</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>List of Graduates June 2019</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>List of Graduates September 2019</td>
-                            <td>07-12-2023</td>
+                        <tr v-for="(x,index) in OCI_2" :key="index">
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
+                            <td>{{ x.title }}</td>
+                            <td>{{x.date}}</td>
                         </tr>
                     </table>
 
@@ -146,7 +237,7 @@
                             :to="{
                                 name:'PBB_Summary',
                                 query:{
-                                    program:PBB_Summary2
+                                    program:'PBB_Summary2'
                                 }
                                 }"
                         >
@@ -167,32 +258,13 @@
                     </h4>
 
                     <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr>
-                            <td><span class="green"></span></td>
-                            <td>Annex A Board Resolutions </td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="red"></span></td>
-                            <td>Annex B Enrollment List  - Pablo Borbon</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="red"></span></td>
-                            <td>Enrollment List -Alangilan</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="red"></span></td>
-                            <td>Enrollment List - ARASOF-Nasugbu</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Enrollment List - JLPC Malvar</td>
-                            <td>07-12-2023</td>
+                        <tr v-for="(x,index) in OPI_1" :key="index">
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
+                            <td>{{ x.title }}</td>
+                            <td>{{ x.date }}</td>
                         </tr>
                     </table>
+
                     <span class="flex w-full gap-4 justify-end mt-4">
                         <router-link 
                             :to="{
@@ -218,31 +290,12 @@
                         </h4>
 
                         <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr>
-                            <td><span class="green"></span></td>
-                            <td>Summary of Accre Cert for Main I revised </td>
-                            <td>07-12-2023</td>
+                        <tr v-for="(x,index) in OPI_2" :key="index">
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
+                            <td>{{x.title }} </td>
+                            <td>{{x.date }} </td>
                         </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>Summary Accre Cert for Main II</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="green"></span></td>
-                            <td>BatStateU Accreditation Schedule for FY 2022</td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="red"></span></td>
-                            <td>2020 ACCUP Technical Review and Board Action </td>
-                            <td>07-12-2023</td>
-                        </tr>
-                        <tr>
-                            <td> <span class="red"></span></td>
-                            <td>2021 ACCUP Technical Review and Board Action</td>
-                            <td>07-12-2023</td>
-                        </tr>
+
                     </table>
                     <span class="flex w-full gap-4 justify-end mt-4">
                         <router-link 
@@ -293,21 +346,16 @@
         /* padding-right: 5%; */
     }
 
-    .green{
-            display: flex;
-            background-color: forestgreen;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-left: 50%;
-        }
 
-    .red{
+    #HE_OCI_1 tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    #HE_OCI_1 > tr >td >span{
             display: flex;
-            background-color: red;
-            width: 10px;
+             width: 10px;
             height: 10px;
             border-radius: 50%;
             margin-left: 50%;
+            background-color: red;
     }
 </style>

@@ -8,10 +8,14 @@
 
     import PPB_Summary2 from './PBB_Summary2.vue'
     import PPB_Summary3 from './PBB_Summary3.vue'
+    import PPB_Summary4 from './PBB_Summary4.vue' 
 
     import {ref} from "vue";
-    
+    import {markRaw} from 'vue'
 
+    const raw_PPB_Summary2 = markRaw(PPB_Summary2)
+    const raw_PPB_Summary3 = markRaw(PPB_Summary3)
+    const raw_PPB_Summary4= markRaw(PPB_Summary4)
     export default{
         data(){
             return{
@@ -26,7 +30,8 @@
             Target1,
             Target2,
             PPB_Summary2,
-            PPB_Summary3
+            PPB_Summary3,
+            PPB_Summary4
 
 
         },
@@ -38,6 +43,9 @@
                     
                 }else if(componentName === "Advanced Education Program"){
                     this.currentComponent = PPB_Summary3
+                  
+                }else if(componentName === "Research Program"){
+                    this.currentComponent = PPB_Summary4
                   
                 }
 
@@ -55,6 +63,10 @@
                         this.currentComponent = PPB_Summary3;
                         this.selectedProgram = "Advanced Education Program"
                     }
+                    else if(value == "PBB_Summary4"){
+                        this.currentComponent = PPB_Summary4;
+                        this.selectedProgram = "Research Program"
+                    }
                 },
                 deep:true,
                 immediate:true,
@@ -66,26 +78,6 @@
             }
         },
 
- 
-        // mounted(){
-
-
-            
-        //     if( this.$route.query.program = "PPB_Summary2"){
-        //         this.currentComponent = PPB_Summary2;
-        //         this.selectedProgram = "Higher Education Program"
-        //         console.log(this.$route.query.program)
-        //     }
-        //     else if( this.$route.query.program = "PPB_Summary3"){
-        //         this.currentComponent = PPB_Summary3;
-        //         this.selectedProgram = "Advanced Education Program"
-        //         console.log(this.$route.query.program)
-        //     }else{
-        //         console.log("none")
-        //     }
-           
-        
-        // }
     }
 
 </script>
@@ -115,11 +107,26 @@
 
 
             <div class="flex w-8/12 flex-col">
+                <div class="text-sm breadcrumbs w-full">
+                    <ul>
+                        <li class="text-gray-500">
+                            <router-link to="/pbb">
+                                <a>PBB</a>
+                            </router-link>
+                        </li> 
+                        <li class="text-gray-500">                   
+                             <router-link to="/PPB_Higher">
+                                <a>PBB Logs</a>
+                            </router-link></li> 
+                        <li class="text-gray-500"><a>Modified Form</a></li> 
+                    
+                    </ul>
+                </div>
             
                 <h1 class="font-Header text-Red-Rose text-xl">
                     Modified Form A1: <br>State Universities and Colleges Bureaus/Office Performance Report
                 </h1>
-                <p>User id: {{ $route.query.program }}</p>
+           
                 <select class="select select-bordered w-full max-w-xs mt-4 bg-Red-Darken text-white " v-model="selectedProgram" >
                     <option>Higher Education Program</option>
                     <option >Advanced Education Program</option>

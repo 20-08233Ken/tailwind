@@ -6,7 +6,10 @@
     import AdvanceEd from '../Indicators/AdvanceEd.vue'
     import HigherEd from '../Indicators/HigherEd.vue'
 
-    
+    import {markRaw} from 'vue'
+
+    const hold_AdvanceEd = markRaw(AdvanceEd);
+    const hold_HigherEd = markRaw(HigherEd);
     export default{
         data(){
             return{

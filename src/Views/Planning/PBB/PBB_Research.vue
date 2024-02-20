@@ -1,137 +1,112 @@
 <script>
-
-    import Navigation from '../../../components/Others/Navigation.vue';
-
-
-
     import PBB_sideNav from '../../../components/Others/PBB_sideNav.vue';
+    import Navigation from '../../../components/Others/Navigation.vue';
     export default{
         data(){
             return{
-                currentComponent:null,
-
-                AE_OCI_1:[
+                OCI_1:[
                     {
-                    status:"submitted",
-                    title:"Annex A PSIPOP",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"BSED September 2021",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"submitted",
-                    title:"Annex C Faculty Loadings",
-                    date:"07-12-2023"
-                    },                    {
-                    status:"submitted",
-                    title:"Abstract: SIC Projects",
-                    date:"07-12-2023"
-                    },                    {
-                    status:"submitted",
-                    title:"Abstract: Eggciting Project",
-                    date:"07-12-2023"
-                    },                    {
-                    status:"submitted",
-                    title:"Abstract: VERMI 2",
-                    date:"07-12-2023"
-                    },                    {
-                    status:"submitted",
-                    title:"Abstract: ROBIN",
-                    date:"07-12-2023"
-                    }, {
-                    status:"submitted",
-                    title:"Abstract: Road safety for children",
-                    date:"07-12-2023"
-                    },                              
-            ],
-
-                AE_OPI_1:[
-                    {
-                    status:"submitted",
-                    title:"Enrollment List - Pablo Borbon",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"Elementary Education September 2021",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"submitted",
-                    title:"Alangilan Enrollment Summary First Semester AY 2021-2022",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"	Accountancy December 2021",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"submitted",
-                    title:"ARASOF-Nasugbu Summary of Enrollment List 1st Semester 2021 - 2022",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"Nutritionist Dietitian October 2021",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"JPLPC Malvar Enrollment Summary First Semester AY 2021-2022",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"Nursing November 2021",
+                        date:"07-12-2023"
+                    },
+                ],
+                OPI_1:[
+                    {
+                        status:"submitted",
+                        title:"Annex A Board Resolutions",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"Lipa Enrollment Summary",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"Annex B Enrollment List - Pablo Borbon",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"Curriculum: Bachelor of Law",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"	Enrollment List -Alangilan",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"Curriculum: Masters in Information Technology (MIT)",
-                    date:"07-12-2023"
-                    },
-            ],
-
-            AE_OPI_2:[             {
-                    status:"submitted",
-                    title:"	Summary of Completed Accreditation Survey 2020",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"Enrollment List - ARASOF-Nasugbu",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"submitted",
-                    title:"Summary of Completed Accreditation Survey 2021",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"Enrollment List - JLPC Malvar",
+                        date:"07-12-2023"
+                    }
+                    
+                ],
+                OPI_2:[
+                    {
+                        status:"submitted",
+                        title:"Summary of Accre Cert for Main I revised",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"submitted",
-                    title:"Summary Accre Cert for Main II revised",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"Summary Accre Cert for Main II",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"Summary Accre Cert for Main I revised",
-                    date:"07-12-2023"
+                        status:"not submitted",
+                        title:"	BatStateU Accreditation Schedule for FY 2022",
+                        date:"07-12-2023"
                     },
                     {
-                    status:"not submitted",
-                    title:"BatStateU Accreditation Schedule for FY 2022",
-                    date:"07-12-2023"
+                        status:"submitted",
+                        title:"2020 ACCUP Technical Review and Board Action",
+                        date:"07-12-2023"
                     },
+                    {
+                        status:"not submitted",
+                        title:"2021 ACCUP Technical Review and Board Action",
+                        date:"07-12-2023"
+                    }
+                    
                 ]
-            };
-        },
-        components:{
-            Navigation,
-            PBB_sideNav,
 
-
+            }
         },
         methods:{
-            showComponent(componentName){
-                this.currentComponent = componentName
-            },
-
             getStatusColor(status){
-                
                 return status === "submitted" ? "green":"red";
-                
             }
+        },
+        components:{
+            PBB_sideNav,
+            Navigation
+
         }
     }
 
 </script>
 
 <template>
-    <main class="w-full flex flex-col">
+
+    <main class="w-flex flex flex-col w-full">
         <Navigation/>
 
         <section class="w-full flex  px-6vw pt-6vw">
@@ -145,7 +120,6 @@
                 <button class="bg-Red-Rose text-white w-3/12 h-10 text-sm rounded-t-lg">Status Dashboard</button>
                 <button class="bg-Red-Rose text-white w-3/12 h-10 text-sm rounded-t-lg">Submit</button>
             </div>
-
         </section>
 
         <section class="w-full flex px-6vw py-3vw">
@@ -155,7 +129,6 @@
 
 
             <div class="flex w-8/12 flex-col">
-                
                 <div class="text-sm breadcrumbs w-full">
                     <ul>
                         <li class="text-gray-500">
@@ -163,29 +136,31 @@
                                 <a>PBB</a>
                             </router-link>
                         </li> 
-                        <li class="text-gray-500"><a>PBB Logs</a></li> 
+                        <li class="text-gray-500">                   
+                             <router-link to="/PBB_Research">
+                                <a>PBB Logs</a>
+                            </router-link></li> 
+
                     
                     </ul>
                 </div>
-            
-                <h3 class="font-Header text-Red-Rose text-xl">Advanced Education</h3>
-
-
-                <!-- Advanced Education Outcome Indicator 1 -->
+                <h3 class="font-Header text-Red-Rose text-xl">Research Services</h3>
 
                 <div class="w-full flex-col overflow-x-auto">
+
                     <h4 class="flex gap-4 items-center mt-4 font-Subheader"> 
                         <span class="text-green-600">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                             </svg>
                         </span>
-                        Outcome Indicator 1: Percentage of graduate school faculty engaged in research work
+                        Outcome Indicator 1: Number of research outputs in the last  three years utilized by the industry or
+     by other beneficiaries
                     </h4>
 
                     <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x, index) in AE_OCI_1" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
+                        <tr v-for="(x,index) in OCI_1" :key='index'>
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
                             <td>{{ x.title }}</td>
                             <td>{{x.date}}</td>
                         </tr>
@@ -196,7 +171,7 @@
                             :to="{
                                 name:'PBB_Summary',
                                 query:{
-                                    program:'PBB_Summary3'
+                                    program:'PBB_Summary4'
                                 }
                                 }"
                         >
@@ -205,77 +180,73 @@
                     </span>
                 </div>
 
-                
-                <!-- Advanced Education Output Indicator 1 -->
 
-                <div class="w-full flex-col mt-8 overflow-x-auto">
+                <div class="w-full flex-col  overflow-x-auto">
                     <h4 class="flex gap-4 items-center mt-4 font-Subheader">
-                        <span class="text-Red-Rose">
+                        <span class="text-green-600">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                             </svg>
                         </span>
-                        Outcome Indicator 1 (State Universities): Percentage of graduate students enrolled in research degree program
+                        Output Indicator 1:  Number of research outputs completed within the year (2023)
                     </h4>
                     <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x,index) in AE_OPI_1" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
+                        <tr v-for="(x,index) in OPI_1" :key="index">
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
                             <td>{{ x.title }}</td>
-                            <td>{{ x.date}}</td>
-                        </tr>
-     
-
-                    </table>
-
-                    <span class="flex w-full gap-4 justify-end mt-4">
-                        <router-link 
-                            :to="{
-                                name:'PBB_Summary',
-                                query:{
-                                    program:'PBB_Summary3'
-                                }
-                                }"
-                        >
-                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
-                        </router-link>
-                    </span>
-
-                </div>
-
-
-                <!-- Advanced Education Output Indicator 2 -->
-                <div class="w-full flex-col mt-8 overflow-x-auto">
-                    <h4 class="flex gap-4 items-center mt-4 font-Subheader">
-                        <span class="text-Red-Rose">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                        </span>
-                        Output Indicator 2: Percentage of graduate programs with accreditation
-                    </h4>
-
-                    <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x, index) in AE_OPI_2" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
-                            <td>{{ x.title }} </td>
                             <td>{{x.date}}</td>
                         </tr>
-    
                     </table>
+
                     <span class="flex w-full gap-4 justify-end mt-4">
+
                         <router-link 
                             :to="{
                                 name:'PBB_Summary',
                                 query:{
-                                    program:'PBB_Summary3'
+                                    program:'PBB_Summary4'
                                 }
                                 }"
                         >
                         <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
                         </router-link>
                     </span>
+
                 </div>
+
                 
+                <div class="w-full flex-col  overflow-x-auto">
+                    <h4 class="flex gap-4 items-center mt-4 font-Subheader">
+                        <span class="text-green-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                            </svg>
+                        </span>
+                        Output Indicator 2:  Percentage of research outputs published in internationally-refereed or CHED recognized journal within the year
+                    </h4>
+                    <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
+                        <tr v-for="(x,index) in OPI_2" :key="index">
+                            <td><span :style="{backgroundColor:getStatusColor(x.status)}"></span></td>
+                            <td>{{ x.title }}</td>
+                            <td>{{x.date}}</td>
+                        </tr>
+                    </table>
+
+                    <span class="flex w-full gap-4 justify-end mt-4">
+
+                        <router-link 
+                            :to="{
+                                name:'PBB_Summary',
+                                query:{
+                                    program:'PBB_Summary4'
+                                }
+                                }"
+                        >
+                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
+                        </router-link>
+                    </span>
+
+                </div>
             </div>
         </section>
 
@@ -284,7 +255,6 @@
 </template>
 
 <style scoped>
-
     table,tr, td{
         border-collapse: collapse;
       
@@ -307,21 +277,18 @@
         width:15%;
         text-align: center;
        
-        /* padding-right: 5%; */
     }
-
-
+    #HE_OCI_1 > tr >td >span{
+            display: flex;
+             width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 50%;
+            background-color: red;
+    }
 
     #HE_OCI_1 tr:nth-child(even){
         background-color: #f2f2f2;
     }
-    #status_icon{
-        display: flex;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin-left: 50%;
-
-   
-    }
-</style>
+    
+    </style>

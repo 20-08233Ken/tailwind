@@ -40,17 +40,17 @@
 
 </script>
 <template>
-        <main class="flex flex-col w-100">
+        <main class="flex flex-col w-100 ">
             <Navigation/>
 
-            <section class="flex flex-col w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw">
+            <section class="flex flex-col justify-center w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw h-dvh">
             
-                <div class="flex">
-                    <span class="flex flex-col w-3/6 px-6vw py-6vw">
+                <div class="flex ">
+                    <span class="flex flex-col w-3/6 px-6vw pt-6vw pb-8">
                         <h1 class="text-Red-Darken font-Header text-5xl">University Management</h1>
                         <h1 class="text-Red-Rose font-Header text-5xl mt-2">Information<span class="text-Red-Darken ml-3" >System</span></h1>
-                        <p class="mt-4 w-3/5">Central System for Managing and Processing Data of Batangas State University</p>
-                        <p class="flex mt-8 w-4/5">
+                        <p class="mt-4 w-4/5">Central System for Managing and Processing Data of Batangas State University</p>
+                        <p class="flex mt-8 w-full text-0.9">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quidem placeat veritatis
                             accusantium laborum dignissimos animi? Maiores labore ducimus distinctio vero a fugiat
                             autem dolore optio sapiente magnam! Veniam, at.
@@ -65,13 +65,13 @@
                 </div>
 
                 <div class="w-full flex flex-col items-center justify-center">
-                    <h2 class="w-3/5 text-Red-Darken font-Header text-3xl">Search for an Office</h2>
+                    <h2 class="w-3/5 text-Red-Darken font-Header text-xl">Search for an Office</h2>
 
                     <span class="flex items-center bg-white w-3/5 rounded-md border-1 border-gray-400">
-                        <input type="search" name="" class="w-11/12 py-4 px-4 rounded-md" placeholder="Search for an office">
+                        <input type="search" name="" class="w-11/12 py-3 px-4 rounded-md" placeholder="Search for an office">
                         
                         <span class="flex items-center justify-center w-1/12 ">
-                            <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
                         </span>
@@ -80,32 +80,32 @@
                 </div>
 
                 <div class="flex flex-col w-full px-6vw py-8">
-                    <h2 class="text-white font-Subheader text-3xl">Head Offices</h2>
-                    <p class="text-white">Find your Office under these head offices</p>
+                    <!-- <h2 class="text-white font-Header text-xl">Head Offices</h2>
+                    <p class="text-white text-sm">Find your Office under these head offices</p> -->
 
-                    <div class="flex w-full gap-10 justify-center mt-8">
+                    <div class="flex w-full gap-5 justify-center mt-24">
 
-                        <span class="flex bg-white w-2/12 py-6 px-4 rounded-md items-center gap-2 shadow-card1">
+                        <span class="flex bg-white w-20% py-6 px-4 rounded-md items-center gap-2 shadow-card1">
                                 <h1 class="text-Red-Darken font-Header text-3xl w-4/12 text-center">OUP</h1>
                                 <p class="text-Red-Darken font-Subheader text-center w-8/12 text-sm ">Office of the University President</p>
                         </span>
 
-                        <span class="flex bg-white w-2/12 py-10 px-4 rounded-md items-center gap-2 shadow-card1">
+                        <span class="flex bg-white w-20% py-10 px-4 rounded-md items-center gap-2 shadow-card1">
                                 <h1 class="text-Red-Darken font-Header text-3xl w-4/12 text-center">OVP<br>AA</h1>
                                 <p class="text-Red-Darken font-Subheader text-center w-8/12 text-sm ">Office of the Vice President for Academic Affairs </p>
                         </span>
 
-                        <span class="flex bg-white w-2/12 py-10 px-4 rounded-md items-center gap-2 shadow-card1">
+                        <span class="flex bg-white w-2/12 w-20% px-4 rounded-md items-center gap-2 shadow-card1">
                                 <h1 class="text-Red-Darken font-Header text-3xl w-4/12 text-center">OVP<br>RDES</h1>
                                 <p class="text-Red-Darken font-Subheader text-center w-8/12 text-sm">Office of the Vice President for Research, Development, and Extension Services </p>
                         </span>
 
-                        <span class="flex bg-white w-2/12 py-10 px-4 rounded-md items-center gap-2 shadow-card1">
+                        <span class="flex bg-white w-2/12 w-20% px-4 rounded-md items-center gap-2 shadow-card1">
                                 <h1 class="text-Red-Darken font-Header text-3xl w-4/12 text-center">OV<br>PAF</h1>
                                 <p class="text-Red-Darken font-Subheader text-center w-8/12 text-sm ">Office of the Vice President for Administraation and Finance</p>
                         </span>
 
-                        <span class="flex bg-white w-2/12 py-10 px-4 rounded-md items-center gap-2 shadow-card1">
+                        <span class="flex bg-white w-2/12 w-20% px-4 rounded-md items-center gap-2 shadow-card1">
                                 <h1 class="text-Red-Darken font-Header text-3xl w-4/12 text-center">OVP<br>DEA</h1>
                                 <p class="text-Red-Darken font-Subheader text-center w-8/12 text-sm ">Office of the Vice President for Development and External Affairs </p>
                         </span>

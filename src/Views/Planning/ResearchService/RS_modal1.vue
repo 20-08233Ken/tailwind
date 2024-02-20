@@ -40,15 +40,47 @@
 
             <table class="table table-lg">
                     <thead>
+                    <tr class=" border">
+                        <th class="text-0.9"></th> 
+                        <th class="text-0.9 text-black" colspan="2"></th> 
+                        <th class="text-0.9 text-black text-center bg-red-200" colspan="2">Duration</th> 
+        
+
+                        <th class="text-0.9 text-black text-center bg-orange-200" colspan="5">Presentation</th> 
+
+                        <th class="text-0.9 text-black text-center bg-amber-200" colspan="6">Publication</th>
+
+
+                        <th class="text-0.9 text-black text-center bg-lime-200" colspan="2">Output</th>
+
+                        
+                        <th class="text-0.9 text-black text-center bg-green-200 ">Utilization</th>
+                    </tr>
+
                     <tr class="bg-cyan-50 border">
                         <th class="text-0.9"></th> 
-                        <th class="text-0.9 text-black">Campus</th> 
-                        <th class="text-0.9 text-black">Department</th> 
-                        <th class="text-0.9 text-black">Program</th> 
-                        <th class="text-0.9 text-black">Exam Date</th> 
-                        <th class="text-0.9 text-black">Number of Passers</th> 
-                        <th class="text-0.9 text-black">Number of Takers</th>
-                        <th class="text-0.9 text-black">Supporting Documents</th>
+                        <th class="text-0.9 text-black">Research Title</th> 
+                        <th class="text-0.9 text-black">Status</th> 
+                        <!-- <th class="text-0.9 text-black" colspan="2">Duration</th>  -->
+                        <th class="text-0.9 text-black bg-red-200">Date Started</th> 
+                        <th class="text-0.9 text-black bg-red-200">Date Completed</th> 
+
+                        <th class="text-0.9 text-black bg-orange-200">Article / Title</th> 
+                        <th class="text-0.9 text-black bg-orange-200">Title of Forum</th>
+                        <th class="text-0.9 text-black bg-orange-200">Venue</th>
+                        <th class="text-0.9 text-black bg-orange-200">Type</th>
+                        <th class="text-0.9 text-black bg-orange-200">Date</th>
+
+                        <th class="text-0.9 text-black bg-amber-200">Article / Title</th>
+                        <th class="text-0.9 text-black bg-amber-200">Date of Publication </th>
+                        <th class="text-0.9 text-black bg-amber-200">Title of Journal or Publication</th>
+                        <th class="text-0.9 text-black bg-amber-200">Vol. No. & Issue No.</th>
+                        <th class="text-0.9 text-black bg-amber-200">ISSN / ISBN</th>
+                        <th class="text-0.9 text-black bg-amber-200">Index</th>
+
+                        <th class="text-0.9 text-black bg-lime-200">Product Name / Methods/ Process / Technology</th>
+                        <th class="text-0.9 text-black bg-lime-200"> Proof / Description / Documentation</th>
+                        <th class="text-0.9 text-black bg-lime-200">Beneficiary</th>
                     </tr>
                     </thead> 
                     <tbody>
