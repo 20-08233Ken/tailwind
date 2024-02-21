@@ -16,10 +16,13 @@ import PBB3 from '../Views/Planning/PBB3.vue'
 import PBB_Research from '../Views/Planning/PBB/PBB_Research.vue'
 
 
+import Login from '../Views/Login.vue'
+
 import Offices from '../Views/Planning/Offices.vue'
 import Dean from '../Views/Dean/Dean.vue'
 import Profile from '../Views/Planning/Profile.vue'
-
+import FormA from '../components/Form/ModifiedFormA.vue'
+import FormA_1 from '../components/Form/ModifiedFormA_1.vue'
 
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
@@ -31,6 +34,12 @@ const router = createRouter ({
     routes:[
         {
             path:'/',
+            name:'login',
+            component:Login
+
+        },  
+        {
+            path:'/home',
             name:'home',
             component:Home
 
@@ -106,6 +115,18 @@ const router = createRouter ({
             name:'offices',
             component:Offices
 
+        },
+        {
+            path:'/formA',
+            name:'formA',
+            component:FormA
+              
+        },      
+        {
+            path:'/formA_1',
+            name:'formA_1',
+            component:FormA_1
+              
         },
 
 

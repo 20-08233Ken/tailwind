@@ -53,16 +53,16 @@
     <main class="flex w-full flex-col bg-grey-2">
         <Navigation/>
 
-        <section class="flex pt-6vw pb-3vw px-6vw w-full">
-            <span class="flex flex-col w-2/4">
-                <h1 class="font-Header text-4xl text-Red-Darken">Dataset</h1>
-                <p class="w-4/5 mt-4 text-Red-Darken ">
+        <section class="flex pt-6vw pb-3vw px-6vw w-full sm:flex-col">
+            <span class="flex flex-col w-2/4 sm:w-full">
+                <h1 class="font-Header text-4xl text-Red-Darken"  style="font-size: clamp(18px,4vw,48px);">Dataset</h1>
+                <p class="w-4/5 mt-4 text-Red-Darken sm:w-full"  style="font-size: clamp(12px,2vw,15px);">
                     Contains documentation of data being regulated within the 
                     Management Information System (MIS) Office
                 </p>
             </span>
 
-            <span class="flex flex-col w-2/4 justify-center items-end">
+            <span class="flex flex-col w-2/4 justify-center items-end sm:my-4 sm:w-full">
                 <div class="flex items-center w-11/12 bg-white color-white rounded-xl border-1 border-neutral-300">
                     <input class="px-4 py-3 w-11/12 rounded-xl" type="search" name="" id="" placeholder="Search for an Office">
                     <span class="flex justify-center w-1/12">
@@ -75,8 +75,8 @@
         </section>
 
 
-        <section class="flex px-6vw mt-4 pb-8 ">
-            <div class=" w-2/4">
+        <section class="flex px-6vw mt-4 pb-8  sm:flex-col sm:items-center sm:px-0">
+            <div class=" w-2/4 sm:w-full sm:flex sm:justify-center">
                 <div class="flex flex-col bg-white w-10/12 py-12 px-16 shadow-card2 rounded-2xl" id="office">
                     <h2 class="font-Subheader text-xl">Office of Human Resource</h2>
                     <ul class="mt-4 ml-4 flex flex-col gap-2" style="list-style-type: disc;">
@@ -98,8 +98,8 @@
                 </div>
             </div>
 
-            <div class="w-2/4" id="office-2">
-                <ul class="w-full flex flex-col gap-3 items-end ">
+            <div class="w-2/4 sm:w-full sm:mt-8 " id="office-2">
+                <ul class="w-full flex flex-col gap-3 items-end sm:items-center">
 
                     <li 
                         class="flex justify-between w-10/12 border-1 border-Red-Rose py-3 px-8 text-Red-Rose rounded-xl " 

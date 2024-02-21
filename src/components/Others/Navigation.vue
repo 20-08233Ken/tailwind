@@ -1,20 +1,80 @@
+<script setup>
+    import drawer from './drawer.vue';
+</script>
+
 <template>
-    <nav class="w-full bg-red-700 flex px-20 h-auto sticky top-0 z-50">
-        <ul class="flex text-white gap-2 w-full">
-            <li class="py-8 ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
+    <nav class="w-full bg-red-700 flex items-center px-20 h-auto sticky top-0 z-50 ">
+        <ul class="flex text-white gap-2 w-full items-center">
+            <li class="py-6 ">
+
+                <drawer/>
+
             </li>
 
-            <li class="flex items-center justify-center w-1/12  "><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/"> MIS</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/dean">Dean</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/profile">Profile</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/dashboard">Dahsboard</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/dataset">Dataset</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/pbb">PBB</router-link></li>
-            <li class="w-1/12 py-8 hover:bg-red-800 text-center xl:text-base md:text-sm sm:text-sm"><router-link to="/offices">Offices</router-link></li>
+            <li class="flex items-center justify-center w-1/12  md:hidden sm:hidden xm:hidden"><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden" 
+                style="font-size: clamp(14px , 2vw , 16px);"
+                >
+                <router-link to="/home"> MIS</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/dean">Dean</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden" 
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/profile">Profile</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/dashboard">Dahsboard</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/dataset">Dataset</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"  
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/pbb">PBB</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/offices">Offices</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/FormA">Form A</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/FormA_1">Form A-1</router-link>
+            </li>
         </ul>
     </nav>
 </template>
