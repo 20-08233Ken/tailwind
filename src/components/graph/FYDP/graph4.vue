@@ -28,7 +28,7 @@
   
   const option = {
   title:{
-    text:"Student services and welfared advanced",
+    text:"Global Academic Cooperation Advanced",
     left:'center',
     bottom:'0'
   },

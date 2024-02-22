@@ -25,6 +25,9 @@ import FormA from '../components/Form/ModifiedFormA.vue'
 import FormA_1 from '../components/Form/ModifiedFormA_1.vue'
 
 import fydp from '../Views/FYDP/fydp.vue'
+import fydp_ques from '../Views/FYDP/questionnaire.vue'
+
+import TechnicalExtension from '../Views/Extension/extension.vue'
 
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
@@ -135,6 +138,18 @@ const router = createRouter ({
             name:'fydp',
             component:fydp
               
+        },
+                {
+                    path:'/fydp_ques',
+                    name:'fydp_ques',
+                    component:fydp_ques
+                    
+                },
+        {
+            path:'/TechnicalExtension',
+            name:'TechnicalExtension',
+            component:TechnicalExtension
+                  
         },
 
 

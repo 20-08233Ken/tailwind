@@ -28,7 +28,7 @@
   
   const option = {
   title:{
-    text:"Student services and welfared advanced",
+    text:"Excellence in Sports championed",
     left:'center',
     bottom:'0'
   },
