@@ -28,7 +28,7 @@
   
   const option = {
   title:{
-    text:"Student services and welfared advanced",
+    text:"University Research and Innovation Ecosystem Advanced",
     left:'center',
     bottom:'0'
   },

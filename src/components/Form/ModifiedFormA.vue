@@ -21,7 +21,7 @@
                 <th>Responsible Bureaus / Delivery Units</th>
                 <th>FY 2023 Target</th>
                 <th>FY 2023 Actual Accomplishment</th>
-                <th>Remarks</th>
+                <th style="padding: 0 2em;">Remarks</th>
             </tr>
 
             <tr>

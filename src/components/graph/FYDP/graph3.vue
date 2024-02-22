@@ -28,7 +28,7 @@
   
   const option = {
   title:{
-    text:"Student services and welfared advanced",
+    text:"Families and Communities Empowered through Inclusive Community Engagements",
     left:'center',
     bottom:'0'
   },
