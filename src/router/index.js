@@ -24,6 +24,8 @@ import Profile from '../Views/Planning/Profile.vue'
 import FormA from '../components/Form/ModifiedFormA.vue'
 import FormA_1 from '../components/Form/ModifiedFormA_1.vue'
 
+import fydp from '../Views/FYDP/fydp.vue'
+
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
 import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
@@ -126,6 +128,12 @@ const router = createRouter ({
             path:'/formA_1',
             name:'formA_1',
             component:FormA_1
+              
+        },
+        {
+            path:'/fydp',
+            name:'fydp',
+            component:fydp
               
         },
 
