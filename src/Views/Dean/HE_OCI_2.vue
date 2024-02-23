@@ -62,7 +62,7 @@
 
     <div class="w-full overflow-x-auto">
         <div role="tablist" class="tabs tabs-lifted">
-            <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" />
+            <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
@@ -109,7 +109,7 @@
                 </span>
             </div>
 
-            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table" checked />
+            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <table class="table-zebra table-md">
