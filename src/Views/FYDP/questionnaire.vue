@@ -38,20 +38,23 @@
                 </div>
         </section>
 
-        <section class="w-full flex px-6vw mt-8" >
+        <section class="w-full flex px-6vw mt-8 justify-between" >
 
+           
             <ul class="ques_list flex flex-col  w-3/12" style="position: relative;left: 1px;">
-                <li class="w-full flex" :class="{'active':activeBtn === 1, 'notActive':activeBtn !== 1}" @click="showQuestion(1)"> Academic Leadership</li>
-                <li class="w-full flex" :class="{'active':activeBtn === 2, 'notActive':activeBtn !== 2}" @click="showQuestion(2)">Research and Innovation</li>
-                <li class="w-full flex" :class="{'active':activeBtn === 3, 'notActive':activeBtn !== 3}" @click="showQuestion(3)">Social Responsibility</li>
-                <li class="w-full flex" :class="{'active':activeBtn === 4, 'notActive':activeBtn !== 4}" @click="showQuestion(4)">Internationalization</li>
-                <li class="w-full flex" :class="{'active':activeBtn === 5, 'notActive':activeBtn !== 5}" @click="showQuestion(5)">Advancing Interdisciplinary</li>
-                <li class="w-full flex" :class="{'active':activeBtn === 6, 'notActive':activeBtn !== 6}" @click="showQuestion(6)">Sustainability</li> 
+                <h4 class="w-full text-white  bg-Red-Darken px-4 py-1">FYDP</h4>
+                <li class="w-full flex" :class="{'active':activeBtn === 1, 'notActive':activeBtn !== 1}" @click="showQuestion(1)" > Academic Leadership</li>
+                <li class="w-full flex" :class="{'active':activeBtn === 2, 'notActive':activeBtn !== 2}" @click="showQuestion(2)" >Research and Innovation</li>
+                <li class="w-full flex" :class="{'active':activeBtn === 3, 'notActive':activeBtn !== 3}" @click="showQuestion(3)" >Social Responsibility</li>
+                <li class="w-full flex" :class="{'active':activeBtn === 4, 'notActive':activeBtn !== 4}" @click="showQuestion(4)" >Internationalization</li>
+                <li class="w-full flex" :class="{'active':activeBtn === 5, 'notActive':activeBtn !== 5}" @click="showQuestion(5)" >Advancing Interdisciplinary</li>
+                <li class="w-full flex" :class="{'active':activeBtn === 6, 'notActive':activeBtn !== 6}" @click="showQuestion(6)" >Sustainability</li> 
             </ul>
            
-            <div class="flex flex-col items-center w-7/12 bg-white px-16 pb-24  shadow-card2 ques_cont">
+            <div class="flex flex-col items-center w-8/12 bg-white px-16 pb-24 rounded-lg shadow-card2 ques_cont">
 
-                <p class="mt-10 text-0.9 mb-2" style="width: 80%;">How many learning spaces have been rehabilitated</p>
+                <h4 class="mt-10 w-full font-Subheader text-xl text-Red-Rose">Academic Leadership</h4>
+                <p class="mt-8 text-0.9 mb-2" style="width: 80%;">How many learning spaces have been rehabilitated</p>
                 <input type="text" class="ques">
 
                 <p class="mt-8 text-0.9 mb-2" style="width: 80%;">What is the percentage of completion of spaces for rehabilitation? </p>
@@ -91,20 +94,11 @@
     }
 
     .active{
-        background-color: white;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-top: 1px solid rgb(214, 214, 214);
-        border-bottom: 1px solid rgb(214, 214, 214);
-        border-left: 1px solid rgb(214, 214, 214);
+        background-color:rgb(255, 240, 221);
+
     }
     .notActive{
         background-color: none;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top: 0 solid rgb(214, 214, 214);
-        border-bottom: 0px solid rgb(214, 214, 214);
-        border-left: 0px solid rgb(214, 214, 214);
 
     }
     .ques_cont{
