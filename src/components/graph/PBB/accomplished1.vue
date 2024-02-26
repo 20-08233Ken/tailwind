@@ -51,8 +51,8 @@
         show: false
       },
       data: [
-        { value: 79.22, name: 'Target' },      
-        { value: 20.78, name: 'None' },
+        { value: 59, name: 'Target' },      
+        { value: 41, name: 'None' },
 
 
       ]

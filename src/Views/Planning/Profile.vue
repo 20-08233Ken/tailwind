@@ -17,16 +17,18 @@
                         <div class="w-full flex gap-6 mt-4">
                     
                                 <span class="flex gap-4 w-3/12 py-5 px-4 rounded-xl shadow-card2 bg-white" >
-                                    <h3 class="font-Header text-Red-Darken text-3xl">QRPO</h3>
-                                    <p>Quarterly</p>
+                                    <router-link to="/pbb" class="flex w-full gap-4">
+                                        <h3 class="font-Header text-Red-Darken text-3xl">QRPO</h3>
+                                        <p>Quarterly</p>
+                                    </router-link >
                                 </span>
                     
         
                             <span class="flex w-3/12 gap-4 py-5 px-4 rounded-xl shadow-card2 bg-white">
-                                <router-link to="/pbb" class="flex w-full gap-4">
+                               
                                     <h3 class="font-Header text-Red-Darken text-3xl">PBB</h3>
                                     <p>Performance-based Bonus(Q3)</p>
-                                </router-link >
+                                
                             </span>
                         </div>
 

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <nav class="w-full bg-red-700 flex items-center px-20 h-auto sticky top-0 z-50 ">
+    <nav class="w-full bg-red-700 flex items-center px-20 h-auto sticky top-0 z-40 ">
         <ul class="flex text-white gap-2 w-full items-center">
             <li class="py-6 ">
 

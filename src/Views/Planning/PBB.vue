@@ -19,8 +19,25 @@
             <div class="w-5/12 px-6vw py-3vw flex flex-col justify-center">
                 <!-- <h1 class="font-Header text-3xl text-Red-Darken">Performance-based Bonus</h1> -->
                 <h1 class="font-Header text-4xl text-Red-Darken">Quarterly Physical Report of Operation</h1>
-                <h2 class="font-Subheader mt-2">FY 2023</h2>
-                <h2 class="mt-4 font-Subheader">Current Quarter</h2>
+
+                <span class="flex items-center gap-4">
+                    <h2 class="font-Subheader mt-2">Year</h2>
+                    <select class="select  w-3/12 mt-2 bg-gray-100">
+                        <option disabled selected>FY 2023</option>
+                        <option>FY 2021</option>
+                        <option>FY 2022</option>
+                        <option>FY 2023</option>
+                    </select>
+
+                    <h2 class="font-Subheader mt-2">Quarter</h2>
+                    <select class="select  w-3/12 mt-2 bg-gray-100">
+                        <option disabled selected>Q1</option>
+                        <option>Q2</option>
+                        <option>Q3</option>
+                        <option>Q4</option>
+                    </select>
+                </span>
+
             </div>
             
             <div class="w-4/12">

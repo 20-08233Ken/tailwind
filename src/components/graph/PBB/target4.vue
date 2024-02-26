@@ -52,7 +52,7 @@
       },
       data: [
         { value: 98, name: 'Target' },      
-        { value: 10, name: 'None' },
+        { value: 2, name: 'None' },
 
 
       ]
