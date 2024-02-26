@@ -5,6 +5,59 @@
 
                 count:true,
                 isActive:false,
+                sampleData:[
+                    {
+                       tb_id:1,
+                       tb_title:"",
+                       tb_status:"",
+                       tb_started:"",
+                       tb_completed:"",
+
+                       tb_pr_article:"",
+                       tb_forum:"",
+                       tb_venue:"",
+                       tb_type:"",
+                       tb_date:"",
+
+                       tb_pub_title:"",
+                       tb_pub_date:"",
+                       tb_pub_journal:"",
+                       tb_pub_vol:"",
+                       tb_ISSN:"",
+                       tb_index:"",
+
+                       tb_o_pname:"",
+                       tb_o_proof:"",
+
+                       tb_benef:""
+                       
+                    },
+                    {
+                        tb_id:2,
+                       tb_title:"",
+                       tb_status:"",
+                       tb_started:"",
+                       tb_completed:"",
+
+                       tb_pr_article:"",
+                       tb_forum:"",
+                       tb_venue:"",
+                       tb_type:"",
+                       tb_date:"",
+
+                       tb_pub_title:"",
+                       tb_pub_date:"",
+                       tb_pub_journal:"",
+                       tb_pub_vol:"",
+                       tb_ISSN:"",
+                       tb_index:"",
+
+                       tb_o_pname:"",
+                       tb_o_proof:"",
+
+                       tb_benef:""
+                    },
+                ]
         }},
         methods:{
        
@@ -161,24 +214,36 @@
                     </tr>
                     </thead> 
                     <tbody>
-                    <tr>
-                        <th>1</th> 
-                        <td>Cy Ganderton</td> 
-                        <td>Quality Control Specialist</td> 
-                        <td>Littel, Schaden and Vandervort</td> 
-                        <td>Canada</td> 
-                        <td>12/16/2020</td> 
-                        <td>Blue</td>
+                    <tr v-for="(item, index) in sampleData">
+                        <td>{{item.tb_id}}</td> 
+                        <td>{{item.tb_title}}</td> 
+                        <td>{{item.tb_status}}</td> 
+                        <td>{{item.tb_started}}</td> 
+                        <td>{{item.tb_completed}}</td> 
+
+                        <td>{{item.tb_pr_article}}</td> 
+                        <td>{{item.tb_forum}}</td> 
+                        <td>{{item.tb_venue}}</td> 
+
+                        <td>{{item.tb_type}}</td> 
+                        <td>{{item.tb_date}}</td> 
+
+                        <td>{{item.tb_pub_title}}</td> 
+                        <td>{{item.tb_pub_date}}</td> 
+                        <td>{{item.tb_pub_journal}}</td> 
+                        <td>{{item.tb_pub_vol}}</td> 
+
+                        <td>{{item.tb_ISSN}}</td> 
+                        <td>{{item.tb_index}}</td>
+
+                        
+                        <td>{{item.tb_o_pname}}</td> 
+                        <td>{{item.tb_o_proof}}</td>
+                        <td>{{item.tb_benef}}</td>
+
+
                     </tr>
-                    <tr>
-                        <th>1</th> 
-                        <td>Cy Ganderton</td> 
-                        <td>Quality Control Specialist</td> 
-                        <td>Littel, Schaden and Vandervort</td> 
-                        <td>Canada</td> 
-                        <td>12/16/2020</td> 
-                        <td>Blue</td>
-                    </tr>
+
 
                 </tbody>
                 </table>
