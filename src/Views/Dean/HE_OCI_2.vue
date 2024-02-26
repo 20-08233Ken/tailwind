@@ -11,6 +11,8 @@
                 in_lname:'',
                 in_status:'',
                 in_business:'',
+                count:true,
+                isActive:false,
 
                 // Data base from the Account Info of Dean
                 data:[
@@ -46,6 +48,18 @@
                 console.log(this.in_lname);
                 console.log(this.in_status);
                 console.log(this.in_business);
+            },
+            submitData(){
+                    if(this.count === true ){
+                        this.isActive = true
+                        this.count = false
+                    }else{
+                        this.isActive = false
+                    }
+                   
+            },
+            onClose(){
+                this.isActive = false
             }
         }
     }
@@ -57,7 +71,6 @@
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Employed Graduates</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
-
 
 
     <div class="w-full overflow-x-auto">
@@ -104,7 +117,6 @@
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
-                    <button class="btn btn-accent w-2/12">Submit</button>
 
                 </span>
             </div>
@@ -146,6 +158,24 @@
 
                 </tbody>
                 </table>
+
+                <span class="w-full flex items-center justify-end gap-2 mt-5">
+                    <button class="btn btn-accent w-2/12" @click="submitData">Submit</button>
+                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
+                        
+                        <div class="modal-box" >
+                            <h3 class="font-bold text-lg">Reminder</h3>
+                            <p class="py-4 text-lg">Please review the information you've provided before proceeding with submission.</p>
+                            <h1>After reviewing, please click the <b> "Submit" </b>" button</h1>
+                            <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn" @click="onClose">Close</button>
+                            </form>
+                            </div>
+                        </div>
+                    </span>
+                </span>
             </div>
 
           
@@ -153,3 +183,14 @@
 
     </div>
 </template>
+
+<style scoped>
+        .active{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inActive{
+            display: none;
+        }
+</style>

@@ -50,7 +50,7 @@
     <main class="w-full flex flex-col items-center">
     <Navigation/>
     
-    <section class='w-full flex'>
+    <section class='w-full flex gap-8'>
 
         <div class="flex flex-col w-3/12  pl-8 h-dvh">
 
@@ -83,11 +83,21 @@
 
 
         </div>
-        <div class="w-10/12 flex justify-center ">
+        <div class="w-7/12 flex justify-end gap-4">
 
-            <div class="w-11/12 flex flex-col shadow-card2 px-16 py-16 mt-4">
-                <component :is="currentComponent"></component>
+            <div class="w-full flex shadow-card2 px-16 py-16 mt-4">
+                <span class="flex w-full flex-col   ">
+                    <component :is="currentComponent"></component>
+                 </span>
+
             </div>
+
+        </div>
+
+        <div class="flex w-20% shadow-card2">
+            <span class="flex w-full ">
+
+            </span>
         </div>
     </section>
 

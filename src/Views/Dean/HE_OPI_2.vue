@@ -10,6 +10,8 @@
                 in_from:'',
                 in_to:'',
                 in_remarks:'',
+                count:true,
+                isActive:false,
 
                 // Data base from the Account Info of Dean
                 data:[
@@ -45,6 +47,18 @@
                 console.log(this.in_from);
                 console.log(this.in_to);
                 console.log(this.in_remarks);
+            },
+            submitData(){
+                    if(this.count === true ){
+                        this.isActive = true
+                        this.count = false
+                    }else{
+                        this.isActive = false
+                    }
+                   
+            },
+            onClose(){
+                this.isActive = false
             }
         }
     }
@@ -112,8 +126,6 @@
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
-                    <button class="btn btn-accent w-2/12">Submit</button>
-
                 </span>
             </div>
 
@@ -158,6 +170,24 @@
 
                 </tbody>
                 </table>
+
+                <span class="w-full flex items-center justify-end gap-2 mt-5">
+                    <button class="btn btn-accent w-2/12" @click="submitData">Submit</button>
+                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
+                        
+                        <div class="modal-box" >
+                            <h3 class="font-bold text-lg">Reminder</h3>
+                            <p class="py-4 text-lg">Please review the information you've provided before proceeding with submission.</p>
+                            <h1>After reviewing, please click the <b> "Submit" </b>" button</h1>
+                            <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn" @click="onClose">Close</button>
+                            </form>
+                            </div>
+                        </div>
+                    </span>
+                </span>
             </div>
 
           
@@ -165,3 +195,14 @@
 
     </div>
 </template>
+
+<style scoped>
+        .active{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inActive{
+            display: none;
+        }
+</style>

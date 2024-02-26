@@ -1,5 +1,6 @@
 <script >
     import Target1 from '../../../components/graph/PBB/target1.vue'
+    import Accomplishment1 from '../../../components/graph/PBB/accomplished1.vue'
     import Target2 from '../../../components/graph/PBB/target2.vue'
     import Target3 from '../../../components/graph/PBB/target3.vue'
     import Target4 from '../../../components/graph/PBB/target4.vue'
@@ -18,6 +19,7 @@
         },
         components:{
             Target1,
+            Accomplishment1,
             Target2,
             Target3,
             Target4,
@@ -84,10 +86,18 @@
                         </ul>
 
                         <span class="flex w-7/12 justify-center relative">
-                            <Target1/>
-                            <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%">69%
-                                <br><span class="text-sm"> FYI TARGET</span>
-                            </h5>
+                            <span class="w-full flex justify-center relative">
+                                <Target1/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">69%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> FYI TARGET</span>
+                                </h5>
+                            </span>
+                            <span class="w-full flex justify-center relative">
+                                <Accomplishment1/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">59%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> Accomplishment</span>
+                                </h5>
+                            </span>
                         </span>
                     </span>
 
@@ -127,10 +137,18 @@
                         </ul>
 
                         <span class="flex w-7/12 justify-center relative">
-                            <Target3/>
-                            <h5 class="w-8/12 flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%">79.22%
-                                <br><span class="text-sm"> FYI TARGET</span>
-                            </h5>
+                            <span class="w-full flex justify-center relative">
+                                <Target2/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">90%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> FYI TARGET</span>
+                                </h5>
+                            </span>
+                            <span class="w-full flex justify-center relative">
+                                <Accomplishment1/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">59%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> Accomplishment</span>
+                                </h5>
+                            </span>
                         </span>
                     </span>
 
@@ -163,10 +181,18 @@
                         </ul>
 
                         <span class="flex w-7/12 justify-center relative">
-                            <Target4/>
-                            <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%">98%
-                                <br><span class="text-sm"> FYI TARGET</span>
-                            </h5>
+                            <span class="w-full flex justify-center relative">
+                                <Target3/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">79.22%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> FYI TARGET</span>
+                                </h5>
+                            </span>
+                            <span class="w-full flex justify-center relative">
+                                <Accomplishment1/>
+                                <h5 class="flex flex-col font-Subheader text-center text-3xl" style="position: absolute;top:40%;font-size: clamp(14px,4vw,28px);">59%
+                                    <br><span style="font-size: clamp(12px,2vw,14px);"> Accomplishment</span>
+                                </h5>
+                            </span>
                         </span>
                     </span>
 
