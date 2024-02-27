@@ -1,5 +1,7 @@
 <template>
+    <div class="w-full">
     <VCalendar transparent  expanded :attributes='attrs'/>
+  </div>
 </template>
 <script setup>
 import { ref } from 'vue';
