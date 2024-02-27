@@ -135,7 +135,11 @@
 
         </div>
 
-        <div class="flex w-20% shadow-card2">
+        <div class="flex h-dvh border-2 items-center justify-center">
+
+        </div>
+
+        <div class="flex w-20% shadow-card2" style="display: none;">
             <span class="flex flex-col w-full px-4 py-4 ">
                 <calendar/>
                 <h4 class="mt-6 font-Header text-Red-Rose" >Activities</h4>
