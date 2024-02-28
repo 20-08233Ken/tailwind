@@ -1,5 +1,13 @@
 <script>
+    import {Form, Field, ErrorMessage} from 'vee-validate'
+
     export default{
+
+        components:{
+            Form,
+            Field,
+            ErrorMessage
+        },
         data(){
             return{
 
@@ -60,6 +68,14 @@
                 ]
         }},
         methods:{
+            validateData(value){
+                if(!value){
+                   return 'This field is required';
+                }
+
+                return true
+
+            },
        
             submitData(){
                     if(this.count === true ){
@@ -93,76 +109,99 @@
             <input type="radio" name="my_tabs_2" role="tab" class="tab mt-8 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
-                <p class="text-0.9 font-Subheader text-gray-500 ">Research Title</p>
-                <input type="text" placeholder="Type here"  class="input mt-2 input-bordered w-full "/>
+                <Form @submit="validateData">
+                    
+                    <p class="text-0.9 font-Subheader text-gray-500 ">Research Title</p>
+                    <Field type="text" name="research_title" placeholder="Type here"  class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="research_title" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status</p>
-                <select class="select select-bordered w-full mt-2" >
-                    <option disabled selected>Select Status ...</option>
-                    <!-- <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option> -->
-                </select>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status</p>
+                    <Field as="select" name="status"  class="select select-bordered w-full mt-2" :rules="validateData">
+                        <option disabled selected>Select Status ...</option>
+                        <option value="Status 1"> Status 1</option>
+                        <!-- <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option> -->
+                    </Field>
+                    <ErrorMessage name="status" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date Started</p>
-                <input type="text" placeholder="Type here"  class="input mt-2 input-bordered w-full "  />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date Started</p>
+                    <Field type="date" name="date_started" placeholder="Type here"  class="input mt-2 input-bordered w-full "  :rules="validateData"/>
+                    <ErrorMessage name="date_started" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date Completed</p>
-                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date Completed</p>
+                    <Field type="date" name="date_completed" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="date_completed" class="error_message"/>
 
-                <div class="divider mt-8 "></div> 
-                <h4 class="font-Subheader text-Red-Rose text-lg">Presentation</h4>
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Forum</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <div class="divider mt-8 "></div> 
+                    <h4 class="font-Subheader text-Red-Rose text-lg">Presentation</h4>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article</p>
+                    <Field type="text" name="article1"  placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="article1" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Venue</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Forum</p>
+                    <Field type="text"  name="forum" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="forum" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date</p>
-                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " />
-           
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Venue</p>
+                    <Field type="text" name="venue" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="venue" class="error_message"/>
 
-                <div class="divider mt-8 "></div> 
-                <h4 class="font-Subheader text-Red-Rose text-lg">Publication</h4>
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article / Title</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date</p>
+                    <Field type="date" name="date" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="date" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date of Publication</p>
-                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " />
-                
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Journal of Publication</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <div class="divider mt-8 "></div> 
+                    <h4 class="font-Subheader text-Red-Rose text-lg">Publication</h4>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article / Title</p>
+                    <Field type="text" name="article2" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="article2" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Vol. No. & Issue No.</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date of Publication</p>
+                    <Field type="date" name="publication"  placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="publication" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">ISSN/ ISBN</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Journal of Publication</p>
+                    <Field type="text" name="journal" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="journal" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Index</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Vol. No. & Issue No.</p>
+                    <Field type="text" name="vol"  placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="vol" class="error_message"/>
 
-                <div class="divider mt-8 "></div> 
-                <h4 class="font-Subheader text-Red-Rose text-lg">Output</h4>
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Product Name / Methods / Process / Technology</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
-    
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Proof / Description / Documentation</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
-  
-                <div class="divider mt-8 "></div> 
-                <h4 class="font-Subheader text-Red-Rose text-lg">Utilization</h4>
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Beneficiary</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " />
-             
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
-                <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
-                <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0" >Add</button>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">ISSN/ ISBN</p>
+                    <Field type="text" name="issn"  placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="issn" class="error_message"/>
 
-                </span>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Index</p>
+                    <Field type="text"   name="index" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="index" class="error_message"/>
+
+
+                    <div class="divider mt-8 "></div> 
+                    <h4 class="font-Subheader text-Red-Rose text-lg">Output</h4>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Product Name / Methods / Process / Technology</p>
+                    <Field type="text" name="methods" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="methods" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Proof / Description / Documentation</p>
+                    <Field type="text" name="proof"  placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="proof" class="error_message"/>
+
+                    <div class="divider mt-8 "></div> 
+                    <h4 class="font-Subheader text-Red-Rose text-lg">Utilization</h4>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Beneficiary</p>
+                    <Field type="text" name="beneficiary" placeholder="Type here" class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="beneficiary" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+
+                    <span class="w-full flex items-center justify-end gap-2 mt-5">
+                        <button class="btn w-2/12 bg-white border-0" >Add</button>
+                    </span>
+
+                </Form>
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
@@ -281,5 +320,9 @@
 
         .inActive{
             display: none;
+        }
+        .error_message{
+            color: red;
+            font-size: .9rem;
         }
 </style>

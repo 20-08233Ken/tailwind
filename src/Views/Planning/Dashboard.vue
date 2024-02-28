@@ -12,6 +12,7 @@
     import Research2 from '../../components/graph/Dashboard/research2.vue'
     import Financial from '../../components/graph/Dashboard/financial.vue'
     import Footer from '../Footer.vue';
+    import Planning_nav from '../../components/Others/Navigation/Planning_nav.vue';
 </script>
 
 <template>

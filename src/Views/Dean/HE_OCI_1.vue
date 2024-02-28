@@ -1,5 +1,12 @@
 <script>
+    import { Form, Field,ErrorMessage } from 'vee-validate';
     export default{
+
+        components:{
+            Form,
+            Field,
+            ErrorMessage
+        },
         data(){
             return{
                 in_program:'',
@@ -10,6 +17,7 @@
                 id:1,
                 isActive:false,
                 isIcon:false,
+                isAdd:false,
                  // Data base from the Account Info of Dean
                 data:[
                     {
@@ -41,12 +49,8 @@
         },
         methods:{
             addData(){
-
-                
-                if( this.in_program ==='' || this.in_examDate ==='' || this.in_takers ==='' || this.in_passers ===''){
-                    console.log("Error")
-
-                }else{
+   
+         
                     this.sampleData.push(
                     {
                         tb_id:this.id,
@@ -68,10 +72,19 @@
 
                     this.id++;
 
-                }
-                
+                    this.isAdd = true;
+                    setTimeout(() =>{
+                        this.isAdd = false;
+                    }, 2000)
+            },
+            validateInput(value){
+                if (!value) {
+                     return 'This field is required';
+                 }
 
-
+                 return true
+                 
+               
             },
             submitData(){
                     if(this.count === true ){
@@ -94,6 +107,10 @@
 
 
 <template>
+    <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform" >
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-white">Data Addedd Successfully!</span>
+    </div>
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Passed first-time licensure exam takers</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
@@ -131,35 +148,42 @@
             <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
-                <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_campus"/>
-               
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department"/>
+                <Form @submit="addData">
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                <select class="select select-bordered w-full mt-2"  v-model="in_program" required>
-                    <option disabled selected>Select Program ...</option>
-                    <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
+                    <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
+                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_campus" :rules="validateInput"/>
 
-                </select>
-                <!-- <p class="mt-1 text-Red-Rose font-Subheader" :class="{'empty':in_program==='','notEmpty':in_program!==''}" style="font-size: 0.8rem;">Kindly complete the necessary fields</p> -->
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
+                    <Field type="text" placeholder="Type here" name="department" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department" :rules="validateInput"/>
+                
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Exam Date</p>
-                <input type="date" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_examDate" required/>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
+                    <Field as="select" class="select select-bordered w-full mt-2"  v-model="in_program" name="program" :rules="validateInput">
+                        <option disabled selected>Select Program ...</option>
+                        <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
+                    </Field>
+                    <ErrorMessage name="program" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Takers</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_takers" required/>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Exam Date</p>
+                    <Field type="date" placeholder="Type here" class="input mt-2 input-bordered w-full" name="exam_date" v-model="in_examDate" :rules="validateInput"/>
+                    <ErrorMessage name="exam_date" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Passers</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_passers"/>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Takers</p>
+                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_takers" name="no_takers" :rules="validateInput"/>
+                    <ErrorMessage name="no_takers" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
-                <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Passers</p>
+                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_passers" name="no_passers" :rules="validateInput"/>
+                    <ErrorMessage name="no_passers" class="error_message"/>
 
-                <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
-                </span>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+
+                    <span class="w-full flex items-center justify-end gap-2 mt-5">
+                        <button class="btn w-2/12 bg-white border-0" >Add</button>
+                    </span>
+                </Form>
+
 
             </div>
 
@@ -267,5 +291,10 @@
         }
         .notEmpty{
             display: none;
+        }
+
+        .error_message{
+            color: red;
+            font-size: .9rem;
         }
 </style>

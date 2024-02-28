@@ -1,5 +1,23 @@
-<script setup>
+<script >
     import drawer from './drawer.vue';
+    import { ref} from 'vue'
+
+    export default{
+
+
+        data(){
+            return{
+
+            }
+        },
+
+        components:{
+            drawer
+        },
+
+
+
+    }
 </script>
 
 <template>
@@ -10,12 +28,17 @@
                 <drawer/>
 
             </li>
+            
+
+      
 
             <li class="flex items-center justify-center w-1/12  md:hidden sm:hidden xm:hidden"><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
 
             <li 
                 class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden" 
                 style="font-size: clamp(14px , 2vw , 16px);"
+
+              
                 >
                 <router-link to="/home"> MIS</router-link>
             </li>

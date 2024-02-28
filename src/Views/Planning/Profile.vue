@@ -146,6 +146,8 @@
 <script setup>
 import { ref } from 'vue';
 import Navigation from '../../components/Others/Navigation.vue'
+import Planning_nav from '../../components/Others/Navigation/Planning_nav.vue';
+
 const attrs = ref([
   {
     key: 'today',

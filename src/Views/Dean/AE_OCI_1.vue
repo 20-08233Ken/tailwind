@@ -1,7 +1,15 @@
 <script>
 
     import confirmModal from '../../components/Others/confirmModal.vue';
+    import { Form, Field,ErrorMessage } from 'vee-validate';
+
     export default{
+        components:{
+            Form,
+            Field,
+            ErrorMessage,
+            confirmModal
+        },
         data(){
             return{
                 // in_campus:'',
@@ -16,6 +24,7 @@
                 isIcon:false,
                 count:true,
                 isActive:false,
+                isAdd:false,
 
                 // Data base from the Account Info of Dean
                 data:[
@@ -61,44 +70,21 @@
                     },
                 ],
                 sampleData:[
-                    // {
-                    //     tb_id:1,
-                    //     tb_campus:'Alangilan',
-                    //     tb_department:'College of Engineering',
-                    //     tb_program:'Bachelor of Science in Civil Engineer',
-                    //     tb_name:"Juan De La Cruz",
-                    //     tb_position:"Associate Director",
-                    //     tb_engagement:"Pursuing advanced research degree program",
-                    //     tb_duration:"120"
-                    // },
-                    // {
-                    //     tb_id:1,
-                    //     tb_campus:'Alangilan',
-                    //     tb_department:'College of Engineering',
-                    //     tb_program:'Bachelor of Science in Civil Engineer',
-                    //     tb_name:"Juan De La Cruz",
-                    //     tb_position:"Associate Director",
-                    //     tb_engagement:"Pursuing advanced research degree program",
-                    //     tb_duration:"120"
-                    // },
+
                 ]
             }
         },
-        components:{
-            confirmModal
-        },
+    
         methods:{
+            validateData(value){
+                if(!value){
+                   return 'This field is required';
+                }
+
+                return true
+
+            },
             addData(){
-                // console.log("Added Data")
-                // console.log(this.data[0].in_campus);
-                // console.log(this.data[0].in_department);
-                // console.log(this.in_program);
-                // console.log(this.in_fname);
-                // console.log(this.in_mname);
-                // console.log(this.in_lname);
-                // console.log(this.in_position);
-                // console.log(this.in_engagement);
-                // console.log(this.in_duration);
 
                 this.sampleData.push({
 
@@ -120,6 +106,11 @@
                 this.in_position = ""
                 this.in_engagement = ""
                 this.in_duration = ""
+
+                this.isAdd = true;
+                    setTimeout(() =>{
+                        this.isAdd = false;
+                    }, 2000)
             },
             submitData(){
                     if(this.count === true ){
@@ -142,6 +133,10 @@
 </script>
 
 <template>
+    <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform" >
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-white">Data Addedd Successfully!</span>
+    </div>
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Graduate school faculty engaged in research work</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
@@ -151,48 +146,59 @@
             <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
-                <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" />
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" />
+                <Form @submit="addData">
+                    <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
+                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                <select class="select select-bordered w-full mt-2" v-model="in_program">
-                    <option disabled selected>Select Program ...</option>
-                    <option v-for="collegePrograms in collegeProgram" :value="collegePrograms.program">{{collegePrograms.program }}</option>
-                    <!-- <option>Greedo</option> -->
-                </select>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
+                    <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_fname"/>
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Lastname</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_lname"/>
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Middle Initial</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_mname"/>
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">PLANTILLA Position</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_position"/>
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Faculty Engagement</p>
-                <select class="select select-bordered w-full mt-2" v-model="in_engagement">
-                    <option disabled selected>Select Program ...</option>
-                    <option v-for="x in facultyEngagement" :value="x.key"> {{ x.engagement }}</option>
-   
-                </select>
-                
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_duration"/>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
+                    <Field as="select" name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
+                        <option disabled selected>Select Program ...</option>
+                        <option v-for="collegePrograms in collegeProgram" :value="collegePrograms.program">{{collegePrograms.program }}</option>
+                        <!-- <option>Greedo</option> -->
+                    </Field>
+                    <ErrorMessage name="program" class="error_message"/>
 
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
-                <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
+                    <Field type="text"  name="fname" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_fname" :rules="validateData"/>
+                    <ErrorMessage name="fname" class="error_message"/>
 
-                <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
-                </span>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Lastname</p>
+                    <Field type="text"  name="lname"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_lname" :rules="validateData"/>
+                    <ErrorMessage name="lname" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Middle Initial</p>
+                    <Field type="text" name="m_initial" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_mname" :rules="validateData"/>
+                    <ErrorMessage name="m_initial" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">PLANTILLA Position</p>
+                    <Field type="text"  name="position"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_position" :rules="validateData"/>
+                    <ErrorMessage name="position" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Faculty Engagement</p>
+                    <Field as='select' name="engagement" class="select select-bordered w-full mt-2" v-model="in_engagement" :rules="validateData">
+                        <option disabled selected>Select Engagement ...</option>
+                        <option v-for="x in facultyEngagement" :value="x.key"> {{ x.engagement }}</option>
+    
+                    </Field>
+                    <ErrorMessage name="engagement" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
+                    <Field type="number" name="duration"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_duration" :rules="validateData"/>
+                    <ErrorMessage name="duration" class="error_message"/>
+
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+
+                    <span class="w-full flex items-center justify-end gap-2 mt-5">
+                        <button class="btn w-2/12 bg-white border-0">Add</button>
+                    </span>
+            </Form>
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
@@ -297,5 +303,10 @@
         }
         .iconInActive{
             display: none;
+        }
+
+        .error_message{
+            color: red;
+            font-size: .9rem;
         }
 </style>
