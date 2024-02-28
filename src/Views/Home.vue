@@ -9,12 +9,16 @@
         import Graph2 from '../components/graph/graph2.vue'
         import Graph3 from '../components/graph/graph3.vue'
         import Footer from './Footer.vue'
+
         import Navigation from '../components/Others/Navigation.vue'
+        import Dean_nav from '../components/Others/Navigation/Dean_nav.vue'
+        import Planning_nav from '../components/Others/Navigation/Planning_nav.vue'
         export default{
             data(){
                 return{
                     activeTab: null,
-                    currentComponent:null
+                    currentComponent:null,
+                    user:"General",
                 }
             },  
             components:{
@@ -28,12 +32,24 @@
                 Graph2,
                 Graph3,
                 Footer,
-                Navigation
+                Navigation,
+                Dean_nav,
+                Planning_nav
             },  
               methods:{
                 showActive(componentName,tabNumber){
                     this.activeTab = tabNumber
                     this.currentComponent = componentName
+                }
+            },
+
+            watch:{
+                '$route.query.user':{
+                    handler:function (value){
+                        this.user = value
+                    },
+                    deep:true,
+                    immediate:true
                 }
             }
         }
@@ -41,7 +57,12 @@
 </script>
 <template>
         <main class="flex flex-col w-100 ">
-            <Navigation/>
+
+          
+                <Navigation/> 
+                <!-- <Dean_nav  v-if="user === 'dean'"/>
+                <Planning_nav  v-if="user === 'Planning'"/> -->
+          
 
             <section class="flex flex-col justify-center w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw ">
             

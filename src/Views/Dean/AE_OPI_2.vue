@@ -1,5 +1,12 @@
 <script>
+    import {Form, Field, ErrorMessage} from 'vee-validate'
+
     export default{
+        components:{
+            Form,
+            Field,
+            ErrorMessage
+        }, 
         data(){
             return{
                 // in_campus:'',
@@ -14,6 +21,7 @@
                 count:true,
                 isActive:false,
                 isIcon:false,
+                isAdd:false,
                 id:0,
 
                 // Data base from the Account Info of Dean
@@ -37,47 +45,20 @@
                     }
                 ],
                 sampleData:[
-                    // {
-                    //     tb_id:1,
-                    //     tb_campus:'Alangilan',
-                    //     tb_department:'College of Engineering',
-                    //     tb_program:'Bachelor of Science in Civil Engineer',
-                    //     tb_yearOperation:2015,
-                    //     tb_fBatch_Grad:2013,
-                    //     tb_status:"Level 1",
-                    //     tb_from:"December 14, 2023",
-                    //     tb_to:"January 14, 2023",
-                    //     tb_remarks:"None"
-              
-                    // },
-                    // {
-                    //     tb_id:2,
-                    //     tb_campus:'Alangilan',
-                    //     tb_department:'College of Engineering',
-                    //     tb_program:'Bachelor of Science in Civil Engineer',
-                    //     tb_yearOperation:2015,
-                    //     tb_fBatch_Grad:2013,
-                    //     tb_status:"Level 1",
-                    //     tb_from:"December 14, 2023",
-                    //     tb_to:"January 14, 2023",
-                    //     tb_remarks:"None"
-        
-                    // },
+
                 ]
             }
         },
         methods:{
+            validateData(value){
+                if(!value){
+                   return 'This field is required';
+                }
+
+                return true
+
+            },
             addData(){
-                // console.log("Added Data")
-                // console.log(this.data[0].in_campus);
-                // console.log(this.data[0].in_department);
-                // console.log(this.in_program);
-                // console.log(this.in_operation);
-                // console.log(this.in_graduates);
-                // console.log(this.in_status);
-                // console.log(this.in_from);
-                // console.log(this.in_to);
-                // console.log(this.in_remarks);
 
                 this.sampleData.push({
                         tb_id:this.id,
@@ -99,6 +80,11 @@
                 this.in_from=''
                 this.in_to=''
                 this.in_remarks=''
+
+                this.isAdd = true;
+                    setTimeout(() =>{
+                        this.isAdd = false;
+                    }, 2000)
             }
             ,
             submitData(){
@@ -121,6 +107,11 @@
 </script>
 
 <template>
+    <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform" >
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-white">Data Addedd Successfully!</span>
+    </div>
+
     <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Graduate programs with accreditation</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
@@ -132,58 +123,70 @@
             <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
-                <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus"/>
+                <Form @submit="addData">
+                    <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
+                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                <input type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" />
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
+                    <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
-                <select class="select select-bordered w-full mt-2" v-model="in_program">
-                    <option disabled selected>Select Program ...</option>
-                    <option v-for="x in collegeProgram" :value="x.program">{{x.program }}</option>
-                </select>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
+                    <Field as="select"  name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
+                        <option disabled selected>Select Program ...</option>
+                        <option v-for="x in collegeProgram" :value="x.program">{{x.program }}</option>
+                    </Field>
+                    <ErrorMessage name="program" class="error_message"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of Initial Operation</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_operation" />
-  
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of First Batch of Graduates</p>
-                <input type="number" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_graduates"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Status</p>
-                <select class="select select-bordered w-full mt-2" v-model="in_status">
-                    <option disabled selected>Select Status...</option>
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
-                    <option>Level 4</option>
-                    <option>Level CS</option>
-                    <option>NA</option>
-                </select>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of Initial Operation</p>
+                    <Field type="number" name="operation" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_operation" :rules="validateData"/>
+                    <ErrorMessage name="operation" class="error_message"/>
 
-                <h4 class="mt-8 font-Subheader text-Red-Rose text-base">Period of Validity</h4>
-                <span class="w-full flex gap-2">
-                    <span class="w-2/4">
-                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">From</p>
-                        <input type="date" placeholder=" " class="input mt-2 input-bordered w-full " v-model="in_from"/>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of First Batch of Graduates</p>
+                    <Field type="number" name="graduates" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_graduates" :rules="validateData"/>
+                    <ErrorMessage name="graduates" class="error_message"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Status</p>
+                    <Field as="select" name="status" class="select select-bordered w-full mt-2" v-model="in_status" :rules="validateData">
+                        <option disabled selected>Select Status...</option>
+                        <option value="Level 1">Level 1</option>
+                        <option value="Level 2">Level 2</option>
+                        <option value="Level 3">Level 3</option>
+                        <option value="Level 4">Level 4</option>
+                        <option value="Level CS">Level CS</option>
+                        <option>NA</option>
+                    </Field>
+                    <ErrorMessage name="status" class="error_message"/>
+
+
+                    <h4 class="mt-8 font-Subheader text-Red-Rose text-base">Period of Validity</h4>
+                    <span class="w-full flex gap-2">
+                        <span class="w-2/4">
+                            <p class="text-0.9 font-Subheader text-gray-500 mt-4">From</p>
+                            <Field type="date" name="validity_from" placeholder=" " class="input mt-2 input-bordered w-full " v-model="in_from" :rules="validateData"/>
+                            <ErrorMessage name="validity_from" class="error_message"/>
+                        </span>
+                        <span class="w-2/4">
+                            <p class="text-0.9 font-Subheader text-gray-500 mt-4">To</p>
+                            <Field type="date" name="validity_to" placeholder="" class="input mt-2 input-bordered w-full " v-model="in_to" :rules="validateData"/>
+                            <ErrorMessage name="validity_to" class="error_message"/>
+                        </span>
                     </span>
-                    <span class="w-2/4">
-                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">To</p>
-                        <input type="date" placeholder="" class="input mt-2 input-bordered w-full " v-model="in_to"/>
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Remarks</p>
+                    <Field type="text" name="remarks" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_remarks" :rules="validateData"/>
+                    <ErrorMessage name="remarks" class="error_message"/>
+
+
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+
+                    <span class="w-full flex items-center justify-end gap-2 mt-5">
+                        <button class="btn w-2/12 bg-white border-0">Add</button>
                     </span>
-                </span>
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Remarks</p>
-                <input type="text" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_remarks"/>
-
-
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
-                <input type="file" class="file-input file-input-bordered w-full mt-2" />
-
-                <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn w-2/12 bg-white border-0" @click="addData">Add</button>
-                </span>
+                </Form>
             </div>
+            
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
@@ -289,5 +292,9 @@
         }
         .iconInActive{
             display: none;
+        }
+        .error_message{
+            color: red;
+            font-size: .9rem;
         }
 </style>

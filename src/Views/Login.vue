@@ -28,11 +28,23 @@
                 <p class ="text-gray-500 mt-6" style="width: 80%; font-size: 15px;">Password</p>
                 <input type="password" id="password">
 
+                <router-link 
+                        :to="{
+                            name:'home',
+                            query:{
+                                user:'dean'
+                            }
+                        }"
+                        class=" w-full flex justify-center">
+                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px;">  
+                    Login as Dean         
+                </button>
+                </router-link>
+
+                
                 <router-link to="/home"  class=" w-full flex justify-center">
-                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px;">
-                    
-                    Login
-               
+                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px;">  
+                    Login as Planning         
                 </button>
                 </router-link>
             

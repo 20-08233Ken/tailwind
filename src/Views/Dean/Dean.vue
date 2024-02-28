@@ -13,6 +13,7 @@
     import calendar from '../../components/Others/calendar.vue';
 
     import Navigation from '../../components/Others/Navigation.vue';
+    import Dean_nav from '../../components/Others/Navigation/Dean_nav.vue';
     import { markRaw } from "vue"
 
     const hold_oc_1 = markRaw(HE_OCI_1);
@@ -73,6 +74,7 @@
             AE_OPI_2,
             Research_Service,
             Navigation,
+            Dean_nav,
             calendar
             
         },
