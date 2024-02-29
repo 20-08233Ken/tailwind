@@ -157,7 +157,15 @@
                 <ErrorMessage name="m_initial" class="error_message"/>
 
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status</p>
+                <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Status</p>
+                        <i class="tooltip tooltip-right"  data-tip="List down all the 1st semester FY 2021-2022 graduates per degree program and then provide the status for each graduate.">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                </span>
+
                 <Field as ="select" name="statuses" class="select select-bordered w-full mt-2" v-model="in_status" :rules="validateData">
                     <option disabled selected> ...</option>
                     <option value="Employed">Employed</option>
@@ -167,12 +175,21 @@
                 <ErrorMessage name="statuses" class="error_message"/>
 
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Company's Business / Type of Business</p>
+                <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Company's Business / Type of Business</p> -->
+                <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Company's Business / Type of Business</p>
+                        <i class="tooltip tooltip-right"  data-tip="Input the employment, business, or company of the graduate. For this purpose, Employment refers to any mode or form of employment regardless of status, including self-employment">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                </span>
                 <Field type="text" name="business" placeholder="Type here" class="input mt-2 input-bordered w-full "  v-model="in_business" :rules="validateData"/>
                 <ErrorMessage name="business" class="error_message"/>
 
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+               
                 <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">

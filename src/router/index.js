@@ -26,7 +26,8 @@ import FormA_1 from '../components/Form/ModifiedFormA_1.vue'
 
 import fydp from '../Views/FYDP/fydp.vue'
 import fydp_ques from '../Views/FYDP/questionnaire.vue'
-
+import Registrar from '../Views/Registrar/registrar.vue'
+import Qam from '../Views/QAM/Qam.vue'
 import TechnicalExtension from '../Views/Extension/extension.vue'
 
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
@@ -35,6 +36,7 @@ import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
 const router = createRouter ({
 
     history: createWebHistory(import.meta.env.BASE_URL),
+    linkActiveClass:'vue-school-active-link',
 
     routes:[
         {
@@ -48,9 +50,7 @@ const router = createRouter ({
             path:'/home',
             name:'home',
             component:Home,
-            beforeEnter(to,from){
-                name:'Not Found'
-            }
+        
 
 
         },  
@@ -59,6 +59,16 @@ const router = createRouter ({
             name:'dean',
             component:Dean
 
+        },
+        {
+            path:'/registrar',
+            name:'registrar',
+            component:Registrar
+        },
+        {
+            path:'/qam',
+            name:'qam',
+            component:Qam
         },
         {
             path:'/profile',
@@ -170,10 +180,14 @@ const router = createRouter ({
             component:Higher
 
         },
+        
+     
 
         
         // }
     ]
+
+    
 
 })
 

@@ -116,32 +116,8 @@
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
 
 
-    <h2 class="w-full text-center mt-8 bg-Red-Darken text-white py-3">Monitoring</h2>
 
-    <div class="w-full flex">
-        <span class="w-2/4 flex flex-col items-center mt-8">
-            <h3 class="font-Subheader text-green-600">Submitted</h3>
-            <ul class="flex items-center gap-4 mt-4"> 
-                <span class="text-green-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                    </svg>
-                </span>
-                <li>Bachelor of Science in Computer Engineer</li>
-            </ul>
-        </span>
-        <span class="w-2/4 flex flex-col items-center mt-8">
-            <h3 class="font-Subheader text-Red-Rose">Submitted</h3>
-            <ul class="flex items-center gap-4 mt-4"> 
-                <span class="text-Red-Rose">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                    </svg>
-                </span>
-                <li>Bachelor of Science in Computer Engineer</li>
-            </ul>
-        </span>
-    </div>
+
 
     <div class="w-full overflow-x-auto">
         <div role="tablist" class="tabs tabs-lifted">
@@ -168,15 +144,25 @@
                     <Field type="date" placeholder="Type here" class="input mt-2 input-bordered w-full" name="exam_date" v-model="in_examDate" :rules="validateInput"/>
                     <ErrorMessage name="exam_date" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Takers</p>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Takers</p>
                     <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_takers" name="no_takers" :rules="validateInput"/>
                     <ErrorMessage name="no_takers" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of Passers</p>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Passers</p>
                     <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_passers" name="no_passers" :rules="validateInput"/>
                     <ErrorMessage name="no_passers" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                  
+                    
+                    <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Upload Supported File</p>
+                        <i class="tooltip" tooltip-right data-tip=" Provide the supporting documentation used in reference to the information. You may also provide links to the scanned copies for easier reference">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                    </span>
+
                     <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
