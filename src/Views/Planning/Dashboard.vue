@@ -1,23 +1,10 @@
-<script setup>
-    import Navigation from '../../components/Others/Navigation.vue';
+<script src="../../Scripts/Planning/Dashboard.js">
 
-    import Graph1 from '../../components/graph/Dashboard/graph1.vue'
-    import Graph2 from '../../components/graph/Dashboard/graph2.vue'
-    import Graph3 from '../../components/graph/Dashboard/graph3.vue'
-    import Enrollment from '../../components/graph/Dashboard/enrollment.vue'
-    import Graduates from '../../components/graph/Dashboard/graduates.vue'
-    import Scholarship from '../../components/graph/Dashboard/scholarship.vue'
-    import PassingRate from '../../components/graph/Dashboard/passing_rate.vue'
-    import Research from '../../components/graph/Dashboard/research.vue'
-    import Research2 from '../../components/graph/Dashboard/research2.vue'
-    import Financial from '../../components/graph/Dashboard/financial.vue'
-    import Footer from '../Footer.vue';
-    import Planning_nav from '../../components/Others/Navigation/Planning_nav.vue';
 </script>
 
 <template>
     <main class="flex flex-col w-100">
-        <Navigation/>
+        <Planning_nav/>
         
         <section class="flex flex-col w-full pt-6vw px-6vw">
                 <h1 class="text-Red-Darken font-Header text-5xl" style="font-size: clamp(18px,4vw,48px);">University Management</h1>

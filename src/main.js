@@ -7,10 +7,12 @@ import router from './router'
 import { setupCalendar, Calendar, DatePicker } from 'v-calendar';
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
+import  VueCookies  from 'vue3-cookies';
 
 const app = createApp(App)
 app.use(router)
 app.use(VCalendar, {})
+
 // Use the components
 app.component('VCalendar', Calendar)
 app.component('VDatePicker', DatePicker)

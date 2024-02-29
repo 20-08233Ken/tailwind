@@ -1,69 +1,16 @@
-<script>
-        import Dataset from './Planning/Dataset.vue'
-        import Dashboard from './Planning/Dashboard.vue'
-        import Offices from './Planning/Offices.vue'
-        import PBB from './Planning/PBB.vue'
-        import Dean from './Dean/Dean.vue'
-        import Landing from './Planning/Landing.vue'
-        import Graph1 from '../components/graph/graph1.vue'
-        import Graph2 from '../components/graph/graph2.vue'
-        import Graph3 from '../components/graph/graph3.vue'
-        import Footer from './Footer.vue'
-
-        import Navigation from '../components/Others/Navigation.vue'
-        import Dean_nav from '../components/Others/Navigation/Dean_nav.vue'
-        import Planning_nav from '../components/Others/Navigation/Planning_nav.vue'
-        export default{
-            data(){
-                return{
-                    activeTab: null,
-                    currentComponent:null,
-                    user:"General",
-                }
-            },  
-            components:{
-                Dataset,
-                Dashboard,
-                Offices,
-                PBB,
-                Dean,
-                Landing,
-                Graph1,
-                Graph2,
-                Graph3,
-                Footer,
-                Navigation,
-                Dean_nav,
-                Planning_nav
-            },  
-              methods:{
-                showActive(componentName,tabNumber){
-                    this.activeTab = tabNumber
-                    this.currentComponent = componentName
-                }
-            },
-
-            watch:{
-                '$route.query.user':{
-                    handler:function (value){
-                        this.user = value
-                    },
-                    deep:true,
-                    immediate:true
-                }
-            }
-        }
+<script src="../Scripts/Home.js" >
 
 </script>
 <template>
         <main class="flex flex-col w-100 ">
 
           
-                <Navigation/> 
-                <!-- <Dean_nav  v-if="user === 'dean'"/>
-                <Planning_nav  v-if="user === 'Planning'"/> -->
-          
+                <!-- <Navigation/>  -->
+                <Dean_nav  v-if="user == 'Dean'"/>
+                <Planning_nav  v-if="user === 'Planning'"/>
+              
 
+               
             <section class="flex flex-col justify-center w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw ">
             
                 <div class="flex ">

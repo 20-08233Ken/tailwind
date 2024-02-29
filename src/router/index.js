@@ -48,6 +48,9 @@ const router = createRouter ({
             path:'/home',
             name:'home',
             component:Home,
+            beforeEnter(to,from){
+                name:'Not Found'
+            }
 
 
         },  

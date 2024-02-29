@@ -1,6 +1,5 @@
 <script>
 
-    import confirmModal from '../../components/Others/confirmModal.vue';
     import { Form, Field,ErrorMessage } from 'vee-validate';
 
     export default{
@@ -8,7 +7,6 @@
             Form,
             Field,
             ErrorMessage,
-            confirmModal
         },
         data(){
             return{

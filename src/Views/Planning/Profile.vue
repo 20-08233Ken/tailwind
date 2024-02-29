@@ -1,9 +1,14 @@
+<script src="../../Scripts/Planning/Profile.js">
 
+
+</script>
 
 
 <template>
     <main class="w-full flex flex-col bg-grey-2 pb-6vw">
-        <Navigation/>
+
+        <Planning_nav  v-if="user === 'Planning'"/>
+     
 
         <section class="w-full flex ">
             <div class="w-9/12">
@@ -143,7 +148,7 @@
     </main>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue';
 import Navigation from '../../components/Others/Navigation.vue'
 import Planning_nav from '../../components/Others/Navigation/Planning_nav.vue';
@@ -155,7 +160,7 @@ const attrs = ref([
     dates: new Date(),
   },
 ]);
-</script>
+</script> -->
 
 <style scoped>
     #mis_table > tr > td{
