@@ -177,7 +177,15 @@
                     <Field type="text"  name="position"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_position" :rules="validateData"/>
                     <ErrorMessage name="position" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Faculty Engagement</p>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Faculty Engagement</p> -->
+                    <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Faculty Engagement</p>
+                        <i class="tooltip tooltip-right"  data-tip="Category of engagement of each listed faculty member">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                    </span>   
                     <Field as='select' name="engagement" class="select select-bordered w-full mt-2" v-model="in_engagement" :rules="validateData">
                         <option disabled selected>Select Engagement ...</option>
                         <option v-for="x in facultyEngagement" :value="x.key"> {{ x.engagement }}</option>
@@ -185,12 +193,20 @@
                     </Field>
                     <ErrorMessage name="engagement" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
                     <Field type="number" name="duration"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_duration" :rules="validateData"/>
-                    <ErrorMessage name="duration" class="error_message"/>
+                    <ErrorMessage name="duration" class="error_message"/> -->
 
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p> -->
+                    <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Upload Supported File</p>
+                        <i class="tooltip tooltip-right"  data-tip="Submit relevant documents to verify the information provided">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                    </span>     
                     <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">

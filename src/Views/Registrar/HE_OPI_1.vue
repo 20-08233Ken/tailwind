@@ -1,25 +1,23 @@
 <script>
     import {Form, Field, ErrorMessage} from 'vee-validate'
+
+
     export default{
-
         components:{
-            Form,
-            Field,
-            ErrorMessage
+            Form, Field, ErrorMessage
         },  
-
         data(){
             return{
                 // in_campus:'',
                 // in_department:'',
                 in_program:'',
-                in_thesis:'',
-                in_noThesis:'',
+                in_ched:'',
+                in_neither:'',
                 count:true,
                 isActive:false,
                 isIcon:false,
                 isAdd:false,
-                id:0,
+                id:1,
 
                 // Data base from the Account Info of Dean
                 data:[
@@ -46,50 +44,47 @@
                 ]
 
             }
+
+            
         },
         methods:{
+
             validateData(value){
                 if(!value){
-                   return 'This field is required';
+                    return 'This field is required'
+                    
                 }
-
                 return true
-
             },
             addData(){
 
 
                 this.sampleData.push(
                     {
-                                           
                         tb_id:this.id,
                         tb_campus:this.data[0].in_campus,
                         tb_department:this.data[0].in_department,
                         tb_program:this.in_program,
-                        tb_reqThesis:this.in_thesis,
-                        tb_notReqThesis:this.in_noThesis,
+                        tb_ched:this.in_ched,
+                        tb_neither:this.in_neither
                     }
                 )
                 this.id++;
+                this.in_program =""
+                this.in_ched =''
+                this.in_neither =''
 
-                this.data[0].in_campus =''
-                this.data[0].in_department=''
-                this.in_program=''
-                this.in_thesis=''
-                this.in_noThesis=''
-
-                
                 this.isAdd = true;
                     setTimeout(() =>{
                         this.isAdd = false;
                     }, 2000)
-
             },
             submitData(){
                     if(this.count === true ){
                         this.isActive = true
                         this.count = false
                         this.isIcon = true
+
                     }else{
                         this.isActive = false
                     }
@@ -104,14 +99,18 @@
 
 </script>
 
+
 <template>
         <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform" >
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         <span class="text-white">Data Addedd Successfully!</span>
-    </div>
-    <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Graduate students enrolled in research degree program</h1>
+        </div>
+
+    <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Undergraduate students enrolled in CHED-identified and RDC-identified priority programs</h1>
     <p class="w-full text-center text-gray-400">College of Engineering</p>
     <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
+
+
 
 
 
@@ -119,39 +118,55 @@
         <div role="tablist" class="tabs tabs-lifted">
             <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                
                 <Form @submit="addData">
+
                 <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                <Field  name="campus" type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
+                <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                <Field  name="department" type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/>
+                <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department" :rules="validateData"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
-                <Field as="select" name="program" class="select select-bordered w-full mt-2" :rules="validateData">
+                <Field as="select"  name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
                     <option disabled selected>Select Program ...</option>
-                    <option v-for="x in collegeProgram" :value="x.program">{{x.program}}</option>
+                    <option v-for="x in collegeProgram" :value="x.program">{{x.program }}</option>
                 </Field>
                 <ErrorMessage name="program" class="error_message"/>
 
-                <h4 class="mt-8 font-Subheader text-Red-Rose text-base">Number of Enrolled Students</h4>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Requiring Thesis/Dissertation</p>
-                <Field type="number" name="req_thesis" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_thesis" :rules="validateData"/>
-                <ErrorMessage name="req_thesis" class="error_message"/>
+                <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-Red-Rose text-base ">Number of Enrollment</p>
+                        <i class="tooltip tooltip-right"  data-tip="Number of enrollees for each corresponding program">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                </span>      
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Not Requiring Thesis/Dissertation</p>
-                <Field type="number" name="not_req_thesis" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_noThesis" :rules="validateData"/>
-                <ErrorMessage name="not_req_thesis" class="error_message"/>
+                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Priority programs</p>
+                <Field type="number" name="ched" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_ched" :rules="validateData"/>
+                <ErrorMessage name="ched" class="error_message"/>
+
+                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Non-priority program</p>
+                <Field type="number" name="neither" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_neither" :rules="validateData"/>
+                <ErrorMessage name="neither" class="error_message"/>
 
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
+                <span class="flex items-center mt-6 gap-2">
+                        <p class="text-0.9 font-Subheader text-gray-500 ">Upload Supported File</p>
+                        <i class="tooltip tooltip-right"  data-tip="Submit relevant documents to verify the information provided">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </i>
+                </span>                 
                 <input type="file" class="file-input file-input-bordered w-full mt-2" />
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn w-2/12 bg-white border-0">Add</button>
                 </span>
-
-                </Form>
+            </Form>
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
@@ -164,20 +179,20 @@
                         <th class="text-0.9">Campus</th> 
                         <th class="text-0.9">Department</th> 
                         <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">Requiring Thesis/Dissertation</th> 
-                        <th class="text-0.9">Not Requiring Thesis/Dissertation</th> 
+                        <th class="text-0.9">CHED-identified and RDC-identified priority programs</th> 
+                        <th class="text-0.9">Neither</th> 
                         <th></th>
  
                     </tr>
                     </thead> 
                     <tbody>
                     <tr v-for="(item,index) in sampleData">
-                        <th>{{ item.tb_id }}</th> 
+                        <th>{{item.tb_id}}</th> 
                         <td>{{item.tb_campus}}</td> 
                         <td>{{item.tb_department}}</td> 
-                        <td>{{item.tb_program }}</td>  
-                        <td>{{item.tb_reqThesis }}</td> 
-                        <td>{{item.tb_notReqThesis }}</td> 
+                        <td>{{item.tb_program}}</td> 
+                        <td>{{item.tb_ched}}</td> 
+                        <td>{{item.tb_neither}}</td> 
                         <td class="flex items-center gap-4 "> 
                             <button class="mt-2">
                                 <i class="text-sky-500">
@@ -195,7 +210,6 @@
                                 </i>    
                             </button>
                         </td>
-                 
                     </tr>
 
                 </tbody>
@@ -210,8 +224,7 @@
                         </i>
                         <p>Submit</p>
                         
-                    </button>
-                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
+                    </button>                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
                         
                         <div class="modal-box" >
                             <h3 class="font-bold text-lg">Reminder</h3>
@@ -233,6 +246,7 @@
 
     </div>
 </template>
+
 <style scoped>
         .active{
             display: flex;
@@ -255,4 +269,5 @@
             color: red;
             font-size: .9rem;
         }
+        
 </style>
