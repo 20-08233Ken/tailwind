@@ -1,5 +1,13 @@
+<script src="../Scripts/Login.js">
+</script>
+
 <template>
     <main class="w-full flex"> 
+
+        <div :class="{'isCorrect':loginError===true, 'notCorrect':loginError === false}">
+            <AuthenticationModal/>
+        </div>
+        <!-- Left Section -->  
         <section class="w-8/12 flex flex-col h-dvh px-16 justify-center" style="background-color: #f5f5f5;">
 
             <span class="w-full flex flex-col items-center justify-center " style="position: relative;">
@@ -18,28 +26,32 @@
             <p class="mt-8 w-10/12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vulputate tortor non elit pellentesque, ac finibus ante fringilla. Maecenas nibh mauris, consequat sed elit sit amet, gravida faucibus metus. </p>
         </section>
 
+
+
+        <!-- Login Section -->
         <section class="w-4/12 flex flex-col items-center justify-center">
             
                 <img src="../assets/img/school.png" alt="" style="width: 40%;margin: -20% 0 1rem 0;">
             
-                <p class ="text-gray-500" style="width: 80%; font-size: 15px;">Username</p>
-                <input type="text" id="username" >
+                <Form class="flex flex-col w-full items-center" @submit="validateData">
 
-                <p class ="text-gray-500 mt-6" style="width: 80%; font-size: 15px;">Password</p>
-                <input type="password" id="password">
+                    <p class ="text-gray-500" style="width: 80%; font-size: 15px;">Username</p>
+                    <Field type="text" name="username" id="username" v-model="form.username"  :rules="validateData"></Field>
+                    <ErrorMessage name="username" class="error_message" ></ErrorMessage>
 
-                <router-link 
-                        :to="{
-                            name:'home',
-                            query:{
-                                user:'dean'
-                            }
-                        }"
-                        class=" w-full flex justify-center">
-                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px;">  
+                    <p class ="text-gray-500 mt-6" style="width: 80%; font-size: 15px;">Password</p>
+                    <Field type="password"  name="password" id="password" v-model="form.password" :rules="validateData"></Field>
+                    <ErrorMessage name="password" class="error_message"></ErrorMessage>
+
+          
+                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px; " @click="getLoginData">  
                     Login as Dean         
                 </button>
-                </router-link>
+           
+                </Form>
+
+
+             
 
                 
                 <router-link to="/home"  class=" w-full flex justify-center">
@@ -62,5 +74,19 @@
     padding: .7em 1rem;
 }
 
+.error_message{
+    width: 80%;
+            color: red;
+            font-size: .9rem;
+        }
+
+.notCorrect{
+    display: flex;
+    
+}
+
+.isCorrect{
+    display: none;
+}
 
 </style>
