@@ -1,5 +1,4 @@
-<script src="../Scripts/Login.js">
-</script>
+
 
 <template>
     <main class="w-full flex"> 
@@ -90,3 +89,6 @@
 }
 
 </style>
+
+<script src="../Scripts/Login.js">
+</script>

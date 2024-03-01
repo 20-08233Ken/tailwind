@@ -46,12 +46,18 @@ export default{
                 this.loginError =true
             },1500)
         },
+
+
+        // Modify this Part for API callback
         async submitData(){
             const {userData} = (await axios.post('',this.form)).
             then(response =>{
+
+                // Handle the response data and cookies from the server
                 console.log(response.data);
 
-                // If Form data is equal and cookies is provided
+
+                // if there is cookies push the user to home
 
                 this.$router.push('/home');
             }).

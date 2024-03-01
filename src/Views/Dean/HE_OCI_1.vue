@@ -1,11 +1,14 @@
 <script>
     import { Form, Field,ErrorMessage } from 'vee-validate';
+    import notification from '../../components/Others/notification.vue';
+
     export default{
 
         components:{
             Form,
             Field,
-            ErrorMessage
+            ErrorMessage,
+            notification
         },
         data(){
             return{
@@ -111,17 +114,34 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         <span class="text-white">Data Addedd Successfully!</span>
     </div>
-    <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Passed first-time licensure exam takers</h1>
-    <p class="w-full text-center text-gray-400">College of Engineering</p>
-    <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
+
+    <div class="flex  shadow-card2 py-8 px-8 rounded-lg gap-4 bg-gray-700">
+
+        <i class="mt-4" style="color: #BEFFF7;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+            </svg>
+        </i>
+        <span class="flex flex-col justify-center  w-9/12">
+            <h1 class="w-full  font-Header text-lg text-white">Percentage of first-time licensure exam takers that pass the licensure exams</h1>
+        </span>
+
+        <span class="flex w-3/12 items-center justify-end">
+            <notification/>
+        </span>
+    </div>
+    
 
 
 
 
 
-    <div class="w-full overflow-x-auto">
-        <div role="tablist" class="tabs tabs-lifted">
-            <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
+    <div class="w-full overflow-x-auto shadow-card2 mt-4 px-4 py-4 rounded-lg">
+        <p class="w-full text-center text-gray-400">Higher Education Program: Outcome Indicator 1</p>
+        <p class="w-full text-center text-gray-400">College of Engineering</p>
+
+        <div role="tablist" class="tabs tabs-lifted mt-8">
+            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <Form @submit="addData">

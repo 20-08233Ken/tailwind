@@ -59,7 +59,7 @@
 
         <div class="w-7/12 flex justify-end gap-4">
 
-            <div class="w-full flex shadow-card2 px-16 py-16 mt-4">
+            <div class="w-full flex  px-16 py-16 mt-4">
                 <span class="flex w-full flex-col   ">
                     <component :is="currentComponent"></component>
                 </span>

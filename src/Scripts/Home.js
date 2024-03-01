@@ -63,7 +63,7 @@ export default{
 
         this.cookies
         .set('userCookies','random_key','1hr')
-        .set('userPosition','Dean','1hr');
+        .set('userPosition','Planning','1hr');
         let userCookies = this.cookies.get('userCookies');
         let userPosition = this.cookies.get('userPosition');
         console.log("userCookies",userCookies)
