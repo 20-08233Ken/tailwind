@@ -1,11 +1,13 @@
 <script>
     import {Form, Field, ErrorMessage} from 'vee-validate'
+    import notification from '../../components/Others/notification.vue';
 
     export default{
         components:{
             Form,
             Field,
-            ErrorMessage
+            ErrorMessage,
+            notification
         }, 
         data(){
             return{
@@ -112,23 +114,41 @@
         <span class="text-white">Data Addedd Successfully!</span>
     </div>
 
-    <h1 class="w-full text-center font-Header text-xl text-Red-Rose"> Graduate programs with accreditation</h1>
-    <p class="w-full text-center text-gray-400">College of Engineering</p>
-    <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
+    <!-- <h1 class="w-9/12 self-center text-center font-Header text-xl text-Red-Rose"> Percentage of accredited graduate programs</h1>
+    <p class="w-full text-center text-gray-400">Advanced Education Program: Output Indicator 2</p>
+    <p class="w-full text-center text-gray-400">College of Engineering</p> -->
+
+    <div class="flex  shadow-card2 py-8 px-8 rounded-lg gap-4 bg-gray-700">
+        <i class="mt-4" style="color: #BEFFF7;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+            </svg>
+        </i>
+        <span class="flex flex-col justify-center w-9/12">
+            <h1 class="w-full  font-Header text-lg text-white">Percentage of accredited graduate programs</h1>
+        </span>
+
+        <span class="flex w-3/12 items-center justify-end">
+            <notification/>
+        </span>
+    </div>
 
 
 
-    <div class="w-full overflow-x-auto">
+    <div class="w-full overflow-x-auto shadow-card2 mt-4 px-4 py-4 rounded-lg">
+
+        <p class="w-full text-center text-gray-400">Advanced Education Program: Output Indicator 2</p>
+        <p class="w-full text-center text-gray-400">College of Engineering</p> 
         <div role="tablist" class="tabs tabs-lifted">
-            <input type="radio" name="my_tabs_2" role="tab" class="tab mt-16 font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
+            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Form" checked/>
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                 
                 <Form @submit="addData">
                     <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
                     <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                    <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
+                    <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/> -->
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
                     <Field as="select"  name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
@@ -139,12 +159,12 @@
 
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of Initial Operation</p>
-                    <Field type="number" name="operation" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_operation" :rules="validateData"/>
+                    <Field type="number" min="0" name="operation" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_operation" :rules="validateData"/>
                     <ErrorMessage name="operation" class="error_message"/>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of First Batch of Graduates</p>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of First Batch of Graduates</p>
                     <Field type="number" name="graduates" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_graduates" :rules="validateData"/>
-                    <ErrorMessage name="graduates" class="error_message"/>
+                    <ErrorMessage name="graduates" class="error_message"/> -->
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Status</p>
                     <Field as="select" name="status" class="select select-bordered w-full mt-2" v-model="in_status" :rules="validateData">
@@ -161,7 +181,7 @@
 
 
                     <span class="flex items-center mt-6 gap-2">
-                        <p class="text-0.9 font-Subheader text-Red-Rose text-lg ">Period of Validity</p>
+                        <p class="text-0.9 font-Subheader text-Red-Rose text-lg ">Validity of Accreditation</p>
                         <i class="tooltip tooltip-right"  data-tip="Provide the Validity of Accreditation of each program. Refer to the issued accreditation certificate">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
@@ -181,9 +201,9 @@
                         </span>
                     </span>
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Remarks</p>
+                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Remarks</p>
                     <Field type="text" name="remarks" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_remarks" :rules="validateData"/>
-                    <ErrorMessage name="remarks" class="error_message"/>
+                    <ErrorMessage name="remarks" class="error_message"/> -->
 
 
                     <span class="flex items-center mt-6 gap-2">

@@ -20,7 +20,7 @@ import Login from '../Views/Login.vue'
 
 import Offices from '../Views/Planning/Offices.vue'
 import Dean from '../Views/Dean/Dean.vue'
-import Profile from '../Views/Planning/Profile.vue'
+import Profile from '../Views/Planning//Profile/Profile.vue'
 import FormA from '../components/Form/ModifiedFormA.vue'
 import FormA_1 from '../components/Form/ModifiedFormA_1.vue'
 
