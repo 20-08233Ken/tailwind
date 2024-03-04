@@ -275,32 +275,5 @@
 </template>
 
 <style scoped>
-        .active{
-            display: flex;
-            flex-direction: column;
-        }
-
-        .inActive{
-            display: none;
-        }
-
-        .iconActive{
-            display: flex;
-
-        }
-        .iconInActive{
-            display: none;
-        }
-
-        .empty{
-            display: flex;
-        }
-        .notEmpty{
-            display: none;
-        }
-
-        .error_message{
-            color: red;
-            font-size: .9rem;
-        }
+    @import url('../../style/Dean/HE_OCI_1_style.css');
 </style>

@@ -305,24 +305,6 @@
 </template>
 
 <style scoped>
-        .active{
-            display: flex;
-            flex-direction: column;
-        }
+        @import url('../../style//Dean/HE_OCI_2_style.css');
 
-        .inActive{
-            display: none;
-        }
-        .iconActive{
-            display: flex;
-
-        }
-        .iconInActive{
-            display: none;
-        }
-
-        .error_message{
-            color: red;
-            font-size: .9rem;
-        }
 </style>

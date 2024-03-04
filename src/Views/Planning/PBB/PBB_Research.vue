@@ -1,119 +1,16 @@
-<script>
-    import PBB_sideNav from '../../../components/Others/PBB_sideNav.vue';
-    import Navigation from '../../../components/Others/Navigation.vue';
-    export default{
-        data(){
-            return{
-                OCI_1:[
-                    {
-                        status:"submitted",
-                        title:"BSED September 2021",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"submitted",
-                        title:"Elementary Education September 2021",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"	Accountancy December 2021",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"Nutritionist Dietitian October 2021",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"submitted",
-                        title:"Nursing November 2021",
-                        date:"07-12-2023"
-                    },
-                ],
-                OPI_1:[
-                    {
-                        status:"submitted",
-                        title:"Annex A Board Resolutions",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"submitted",
-                        title:"Annex B Enrollment List - Pablo Borbon",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"	Enrollment List -Alangilan",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"Enrollment List - ARASOF-Nasugbu",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"Enrollment List - JLPC Malvar",
-                        date:"07-12-2023"
-                    }
-                    
-                ],
-                OPI_2:[
-                    {
-                        status:"submitted",
-                        title:"Summary of Accre Cert for Main I revised",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"submitted",
-                        title:"Summary Accre Cert for Main II",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"	BatStateU Accreditation Schedule for FY 2022",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"submitted",
-                        title:"2020 ACCUP Technical Review and Board Action",
-                        date:"07-12-2023"
-                    },
-                    {
-                        status:"not submitted",
-                        title:"2021 ACCUP Technical Review and Board Action",
-                        date:"07-12-2023"
-                    }
-                    
-                ]
-
-            }
-        },
-        methods:{
-            getStatusColor(status){
-                return status === "submitted" ? "green":"red";
-            }
-        },
-        components:{
-            PBB_sideNav,
-            Navigation
-
-        }
-    }
-
+<script src="../../../Scripts/Planning/PBB/PBB_Research.js">
 </script>
+
 
 <template>
 
     <main class="w-flex flex flex-col w-full">
-        <Navigation/>
+        <Planning_nav/>
 
         <section class="w-full flex  px-6vw pt-6vw">
             <div class="w-2/4">
                 <h1 class="font-Header text-4xl text-Red-Darken">Quarterly Physical Report of Operation</h1>
-                <h4 class="font-Subheader text-Red-Rose">Current Quarter: Q1</h4>
-                <p>FY 2023</p>
+
             </div>
 
             <div class="flex gap-1 w-2/4 justify-end items-center">
@@ -270,40 +167,6 @@
 </template>
 
 <style scoped>
-    table,tr, td{
-        border-collapse: collapse;
-      
-    }
-    td{
-        padding:10px 0 ;
-    }
-    td:first-child{
-        width:5%;
-    
-    }
-    td:nth-child(2){
-        width:70%;
-        padding-left: 2%;
-      
-    }
-
-    td:last-child{
-       
-        width:15%;
-        text-align: center;
-       
-    }
-    #HE_OCI_1 > tr >td >span{
-            display: flex;
-             width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-left: 50%;
-            background-color: red;
-    }
-
-    #HE_OCI_1 tr:nth-child(even){
-        background-color: #f2f2f2;
-    }
-    
+   
+   @import url('../../../style/Planning/PBB/PBB_Research.css');
     </style>

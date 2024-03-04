@@ -1,5 +1,25 @@
-<script setup>
+<script>
     import { Field,Form, ErrorMessage } from 'vee-validate';
+
+    export default{
+        components:{
+          
+            Field,
+            Form,
+            ErrorMessage,
+          
+        },
+
+        methods:{
+            validateData(value){
+                if(!value){
+                    return 'This field is required'
+                }
+
+                return true
+            }
+        }
+    }
 </script>
 
 <template>
@@ -13,6 +33,7 @@
                 </i>
                 Add User
     </button>
+    
     <dialog id="addUser_modal" class="modal">
         <div class="modal-box">
             <form method="dialog">
@@ -28,10 +49,14 @@
 
             
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">First Name</p>
-                    <Field type="text" name="fname" placeholder="Type here"  class="input mt-2 input-bordered w-full "/>
+                    <Field type="text" name="fname" placeholder="Type here"  class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="fname" class="error_message"/>
+
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">Last Name</p>
-                    <Field type="text" name="lname" placeholder="Type here"  class="input mt-2 input-bordered w-full "/>
+                    <Field type="text" name="lname" placeholder="Type here"  class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <ErrorMessage name="lname" class="error_message"/>
+
             
 
                     <p class="flex items-center gap-2 text-Red-Darken font-Subheader mt-8"> 
@@ -44,25 +69,31 @@
                     
                     <span class="flex flex-col w-2/4">  
                         <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                        <Field as="select"  name="campus" class="select select-bordered  mt-2" >
+                        <Field as="select"  name="campus" class="select select-bordered  mt-2" :rules="validateData">
                             <option disabled selected>Select Program ...</option>
                         </Field>
+                        <ErrorMessage name="campus" class="error_message"/>
+
                     </span>  
 
                     <span class="flex flex-col w-2/4">  
                         <p class="text-0.9 font-Subheader text-gray-500 ">Office</p>
-                        <Field as="select"  name="office" class="select select-bordered mt-2" >
+                        <Field as="select"  name="office" class="select select-bordered mt-2"  :rules="validateData">
                             <option disabled selected>Select Office ...</option>
                         </Field>
+                        <ErrorMessage name="office" class="error_message"/>
+
                     </span>  
 
                 </span>
 
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">Position</p>
-                    <Field as="select"  name="postion" class="select select-bordered mt-2 w-full" >
+                    <Field as="select"  name="postion" class="select select-bordered mt-2 w-full" :rules="validateData">
                             <option disabled selected>Select Position ...</option>
                     </Field>
+                    <ErrorMessage name="postion" class="error_message"/>
+
 
                     <span class="flex w-full mt-4">
                         <div class="badge bg-Red-Darken text-white gap-2 text-0.8 py-3 px-4">
@@ -80,7 +111,6 @@
 
                     <span class="w-full flex justify-end mt-4">
                         <button class="btn btn-success text-white w-3/12">Add</button>
-
                     </span>
     
             </Form>
@@ -93,3 +123,11 @@
     </dialog>
 
 </template>
+
+
+<style scoped>
+.error_message{
+    color: red;
+    font-size: .9rem;
+}
+</style>

@@ -33,6 +33,9 @@ import TechnicalExtension from '../Views/Extension/extension.vue'
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
 import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
+
+import validateMain from '../Views/Planning/Validate/validate_main.vue'
+
 const router = createRouter ({
 
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -180,7 +183,11 @@ const router = createRouter ({
             component:Higher
 
         },
-        
+        {
+            path:'/validateMain',
+            name:'validateMain',
+            component:validateMain
+        }
      
 
         

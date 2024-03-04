@@ -6,6 +6,8 @@
     import ResearchServices from './Indicators/ResearchServices.vue';
     import PBB_sideNav from '../../components/Others/PBB_sideNav.vue';
 
+    import Planning_nav from '../../components/Others/Navigation/Planning_nav.vue';
+
     import {markRaw} from 'vue'
 
     const raw_HigherEd = markRaw(HigherEd);
@@ -22,7 +24,8 @@
             HigherEd,
             AdvanceEd,
             PBB_sideNav,
-            ResearchServices
+            ResearchServices,
+            Planning_nav
 
         },
         watch:{
@@ -63,7 +66,7 @@
 
 <template>
     <main class="w-full flex flex-col">
-        <Navigation/>
+        <Planning_nav/>
 
         <section class="w-full flex  px-6vw pt-6vw">
             <div class="w-2/4">
