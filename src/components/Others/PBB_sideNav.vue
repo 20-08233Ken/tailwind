@@ -1,22 +1,23 @@
 <template>
 
 <h4 class="w-8/12 bg-Red-Darken text-white px-4 py-1">Perfomance Results</h4>
-                    <ul class="flex flex-col px-4">
+                    <span class="flex flex-col px-4">
 
                         <router-link to="/PPB_Higher">
-                        <li class="py-1 w-8/12 "> Higher Education</li>
+                        <h1 class="py-1 w-8/12 "> Higher Education</h1>
                         </router-link>
+                        
 
                         <router-link to="/PPB_Adv">
-                        <li class="py-1 w-8/12 "> Advanced Education</li>
+                        <h1 class="py-1 w-8/12 "> Advanced Education</h1>
                         </router-link>
 
                         <router-link to="/PBB_Research">
-                        <li class="py-1 w-8/12 "> Research Services</li>
+                        <h1 class="py-1 w-8/12 "> Research Services</h1>
                         </router-link>
-                        <li class="py-1 w-8/12 "> Technical Advisory Extension</li>
+                        <h1 class="py-1 w-8/12 "> Technical Advisory Extension</h1>
                        
-                    </ul>
+                    </span>
 
                 <h4 class="w-8/12 bg-Red-Darken text-white px-4 py-1 mt-6">Process Results</h4>
                     <p class="px-4 py-1 w-8/12 ">Re-certification of the QMS</p>  

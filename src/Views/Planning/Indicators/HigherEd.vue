@@ -1,31 +1,5 @@
-<script>
-    import OPI from '../HigherEducation/OPI.vue';
-    import OCI from '../HigherEducation/OCI.vue';
-import PBB_Summary2 from '../PBB/PBB_Summary2.vue';
+<script src="../../../Scripts/Planning/PBB/Indicators/HigherEd.js">
 
-    import {markRaw} from 'vue'
-
-    const hold_OCI = markRaw(OCI);
-    const hold_OPI = markRaw(OPI);
-    export default{
-        data(){
-            return{
-                currentComponent:OPI,
-                activeButton:1
-            };
-        },
-        components:{
-            OCI,
-            OPI
-        },
-        methods:{
-            showComponent(componentName, btnNumber){
-                this.currentComponent = componentName
-                this.activeButton = btnNumber
-            }
-
-        }
-    }
 </script>
 
 <template>
@@ -59,7 +33,7 @@ import PBB_Summary2 from '../PBB/PBB_Summary2.vue';
                     </ul>
                 </div>
         <p class="text-Red-Rose text-xl font-Header">Higher Education</p>
-
+           
         <span class="w-100 flex mt-4 gap-3">
             <span class="w-full flex mt-4 gap-3">
                 <button :class="{'active':activeButton===1}" @click="showComponent('OPI',1)" class="border-1 w-3/12 py-2 px-2 rounded-md bg-white ">Output Indicator</button>

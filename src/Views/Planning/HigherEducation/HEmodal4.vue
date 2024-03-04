@@ -1,6 +1,6 @@
 <template>
-    <button class="btn bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2" onclick="my_modal_4.showModal()">View</button>
-    <dialog id="my_modal_4" class="modal">
+    <button class="btn btn-sm  bg-Red-Rose text-white w-3/12" onclick="HEmodal4.showModal()">View</button>
+    <dialog id="HEmodal4" class="modal">
 
     <div class="modal-box w-11/12 max-w-full">
         <h3 class="font-Header text-Red-Rose text-lg">Performance Result: Higher  Education Program</h3>

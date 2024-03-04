@@ -1,57 +1,11 @@
-<script >
-    import Navigation from '../../components/Others/Navigation.vue';
-
-    export default{
-        data(){
-            return{
-                offices:[
-                {
-                        office:"KSIT Park Development Office"
-                    },
-                    {
-                        office:"ACTION Center"
-                    },
-                    {
-                        office:"Office of the Secretary"
-                    },
-                    {
-                        office:"Office of the Board of Regents"
-                    },
-                    {
-                        office:"Office of Internal Services"
-                    },
-                    {
-                        office:"Presedential Project Management Office"
-                    },
-                    {
-                        office:"Center for Innovation in Engineering Education"
-                    },
-                    {
-                        office:"Office of Sports"
-                    },
-                    {
-                        office:"Curriculum and Instruction Office"
-                    },
-                    {
-                        office:"Student Affairs and Services Office"
-                    },
-                    {
-                        office:"Testing and Admission Office"
-                    },
-
-                ]
-            }
-        },
-        components:{
-            Navigation
-        }
-    }
+<script src="../../Scripts/Planning/Dataset.js">
+    
 
 </script>
 
 <template>
     <main class="flex w-full flex-col bg-grey-2">
-        <Navigation/>
+        <Planning_nav/>
 
         <section class="flex pt-6vw pb-3vw px-6vw w-full sm:flex-col">
             <span class="flex flex-col w-2/4 sm:w-full">
@@ -121,11 +75,5 @@
 </template>
 
 <style scoped>
-    #office > ul >li{
-        font-size: 14px;
-    }
-
-    #office-2 > ul >li{
-        font-size: 14px;
-    }
+    @import url('../../style/Planning/Dataset_style.css');
 </style>

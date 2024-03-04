@@ -64,30 +64,7 @@
 </template>
 
 <style scoped>
-#username,
-#password
-{
-    border: 1px solid rgb(207, 203, 203);
-    width: 80%;
-    border-radius: 5px;
-    padding: .7em 1rem;
-}
-
-.error_message{
-    width: 80%;
-            color: red;
-            font-size: .9rem;
-        }
-
-.notCorrect{
-    display: flex;
-    
-}
-
-.isCorrect{
-    display: none;
-}
-
+    @import url('../style/Login_style.css');
 </style>
 
 <script src="../Scripts/Login.js">
