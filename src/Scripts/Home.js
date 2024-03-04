@@ -13,6 +13,8 @@ import Footer from '../Views/Footer.vue'
 import Navigation from '../components/Others/Navigation.vue'
 import Dean_nav from '../components/Others/Navigation/Dean_nav.vue'
 import Planning_nav from '../components/Others/Navigation/Planning_nav.vue'
+import Registrar_nav from '../components/Others/Navigation/Registrar_nav.vue'
+import QAM_nav from '../components/Others/Navigation/QAM_nav.vue'
 
 import { useCookies } from 'vue3-cookies';
 import { ref } from 'vue'
@@ -47,7 +49,9 @@ export default{
         Footer,
         Navigation,
         Dean_nav,
-        Planning_nav
+        Planning_nav,
+        Registrar_nav,
+        QAM_nav
     },  
       methods:{
         showActive(componentName,tabNumber){
@@ -60,7 +64,9 @@ export default{
 
 
     mounted(){
-
+        // userCookies Value
+        // [1] Dean , [2] Registrar, [3] QAM
+        // [4] Planning
         this.cookies
         .set('userCookies','random_key','1hr')
         .set('userPosition','Planning','1hr');

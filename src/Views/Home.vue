@@ -8,7 +8,8 @@
                 <!-- <Navigation/>  -->
                 <Dean_nav  v-if="user == 'Dean'"/>
                 <Planning_nav  v-if="user === 'Planning'"/>
-              
+                <Registrar_nav  v-if="user === 'Registrar'"/>
+                <QAM_nav  v-if="user === 'QAM'"/>
 
                
             <section class="flex flex-col justify-center w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw ">
