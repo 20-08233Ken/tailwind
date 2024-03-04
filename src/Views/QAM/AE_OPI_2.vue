@@ -151,7 +151,7 @@
                     <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/> -->
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Program</p>
-                    <Field as="select"  name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
+                    <Field as="select"  name="program" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_program" :rules="validateData">
                         <option disabled selected>Select Program ...</option>
                         <option v-for="x in collegeProgram" :value="x.program">{{x.program }}</option>
                     </Field>
@@ -159,7 +159,7 @@
 
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of Initial Operation</p>
-                    <Field type="number" min="0" name="operation" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_operation" :rules="validateData"/>
+                    <Field type="number" min="0" name="operation" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_operation" :rules="validateData"/>
                     <ErrorMessage name="operation" class="error_message"/>
 
                     <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Year of First Batch of Graduates</p>
@@ -167,7 +167,7 @@
                     <ErrorMessage name="graduates" class="error_message"/> -->
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Status</p>
-                    <Field as="select" name="status" class="select select-bordered w-full mt-2" v-model="in_status" :rules="validateData">
+                    <Field as="select" name="status" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_status" :rules="validateData">
                         <option disabled selected>Select Status...</option>
                         <option value="Candidate">Candidate</option>
                         <option value="Level 1">Level 1</option>
@@ -191,12 +191,12 @@
                     <span class="w-full flex gap-2">
                         <span class="w-2/4">
                             <p class="text-0.9 font-Subheader text-gray-500 mt-4">From</p>
-                            <Field type="date" name="validity_from" placeholder=" " class="input mt-2 input-bordered w-full " v-model="in_from" :rules="validateData"/>
+                            <Field type="date" name="validity_from" placeholder=" " class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_from" :rules="validateData"/>
                             <ErrorMessage name="validity_from" class="error_message"/>
                         </span>
                         <span class="w-2/4">
                             <p class="text-0.9 font-Subheader text-gray-500 mt-4">To</p>
-                            <Field type="date" name="validity_to" placeholder="" class="input mt-2 input-bordered w-full " v-model="in_to" :rules="validateData"/>
+                            <Field type="date" name="validity_to" placeholder="" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_to" :rules="validateData"/>
                             <ErrorMessage name="validity_to" class="error_message"/>
                         </span>
                     </span>
@@ -214,7 +214,7 @@
                             </svg>
                         </i>
                     </span> 
-                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                    <input type="file" class="file-input file-input-bordered w-full mt-2"  style="border:  1px solid #d2d2d2;"/>
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
                         <button class="btn w-2/12 bg-white border-0">Add</button>

@@ -139,13 +139,13 @@
                     <Form @submit="addData">
 
                     <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
+                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="data[0].in_campus" :rules="validateData"/>
 
                     <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
                     <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department" :rules="validateData"/> -->
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Program</p>
-                    <Field as="select"  name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
+                    <Field as="select"  name="program" class="select select-bordered w-full mt-2"  style="border:  1px solid #d2d2d2;" v-model="in_program" :rules="validateData">
                         <option disabled selected>Select Program ...</option>
                         <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
                     </Field>
@@ -162,11 +162,11 @@
                     </span>      
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Priority programs</p>
-                    <Field type="number" name="ched" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_ched" :rules="validateData"/>
+                    <Field type="number" name="ched" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_ched" :rules="validateData"/>
                     <ErrorMessage name="ched" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Non-priority program</p>
-                    <Field type="number" name="neither" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_neither" :rules="validateData"/>
+                    <Field type="number" name="neither" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_neither" :rules="validateData"/>
                     <ErrorMessage name="neither" class="error_message"/>
 
 
@@ -178,7 +178,7 @@
                                 </svg>
                             </i>
                     </span>                 
-                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                    <input type="file" class="file-input file-input-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" />
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
                         <button class="btn w-2/12 bg-white border-0">Add</button>

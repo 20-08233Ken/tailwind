@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-sm  bg-Red-Rose text-white w-3/12" onclick="HEmodal4.showModal()">View</button>
+    <button class="btn bg-Red-Rose text-white w-3/12 btn-sm" onclick="HEmodal4.showModal()">View</button>
     <dialog id="HEmodal4" class="modal">
 
     <div class="modal-box w-11/12 max-w-full">

@@ -54,112 +54,110 @@
                     </ul>
                 </div>
             
-                <h3 class="font-Header text-Red-Rose text-xl">Advanced Education</h3>
+                <span class="w-full flex justify-between items-center">  
+                    <h3 class="font-Header text-Red-Rose text-xl">Advanced Education Logs</h3>
+
+                    <span class="flex  justify-end ">
+                        <router-link 
+                            :to="{
+                                name:'PBB_Summary',
+                                query:{
+                                    program:'PBB_Summary3'
+                                }
+                                }"
+                        >
+                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
+                        </router-link>
+                    </span>
+
+                </span>
 
 
                 <!-- Advanced Education Outcome Indicator 1 -->
 
                 <div class="w-full flex-col overflow-x-auto">
-                    <h4 class="flex gap-4 items-center mt-4 font-Subheader"> 
-                        <span class="text-green-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                            </svg>
-                        </span>
-                        Outcome Indicator 1: Percentage of graduate school faculty engaged in research work
-                    </h4>
-
-                    <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x, index) in AE_OCI_1" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
-                            <td>{{ x.title }}</td>
-                            <td>{{x.date}}</td>
-                        </tr>
-                    </table>
-
-                    <span class="flex w-full gap-4 justify-end mt-4">
-                        <router-link 
-                            :to="{
-                                name:'PBB_Summary',
-                                query:{
-                                    program:'PBB_Summary3'
-                                }
-                                }"
-                        >
-                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
-                        </router-link>
-                    </span>
-                </div>
-
-                
-                <!-- Advanced Education Output Indicator 1 -->
-
-                <div class="w-full flex-col mt-8 overflow-x-auto">
-                    <h4 class="flex gap-4 items-center mt-4 font-Subheader">
-                        <span class="text-Red-Rose">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                        </span>
-                        Outcome Indicator 1 (State Universities): Percentage of graduate students enrolled in research degree program
-                    </h4>
-                    <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x,index) in AE_OPI_1" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
-                            <td>{{ x.title }}</td>
-                            <td>{{ x.date}}</td>
-                        </tr>
-     
-
-                    </table>
-
-                    <span class="flex w-full gap-4 justify-end mt-4">
-                        <router-link 
-                            :to="{
-                                name:'PBB_Summary',
-                                query:{
-                                    program:'PBB_Summary3'
-                                }
-                                }"
-                        >
-                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
-                        </router-link>
-                    </span>
-
-                </div>
+                    <v-expansion-panels class="mt-4 ">
+                        <v-expansion-panel>
+                            <v-expansion-panel-title >
+                                <h4 class="flex gap-4 items-center  font-Subheader"> 
+                                    <span class="text-green-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                                        </svg>
+                                    </span>
+                                    Outcome Indicator 1: Percentage of graduate school faculty engaged in research work
+                                </h4>
+                            </v-expansion-panel-title>
+                            <v-expansion-panel-text>
+                                <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
+                                    <tr v-for="(x, index) in AE_OCI_1" :key="index">
+                                        <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
+                                        <td>{{ x.title }}</td>
+                                        <td>{{x.date}}</td>
+                                    </tr>
+                              </table>
+                            </v-expansion-panel-text>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
 
 
-                <!-- Advanced Education Output Indicator 2 -->
-                <div class="w-full flex-col mt-8 overflow-x-auto">
-                    <h4 class="flex gap-4 items-center mt-4 font-Subheader">
-                        <span class="text-Red-Rose">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                        </span>
-                        Output Indicator 2: Percentage of graduate programs with accreditation
-                    </h4>
+                    <v-expansion-panels class="mt-4 ">
+                        <v-expansion-panel>
+                            <v-expansion-panel-title >
+                                <h4 class="flex gap-4 items-center  font-Subheader"> 
+                                    <span class="text-green-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                                        </svg>
+                                    </span>
+                                    Outcome Indicator 1 (State Universities): Percentage of graduate students enrolled in research degree program
+                                </h4>
+                            </v-expansion-panel-title>
+                            <v-expansion-panel-text>
+                                <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
+                                    <tr v-for="(x,index) in AE_OPI_1" :key="index">
+                                        <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
+                                        <td>{{ x.title }}</td>
+                                        <td>{{ x.date}}</td>
+                                    </tr>
+                                </table>
+                            </v-expansion-panel-text>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
 
-                    <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
-                        <tr v-for="(x, index) in AE_OPI_2" :key="index">
-                            <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
-                            <td>{{ x.title }} </td>
-                            <td>{{x.date}}</td>
-                        </tr>
-    
-                    </table>
-                    <span class="flex w-full gap-4 justify-end mt-4">
-                        <router-link 
-                            :to="{
-                                name:'PBB_Summary',
-                                query:{
-                                    program:'PBB_Summary3'
-                                }
-                                }"
-                        >
-                        <button class="bg-Red-Rose text-white text-sm w-24 py-1 rounded-xl"> View</button>
-                        </router-link>
-                    </span>
+                    <v-expansion-panels class="mt-4 ">
+                        <v-expansion-panel>
+                            <v-expansion-panel-title >
+                                <h4 class="flex gap-4 items-center  font-Subheader"> 
+                                    <span class="text-green-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                                        </svg>
+                                    </span>
+                                    Output Indicator 2: Percentage of graduate programs with accreditation
+                                </h4>
+                            </v-expansion-panel-title>
+                            <v-expansion-panel-text>
+                                <table class="table-zebra mt-4 w-full " id="HE_OCI_1">
+                                    <tr v-for="(x, index) in AE_OPI_2" :key="index">
+                                        <td><span :style="{backgroundColor: getStatusColor(x.status)}" id="status_icon"></span></td>
+                                        <td>{{ x.title }} </td>
+                                        <td>{{x.date}}</td>
+                                    </tr>
+                                </table>
+                            </v-expansion-panel-text>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
+
+
+
+
+
+
+
+
+
+ 
                 </div>
                 
             </div>

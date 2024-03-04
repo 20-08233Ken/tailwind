@@ -147,29 +147,29 @@
                 <Form @submit="addData">
 
                     <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_campus" :rules="validateInput"/>
+                    <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="data[0].in_campus" :rules="validateInput"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
-                    <Field type="text" placeholder="Type here" name="department" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department" :rules="validateInput"/>
+                    <Field type="text" placeholder="Type here" name="department" disabled class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="data[0].in_department" :rules="validateInput"/>
                 
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                    <Field as="select" class="select select-bordered w-full mt-2"  v-model="in_program" name="program" :rules="validateInput">
+                    <Field as="select" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_program" name="program" :rules="validateInput">
                         <option disabled selected>Select Program ...</option>
                         <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
                     </Field>
                     <ErrorMessage name="program" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Exam Date</p>
-                    <Field type="date" placeholder="Type here" class="input mt-2 input-bordered w-full" name="exam_date" v-model="in_examDate" :rules="validateInput"/>
+                    <Field type="date" placeholder="Type here" class="input mt-2 input-bordered w-full" name="exam_date" style="border:  1px solid #d2d2d2;" v-model="in_examDate" :rules="validateInput"/>
                     <ErrorMessage name="exam_date" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Takers</p>
-                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_takers" name="no_takers" :rules="validateInput"/>
+                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_takers" name="no_takers" :rules="validateInput"/>
                     <ErrorMessage name="no_takers" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Passers</p>
-                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" v-model="in_passers" name="no_passers" :rules="validateInput"/>
+                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_passers" name="no_passers" :rules="validateInput"/>
                     <ErrorMessage name="no_passers" class="error_message"/>
 
                   

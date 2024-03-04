@@ -69,16 +69,31 @@
         <Planning_nav/>
 
         <section class="w-full flex  px-6vw pt-6vw">
-            <div class="w-2/4">
+            <div class="w-full flex justify-between">
                 <h1 class="font-Header text-4xl text-Red-Darken">Performanced-Based Bonus</h1>
-                <h4 class="font-Subheader text-Red-Rose">Current Quarter: Q1</h4>
-                <p>FY 2023</p>
+
+                <div class="w-2/4 flex items-center gap-4 justify-end">
+                    <h2 class="font-Subheader mt-2 text-Red-Rose">Year</h2>
+                    <select class="select  w-3/12 mt-2 bg-gray-100">
+                        <option disabled selected>FY 2023</option>
+                        <option>FY 2021</option>
+                        <option>FY 2022</option>
+                        <option>FY 2023</option>
+                    </select>
+
+                    <h2 class="font-Subheader mt-2 text-Red-Rose">Quarter</h2>
+                    <select class="select  w-3/12 mt-2 bg-gray-100">
+                        <option disabled selected>Q1</option>
+                        <option>Q2</option>
+                        <option>Q3</option>
+                        <option>Q4</option>
+                    </select>
+                </div>
+
             </div>
 
-            <div class="flex gap-1 w-2/4 justify-end items-center">
-                <button class="bg-Red-Rose text-white w-3/12 h-10 text-sm rounded-t-lg">Status Dashboard</button>
-                <button class="bg-Red-Rose text-white w-3/12 h-10 text-sm rounded-t-lg">Submit</button>
-            </div>
+
+
 
         </section>
 

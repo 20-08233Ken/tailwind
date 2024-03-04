@@ -1,4 +1,4 @@
-import Dean_nav from '../../components/Others/Navigation/Dean_nav.vue';
+import Registrar_nav from '../../components/Others/Navigation/Registrar_nav.vue';
     import HE_OPI_1 from '../../Views/Registrar/HE_OPI_1.vue';
     import AE_OPI_1 from '../../Views/Registrar/AE_OPI_1.vue';
     import { markRaw } from "vue"
@@ -9,7 +9,7 @@ import Dean_nav from '../../components/Others/Navigation/Dean_nav.vue';
 
 export default{
     components:{
-        Dean_nav,
+        Registrar_nav,
         HE_OPI_1,
         AE_OPI_1,
         activityList

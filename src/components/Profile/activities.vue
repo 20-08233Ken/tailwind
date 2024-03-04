@@ -29,22 +29,22 @@
                     <Form>
                         <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
                         <Field name="campus" type="text" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                         <ErrorMessage name="campus" class="error_message" />
 
                         <p class="text-0.9 font-Subheader text-gray-500 mt-8">Office</p>
                         <Field name="office" type="text" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                         <ErrorMessage name="office" class="error_message " />
 
                         <p class="text-0.9 font-Subheader text-gray-500 mt-8">Activity</p>
                         <Field name="activity" type="text" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                         <ErrorMessage name="activity" class="error_message" />
 
                         <p class="text-0.9 font-Subheader text-gray-500  mt-8">Description</p>
                         <Field name="desc" type="text" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                         <ErrorMessage name="desc" class="error_message " />
 
                         <h1 class="font-Subheader text-Red-Rose mt-8">Activity Calendar</h1>
@@ -52,17 +52,17 @@
                         <span>
                             <p>Start Date</p>
                             <Field name="start_date" type="date" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                             
                             <Field name="desc" type="date" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
  
                             <p>Due Date</p>
                             <Field name="desc" type="date" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
                             
                             <Field name="desc" type="date" placeholder="Type here" 
-                            class="input mt-2 input-bordered w-full "/>
+                            class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"/>
  
                         </span>
                         
