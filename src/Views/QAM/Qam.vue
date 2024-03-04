@@ -1,6 +1,6 @@
 <script>
 
-    import Dean_nav from '../../components/Others/Navigation/Dean_nav.vue';
+    import QAM_nav from '../../components/Others/Navigation/QAM_nav.vue';
     import HE_OPI_2 from './HE_OPI_2.vue';
     import AE_OPI_2 from './AE_OPI_2.vue';
 
@@ -11,7 +11,7 @@
     export default{
 
         components:{
-            Dean_nav,
+            QAM_nav,
             HE_OPI_2,
             AE_OPI_2,
             activityList
@@ -37,7 +37,7 @@
 <template>
     <main class="w-full flex flex-col">
     
-    <Dean_nav/>
+    <QAM_nav/>
 
     <section class="w-full flex gap-8">
         <div class="flex flex-col w-3/12  pl-8 h-dvh">

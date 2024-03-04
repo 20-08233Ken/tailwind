@@ -49,12 +49,12 @@
 
             
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">First Name</p>
-                    <Field type="text" name="fname" placeholder="Type here"  class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <Field type="text" name="fname" placeholder="Type here"  class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" :rules="validateData"/>
                     <ErrorMessage name="fname" class="error_message"/>
 
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">Last Name</p>
-                    <Field type="text" name="lname" placeholder="Type here"  class="input mt-2 input-bordered w-full " :rules="validateData"/>
+                    <Field type="text" name="lname" placeholder="Type here"  class="input mt-2 input-bordered w-full "style="border:  1px solid #d2d2d2;" :rules="validateData"/>
                     <ErrorMessage name="lname" class="error_message"/>
 
             
@@ -69,7 +69,7 @@
                     
                     <span class="flex flex-col w-2/4">  
                         <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
-                        <Field as="select"  name="campus" class="select select-bordered  mt-2" :rules="validateData">
+                        <Field as="select"  name="campus" class="select select-bordered  mt-2" style="border:  1px solid #d2d2d2;" :rules="validateData">
                             <option disabled selected>Select Program ...</option>
                         </Field>
                         <ErrorMessage name="campus" class="error_message"/>
@@ -78,7 +78,7 @@
 
                     <span class="flex flex-col w-2/4">  
                         <p class="text-0.9 font-Subheader text-gray-500 ">Office</p>
-                        <Field as="select"  name="office" class="select select-bordered mt-2"  :rules="validateData">
+                        <Field as="select"  name="office" class="select select-bordered mt-2"  style="border:  1px solid #d2d2d2;" :rules="validateData">
                             <option disabled selected>Select Office ...</option>
                         </Field>
                         <ErrorMessage name="office" class="error_message"/>
@@ -88,8 +88,8 @@
                 </span>
 
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4 ">Position</p>
-                    <Field as="select"  name="postion" class="select select-bordered mt-2 w-full" :rules="validateData">
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4 " >Position</p>
+                    <Field as="select"  name="postion" class="select select-bordered mt-2 w-full" style="border:  1px solid #d2d2d2;" :rules="validateData">
                             <option disabled selected>Select Position ...</option>
                     </Field>
                     <ErrorMessage name="postion" class="error_message"/>

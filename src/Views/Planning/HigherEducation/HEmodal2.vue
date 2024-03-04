@@ -1,5 +1,5 @@
 <template>
-    <button class="btn bg-Red-Rose text-white text-sm py-2 px-4 rounded-md ml-24 shadow-card2" onclick="my_modal_2.showModal()">View</button>
+    <button class="btn bg-Red-Rose text-white w-3/12 btn-sm" onclick="my_modal_2.showModal()">View</button>
     <dialog id="my_modal_2" class="modal">
 
     <div class="modal-box w-11/12 max-w-full">

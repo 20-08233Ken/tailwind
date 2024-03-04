@@ -160,7 +160,7 @@
                 <Field type="text"  name='department' placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                <Field as ="select" name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
+                <Field as ="select" name="program" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_program" :rules="validateData">
                     <option disabled selected>Select Program ...</option>
                     <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
                 </Field>
@@ -168,15 +168,15 @@
 
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
-                <Field type="text" name="firstname" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_fname" :rules="validateData"/>
+                <Field type="text" name="firstname" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_fname" :rules="validateData"/>
                 <ErrorMessage name="firstname" class="error_message"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Lastname</p>
-                <Field type="text" name="lastname" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_lname" :rules="validateData"/>
+                <Field type="text" name="lastname" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_lname" :rules="validateData"/>
                 <ErrorMessage name="lastname" class="error_message"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Middle Initial</p>
-                <Field type="text" name="m_initial" placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_mname" :rules="validateData"/>
+                <Field type="text" name="m_initial" placeholder="Type here" class="input mt-2 input-bordered w-full "style="border:  1px solid #d2d2d2;"  v-model="in_mname" :rules="validateData"/>
                 <ErrorMessage name="m_initial" class="error_message"/>
 
 
@@ -189,7 +189,7 @@
                         </i>
                 </span>
 
-                <Field as ="select" name="statuses" class="select select-bordered w-full mt-2" v-model="in_status" :rules="validateData">
+                <Field as ="select" name="statuses" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_status" :rules="validateData">
                     <option disabled selected> ...</option>
                     <option value="Employed">Employed</option>
                     <option  value="Unemployed">Unemployed</option>
@@ -207,7 +207,7 @@
                             </svg>
                         </i>
                 </span>
-                <Field type="text" name="business" placeholder="Type here" class="input mt-2 input-bordered w-full "  v-model="in_business" :rules="validateData"/>
+                <Field type="text" name="business" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_business" :rules="validateData"/>
                 <ErrorMessage name="business" class="error_message"/>
 
 

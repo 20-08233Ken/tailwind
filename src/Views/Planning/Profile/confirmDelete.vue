@@ -41,11 +41,11 @@
             <Form class="flex flex-col">
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Password</p>
-                <Field name="password" class="input mt-2 input-bordered w-full " placeholder="Enter Password" :rules="validateData"></Field>
+                <Field name="password" class="input mt-2 input-bordered w-full " placeholder="Enter Password" style="border:  1px solid #d2d2d2;" :rules="validateData"></Field>
                 <ErrorMessage name="password" class="error_message"/>
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Re-enter Password</p>
-                <Field name="conf_password"  class="input mt-2 input-bordered w-full " placeholder="Confirm Password" :rules="validateData"></Field>
+                <Field name="conf_password"  class="input mt-2 input-bordered w-full " placeholder="Confirm Password" style="border:  1px solid #d2d2d2;" :rules="validateData"></Field>
                 <ErrorMessage name="conf_password" class="error_message"/>
 
                 <span class="flex justify-end w-full mt-6">

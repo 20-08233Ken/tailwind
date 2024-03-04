@@ -5,7 +5,7 @@
     
     <main class="w-full flex flex-col">
     
-        <Dean_nav/>
+        <Registrar_nav/>
 
         <section class="w-full flex gap-8">
             <div class="flex flex-col w-3/12  pl-8 h-dvh">
