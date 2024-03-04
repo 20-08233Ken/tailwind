@@ -9,7 +9,7 @@
 
 <template>
    <main class="w-full bg-gray-100">
-        <Navigation/>
+        <Planning_nav/>
 
         <span class="flex flex-col bg-Red-Darken w-20 h-20 items-center justify-center text-white rounded-full fixed bottom-10 right-10">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

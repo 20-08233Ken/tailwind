@@ -27,7 +27,7 @@
                 <router-link to="/dean">Dean</router-link>
             </li>
 
-            <li 
+            <!-- <li 
                 class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
                 style="font-size: clamp(14px , 2vw , 16px);"
             >
@@ -39,7 +39,7 @@
                 style="font-size: clamp(14px , 2vw , 16px);"
             >
                 <router-link to="/qam">QAM</router-link>
-            </li>
+            </li> -->
 
         </ul>
     </nav>
