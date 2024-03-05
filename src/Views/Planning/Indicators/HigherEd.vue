@@ -34,17 +34,22 @@
                 </div>
         <p class="text-Red-Rose text-xl font-Header">Higher Education</p>
            
-        <span class="w-100 flex mt-4 gap-3">
+        <span class="w-100 flex items-center mt-4 gap-3">
             <span class="w-full flex mt-4 gap-3">
                 <button :class="{'active':activeButton===1}" @click="showComponent('OPI',1)" class="border-1 w-3/12 py-2 px-2 rounded-md ">Output Indicator</button>
                 <button :class="{'active':activeButton===2}" @click="showComponent('OCI',2)" class="border-1 w-3/12 py-2 px-2 rounded-md ">Outcome Indicator</button>
             </span>
          
-            <select class="select select-bordered w-full max-w-xs">
-                <option>College of Engineering</option>
-                <option>College of Informatics and Computing Sciences</option>
-                <option>College of Technology and Engineering</option>
-            </select>
+            <v-select
+            class="w-5/12"
+            label="Department"
+            v-model="selected"
+            :items="department"
+            item-title="dep"
+            item-value="id"
+            variant="outlined"
+            
+            ></v-select>
         </span>
 
         <div class="w-full">

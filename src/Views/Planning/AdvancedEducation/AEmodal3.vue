@@ -1,10 +1,20 @@
 
 
 <template>
-    <button class="btn bg-Red-Rose text-white w-3/12 btn-sm" onclick="my_modal_3.showModal()">View</button>
-    <dialog id="my_modal_3" class="modal">
 
-    <div class="modal-box w-11/12 max-w-full">
+
+    <v-dialog
+      v-model="dialog"
+      max-width="1400"
+      persistent
+    >
+      <template v-slot:activator="{ props: activatorProps }">
+        <v-btn v-bind="activatorProps"  class="bg-red-darken-4 w-3/12 rounded-md">
+          View
+        </v-btn>
+      </template>
+
+      <v-card class="px-12 py-12">
         <h3 class="font-Header text-Red-Rose text-lg">Performance Result: Advanced  Education Program</h3>
         <div class="divider"></div> 
         <h2 class="w-full font-Subheader text-center">Output Indicator 2: Percentage of graduate programs with accreditation</h2>
@@ -46,16 +56,19 @@
 
             <table class="table table-lg">
                     <thead>
-                    <tr class="bg-cyan-50 border">
-                        <th class="text-0.9">Campus</th> 
-                        <th class="text-0.9">Department</th> 
-                        <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">Year of Initial Operation</th> 
-                        <th class="text-0.9">Year of First Batch Graduates</th> 
-                        <th class="text-0.9">Status</th> 
-                        <th class="text-0.9">Period of Validity (From)</th> 
-                        <th class="text-0.9">Period of Validity (To)</th> 
-                        <th class="text-0.9">Remarks</th> 
+                    <tr class="bg-gray-700 border">
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Campus</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Department</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Undergraduate Programs Offered</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Year of Initial Operation</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Program Accreditation Status</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" colspan="2">Validity of Accreditation</th>                  
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2" rowspan="2">Remarks</th> 
+                    </tr>
+
+                    <tr class="bg-gray-700">
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2 border-t-2">Period of Validity (From)</th> 
+                        <th class="text-0.9 text-white font-Subheader text-center border-r-2 border-t-2">Period of Validity (To)</th> 
                     </tr>
                     </thead> 
                     <tbody>
@@ -90,14 +103,24 @@
             </div>
 
         </div>
+        <template v-slot:actions>
+          <v-spacer></v-spacer>
 
-        <div class="modal-action">
-        <form method="dialog">
-            <!-- if there is a button, it will close the modal -->
-            <button class="btn">Close</button>
-        </form>
-        </div>
-    </div>
-
-    </dialog>
+ 
+          <v-btn @click="dialog = false" class="bg-teal-accent-4 mt-4">
+            Close
+          </v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        dialog: false,
+      }
+    },
+  }
+</script>

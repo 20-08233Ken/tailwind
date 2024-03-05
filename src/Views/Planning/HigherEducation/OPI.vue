@@ -20,7 +20,8 @@
 
                 <modal3/>
                 <router-link to="/validateMain" class="w-3/12"> 
-                <button class="btn btn-sm  btn-success text-white w-full">Validate</button>
+                <!-- <button class="btn btn-sm  btn-success text-white w-full">Validate</button> -->
+                <v-btn class="bg-teal-accent-4 w-full rounded-md w-3/12">Validate</v-btn>
                 </router-link>
             </span>
         </div>
@@ -40,7 +41,9 @@
 
                 <modal4/>
                 <router-link to="/validateMain" class="w-3/12"> 
-                <button class="btn btn-sm  btn-success text-white w-full">Validate</button>
+                <!-- <button class="btn btn-sm  btn-success text-white w-full">Validate</button> -->
+                <v-btn class="bg-teal-accent-4 w-full rounded-md w-3/12">Validate</v-btn>
+
                 </router-link>
             </span>
         </div>

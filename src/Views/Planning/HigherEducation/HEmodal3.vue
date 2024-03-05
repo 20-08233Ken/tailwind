@@ -1,8 +1,16 @@
 <template>
-    <button class="btn bg-Red-Rose text-white w-3/12 btn-sm " onclick="HEmodal3.showModal()">View</button>
-    <dialog id="HEmodal3" class="modal">
+     <v-dialog
+      v-model="dialog"
+      max-width="1400"
+      persistent
+    >
+      <template v-slot:activator="{ props: activatorProps }">
+        <v-btn v-bind="activatorProps"  class="bg-red-darken-4 w-3/12 rounded-md">
+          View
+        </v-btn>
+      </template>
 
-    <div class="modal-box w-11/12 max-w-full">
+      <v-card class="px-12 py-12">
         <h3 class="font-Header text-Red-Rose text-lg">Performance Result: Higher  Education Program</h3>
         <div class="divider"></div> 
         <h2 class="w-full font-Subheader text-center">Output Indicator 1: Percentage of undergraduate students enrolled in CHED-identified and RDC-identified priority programs</h2>
@@ -12,9 +20,7 @@
             <li>List undergraduate programs in ALL campuses</li>
             <li>Spell out program name</li>
             <li>Incomplete entries will be DISREGARDED</li>
-
         </ol>
-
 
         <div class="w-full flex flex-col mt-2 overflow-x-auto">
             
@@ -41,12 +47,16 @@
 
             <table class="table table-lg">
                     <thead>
-                    <tr class="bg-cyan-50 border">
-                        <th class="text-0.9">Campus</th> 
-                        <th class="text-0.9">Department</th> 
-                        <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">CHED-identified and RDC-identified priority programs</th> 
-                        <th class="text-0.9">Neither</th> 
+                    <tr class="bg-gray-700 border text-white">
+                        <th rowspan="2" class="text-0.9 text-white border-r-2 text-center ">Campus</th> 
+                        <th rowspan="2" class="text-0.9 text-white border-r-2 text-center">Department</th> 
+                        <th rowspan="2" class="text-0.9 text-white border-r-2 text-center">Program</th> 
+                        <th colspan="2" class="text-0.9 text-white border-r-2 text-center">No. of Enrolles for 1st Semester AY 2023-2024</th> 
+                        <th rowspan="2" class="text-0.9 text-white border-r-2 text-center">Supporting Documents</th> 
+                    </tr>
+                    <tr class="bg-gray-700 ">
+                        <th class="text-white border-r-2">Priority Program</th>
+                        <th class="text-white border-r-2">Non-Priority Program</th>
                     </tr>
                     </thead> 
                     <tbody>
@@ -81,14 +91,27 @@
             </div>
 
         </div>
+        <template v-slot:actions>
+          <v-spacer></v-spacer>
 
-        <div class="modal-action">
-        <form method="dialog">
-            <!-- if there is a button, it will close the modal -->
-            <button class="btn">Close</button>
-        </form>
-        </div>
-    </div>
 
-    </dialog>
+          <v-btn @click="dialog = false" class="bg-teal-accent-4">
+            Close
+          </v-btn>
+
+          
+        </template>
+      </v-card>
+    </v-dialog>
+
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        dialog: false,
+      }
+    },
+  }
+</script>

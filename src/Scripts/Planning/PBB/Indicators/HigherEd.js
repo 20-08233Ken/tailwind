@@ -16,7 +16,18 @@ export default{
     data(){
         return{
             currentComponent:OPI,
-            activeButton:1
+            activeButton:1,
+            selected: 1,
+            department:[
+                {
+                    id:1,
+                    dep:"College of Engineering"
+                },
+                {
+                    id:2,
+                    dep:"College of Informatics and Computing Sciences"
+                }
+            ]
         };
     },
     components:{

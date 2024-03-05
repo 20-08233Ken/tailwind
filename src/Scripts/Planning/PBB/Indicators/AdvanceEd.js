@@ -8,12 +8,24 @@ export default{
     data(){
         return{
             currentComponent:OPI,
-            activeBtn:1
+            activeBtn:1,
+            selected: 1,
+            department:[
+                {
+                    id:1,
+                    dep:"College of Engineering"
+                },
+                {
+                    id:2,
+                    dep:"College of Informatics and Computing Sciences"
+                }
+            ]
         };
     },
     components:{
         OCI,
-        OPI
+        OPI,
+
     },
     methods:{
         showComponent(componentName,btnNumber){

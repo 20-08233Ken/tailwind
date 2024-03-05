@@ -1,8 +1,18 @@
 <template>
-    <button class="btn bg-Red-Rose text-white w-3/12 btn-sm" onclick="my_modal_1.showModal()">View</button>
-    <dialog id="my_modal_1" class="modal">
 
-    <div class="modal-box w-11/12 max-w-full">
+<v-dialog
+      v-model="dialog"
+      max-width="1400"
+      persistent
+    >
+      <template v-slot:activator="{ props: activatorProps }">
+        <v-btn v-bind="activatorProps"  class="bg-red-darken-4 w-3/12 rounded-md">
+          View
+        </v-btn>
+      </template>
+
+      <v-card class="px-12 py-12">
+
         <h3 class="font-Header text-Red-Rose text-lg">Performance Result: Higher  Education Program</h3>
         <div class="divider"></div> 
         <h2 class="w-full font-Subheader text-center">Outcome Indicator 1: Percentage of first-time licensure exam takers that pass the licensure exams</h2>
@@ -40,15 +50,15 @@
 
             <table class="table table-lg">
                     <thead>
-                    <tr class="bg-cyan-50 border">
+                    <tr class="bg-gray-700 border">
                         <th class="text-0.9"></th> 
-                        <th class="text-0.9 text-black">Campus</th> 
-                        <th class="text-0.9 text-black">Department</th> 
-                        <th class="text-0.9 text-black">Program</th> 
-                        <th class="text-0.9 text-black">Exam Date</th> 
-                        <th class="text-0.9 text-black">Number of Passers</th> 
-                        <th class="text-0.9 text-black">Number of Takers</th>
-                        <th class="text-0.9 text-black">Supporting Documents</th>
+                        <th class="text-0.9 text-white font-Subheader border-r-2" >Campus</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Department</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Undegraduate Program Offered</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Exam Date</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Number of 1st Time Takers</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Number of 1st Time Passers</th>
+                        <th class="text-0.9 text-white font-Subheader border-r-2">Supporting Documents</th>
                     </tr>
                     </thead> 
                     <tbody>
@@ -84,13 +94,27 @@
 
         </div>
 
-        <div class="modal-action">
-        <form method="dialog">
-            <!-- if there is a button, it will close the modal -->
-            <button class="btn">Close</button>
-        </form>
-        </div>
-    </div>
 
-    </dialog>
+ 
+        <template v-slot:actions>
+          <v-spacer></v-spacer>
+
+
+          <v-btn @click="dialog = false" class="bg-teal-accent-4 mt-4">
+            Close
+          </v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
+
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        dialog: false,
+      }
+    },
+  }
+</script>
