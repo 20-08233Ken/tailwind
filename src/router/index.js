@@ -30,6 +30,7 @@ import Registrar from '../Views/Registrar/registrar.vue'
 import Qam from '../Views/QAM/Qam.vue'
 import TechnicalExtension from '../Views/Extension/extension.vue'
 
+import Research from "../Views/Dean/Research.vue";
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
 import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
@@ -77,6 +78,12 @@ const router = createRouter ({
             path:'/profile',
             name:'profile',
             component:Profile
+
+        },
+        {
+            path:'/research',
+            name:'researh',
+            component:Research
 
         },
         {

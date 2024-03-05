@@ -6,8 +6,13 @@ import Registrar_nav from '../../components/Others/Navigation/Registrar_nav.vue'
 
     
     const hold_oc_1 = markRaw(HE_OPI_1);
+    import { useCookies } from 'vue3-cookies';
 
 export default{
+    setup(){
+        const {cookies} =useCookies();
+        return {cookies}
+    },
     components:{
         Registrar_nav,
         HE_OPI_1,
@@ -18,13 +23,20 @@ export default{
     data(){
         return{
             currentComponent:HE_OPI_1,
-            activeBtn:1
+            activeBtn:1,
+            user:'',
         }
     },
     methods:{
         showComponent(componentName, btnNumber){
             this.currentComponent  = componentName
             this.activeBtn = btnNumber
-        }
+        },
+
+    },
+    mounted(){
+        let userPosition = this.cookies.get('userPosition');
+        this.user = userPosition
+        console.log(userPosition)
     }
 }

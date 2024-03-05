@@ -1,17 +1,26 @@
 <script>
-    import Navigation from '../../components/Others/Navigation.vue';
+    import Extension_nav from '../../components/Others/Navigation/Extension_nav.vue'
+    import Navigation from '../../components/Others/Navigation.vue'
     import EP_1 from './EP_1.vue'
     import EP_2 from './EP_2.vue'
     import EP_3 from './EP_3.vue'
+    import { useCookies } from 'vue3-cookies';
+
     export default{
+        setup(){
+        const {cookies} =useCookies();
+        return {cookies}
+     },
         data(){
             return{
                 activeComponent:EP_1,
-                activeBtn:1
+                activeBtn:1,
+                user:''
 
             }
         },
         components:{
+            Extension_nav,
             Navigation,
             EP_1,
             EP_2,
@@ -22,15 +31,20 @@
                 this.activeComponent = currentComponent
                 this.activeBtn = btnNo
             }
-        }
+        },
+        mounted(){
+        let userPosition = this.cookies.get('userPosition');
+        this.user = userPosition
+        console.log(userPosition)
+    }
     }
 </script>
 
 <template>
     <main class="w-full flex flex-col items-center">
-        <Navigation/>
+        <Extension_nav v-if="user === 'Extension'"/>
 
-        <section class="w-full flex  gap-16">
+        <section class="w-full flex  gap-16" v-if="user === 'Extension'">
             
         <div class="flex flex-col w-3/12  pl-8 h-dvh">
 

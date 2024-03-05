@@ -15,6 +15,9 @@ import Dean_nav from '../components/Others/Navigation/Dean_nav.vue'
 import Planning_nav from '../components/Others/Navigation/Planning_nav.vue'
 import Registrar_nav from '../components/Others/Navigation/Registrar_nav.vue'
 import QAM_nav from '../components/Others/Navigation/QAM_nav.vue'
+import Extension_nav from '../components/Others/Navigation/Extension_nav.vue'
+
+import Research_nav from '../components/Others/Navigation/Research_nav.vue'
 
 import { useCookies } from 'vue3-cookies';
 import { ref } from 'vue'
@@ -51,7 +54,9 @@ export default{
         Dean_nav,
         Planning_nav,
         Registrar_nav,
-        QAM_nav
+        QAM_nav,
+        Extension_nav,
+        Research_nav
     },  
       methods:{
         showActive(componentName,tabNumber){
@@ -69,7 +74,7 @@ export default{
         // [4] Planning
         this.cookies
         .set('userCookies','random_key','1hr')
-        .set('userPosition','Planning','1hr');
+        .set('userPosition','Research','1hr');
         let userCookies = this.cookies.get('userCookies');
         let userPosition = this.cookies.get('userPosition');
         console.log("userCookies",userCookies)

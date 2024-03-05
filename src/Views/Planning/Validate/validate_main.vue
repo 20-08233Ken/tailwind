@@ -14,6 +14,7 @@
                        status:'status',
                        pov_from:'pov_from',
                        pov_to:'pov to',
+                       sup_doc:'',
                        v_status:"Not validated"     
 
                     },
@@ -25,6 +26,7 @@
                        status:'status',
                        pov_from:'pov_from',
                        pov_to:'pov to',
+                       sup_doc:'',
                        v_status:"Not validated"         
 
                     },
@@ -36,11 +38,163 @@
                        status:'status',
                        pov_from:'pov_from',
                        pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
+                       v_status:"Not validated"         
+
+                    }
+                    ,
+                    {
+                       campus:'Alangilan Campus',
+                       department:'College of Engineering',
+                       program:"Bachelor of Science in Civil Engineering",
+                       year_io:'2012',
+                       status:'status',
+                       pov_from:'pov_from',
+                       pov_to:'pov to',
+                       sup_doc:'',
                        v_status:"Not validated"         
 
                     }
                 ],
 
+                headers:[
+                    {
+                        title:'Campus',
+                        value:'campus',
+                        class:'table_header',
+                    },
+                    {
+                        title:'Department',
+                        value:'department',
+                    },
+                    {
+                        title:'Program',
+                        value:'program',
+                    },
+                    {
+                        title:'Year of Initial Operation',
+                        value:'year_io',
+                    },
+                    {
+                        title:'Period of Validity',
+                        align:'center',
+
+                        children:[
+                            {
+                                title:'Started of Validation',
+                                value:'pov_from',
+                            },
+                            {
+                                title:'End of Validation',
+                                value:'pov_to',
+                            }
+                        ]
+                    },
+                    {
+                        title:'Supported Documents',
+                        value:'sup_doc',
+                        align:'center'
+                    },
+                    {
+                        title:'Validation Status',
+                        value:'v_status',
+                    },{
+                        title:"Actions",
+                        value:'actions'
+                    }
+                    
+                ],
                 reasonOpt:[
                     {
                         reason:'Lack of Supporting Documents'
@@ -118,49 +272,30 @@
                 </div>
             </span>
 
-            <span class="overflow-x-auto overflow-y-auto w-full">
-            <table class="table   table-zebra mt-1">
-                    <thead >
-                    <tr class="bg-gray-700 border text-white py-2">
-                        <th class="text-0.9 text-white ">Campus</th> 
-                        <th class="text-0.9 text-white">Department</th> 
-                        <th class="text-0.9 text-white">Program</th> 
-                        <th class="text-0.9 text-white">Year of Initial Operation</th> 
-                        <th class="text-0.9 text-white">Status</th> 
-                        <th class="text-0.9 text-white">Period of Validity (From)</th> 
-                        <th class="text-0.9 text-white">Period of Validity (To)</th> 
-                        <th class="text-0.9 text-white">Supported Documents</th>
-                        <th class="text-0.9 text-emerald-100">Validation Status</th> 
-                        <th class="text-0.9 text-black"></th>
-                    </tr>
-                    </thead>
+            <span class=" w-full">
 
-                    <tbody>
-                        <tr v-for="(item, index) in sampleData" >
-                            <td>{{ item.campus }}</td>
-                            <td>{{ item.department }}</td>
-                            <td>{{ item.program }}</td>
-                            <td>{{ item.year_io }}</td>
-                            <td>{{ item.status }}</td>
-                            <td>{{ item.pov_from}}</td>
-                            <td>{{ item.pov_to}}</td>
-                            <td></td>
-                            <td><i>{{ item.v_status}}</i></td>
-                            <td class="flex gap-4 " >
-                                <span class="flex gap-2 w-full flex-col" >
-                                    <button class="btn btn-sm bg-emerald-700 text-white font-Subheader" onclick="showApproval.showModal()">Approved</button>
-                                    <!-- <button class="btn btn-sm bg-orange-700 text-white font-Subheader">Pending</button> -->
-                                    <button class="btn btn-sm bg-Red-Darken text-white font-Subheader" onclick="showRejection.showModal()">Reject</button>
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                   
-                </table>
+                <v-data-table
+                        
+                        :headers="headers"
+                        :items="sampleData"
+                        class="elevation-1"
+                        items-per-page="5"   
+                >
+
+                <template v-slot:item.actions="{item}">
+                
+                    <span class="flex w-full flex-col gap-2 py-4">
+                    <v-btn size="small" class="bg-teal-darken-3"> Approved</v-btn>
+                    <v-btn size="small" class="bg-red-darken-3"> Reject</v-btn>
+                    </span>
+                </template>
+
+
+
+           </v-data-table>
             </span>
 
-            <!-- <button class="btn" onclick="showApproval.showModal()">open modal</button> -->
-            <dialog id="showApproval" class="modal">
+            <!-- <dialog id="showApproval" class="modal">
             <div class="modal-box">
            
                 <h3 class="font-bold text-lg">Approval</h3>
@@ -213,7 +348,7 @@
                 </form>
 
             </div>
-            </dialog>
+            </dialog> -->
         </section>
     </main>
 
@@ -224,4 +359,18 @@
         display:flex;
         align-items:center
     }
+
+    ::v-deep thead {
+  background-color:	rgb(55 65 81);
+
+    }
+    ::v-deep th{
+        color: white;
+        border: 1px solid white;
+    }
+
+   
+  
+
+
 </style>
