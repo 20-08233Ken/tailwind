@@ -40,11 +40,23 @@
                 <button :class="{ 'active': activeBtn === 2 }" @click="showComponent('OCI',2)" class="border-1 w-3/12 py-2 rounded-md " >Outcome Indicator</button>
             </span>
 
-            <select class="select select-bordered w-full max-w-xs">
+            <v-select
+            class="w-5/12"
+            label="Department"
+            v-model="selected"
+            :items="department"
+            item-title="dep"
+            item-value="id"
+            variant="outlined"
+            
+            ></v-select>
+
+
+            <!-- <select class=" w-full max-w-xs px-4 py-3 rounded-lg" style="border: 1px solid #d2d2d2;">
                 <option>College of Engineering</option>
                 <option>College of Informatics and Computing Sciences</option>
                 <option>College of Technology and Engineering</option>
-            </select>
+            </select> -->
         </span>
 
         <div class="w-full">

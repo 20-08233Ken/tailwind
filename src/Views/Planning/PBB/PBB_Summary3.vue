@@ -23,26 +23,52 @@
                             </li>
                             </router-link>
 
-                            <router-link to="/pbb3">
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Lipa
                             </li>
                             </router-link>
 
-                            <router-link to="/pbb3">
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Nasugbu
                             </li>
                             </router-link>  
-                            <router-link to="/pbb3">
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Malvar
                             </li>
                             </router-link>
-                            <router-link to="/pbb3">
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Alangilan
@@ -79,27 +105,73 @@
                     
                     <span class="w-full flex ml-8">
                         <ul class="w-5/12 flex flex-col mt-4">
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 <p>BatStateU Pablo Borbon</p>
                             </li>
+
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Lipa
                             </li>
+
+                            </router-link>
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Nasugbu
                             </li>
 
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Malvar
                             </li>
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Alangilan
                             </li>
+                            </router-link>
                         </ul>
 
                         <span class="flex w-7/12 justify-center relative">
@@ -123,27 +195,72 @@
                     
                     <span class="w-full flex ml-8">
                         <ul class="w-5/12 flex flex-col mt-4">
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 <p>BatStateU Pablo Borbon</p>
                             </li>
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Lipa
                             </li>
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Nasugbu
                             </li>
+                            </router-link>
 
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Malvar
                             </li>
+                            </router-link>
+
+                            <router-link :to="{
+                                name:'pbb3',
+                                query:{
+                                    program:'AdvancedEd'
+                                }
+                                
+                            }">
                             <li> 
                                 <span class="green"></span>
                                 BatStateU Alangilan
                             </li>
+                            </router-link>
                         </ul>
 
                         <span class="flex w-7/12 justify-center relative">
