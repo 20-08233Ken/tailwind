@@ -1,6 +1,6 @@
 <template>
           <div class="w-fullflex flex-col">
-                <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Extension Program</h1>
+                <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Technical Advisory Extension</h1>
 
                 <h3 class=" mt-8"> <b>Outcome Indicator :</b>  Number of active partnerships with LGUs, industries, NGA, SMEs, and other stakeholders as a result of extension activities</h3>
 

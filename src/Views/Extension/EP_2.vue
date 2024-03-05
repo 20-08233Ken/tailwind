@@ -1,6 +1,6 @@
 <template>
           <div class="w-fullflex flex-col">
-                <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Extension Program</h1>
+                <h1 class="w-full text-center font-Header text-xl text-Red-Rose">Technical Advisory Extension</h1>
 
                 <h3 class=" mt-8"> <b>  Output Indicator 2 :</b> Number of extension programs1 organized and supported consistent with the SUC's mandated and priority programs</h3>
 

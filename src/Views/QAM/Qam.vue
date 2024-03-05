@@ -5,10 +5,15 @@
     import AE_OPI_2 from './AE_OPI_2.vue';
 
     import activityList from '../../components/Others/activityList.vue'
-
+    import { useCookies } from 'vue3-cookies';
     import { markRaw } from "vue"
     const hold_oc_1 = markRaw(HE_OPI_2);
+
     export default{
+        setup(){
+        const {cookies} =useCookies();
+        return {cookies}
+     },
 
         components:{
             QAM_nav,
@@ -22,6 +27,7 @@
             return{
                 currentComponent:HE_OPI_2,
                 activeBtn:1,
+                user:''
             }
         },
         methods:{
@@ -30,6 +36,11 @@
             this.activeBtn = btnNumber
         }
     },
+    mounted(){
+        let userPosition = this.cookies.get('userPosition');
+        this.user = userPosition
+        console.log(userPosition)
+    }
     }
 
 </script>
@@ -37,9 +48,11 @@
 <template>
     <main class="w-full flex flex-col">
     
-    <QAM_nav/>
+        
+    
+    <QAM_nav v-if="user == 'QAM'"/>
 
-    <section class="w-full flex gap-8">
+    <section class="w-full flex gap-8" v-if="user == 'QAM'">
         <div class="flex flex-col w-3/12  pl-8 h-dvh">
 
             <h3 class="w-full flex  py-3 font-Subheader mt-8" >Performace Indicator</h3>
