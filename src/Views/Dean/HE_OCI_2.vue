@@ -144,7 +144,7 @@
 
 
     <div class="w-full overflow-x-auto shadow-card2 mt-4 px-4 py-4 rounded-lg">
-        <p class="w-full text-center text-gray-400">Higher Education Program: Outcome Indicator 1</p>
+        <p class="w-full text-center text-gray-400">Higher Education Program: Outcome Indicator 2</p>
         <p class="w-full text-center text-gray-400">College of Engineering</p>
 
         <div role="tablist" class="tabs tabs-lifted mt-8">
@@ -213,7 +213,65 @@
 
                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
                
-                <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                <v-dialog max-width="1000">
+                        <template v-slot:activator="{ props: activatorProps }">
+                            <v-btn
+                            v-bind="activatorProps"
+                            color="surface-variant"
+                            text="Upload File"
+                            variant="flat"
+                            class="w-full mt-2 font-Subheader"
+                            size="large"
+                            ></v-btn>
+                        </template>
+
+                        <template v-slot:default="{ isActive }">
+                            <v-card title="Upload File">  
+
+                            <v-card-text>
+                                <h1 class="font-Subheader">Higher Education Program: Outcome Indicator 2</h1>
+                                <h2 class="text-0.9 ">Percentage of graduates (2 years prior) that are employed</h2>
+
+                                    <table class="w-full mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-2 "></th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Required Files</th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Upload Files</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">Graduate Tracer Study</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">2</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> Official list of FY 2021 Graduates</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>     
+                             
+                                        </tbody>
+                                    </table>
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                text="Close "
+                                @click="isActive.value = false"
+                                ></v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </template>
+                    </v-dialog>
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn w-2/12 bg-white border-0" >Add</button>
@@ -229,15 +287,15 @@
                 
                 <table class="table-zebra table-md">
                     <thead>
-                    <tr class ="bg-cyan-50">
+                        <tr class ="bg-gray-700 ">
                         <th></th> 
-                        <th class="text-0.9">Campus</th> 
-                        <th class="text-0.9">Department</th> 
-                        <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">Name</th> 
-                        <th class="text-0.9">Status</th> 
-                        <th class="text-0.9">Company's Business / Type of Business</th>
-                        <th></th>
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Campus</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Department</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Program</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Name</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Status</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Company's Business / Type of Business</th>
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Action</th>
                     </tr>
                     </thead> 
                     <tbody>

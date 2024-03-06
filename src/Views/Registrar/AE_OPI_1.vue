@@ -153,10 +153,10 @@ export default {
                         class="input mt-2 input-bordered w-full "  v-model="data[0].in_campus" :rules="validateData" />
 
                     <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                    <Field name="department" type="text" placeholder="Type here" disabled
-                        class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData" /> -->
+                    <Field name="department" type="text" placeholder="Type here" 
+                        class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"  style="border:  1px solid #d2d2d2;"/> -->
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Program </p>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Program Offered </p>
                     <Field as="select" name="program" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" :rules="validateData">
                         <option disabled selected>Select Program ...</option>
                         <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
@@ -164,7 +164,7 @@ export default {
                     <ErrorMessage name="program" class="error_message" />
 
                     <span class="flex items-center mt-6 gap-2 ">
-                            <p class="text-0.9 font-Subheader text-Red-Rose text-base ">Number of Enrolled Students</p>
+                            <p class="text-0.9 font-Subheader text-Red-Rose text-base ">Number of Enrollees</p>
                             <i class="tooltip tooltip-right "  data-tip="Number of enrollees for each corresponding program">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
@@ -172,12 +172,12 @@ export default {
                             </i>
                     </span> 
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Requiring Thesis/Dissertation</p>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Thesis/Dissertation Requiring Degree</p>
                     <Field type="number" name="req_thesis" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"
                         v-model="in_thesis" :rules="validateData" />
                     <ErrorMessage name="req_thesis" class="error_message" />
 
-                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">Not Requiring Thesis/Dissertation</p>
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-6">No Thesis/Dissertation Degree</p>
                     <Field type="number" name="not_req_thesis" placeholder="Type here" style="border:  1px solid #d2d2d2;"
                         class="input mt-2 input-bordered w-full " v-model="in_noThesis" :rules="validateData" />
                     <ErrorMessage name="not_req_thesis" class="error_message" />
@@ -194,7 +194,75 @@ export default {
                             </svg>
                         </i>
                     </span>
-                    <input type="file" class="file-input file-input-bordered w-full mt-2" style="border:  1px solid #d2d2d2;"/>
+                    
+                    <v-dialog max-width="1000">
+                        <template v-slot:activator="{ props: activatorProps }">
+                            <v-btn
+                            v-bind="activatorProps"
+                            color="surface-variant"
+                            text="Upload File"
+                            variant="flat"
+                            class="w-full mt-2 font-Subheader"
+                            size="large"
+                            ></v-btn>
+                        </template>
+
+                        <template v-slot:default="{ isActive }">
+                            <v-card title="Upload File">  
+
+                            <v-card-text>
+                                <h1 class="font-Subheader">Advanced Education Program: Output Indicator 1</h1>
+                                <h2 class="text-0.9 ">Percentage of graduate students enrolled in research degree programs</h2>
+
+                                    <table class="w-full mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-2 "></th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Required Files</th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Upload Files</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> Certified Report for Graduate Students Enrolled in 1st Semester AY 2023-2024</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">2</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> CHED Memorandum Order No. 10, s. 2021</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>  
+                                       
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">2</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> RDC Resolutions</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>       
+                             
+                                        </tbody>
+                                    </table>
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                text="Close "
+                                @click="isActive.value = false"
+                                ></v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </template>
+                    </v-dialog>
+
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
                         <button class="btn w-2/12 bg-white border-0">Add</button>
@@ -209,15 +277,18 @@ export default {
 
                 <table class="table-zebra table-md">
                     <thead>
-                        <tr class="bg-cyan-50">
-                            <th></th>
-                            <th class="text-0.9">Campus</th>
-                            <th class="text-0.9">Department</th>
-                            <th class="text-0.9">Program</th>
-                            <th class="text-0.9">Requiring Thesis/Dissertation</th>
-                            <th class="text-0.9">Not Requiring Thesis/Dissertation</th>
-                            <th></th>
+                        <tr class ="bg-gray-700 ">
+                            <th rowspan="2"></th>
+                            <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Campus</th>
+                            <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Undergraduate Program Offered</th>
+                            <th class="text-0.9 text-white font-Subheader border-r-1 border-white" colspan="2">No. of Enrollees</th>
+                            <th class="text-0.9 text-white font-Subheader border-r-1 border-white"  rowspan="2">Supporting Documents</th>
+                            <th class="text-0.9 text-white font-Subheader border-r-1 border-white"  rowspan="2">Action</th>
 
+                        </tr>
+                        <tr class ="bg-gray-700 ">
+                            <th class="border-t-1 border-white text-0.9 text-white font-Subheader border-r-1 border-white">Thesis/Dissertation Requiring Degree</th>
+                            <th class="border-t-1 border-white text-0.9 text-white font-Subheader border-r-1 border-white">No Thesis/Dissertation Degree</th>
                         </tr>
                     </thead>
                     <tbody>
