@@ -141,8 +141,8 @@
                     <p class="text-0.9 font-Subheader text-gray-500 ">Campus</p>
                     <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="data[0].in_campus" :rules="validateData"/>
 
-                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                    <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "  v-model="data[0].in_department" :rules="validateData"/> -->
+                    <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
+                    <Field type="text" name="department" placeholder="Type here"  class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"  v-model="data[0].in_department" :rules="validateData"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Program</p>
                     <Field as="select"  name="program" class="select select-bordered w-full mt-2"  style="border:  1px solid #d2d2d2;" v-model="in_program" :rules="validateData">
@@ -178,12 +178,73 @@
                                 </svg>
                             </i>
                     </span>                 
-                    <input type="file" class="file-input file-input-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" />
+
+
+                    <v-dialog max-width="1000">
+                        <template v-slot:activator="{ props: activatorProps }">
+                            <v-btn
+                            v-bind="activatorProps"
+                            color="surface-variant"
+                            text="Upload File"
+                            variant="flat"
+                            class="w-full mt-2 font-Subheader"
+                            size="large"
+                            ></v-btn>
+                        </template>
+
+                        <template v-slot:default="{ isActive }">
+                            <v-card title="Upload File">  
+
+                            <v-card-text>
+                                <h1 class="font-Subheader">Higher Education Program: Output Indicator 1</h1>
+                                <h2 class="text-0.9 ">Percentage of undergraduate students enrolled in CHED-identified and RDC-identified priority programs</h2>
+
+                                    <table class="w-full mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-2 "></th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Required Files</th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Upload Files</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> Certified Enrollment Report for 1st Semester AY 2023-2024</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">2</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700"> CHED Memorandum Order No. 10, s. 2021</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>     
+                             
+                                        </tbody>
+                                    </table>
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                text="Close "
+                                @click="isActive.value = false"
+                                ></v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </template>
+                    </v-dialog>
+
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
                         <button class="btn w-2/12 bg-white border-0">Add</button>
                     </span>
-                </Form>
+                    </Form>
                 </div>
 
                 <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
@@ -191,25 +252,27 @@
                 
                     <table class="table-zebra table-md">
                         <thead>
-                        <tr class ="bg-cyan-50">
-                            <th></th> 
-                            <th class="text-0.9">Campus</th> 
-                            <th class="text-0.9">Department</th> 
-                            <th class="text-0.9">Program</th> 
-                            <th class="text-0.9">CHED-identified and RDC-identified priority programs</th> 
-                            <th class="text-0.9">Neither</th> 
-                            <th></th>
- 
+                        <tr class ="bg-gray-700 ">
+                            <th rowspan="2"></th> 
+                            <th rowspan="2" class="text-0.9 text-white font-Subheader border-r-1 border-white">Campus</th> 
+                            <th rowspan="2" class="text-0.9 text-white font-Subheader border-r-1 border-white">Department</th> 
+                            <th rowspan="2" class="text-0.9 text-white font-Subheader border-r-1 border-white">Program</th> 
+                            <th colspan="2" class="text-0.9 text-white font-Subheader border-r-1 border-white">No. of Enrollees</th> 
+                            <th rowspan="2" class="text-0.9 text-white font-Subheader border-r-1 border-white">Actions</th>
+                        </tr>
+
+                        <tr class ="bg-gray-700 ">
+                            <th class="border-r-1 border-white border-t-1 text-0.9 text-white font-Subheader border-r-1 border-white">Priority Program</th> 
+                            <th class="border-r-1 border-white border-t-1 text-0.9 text-white font-Subheader border-r-1 border-white">Non-Priority Program</th> 
                         </tr>
                         </thead> 
                         <tbody>
                         <tr v-for="(item, index) in sampleData">
-                            <th>{{ item.tb_id }}</th> 
+                            <td>{{ item.tb_id }}</td> 
                             <td>{{ item.tb_campus }}</td> 
                             <td>{{ item.tb_department }}</td> 
                             <td>{{ item.tb_program }}</td> 
                             <td>{{ item.tb_ched }}</td> 
-                            <td>{{ item.tb_neither }}</td> 
                             <td class="flex items-center gap-4 "> 
                                 <button class="mt-2">
                                     <i class="text-sky-500">

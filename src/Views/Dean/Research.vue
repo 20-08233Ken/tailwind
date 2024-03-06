@@ -115,7 +115,18 @@
 
         <section class="w-full flex  gap-8"> 
             <div class="flex flex-col w-3/12  pl-8 h-dvh">
+                <h3 class="w-full flex  py-3 font-Subheader mt-8">Performace Indicator</h3>
 
+                <h4 class="w-full text-white  bg-Red-Darken px-4 py-1">Research Service</h4>
+
+                <ul class="nav-list mt-2 flex flex-col gap-1">
+                    <li class="px-4 py-2">Research outputs in the last three years </li>
+                    <li class="px-4 py-2">Research outputs completed within the year</li>
+                    <li class="px-4 py-2">Percentage of researches published within the year</li>
+                    <li class="px-4 py-2">Percentage of researches presented within the year</li>
+                </ul>
+
+  
             </div>
 
             <div class="w-7/12  flex flex-col items-center shadow-card2  px-16 py-16">
@@ -123,13 +134,10 @@
                 <p class="w-full text-center text-gray-400">College of Engineering</p>
                 <p class="w-full text-center text-gray-400">Firstname M. Lastname</p>
 
-
-                <p class="self-start mt-8 text-0.9 text-gray-500"> Output Indicator 1 : Number of research outputs completed within the
-                    year (2023)</p>
-                <p class="self-start text-0.9 text-gray-500 mt-1"> Output Indicator 1 : Number of research outputs completed within the
-                    year (2023)</p>
-                <p class="self-start text-0.9 text-gray-500 mt-1"> Output Indicator 2 (State Universities) : Percentage of research
-                    outputs published in internationally-refereed </p>
+                <p class="self-start mt-8 text-0.9 text-gray-500 text-justify"><b>Outcome Indicator 1:</b><br> Number of research outputs in the last three years (FY 2021-2023) utilized by the industry or by other beneficiaries</p>
+                <p class="self-start text-0.9 text-gray-500 mt-1 text-justify"><b>Output Indicator 1:</b> <br>  Number of research outputs completed within the year</p>
+                <p class="self-start text-0.9 text-gray-500 mt-1 text-justify"><b>Output Indicator 2:</b> <br>  (For State Universities): Percentage of researches published within the year (FY 2023) in internationally-refereed journal </p>
+                <p class="self-start text-0.9 text-gray-500 mt-1 text-justify"><b>Output Indicator 2:</b> <br>  (For State Colleges and Professional Institutes): Percentage of researches presented within the year (FY 2023) in national, regional, and international fora</p>
 
                 <div class="w-full overflow-x-auto ">
                     <div role="tablist" class="tabs tabs-lifted">
@@ -139,16 +147,32 @@
 
                             <Form @submit="validateData">
 
+                                <h4 class="font-Subheader text-Red-Rose  mt-4">Details of Research Outputs</h4>
                                 <p class="text-0.9 font-Subheader text-gray-500 ">Research Title</p>
                                 <Field type="text" name="research_title" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData"  style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="research_title" class="error_message" />
 
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status</p>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Researcher's Lastname</p>
+                                <Field type="text" name="lname" placeholder="Type here"
+                                    class="input mt-2 input-bordered w-full " :rules="validateData"  style="border: 1px solid #d2d2d2;"/>
+                                <ErrorMessage name="lname" class="error_message" />
+
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Researcher's Firstname</p>
+                                <Field type="text" name="fname" placeholder="Type here"
+                                    class="input mt-2 input-bordered w-full " :rules="validateData"  style="border: 1px solid #d2d2d2;"/>
+                                <ErrorMessage name="fname" class="error_message" />
+
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Researcher's Middlename</p>
+                                <Field type="text" name="mname" placeholder="Type here"
+                                    class="input mt-2 input-bordered w-full " :rules="validateData"  style="border: 1px solid #d2d2d2;"/>
+                                <ErrorMessage name="mname" class="error_message" />
+
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Status of Research</p>
                                 <Field as="select" name="status" class="select select-bordered w-full mt-2"
                                     :rules="validateData" style="border: 1px solid #d2d2d2;">
                                     <option disabled selected>Select Status ...</option>
-                                    <option value="Status 1"> Status 1</option>
+                                    <option value="Completed"> Completed</option>
                                     <!-- <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option> -->
                                 </Field>
                                 <ErrorMessage name="status" class="error_message" />
@@ -165,7 +189,7 @@
 
 
                                 <div class="divider mt-8 "></div>
-                                <h4 class="font-Subheader text-Red-Rose text-lg">Presentation</h4>
+                                <h4 class="font-Subheader text-Red-Rose ">Details of Presentation</h4>
                                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article</p>
                                 <Field type="text" name="article1" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
@@ -181,14 +205,20 @@
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="venue" class="error_message" />
 
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date</p>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Forum Type</p>
+                                <Field type="text" name="forumType" placeholder="Type here"
+                                    class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
+                                <ErrorMessage name="forumType" class="error_message" />
+
+
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Date of Presentation</p>
                                 <Field type="date" name="date" placeholder="Type here" class="input mt-2 input-bordered w-full "
                                     :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="date" class="error_message" />
 
                                 <div class="divider mt-8 "></div>
-                                <h4 class="font-Subheader text-Red-Rose text-lg">Publication</h4>
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Article / Title</p>
+                                <h4 class="font-Subheader text-Red-Rose ">Details of Publication</h4>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Published Title</p>
                                 <Field type="text" name="article2" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="article2" class="error_message" />
@@ -198,12 +228,12 @@
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="publication" class="error_message" />
 
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Journal of Publication</p>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Title of Journal / Publication</p>
                                 <Field type="text" name="journal" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="journal" class="error_message" />
 
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Vol. No. & Issue No.</p>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Volume & Issue</p>
                                 <Field type="text" name="vol" placeholder="Type here" class="input mt-2 input-bordered w-full "
                                     :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="vol" class="error_message" />
@@ -221,27 +251,26 @@
 
 
                                 <div class="divider mt-8 "></div>
-                                <h4 class="font-Subheader text-Red-Rose text-lg">Output</h4>
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Product Name / Methods / Process /
-                                    Technology</p>
+                                <h4 class="font-Subheader text-Red-Rose ">Details of Utilized Output</h4>
+                                
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Product Name / Methods / Process / Technology</p>
                                 <Field type="text" name="methods" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="methods" class="error_message" />
 
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Proof / Description / Documentation</p>
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Patent Number / Product Description</p>
+                                <Field type="text" name="patent_no" placeholder="Type here"
+                                    class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
+                                <ErrorMessage name="patent_no" class="error_message" />
+
+                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Benefitting Industry / Community</p>
                                 <Field type="text" name="proof" placeholder="Type here"
                                     class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;"/>
                                 <ErrorMessage name="proof" class="error_message" />
 
-                                <div class="divider mt-8 "></div>
-                                <h4 class="font-Subheader text-Red-Rose text-lg">Utilization</h4>
-                                <p class="text-0.9 font-Subheader text-gray-500 mt-6">Beneficiary</p>
-                                <Field type="text" name="beneficiary" placeholder="Type here"
-                                    class="input mt-2 input-bordered w-full " :rules="validateData" style="border: 1px solid #d2d2d2;" />
-                                <ErrorMessage name="beneficiary" class="error_message" />
-
+<!--                                
                                 <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p>
-                                <input type="file" class="file-input file-input-bordered w-full mt-2" style="border: 1px solid #d2d2d2;"/>
+                                <input type="file" class="file-input file-input-bordered w-full mt-2" style="border: 1px solid #d2d2d2;"/> -->
 
                                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                                     <button class="btn w-2/12 bg-white border-0">Add</button>
@@ -255,49 +284,43 @@
                         <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 overflow-x-auto">
 
                             <table class="table-zebra table-md">
-                                <thead>
-                                    <tr class=" border">
-                                        <th class="text-0.9"></th>
-                                        <th class="text-0.9 text-black" colspan="2"></th>
-                                        <th class="text-0.9 text-black text-center bg-red-200" colspan="2">Duration</th>
-
-
-                                        <th class="text-0.9 text-black text-center bg-orange-200" colspan="5">Presentation</th>
-
-                                        <th class="text-0.9 text-black text-center bg-amber-200" colspan="6">Publication</th>
-
-
-                                        <th class="text-0.9 text-black text-center bg-lime-200" colspan="2">Output</th>
-
-
-                                        <th class="text-0.9 text-black text-center bg-green-200 ">Utilization</th>
+                                <thead >
+                                    <tr class=" border bg-gray-700 text-white" >
+                                        <th class="text-0.9 text-white "></th>
+                                        <th class="text-0.9 text-white  border-r-2 border-white font-Subheader text-center" colspan="5">Details of Research Outputs</th>
+                                        <th class="text-0.9 text-white font-Subheader text-center  border-r-2 border-white" colspan="5">Details of Presentation</th>
+                                        <th class="text-0.9 text-white font-Subheader text-center  border-r-2 border-white" colspan="6">Details of Publication</th>
+                                        <th class="text-0.9 text-white font-Subheader text-center  border-r-2 border-white " colspan="2">Details of Utilized Output</th>
+                                        <th class="text-0.9 text-white font-Subheader text-center  border-r-2 border-white">Utilization</th>
                                     </tr>
 
-                                    <tr class="bg-cyan-50 border">
-                                        <th class="text-0.9"></th>
-                                        <th class="text-0.9 text-black">Research Title</th>
-                                        <th class="text-0.9 text-black">Status</th>
-                                        <!-- <th class="text-0.9 text-black" colspan="2">Duration</th>  -->
-                                        <th class="text-0.9 text-black bg-red-200">Date Started</th>
-                                        <th class="text-0.9 text-black bg-red-200">Date Completed</th>
+                                    <tr class="bg-gray-700 text-white border">
+                                        <th rowspan="2" class="text-0.9 text-white border-t-2 "></th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader  border-t-2 border-r-2 border-white">Research Title</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader  border-t-2 border-r-2 border-white">Name of Faculty Researcher / Author</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader  border-t-2 border-r-2 border-white">Status</th>
+                                        <th  class="text-0.9 text-white font-Subheader text-center border-r-2 border-white border-t-2 " colspan="2">Duration</th>
 
-                                        <th class="text-0.9 text-black bg-orange-200">Article / Title</th>
-                                        <th class="text-0.9 text-black bg-orange-200">Title of Forum</th>
-                                        <th class="text-0.9 text-black bg-orange-200">Venue</th>
-                                        <th class="text-0.9 text-black bg-orange-200">Type</th>
-                                        <th class="text-0.9 text-black bg-orange-200">Date</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Title of Forum</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Venue</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Forum Type</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Date of Presentation</th>
 
-                                        <th class="text-0.9 text-black bg-amber-200">Article / Title</th>
-                                        <th class="text-0.9 text-black bg-amber-200">Date of Publication </th>
-                                        <th class="text-0.9 text-black bg-amber-200">Title of Journal or Publication</th>
-                                        <th class="text-0.9 text-black bg-amber-200">Vol. No. & Issue No.</th>
-                                        <th class="text-0.9 text-black bg-amber-200">ISSN / ISBN</th>
-                                        <th class="text-0.9 text-black bg-amber-200">Index</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2  border-r-2 border-white">Published TItle</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Date of Publication </th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Title of Journal or Publication</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Volume & Issue</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">ISSN / ISBN</th>
+                                        <th rowspan="2" class="text-0.9 text-white font-Subheader border-t-2 border-r-2 border-white">Index</th>
 
-                                        <th class="text-0.9 text-black bg-lime-200">Product Name / Methods/ Process / Technology
-                                        </th>
-                                        <th class="text-0.9 text-black bg-lime-200"> Proof / Description / Documentation</th>
-                                        <th class="text-0.9 text-black bg-lime-200">Beneficiary</th>
+                                        <th rowspan="2" class="text-0.9 text-white  font-Subheader border-t-2 border-r-2 border-white">Product Name / Methods/ Process / Technology</th>
+                                        <th rowspan="2" class="text-0.9 text-white  font-Subheader border-t-2 border-r-2 border-white"> Patent Number / Product Description</th>
+                                        <th rowspan="2" class="text-0.9 text-white  font-Subheader border-t-2 border-r-2 border-white">Benefiting Industry / Community</th>
+                                    </tr>
+
+                                    <tr class="bg-gray-700 text-white border">
+                                        <th class="text-0.9 text-white font-Subheader  border-t-2 border-r-2 border-white">Date Started</th>
+                                        <th class="text-0.9 text-white font-Subheader  border-t-2 border-r-2 border-white">Date Completed</th>
                                     </tr>
                                 </thead>
                                 <tbody>

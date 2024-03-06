@@ -172,14 +172,6 @@
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Department</p>
                     <Field type="text" name="department" placeholder="Type here" disabled class="input mt-2 input-bordered w-full "v-model="data[0].in_department" :rules="validateData"/>
 
-                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
-                    <Field as="select" name="program" class="select select-bordered w-full mt-2" v-model="in_program" :rules="validateData">
-                        <option disabled selected>Select Program ...</option>
-                        <option v-for="collegePrograms in collegeProgram" :value="collegePrograms.program">{{collegePrograms.program }}</option>
-                       
-                    </Field>
-                    <ErrorMessage name="program" class="error_message"/> -->
-
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Firstname</p>
                     <Field type="text"  name="fname" placeholder="Type here" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_fname" :rules="validateData"/>
@@ -213,12 +205,6 @@
                     </Field>
                     <ErrorMessage name="engagement" class="error_message"/>
 
-                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Duration</p>
-                    <Field type="number" name="duration"  placeholder="Type here" class="input mt-2 input-bordered w-full " v-model="in_duration" :rules="validateData"/>
-                    <ErrorMessage name="duration" class="error_message"/> -->
-
-
-                    <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-6">Upload Supported File</p> -->
                     <span class="flex items-center mt-6 gap-2">
                         <p class="text-0.9 font-Subheader text-gray-500 ">Upload Supported File</p>
                         <i class="tooltip tooltip-right"  data-tip="Submit relevant documents to verify the information provided">
@@ -227,12 +213,92 @@
                             </svg>
                         </i>
                     </span>     
-                    <input type="file" class="file-input file-input-bordered w-full mt-2" />
+                    <!-- <input type="file" class="file-input file-input-bordered w-full mt-2" /> -->
+
+                    <v-dialog max-width="1000">
+                        <template v-slot:activator="{ props: activatorProps }">
+                            <v-btn
+                            v-bind="activatorProps"
+                            color="surface-variant"
+                            text="Upload File"
+                            variant="flat"
+                            class="w-full mt-2 font-Subheader"
+                            size="large"
+                            ></v-btn>
+                        </template>
+
+                        <template v-slot:default="{ isActive }">
+                            <v-card title="Upload File">  
+
+                            <v-card-text>
+                                <h1 class="font-Subheader"> Higher Education Program: Outcome Indicator 1</h1>
+                                <h2 class="text-0.9 ">Percentage of graduates (2 years prior) that are employed</h2>
+
+                                    <table class="w-full mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-2 "></th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Required Files</th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Upload Files</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">Scanned copy of enrollment form</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="border-2 text-0.9 text-Subheader text-gray-700">2</td>
+                                                <td class="px-3 border-2 text-0.9 text-Subheader text-gray-700">Scanned copy of latest research conducted</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="border-2 text-0.9 text-Subheader text-gray-700">3</td>
+                                                <td class="px-3 border-2 text-0.9 text-Subheader text-gray-700">Documentation of utilized technlogy</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="border-2 text-0.9 text-Subheader text-gray-700">4</td>
+                                                <td class="px-3 border-2 text-0.9 text-Subheader text-gray-700">Activity report of extension program</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="border-2 text-0.9 text-Subheader text-gray-700">5</td>
+                                                <td class="px-3 border-2 text-0.9 text-Subheader text-gray-700">Scanned copy of enrollment form</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr>   
+                                        </tbody>
+                                    </table>
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                text="Close "
+                                @click="isActive.value = false"
+                                ></v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </template>
+                    </v-dialog>
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
                         <button class="btn w-2/12 bg-white border-0">Add</button>
                     </span>
-            </Form>
+                </Form>
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
@@ -240,15 +306,15 @@
                 
                 <table class="table-zebra table-md">
                     <thead>
-                    <tr class ="bg-cyan-50">
+                    <tr class ="bg-gray-700 ">
                         <th></th> 
-                        <th class="text-0.9">Campus</th> 
-                        <th class="text-0.9">Department</th> 
-                        <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">Name</th> 
-                        <th class="text-0.9">PLANTILLA Position</th> 
-                        <th class="text-0.9">Faculty Engagement</th>
-                        <th class="text-0.9">Duration</th>
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Campus</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Department</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Program</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Name</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">PLANTILLA Position</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Faculty Engagement</th>
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white">Duration</th>
                       
                     </tr>
                     </thead> 

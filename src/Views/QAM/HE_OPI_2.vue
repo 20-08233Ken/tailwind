@@ -111,13 +111,10 @@
 
 <template>
         <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform" >
-        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <span class="text-white">Data Addedd Successfully!</span>
-    </div>
-<!-- 
-    <h1 class="w-9/12 self-center text-center font-Header text-xl text-Red-Rose"> Percentage of undergraduate programs with accreditation</h1>
-    <p class="w-full text-center text-gray-400">Higher Education Program: Output Indicator 2</p>
-    <p class="w-full text-center text-gray-400">College of Engineering</p> -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span class="text-white">Data Addedd Successfully!</span>
+        </div>
+
 
     <div class="flex  shadow-card2 py-8 px-8 rounded-lg gap-4 bg-gray-700">
         <i class="mt-4" style="color: #BEFFF7;">
@@ -148,10 +145,10 @@
                 <Field name="campus" type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_campus" :rules="validateData"/>
 
 
-                <!-- <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
-                <Field name="department" type="text" placeholder="Type here" disabled class="input mt-2 input-bordered w-full " v-model="data[0].in_department" :rules="validateData"/> -->
+                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Department</p>
+                <Field name="department" type="text" placeholder="Type here"  class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;"  v-model="data[0].in_department" :rules="validateData"/>
 
-                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Program</p>
+                <p class="text-0.9 font-Subheader text-gray-500 mt-4">Undergraduate Programs Offered</p>
                 <Field as="select" name="program" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_program" :rules="validateData">
                     <option disabled selected >Select Program ...</option>
                     <option v-for="x in collegeProgram" :value="x.program">{{x.program}}</option>
@@ -187,13 +184,13 @@
                 </span> 
                 <span class="w-full flex gap-2">
                     <span class="w-2/4">
-                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">From</p>
+                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">Start Date</p>
                         <Field type="date" name="validity_from" placeholder=" " class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_from" :rules="validateData"/>
                         <ErrorMessage name="validity_from" class="error_message"/>
 
                     </span>
                     <span class="w-2/4">
-                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">To</p>
+                        <p class="text-0.9 font-Subheader text-gray-500 mt-4">End Date</p>
                         <Field type="date" name="validity_to" placeholder="" class="input mt-2 input-bordered w-full " style="border:  1px solid #d2d2d2;" v-model="in_to" :rules="validateData"/>
                         <ErrorMessage name="validity_to" class="error_message"/>
 
@@ -215,32 +212,86 @@
                         </i>
                 </span> 
 
-                <input type="file" class="file-input file-input-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" />
+                <v-dialog max-width="1000">
+                        <template v-slot:activator="{ props: activatorProps }">
+                            <v-btn
+                            v-bind="activatorProps"
+                            color="surface-variant"
+                            text="Upload File"
+                            variant="flat"
+                            class="w-full mt-2 font-Subheader"
+                            size="large"
+                            ></v-btn>
+                        </template>
+
+                        <template v-slot:default="{ isActive }">
+                            <v-card title="Upload File">  
+
+                            <v-card-text>
+                                <h1 class="font-Subheader">Higher Education Program: Output Indicator 2</h1>
+                                <h2 class="text-0.9 ">Percentage of undergraduate programs with accreditation</h2>
+
+                                    <table class="w-full mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-2 "></th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Required Files</th>
+                                                <th class="border-2 text-center text-0.9 text-Subheader text-gray-700">Upload Files</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">Supporting documentation</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                <input type="file" class="ml-5">
+                                                </td>
+                                            </tr> 
+              
+                             
+                                        </tbody>
+                                    </table>
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                text="Close "
+                                @click="isActive.value = false"
+                                ></v-btn>
+                            </v-card-actions>
+                            </v-card>
+                        </template>
+                    </v-dialog>
+
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn w-2/12 bg-white border-0">Add</button>
                 </span>
-            </Form>
+                </Form>
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose" aria-label="Table"  />
-            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 overflow-x-auto">
                 
                 <table class="table-zebra table-md">
                     <thead>
-                    <tr class ="bg-cyan-50">
-                        <th></th> 
-                        <th class="text-0.9">Campus</th> 
-                        <th class="text-0.9">Department</th> 
-                        <th class="text-0.9">Program</th> 
-                        <th class="text-0.9">Year of Initial Operation</th> 
-                        <th class="text-0.9">Status</th> 
-                        <th class="text-0.9">Period of Validity (From)</th> 
-                        <th class="text-0.9">Period of Validity (To)</th> 
-                        <th class="text-0.9">Remarks</th> 
-                        <th></th>
-
- 
+                        <tr class ="bg-gray-700 ">
+                        <th rowspan="2"></th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Campus</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Department</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Program</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Year of Initial Operation</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" rowspan="2">Program Accreditation Status</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white" colspan="2">Validity of Accreditation</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white"  rowspan="2">Remarks</th> 
+                        <th class="text-0.9 text-white font-Subheader border-r-1 border-white"  rowspan="2">Action</th>
+                    </tr>
+                    <tr class ="bg-gray-700 ">
+                        <th class="border-r-1 border-t-1 border-white text-0.9 text-white font-Subheader border-r-1 border-white">Period of Validity (From)</th> 
+                        <th class="border-r-1 border-t-1 border-white text-0.9 text-white font-Subheader border-r-1 border-white">Period of Validity (To)</th> 
                     </tr>
                     </thead> 
                     <tbody>

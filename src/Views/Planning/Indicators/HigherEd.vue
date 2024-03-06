@@ -36,8 +36,8 @@
            
         <span class="w-100 flex items-center mt-4 gap-3">
             <span class="w-full flex mt-4 gap-3">
-                <button :class="{'active':activeButton===1}" @click="showComponent('OPI',1)" class="border-1 w-3/12 py-2 px-2 rounded-md ">Output Indicator</button>
-                <button :class="{'active':activeButton===2}" @click="showComponent('OCI',2)" class="border-1 w-3/12 py-2 px-2 rounded-md ">Outcome Indicator</button>
+                <button :class="{'active':activeButton===1}" @click="showComponent('OPI',1)" class="btn border-1 w-3/12 py-2 px-2 rounded-md font-Subheader">Output Indicator</button>
+                <button :class="{'active':activeButton===2}" @click="showComponent('OCI',2)" class="btn border-1 w-3/12 py-2 px-2 rounded-md font-Subheader">Outcome Indicator</button>
             </span>
          
             <v-select
