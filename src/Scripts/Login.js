@@ -30,16 +30,18 @@ export default{
             
         },
 
-        getLoginData(){
-            console.log(this.form.username);
-            console.log(this.form.password);
-            this.form.username=''
-            this.form.password=''
-            this.loginError= false
+        // Get Login Data
+        // getLoginData(){
+        //     console.log(this.form.username);
+        //     console.log(this.form.password);
+        //     this.form.username=''
+        //     this.form.password=''
+        //     this.loginError= false
+        //     this.addTimeout();
 
-            this.addTimeout();
+        //     // else
 
-        },
+        // },
 
         addTimeout(){
             setTimeout( ()=>{
@@ -58,7 +60,7 @@ export default{
 
 
                 // if there is cookies push the user to home
-
+                
                 this.$router.push('/home');
             }).
             catch(function(error){
@@ -66,6 +68,13 @@ export default{
                     
                     console.log(error.response.data)
                     console.log(error.response.status)
+
+                    if (error.response.data){
+                       // call the modal
+                       //  this.loginError =false
+                       //  this.addTimeout()
+                       //  $("errorMessage").val();
+                    }
                     // called modal
                     //this.login =false'
                     // this.addTimeout();

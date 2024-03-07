@@ -18,7 +18,7 @@
 
                 <h1 class=" font-Header text-gray-500 text-5xl"> Error</h1>
                 
-                <h1 class="text-Red-Rose pb-18">Authentication Failed. Please try again</h1>
+                <h1 id="errorMessage" class="text-Red-Rose pb-18">Authentication Failed. Please try again</h1>
             </span>
 
         </main>

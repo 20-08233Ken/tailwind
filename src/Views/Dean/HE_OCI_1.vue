@@ -1,110 +1,4 @@
-<script>
-    import { Form, Field,ErrorMessage } from 'vee-validate';
-    import notification from '../../components/Others/notification.vue';
-
-    export default{
-
-        components:{
-            Form,
-            Field,
-            ErrorMessage,
-            notification
-        },
-        data(){
-            return{
-                in_program:'',
-                in_examDate:'',
-                in_takers:'',
-                in_passers:'',
-                count:true,
-                id:1,
-                isActive:false,
-                isIcon:false,
-                isAdd:false,
-                 // Data base from the Account Info of Dean
-                data:[
-                    {
-                        in_campus:"Alangilan Campus",
-                        in_department:"College of Engineering"
-                    }
-                ],
-
-                // Options of Select Program Input
-                collegeProgram:[
-                    {
-                        program:"Bachelor of Science in Computer Engineer",
-                    },{
-                        program:"Bachelor of Science in Civil Engineer",
-                    },{
-                        program:"Bachelor of Science in Chemical Engineer",
-                    },{
-                        program:"Bachelor of Science in Electrical Engineer",
-                    }
-                ],
-
-                sampleData:[
-
-                ],
-                newData:{
-
-                }
-            }
-        },
-        methods:{
-            addData(){
-   
-         
-                    this.sampleData.push(
-                    {
-                        tb_id:this.id,
-                        tb_campus:this.data[0].in_campus,
-                        tb_department:this.data[0].in_department,
-                        tb_program:this.in_program,
-                        tb_exam_date:this.in_examDate,
-                        tb_takers:this.in_takers,
-                        tb_passers:this.in_passers
-                    }
-                    )
-
-                    console.log(this.sampleData[0])
-
-                    this.in_program=""
-                    this.in_examDate=""
-                    this.in_takers=""
-                    this.in_passers=""
-
-                    this.id++;
-
-                    this.isAdd = true;
-                    setTimeout(() =>{
-                        this.isAdd = false;
-                    }, 2000)
-            },
-            validateInput(value){
-                if (!value) {
-                     return 'This field is required';
-                 }
-
-                 return true
-                 
-               
-            },
-            submitData(){
-                    if(this.count === true ){
-                        this.isActive = true
-                        this.count = false
-                        this.isIcon = true
-                    }else{
-                        this.isActive = false
-                    }
-                   
-            },
-            onClose(){
-                this.isActive = false
-            }
-        }
-    }
-
+<script src="../../Scripts/Dean/HE_OCI_1.js">
 </script>
 
 
@@ -156,7 +50,7 @@
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
                     <Field as="select" class="select select-bordered w-full mt-2" style="border:  1px solid #d2d2d2;" v-model="in_program" name="program" :rules="validateInput">
                         <option disabled selected>Select Program ...</option>
-                        <option v-for="x in collegeProgram" :value="x.program">{{ x.program }}</option>
+                        <option v-for="x in collegeProgram" :value="x.id">{{ x.program }}</option>
                     </Field>
                     <ErrorMessage name="program" class="error_message"/>
 
@@ -165,11 +59,11 @@
                     <ErrorMessage name="exam_date" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Takers</p>
-                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_takers" name="no_takers" :rules="validateInput"/>
+                    <Field type="number" placeholder="Type here" min="0" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_takers" name="no_takers" :rules="validateInput"/>
                     <ErrorMessage name="no_takers" class="error_message"/>
 
                     <p class="text-0.9 font-Subheader text-gray-500 mt-6">Number of First-time Passers</p>
-                    <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_passers" name="no_passers" :rules="validateInput"/>
+                    <Field type="number" placeholder="Type here" min="0" class="input mt-2 input-bordered w-full" style="border:  1px solid #d2d2d2;" v-model="in_passers" name="no_passers" :rules="validateInput"/>
                     <ErrorMessage name="no_passers" class="error_message"/>
 
                   
@@ -216,7 +110,7 @@
                                                 <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1</td>
                                                 <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">PRC Official Results</td>
                                                 <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
-                                                <input type="file" class="ml-5">
+                                                <input type="file" class="ml-5" accept=".pdf">
                                                 </td>
                                             </tr>   
                              
@@ -238,7 +132,7 @@
 
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
-                        <button class="btn w-2/12 bg-white border-0" >Add</button>
+                        <button class="btn btn-accent  w-2/12 text-white border-0" >Add</button>
                     </span>
                 </Form>
 
@@ -295,7 +189,7 @@
                 </tbody>
                 </table>
 
-                <span class="w-full flex items-center justify-end gap-2 mt-5">
+                <!-- <span class="w-full flex items-center justify-end gap-2 mt-5">
                     <button class="btn btn-accent w-2/12 bg-white hover:bg-white " @click="submitData">
                         <i class="text-teal-400" :class="{'iconInActive':isIcon === false, 'iconActive': isIcon ===true}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -304,7 +198,8 @@
                         </i>
                         <p>Submit</p>
                         
-                    </button>                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
+                    </button>                    
+                    <span class="flex justify-center items-center w-dvw h-svh fixed top-0 left-0" style="background: rgb(0,0,0,0.6);" :class="{'active':isActive == true, 'inActive':isActive == false}">
                         
                         <div class="modal-box" >
                             <h3 class="font-bold text-lg">Reminder</h3>
@@ -312,13 +207,13 @@
                             <h1>After reviewing, please click the <b> "Submit" </b>" button</h1>
                             <div class="modal-action">
                             <form method="dialog">
-                                <!-- if there is a button in form, it will close the modal -->
+                              
                                 <button class="btn" @click="onClose">Close</button>
                             </form>
                             </div>
                         </div>
                     </span>
-                </span>
+                </span> -->
             </div>
 
           
