@@ -13,8 +13,8 @@ export default{
         return{
             in_program:'',
             in_examDate:'',
-            in_takers:'',
-            in_passers:'',
+            in_takers:0,
+            in_passers:0,
             count:true,
             id:1,
             isActive:false,
@@ -29,6 +29,7 @@ export default{
                     in_department:"College of Engineering"
                 }
             ],
+            sampleData:[],
 
             // Options of Select Program Input
             // Based from API callback
@@ -44,6 +45,8 @@ export default{
                     program:"Bachelor of Science in Electrical Engineer",
                 }
             ],
+
+
 
         }
     },
@@ -100,6 +103,23 @@ export default{
         },
         onClose(){
             this.isActive = false
-        }
-    }
+        },
+
+        checkNegative(value){
+            if(value < 0){
+                return 'Negative numbers is not allowed'
+            }
+            else if(value > -1){
+                return true
+            }else if(!value){
+                return 'This field is required'
+            }
+            
+        },
+
+
+
+    },
+
+
 }

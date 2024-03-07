@@ -32,7 +32,7 @@
             
                 <img src="../assets/img/school.png" alt="" style="width: 40%;margin: -20% 0 1rem 0;">
             
-                <Form class="flex flex-col w-full items-center" @submit="validateData">
+                <Form class="flex flex-col w-full items-center">
 
                     <p class ="text-gray-500" style="width: 80%; font-size: 15px;">Username</p>
                     <Field type="text" name="username" id="username" v-model="form.username"  :rules="validateData"></Field>

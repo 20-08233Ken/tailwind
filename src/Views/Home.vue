@@ -8,12 +8,12 @@
                 <!-- <Navigation/>  -->
 
                 
-                <Planning_nav  v-if="user === 'Planning'"/>
-                <Dean_nav  v-if="user == 'Dean'"/>
-                <Registrar_nav  v-if="user === 'Registrar'"/>
-                <QAM_nav  v-if="user === 'QAM'"/>
-                <Extension_nav  v-if="user === 'Extension'"/>
-                <Research_nav v-if="user === 'Research'"/>
+            <Planning_nav  v-if="user === 'Planning'"/>
+            <Dean_nav  v-if="user == 'Dean'"/>
+            <Registrar_nav  v-if="user === 'Registrar'"/>
+            <QAM_nav  v-if="user === 'QAM'"/>
+            <Extension_nav  v-if="user === 'Extension'"/>
+            <Research_nav v-if="user === 'Research'"/>
                 
 
                

@@ -1,25 +1,5 @@
-
 <script>
-    import Planning_nav from '../../../components/Others/Navigation/Planning_nav.vue';
-    import { Form, ErrorMessage, Field } from 'vee-validate';
-    import { markRaw } from "vue"
-
-    import { x } from './sample.js'
-
-    
-    import v_OCI_1 from './HighEd/v_OCI_1.vue'
-    import v_OCI_2 from './HighEd/v_OCI_2.vue'
-    import v_OPI_1 from './HighEd/v_OPI_1.vue'
-    import v_OPI_2 from './HighEd/v_OPI_2.vue'
-
-    import ad_OCI_1 from './AdvEd/v_OCI_1.vue'
-    import ad_OPI_1 from './AdvEd/v_OPI_1.vue'
-    import ad_OPI_2 from './AdvEd/v_OPI_2.vue'
-
-    const mark_v_OCI_1 = markRaw(v_OCI_1)
-    const mark_v_OCI_2 = markRaw(v_OCI_2)
-    const mark_v_OPI_2 = markRaw(v_OPI_2)
-    
+    import {Form, Field, ErrorMessage} from 'vee-validate'
     export default{
         data(){
             return{
@@ -177,30 +157,26 @@
                         value:'department',
                     },
                     {
-                        title:'Program',
+                        title:'Undergraduate Program',
                         value:'program',
                     },
                     {
-                        title:'Year of Initial Operation',
-                        value:'year_io',
-                    },
-                    {
-                        title:'Period of Validity',
+                        title:'No. of Enrollees for 1st Semester',
                         align:'center',
-
                         children:[
                             {
-                                title:'Started of Validation',
-                                value:'pov_from',
+                                title:'Thesis/Dissertation Requiring Degree',
+                                value:'thesis',
                             },
                             {
-                                title:'End of Validation',
-                                value:'pov_to',
+                                title:'Not Thesis/Dissertation Requiring Degree',
+                                value:'not_thesis',
                             }
                         ]
                     },
+                 
                     {
-                        title:'Supported Documents',
+                        title:'Supporting Documents',
                         value:'sup_doc',
                         align:'center'
                     },
@@ -213,96 +189,155 @@
                     }
                     
                 ],
-
-                currentComponent:v_OCI_1,
-                currentBtn:1,
-                z:x
+                reasonOpt:[
+                    {
+                        reason:'Lack of Supporting Documents'
+                    },{
+                        reason:'Inconsistent Data'
+                    }
+                ]
             }
         },
         components:{
-            Planning_nav,
-            Form,
-            ErrorMessage,
-            Field,
-            v_OCI_1,
-            v_OCI_2,
-            v_OPI_1,
-            v_OPI_2,
-            ad_OCI_1,
-            ad_OPI_1,
-            ad_OPI_2,
-            
-           
-        },
-        methods:{
-            showComponent(myComponent, myBtn1){
-                this.currentComponent = myComponent
-                this.currentBtn = myBtn1
-            }
+            Form, Field, ErrorMessage
         }
         
     }
+
 </script>
+
 <template>
-    <main class="w-full flex flex-col">
-        <Planning_nav/>
+            <h1 class="font-Header text-3xl text-Red-Rose">Higher Education Program</h1>
+            <h2 class="font-Subheader text-lg text-Red-Rose">Output Indicator 2: </h2>
+            <h2 class="font-Subheader text-1gray-700">Percentage of undergraduate programs with accreditation</h2>
 
-        <section class="w-full flex gap-16 px-3vw mt-8">
-
-            <div class="w-3/12  flex flex-col">
-                <h3 class="w-full flex px-4 py-1 font-Subheader bg-gray-700 text-white" >Performace Indicator</h3>
-                <h4 class="w-full  text-white  bg-Red-Darken px-4 py-1">Higher Education</h4>
+            <span>
+                <div class="text-sm breadcrumbs w-full mt-4">
+                    <ul>
+                        <li class="text-gray-500">
+                            <router-link to="/pbb">
+                                <a>PBB</a>
+                            </router-link>
+                        </li> 
+                        <li class="text-gray-500">                   
+                             <router-link to="/PPB_Higher">
+                                <a>PBB Logs</a>
+                            </router-link></li> 
+                        <li class="text-gray-500">
+                            <router-link 
+                                :to="{
+                                    name:'PBB_Summary',
+                                    query:{
+                                        program:'PBB_Summary2'
+                                    }
+                                    }"
+                            >
+                            
+                                <a>Modified Form</a>
+                            </router-link>
+                        </li> 
+                        <li class="text-gray-500">
+                            <router-link 
+                                :to="{
+                                    name:'pbb3',
+                                    query:{
+                                        program:'HigherEd'
+                                    }
+                                    }"
+                            >
+                            
+                                <a>View Data</a>
+                            </router-link>
+                            
+                        </li>
+                        <li class="text-gray-500">
+                       
+                            
+                                <a>Validation</a>
+                        
+                            
+                        </li>
                     
-                    <h5 class=" ml-2 px-2 py-1 mt-2"  @click="showComponent('v_OCI_1', 1)" :class="{'isActive':currentBtn === 1}">Outcome Indicator 1</h5>
-                    <h5 class=" ml-2 px-2 py-1" @click="showComponent('v_OCI_2', 2)" :class="{'isActive':currentBtn === 2}">Outcome Indicator 2</h5>      
-                    <h5 class=" ml-2 px-2 py-1" @click="showComponent('v_OPI_1', 3)" :class="{'isActive':currentBtn === 3}">Output Indicator 1</h5>
-                    <h5 class=" ml-2 px-2 py-1" @click="showComponent('v_OPI_2',4 )" :class="{'isActive':currentBtn === 4}">Output Indicator 2</h5>
+                    </ul>
+                </div>
+            </span>
 
-                <h4 class="w-full mt-4 text-white  bg-Red-Darken px-4 py-1">Advanced Education</h4>
-                    
-                    <h5 class=" ml-2 px-2 py-1 mt-2"  @click="showComponent('ad_OCI_1',5 )" :class="{'isActive':currentBtn === 5}">Outcome Indicator 1</h5>
-                    <h5 class=" ml-2 px-2 py-1 mt-2"  @click="showComponent('ad_OPI_1',6 )" :class="{'isActive':currentBtn === 6}">Output Indicator 1</h5>
-                    <h5 class=" ml-2 px-2 py-1 mt-2"  @click="showComponent('ad_OPI_2',7 )" :class="{'isActive':currentBtn === 7}">Output Indicator 2</h5>
+            <span class=" w-full">
 
-                <h4 class="w-full mt-4  text-white  bg-Red-Darken px-4 py-1">Research Program</h4>
-                    <h5 class="text-sm ml-2">Output and Outcome Indicator </h5>
+                <v-data-table
+                        
+                        :headers="headers"
+                        :items="sampleData"
+                        class="elevation-1"
+                        items-per-page="10"   
+                >
 
-                <h4 class="w-full mt-4 text-white  bg-Red-Darken px-4 py-1">Technical Extension Service</h4>
-                    <h5 class=" ml-2">Outcome Indicator 1</h5>
-                    <h5 class=" ml-2">Output Indicator 1 and 3 </h5>
-                    <h5 class=" ml-2">Output Indicator 2</h5>
+                <template v-slot:item.actions="{item}">
+                
+                    <span class="flex w-full  gap-2 py-4">
+                    <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()"> Approved</v-btn>
+                    <v-btn size="x-small" class="bg-red-darken-3"  onclick="showRejection.showModal()"> Reject</v-btn>
+                    </span>
+                </template>
+
+
+
+           </v-data-table>
+            </span>
+
+            <dialog id="showApproval" class="modal">
+            <div class="modal-box">
+           
+                <h3 class="font-bold text-lg bg-gray-700 text-white px-4 py-3 font-Header">Approval</h3>
+                <p class="py-4">Are you sure you want to approve this record? </p>
+
+                <form method="dialog">
+                    <span class="w-full flex justify-end gap-4 mt-4">
+                    <button class="btn bg-white border-0 shadow-0">
+                        Cancel
+                    </button>
+
+                    <button class="btn btn-success text-white">
+                        Confirm
+                    </button>
+                </span>
+                </form>
+
             </div>
+            </dialog>
 
-            <div class="w-9/12 shadow-card2 px-3vw py-3vw rounded-lg">
-                <component :is="currentComponent"></component>
+
+            <dialog id="showRejection" class="modal">
+            <div class="modal-box">
+           
+                <h3 class="font-bold text-lg bg-gray-700 text-white px-4 py-3 font-Header">Reason of Rejection</h3>
+              
+
+                <!-- <Form>
+                    <p class="py-4 text-0.9">Reasons </p>
+                    <Field as="select" placeholder="Type here" name="reason" class="select w-full" style="border:  1px solid #d2d2d2;">
+                        <option v-for=" x in reasonOpt" :value="x.reason" >{{ x.reason }}</option>
+                    </Field>
+                    <ErrorMessage name="reason" class="error_message"/>
+
+                    <p class="py-4 text-0.9">If others, please specify </p>
+                    <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full"  style="border:  1px solid #d2d2d2;"/>
+                    <ErrorMessage name="otherReason" class="error_message"/>
+                </Form>
+
+
+                <form method="dialog">
+                    <span class="w-full flex justify-end gap-4 mt-4">
+                    <button class="btn bg-white border-0 shadow-0">
+                        Cancel
+                    </button>
+
+                    <button class="btn btn-success text-white">
+                        Submit
+                    </button>
+                </span>
+                </form> -->
+
             </div>
-               
-        </section>
-
-    </main>
-
+            </dialog>
 </template>
-
-<style scoped>
-    td:last-child{
-        display:flex;
-        align-items:center
-    }
-
-    ::v-deep thead {
-  background-color:	rgb(55 65 81);
-
-    }
-    ::v-deep th{
-        color: white;
-        border: 1px solid white;
-    }
-
-    .isActive{
-        background-color:rgb(255, 240, 221);
-    }
-   
-  
-
-
-</style>
