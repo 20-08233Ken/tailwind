@@ -39,7 +39,7 @@
             <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="font-bold text-lg">User Profile</h3>
+            <h3 class="font-bold text-lg font-Header bg-gray-700 text-white py-4 px-4 mt-4">User Profile</h3>
           
             <Form class="mt-4">
                 <p class="flex items-center gap-2 text-Red-Darken font-Subheader"> 
@@ -78,7 +78,7 @@
 
                     <span class="flex flex-col w-2/4">  
                         <p class="text-0.9 font-Subheader text-gray-500 ">Office</p>
-                        <Field as="select"  name="office" class="select select-bordered mt-2"  style="border:  1px solid #d2d2d2;" :rules="validateData">
+                        <Field as="select"  name="office" class="select select-bordered mt-2"  style="border:  1px solid #d2d2d2;">
                             <option disabled selected>Select Office ...</option>
                         </Field>
                         <ErrorMessage name="office" class="error_message"/>
@@ -95,7 +95,7 @@
                     <ErrorMessage name="postion" class="error_message"/>
 
 
-                    <span class="flex w-full mt-4">
+                    <!-- <span class="flex w-full mt-4">
                         <div class="badge bg-Red-Darken text-white gap-2 text-0.8 py-3 px-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                             Planning Officer II
@@ -106,7 +106,7 @@
                            Instructor II
                         </div>
 
-                    </span>
+                    </span> -->
 
 
                     <span class="w-full flex justify-end mt-4">

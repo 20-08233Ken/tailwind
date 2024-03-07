@@ -8,6 +8,9 @@
     import Planning_nav from '../../../components/Others/Navigation/Planning_nav.vue'
 
     import {markRaw} from 'vue'
+
+    const raw_Planning_nav = markRaw(Planning_nav)
+
     export default{
         data(){
             return{
