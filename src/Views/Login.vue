@@ -43,9 +43,9 @@
                     <ErrorMessage name="password" class="error_message"></ErrorMessage>
 
           
-                <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px; " @click="getLoginData">  
+                <!-- <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px; " @click="getLoginData">  
                     Login as Dean         
-                </button>
+                </button> -->
            
                 </Form>
 
@@ -55,7 +55,7 @@
                 
                 <router-link to="/home"  class=" w-full flex justify-center">
                 <button class="bg-Red-Rose text-white w-2/12 py-3 rounded mt-4 " style="width: 80%;font-size: 15px;">  
-                    Login as Planning         
+                    Login     
                 </button>
                 </router-link>
             
