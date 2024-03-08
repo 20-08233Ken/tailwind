@@ -439,6 +439,59 @@
 
             </div>
 
+            <input type="radio" name="my_tabs_2" role="tab" class="tab font-Subheader text-base text-Red-Rose"
+                aria-label="Registrar" />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+
+                <h1 class="font-Subheader ">PRC: List of Graduates by Institution, Program, and Sex</h1>
+                <table class="table-zebra table-md mt-4">
+                    <thead>
+                        <tr class="bg-gray-700 ">
+                                <th class="text-0.8 text-white font-Subheader border-r-1 border-b-1" colspan="7">Student Profile</th>
+                                <th class="text-0.8 text-white font-Subheader border-r-1 border-b-1" rowspan="2">Program Name</th>
+                                <th class="text-0.8 text-white font-Subheader border-r-1 border-b-1" rowspan="2">Program Major</th>
+                                <th class="text-0.8 text-white font-Subheader border-r-1 border-b-1" colspan="2">Program Authority to Operate / Graduate</th>
+                        </tr>
+                        <tr class="bg-gray-700 ">
+                            <th></th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Student ID</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Date of Birth (mm/dd/yyyy)</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Last Name</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">First Name</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Sex (M/F)</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Date Graduated</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Authority Number</th>
+                            <th class="text-0.8 text-white font-Subheader border-r-1 border-white">Year Granted</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in sampleData">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="flex flex-col items-center gap-2 ">
+                                <button class="btn btn-xs btn-ghost font-Subheader w-full text-green-700 shadow-0 "
+                                    >Edit</button>
+                                <button
+                                    class="btn btn-xs btn-ghost font-Subheader w-full text-Red-Rose shadow-0 ">Delete</button>
+                                <button class="btn btn-xs btn-ghost font-Subheader w-full text-blue-700 shadow-0 "
+                                   >View</button>
+
+
+
+
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
 
         </div>
 

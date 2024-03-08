@@ -108,6 +108,7 @@ export default {
 </script>
 
 <template>
+    
     <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform">
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -115,12 +116,6 @@ export default {
         </svg>
         <span class="text-white">Data Addedd Successfully!</span>
     </div>
-
-    <!-- 
-    <h1 class="w-9/12 self-center text-center font-Header text-xl text-Red-Rose"> Percentage of graduate students enrolled in research degree programs</h1>
-    <p class="w-full text-center text-gray-400">Advanced Education Program: Output Indicator 1</p>
-    <p class="w-full text-center text-gray-400">College of Engineering</p> -->
-
 
     <div class="flex  shadow-card2 py-8 px-8 rounded-lg gap-4 bg-gray-700">
         <i class="mt-4" style="color: #BEFFF7;">
@@ -173,7 +168,7 @@ export default {
                                 d="M9.807 19L12.193 19 14.129 22.754 16.175 19 18.404 19 15.333 24 18.474 29 16.123 29 14.013 25.07 11.912 29 9.526 29 12.719 23.982z">
                             </path>
                         </svg>
-                        <a class="font-Subheader text-sm" href=".././../assets/files/sample.xlsx" download="">Download
+                        <a class="font-Subheader text-sm" href=".././../assets/files/UII_Name-of-HEI_PRC-List-of-Graduates_2023.xlsx" download="">Download
                             Form
                         </a>
                     </button>
