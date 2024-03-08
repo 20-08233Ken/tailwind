@@ -19,6 +19,8 @@ import Extension_nav from '../components/Others/Navigation/Extension_nav.vue'
 
 import Research_nav from '../components/Others/Navigation/Research_nav.vue'
 
+
+
 import { useCookies } from 'vue3-cookies';
 import { ref } from 'vue'
 

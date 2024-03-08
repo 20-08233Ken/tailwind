@@ -5,22 +5,19 @@
     import EP_1 from './EP_1.vue'
     import EP_2 from './EP_2.vue'
     import EP_3 from './EP_3.vue'
-
+    import { userPosition } from '../../Scripts/cookies';
     import { useCookies } from 'vue3-cookies';
     import {markRaw} from 'vue'
 
     const  markRaw_EP_1 = markRaw(EP_1)
 
     export default{
-        setup(){
-        const {cookies} =useCookies();
-        return {cookies}
-     },
+
         data(){
             return{
                 activeComponent:EP_1,
                 activeBtn:1,
-                user:''
+                user:userPosition
 
             }
         },
@@ -38,11 +35,7 @@
                 this.activeBtn = btnNo
             }
         },
-        mounted(){
-        let userPosition = this.cookies.get('userPosition');
-        this.user = userPosition
-        console.log(userPosition)
-    }
+
     }
 </script>
 

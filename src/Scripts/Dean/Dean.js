@@ -1,35 +1,24 @@
 import HE_OCI_1 from '../../Views/Dean/HE_OCI_1.vue'; 
 import HE_OCI_2 from '../../Views/Dean/HE_OCI_2.vue';
-// import HE_OPI_1 from '../../Views/Dean/HE_OPI_1.vue'; Registar
-// import HE_OPI_2 from '../../Views/Dean/HE_OPI_2.vue'; QAM
-
 import AE_OCI_1 from '../../Views/Dean/AE_OCI_1.vue';
-// import AE_OPI_1 from '../../Views/Dean/AE_OPI_1.vue';Registrar
-// import AE_OPI_2 from '../../Views/Dean/AE_OPI_2.vue';QAM
-
-import Research_Service from '../../Views/Dean/Research.vue'
 import calendar from '../../components/Others/calendar.vue';
-
 import activityList from '../../components/Others/activityList.vue'
-
 import Navigation from '../../components/Others/Navigation.vue';
 import Dean_nav from '../../components/Others/Navigation/Dean_nav.vue';
 import { markRaw } from "vue"
 import { useCookies } from 'vue3-cookies';
 
+import {userPosition} from '../cookies.js'
+
 const hold_oc_1 = markRaw(HE_OCI_1);
 
 export default{
-    setup(){
-        const {cookies} =useCookies();
-        return {cookies}
-    },
+
     data(){
         return{
             currentComponent:HE_OCI_1,
             activeBtn:1,
-            user:'',
-
+            user:userPosition, 
             sampleData:[
                 {
                     id:1,
@@ -91,9 +80,6 @@ export default{
             this.activeBtn = btnNumber
         }
     },
-    mounted(){
-        let userPosition = this.cookies.get('userPosition');
-        this.user = userPosition
-    }
+
     
 }

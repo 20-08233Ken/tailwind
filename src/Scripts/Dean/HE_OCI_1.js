@@ -1,5 +1,6 @@
 import { Form, Field,ErrorMessage } from 'vee-validate';
 import notification from '../../components/Others/notification.vue';
+import axios from 'axios';
 
 export default{
 
@@ -21,6 +22,7 @@ export default{
             isIcon:false,
             isAdd:false,
 
+            receivedProgam:null,
             
              // Data base from the Account Info of Dean 
             data:[
@@ -80,7 +82,6 @@ export default{
                     this.isAdd = false;
                 }, 2000)
         },
-
         // Validate if the input field is empty
         validateInput(value){
             if (!value) {
@@ -92,6 +93,7 @@ export default{
            
         },
         submitData(){
+                console.log(this.in_takers)
                 if(this.count === true ){
                     this.isActive = true
                     this.count = false
@@ -117,9 +119,21 @@ export default{
             
         },
 
-
+        async fetchProgram_Data(){
+            try{
+                const response = await axios.get('');
+                // remove first the data from college program 
+                this.collegeProgram = response.data
+            }catch (error){
+                // add actions here
+            }
+        }
 
     },
+    mounted(){
+        // call here
+        // this.fetchProgram_Data()
+    }
 
 
 }

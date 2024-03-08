@@ -2,7 +2,7 @@
     <div class="flex-none">
         <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                <div class="indicator bg-Red-Darken p-2 rounded-full text-white">
+                <div class="indicator bg-gray-500 p-2 rounded-full text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
