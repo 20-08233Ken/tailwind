@@ -2,12 +2,10 @@
     import {Form, Field, ErrorMessage} from 'vee-validate'
     import Research_nav from '../../components/Others/Navigation/Research_nav.vue';
     import activityList from '../../components/Others/activityList.vue';
+    import { userPosition } from '../../Scripts/cookies';
     import { useCookies } from 'vue3-cookies';
     export default{
-        setup(){
-        const {cookies} =useCookies();
-        return {cookies}
-        },
+
         components:{
             Form,
             Field,
@@ -17,7 +15,7 @@
         },
         data(){
             return{
-                user:'',
+                user:userPosition,
                 count:true,
                 isActive:false,
                 sampleData:[
@@ -97,11 +95,7 @@
                 this.isActive = false
             }
         },
-        mounted(){
-        let userPosition = this.cookies.get('userPosition');
-        this.user = userPosition
-        console.log(userPosition)
-    }
+
     }
 
 
