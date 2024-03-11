@@ -52,6 +52,8 @@ export default{
                 }
             ],
 
+            selectedFile:null,
+
 
 
         }
@@ -131,6 +133,15 @@ export default{
             }catch (error){
                 // add actions here
             }
+        },
+
+        handleFileUpload(event){
+            this.selectedFile = event.target.files[0]
+
+        },
+
+        showFile(){
+            console.log(this.selectedFile)
         }
 
     },

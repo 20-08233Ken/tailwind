@@ -14,11 +14,15 @@ const hold_oc_1 = markRaw(HE_OCI_1);
 
 export default{
 
+    mounted(){
+        const holdCookies = userPosition();
+        this.user = holdCookies();
+    },
     data(){
         return{
             currentComponent:HE_OCI_1,
             activeBtn:1,
-            user:userPosition, 
+            user:null, 
             sampleData:[
                 {
                     id:1,
