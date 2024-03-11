@@ -75,8 +75,7 @@ export default{
                 }
             ],
 
-            approvalStatus1:'Approved',
-            approvalStatus2:'Reject',
+
             selectedFile:null,
             isDataActive:true,
       
@@ -169,13 +168,14 @@ export default{
 
         showFile(){
             console.log(this.selectedFile)
+            this.isDataActive= false;
         },
         changeData(isActive ){
 
             this.isDataActive = isActive
         },
 
-     
+
         
 
     },
@@ -184,21 +184,7 @@ export default{
         // this.fetchProgram_Data()
     },
 
-    computed:{
-        disableBttn(){
-
-            for (let row of this.sampleData){
-                if(row.tb_approval === 'Approved'){
-                    return false
-                }else{
-                    return false
-                }
-            }
-
-          
-        }
-
-    }
+ 
 
 
 }
