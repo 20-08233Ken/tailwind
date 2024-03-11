@@ -20,7 +20,10 @@ const markRaw_userManagement= markRaw(user_management)
 const markRaw_MainProfile= markRaw(MainProfile)
 export default{
     
-
+    mounted(){
+        const holdCookies = userPosition();
+        this.user = holdCookies();
+    },
     data(){
         return{
             user:userPosition,
@@ -32,7 +35,8 @@ export default{
                 },
               ]),
 
-            currentComponent:MainProfile
+            currentComponent:MainProfile,
+            user:null
         }
     },
     methods:{

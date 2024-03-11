@@ -2,13 +2,15 @@ import { Form, Field,ErrorMessage } from 'vee-validate';
 import notification from '../../components/Others/notification.vue';
 import axios from 'axios';
 
+
 export default{
 
     components:{
         Form,
         Field,
         ErrorMessage,
-        notification
+        notification,
+
     },
     data(){
         return{
@@ -31,7 +33,28 @@ export default{
                     in_department:"College of Engineering"
                 }
             ],
-            sampleData:[],
+            sampleData:[
+                {
+                    tb_id:1,  
+                    tb_campus:'Alangilan Campus',
+                    tb_department:'College of Engineering',
+                    tb_program:'BS civil engineering',
+                    tb_exam_date:'January 23, 2023',
+                    tb_passers:'12',
+                    tb_takers:'23',
+                    tb_approval:'Approved'
+                },
+                {
+                    tb_id:1,  
+                    tb_campus:'Alangilan Campus',
+                    tb_department:'College of Engineering',
+                    tb_program:'BS civil engineering',
+                    tb_exam_date:'January 23, 2023',
+                    tb_passers:'12',
+                    tb_takers:'23',
+                    tb_approval:'Reject'
+                },
+            ],
 
             // Options of Select Program Input
             // Based from API callback
@@ -52,7 +75,11 @@ export default{
                 }
             ],
 
+            approvalStatus1:'Approved',
+            approvalStatus2:'Reject',
             selectedFile:null,
+            isDataActive:true,
+      
 
 
 
@@ -142,12 +169,35 @@ export default{
 
         showFile(){
             console.log(this.selectedFile)
-        }
+        },
+        changeData(isActive ){
+
+            this.isDataActive = isActive
+        },
+
+     
+        
 
     },
     mounted(){
         // call here
         // this.fetchProgram_Data()
+    },
+
+    computed:{
+        disableBttn(){
+
+            for (let row of this.sampleData){
+                if(row.tb_approval === 'Approved'){
+                    return false
+                }else{
+                    return false
+                }
+            }
+
+          
+        }
+
     }
 
 
