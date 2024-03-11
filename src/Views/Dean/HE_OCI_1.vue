@@ -93,7 +93,43 @@
                         </i>
                     </span>
 
-                    <v-dialog max-width="1000">
+                    <span clas="w-full flex">
+                        <table class="w-full mt-4">
+                                        <thead>
+                                            <tr class="bg-gray-700 text-white">
+                                                <th class="border-2 text-white"></th>
+                                                <th class="border-2 text-white text-center text-0.9 font-Subheader ">
+                                                    Required Files</th>
+                                                <th class="border-2 text-white text-center text-0.9 font-Subheader ">
+                                                    Upload Files
+                                                </th>
+                                                <th>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1
+                                                </td>
+                                                <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">
+                                                    PRC Official Results</td>
+                                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
+                                                    <input type="file" class="ml-5" accept=".pdf" @change="handleFileUpload">
+                                                    <!-- <p v-if="selectedFile">Selected File: {{ selectedFile.name }}</p> -->
+                                                </td>
+                                                <td>
+                                                   
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                        </table>
+                        
+                    </span>
+
+                    <!-- <v-dialog max-width="1000">
                         <template v-slot:activator="{ props: activatorProps }">
                             <v-btn v-bind="activatorProps" color="surface-variant" text="Upload File" variant="flat"
                                 class="w-full mt-2 font-Subheader" size="large"></v-btn>
@@ -125,7 +161,8 @@
                                                 <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">
                                                     PRC Official Results</td>
                                                 <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
-                                                    <input type="file" class="ml-5" accept=".pdf">
+                                                    <input type="file" class="ml-5" accept=".pdf" @change="saveFileValue">
+                                                    <p v-if="selectedFile">Selected File: {{ selectedFile.name }}</p>
                                                 </td>
                                             </tr>
 
@@ -140,11 +177,11 @@
                                 </v-card-actions>
                             </v-card>
                         </template>
-                    </v-dialog>
+                    </v-dialog> -->
 
 
                     <span class="w-full flex items-center justify-end gap-2 mt-5">
-                        <button class="btn btn-accent  w-2/12 text-white border-0">Add</button>
+                        <button class="btn bg-emerald-600 text-white w-2/12 " @click="showFile()">Add</button>
                     </span>
                 </Form>
 
