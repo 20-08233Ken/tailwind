@@ -1,11 +1,12 @@
-<script src="../../../../Scripts/Validate/AdvEd/v_OCI_1.js">
+<script src="../../../Scripts/Validate/HighEd/v_OCI_1.js">
+
 
 </script>
 
 <template>
             <h1 class="font-Header text-3xl text-Red-Rose">Higher Education Program</h1>
-            <h2 class="font-Subheader text-lg text-Red-Rose">Outcome Indicator 1 </h2>
-            <h2 class="font-Subheader text-1gray-700"> Percentage of graduate school faculty engaged in research work</h2>
+            <h2 class="font-Subheader text-lg text-Red-Rose">Outcome Indicator 1</h2>
+            <h2 class="font-Subheader text-1gray-700">Percentage of first-time licensure exam takers that pass the licensure exams</h2>
 
             <span>
                 <div class="text-sm breadcrumbs w-full mt-4">
@@ -109,7 +110,7 @@
                 <h3 class="font-bold text-lg bg-gray-700 text-white px-4 py-3 font-Header">Reason of Rejection</h3>
               
 
-                <!-- <Form>
+                <Form>
                     <p class="py-4 text-0.9">Reasons </p>
                     <Field as="select" placeholder="Type here" name="reason" class="select w-full" style="border:  1px solid #d2d2d2;">
                         <option v-for=" x in reasonOpt" :value="x.reason" >{{ x.reason }}</option>
@@ -132,7 +133,7 @@
                         Submit
                     </button>
                 </span>
-                </form> -->
+                </form>
 
             </div>
             </dialog>

@@ -45,7 +45,7 @@ export default{
                     tb_approval:'Approved'
                 },
                 {
-                    tb_id:1,  
+                    tb_id:2,  
                     tb_campus:'Alangilan Campus',
                     tb_department:'College of Engineering',
                     tb_program:'BS civil engineering',
@@ -75,9 +75,21 @@ export default{
                 }
             ],
 
-
             selectedFile:null,
             isDataActive:true,
+
+            // For View Button
+            approvedLogs:[
+                {
+                    approvedBy:'Approved By ',
+                    comment:"Comment"
+                },
+                {
+                    approvedBy:'Approved By ',
+                    comment:"Comment"
+                },
+            ],
+
       
 
 
@@ -174,6 +186,10 @@ export default{
 
             this.isDataActive = isActive
         },
+
+        deleteData(id){
+            console.log(id)
+        }
 
 
         
