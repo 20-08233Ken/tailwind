@@ -1,4 +1,4 @@
-<script src="../../../Scripts/Validate/HighEd/v_OPI_1.js">
+<script src="../../../Scripts/VCs/HighEd/v_OPI_1.js">
 
 
 </script>

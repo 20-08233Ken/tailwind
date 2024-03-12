@@ -7,9 +7,8 @@
 
 <template>
     <main class="w-full flex flex-col items-center">
-        <!-- <Dean_nav v-if="user == 'Dean'" /> -->
-        <Navigation/>
-        <section class='w-full flex justify-between gap-8'>
+        <Dean_nav v-if="user == 'Dean'" />
+        <section class='w-full flex justify-between gap-8' v-if="user == 'Dean'">
 
             <div class="flex flex-col w-3/12  pl-8 h-dvh">
 
@@ -36,7 +35,7 @@
                 </ul>
 
             </div>
-            <div class="w-7/12 flex justify-end gap-4">
+            <div class="w-7/12 flex justify-end gap-4" v-if="user == 'Dean'">
 
                 <div class="w-full flex  px-16 py-16 ">
                     <span class="flex w-full flex-col   ">

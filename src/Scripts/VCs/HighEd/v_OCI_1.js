@@ -4,6 +4,7 @@ export default{
         return{
             sampleData:[
                 {
+                   id:'1',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -16,6 +17,7 @@ export default{
 
                 },
                 {
+                    id:'2',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -28,6 +30,7 @@ export default{
 
                 },
                 {
+                    id:'3',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -41,6 +44,7 @@ export default{
                 }
                 ,
                 {
+                    id:'4',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -54,6 +58,7 @@ export default{
                 }
                 ,
                 {
+                    id:'5',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -67,6 +72,7 @@ export default{
                 }
                 ,
                 {
+                    id:'6',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -80,6 +86,7 @@ export default{
                 }
                 ,
                 {
+                    id:'7',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -93,6 +100,7 @@ export default{
                 }
                 ,
                 {
+                    id:'8',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -106,6 +114,7 @@ export default{
                 }
                 ,
                 {
+                    id:'9',
                    campus:'Alangilan Campus',
                    department:'College of Engineering',
                    program:"Bachelor of Science in Civil Engineering",
@@ -165,16 +174,16 @@ export default{
                 },
                 {
                     title:'Number of 1st Time takers',
-                    align:'fTakers',
+                    value:'fTakers',
                 },
                 {
                     title:'Number of 1st Time Passers',
-                    align:'fPassers',
+                    value:'fPassers',
                 },
                 {
                     title:'Supporting Documents',
                     value:'sup_doc',
-                    align:'center'
+                    value:'center'
                 },
                 {
                     title:'Validation Status',
@@ -192,6 +201,11 @@ export default{
                     reason:'Inconsistent Data'
                 }
             ]
+        }
+    },
+    methods:{
+        showID(id){
+            console.log(id)
         }
     },
 

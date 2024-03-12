@@ -41,9 +41,9 @@
 
 <template>
     <main class="w-full flex flex-col items-center">
-        <Navigation/>
+        <Extension_nav v-if="user === 'Extension'"/>
 
-        <section class="w-full flex justify-between gap-8">
+        <section class="w-full flex justify-between gap-8" v-if="user === 'Extension'">
             
             <div class="flex flex-col w-3/12  pl-8 h-dvh">
 
