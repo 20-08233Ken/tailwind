@@ -31,9 +31,9 @@
             
 
       
-
+       
             <li class="flex items-center justify-center w-1/12  md:hidden sm:hidden xm:hidden"><img src="../../assets/img/school.png" style="width: 4rem;" alt=""></li>
-
+   
             <li 
                 class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden" 
                 style="font-size: clamp(14px , 2vw , 16px);"
@@ -113,7 +113,13 @@
             >
                 <router-link to="/TechnicalExtension">Extension</router-link>
             </li>
-
+            
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/validateMain">Validate</router-link>
+            </li>
         </ul>
     </nav>
 </template>

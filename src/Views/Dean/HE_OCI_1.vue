@@ -139,8 +139,8 @@
             </Form>
         </div>
 
-        <div class="w-full flex flex-col mt-8 overflow-x-auto">
-            <table class="table-zebra table-sm" v-if="isDataActive === false">
+        <div class="w-full flex flex-col mt-8 overflow-x-auto " v-if="isDataActive === false">
+            <table class="table-zebra table-sm" >
                 <thead>
                     <tr class="bg-gray-700 ">
                         <th></th>
