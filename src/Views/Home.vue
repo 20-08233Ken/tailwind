@@ -8,13 +8,13 @@
                 <!-- <Navigation/>  -->
 
                 
-            <Navigation  v-if="user === 'Planning'"/>
-            <!-- <Dean_nav  v-if="user == 'Dean'"/>
+            <Planning_nav  v-if="user === 'Planning'"/>
+            <Dean_nav  v-if="user == 'Dean'"/>
             <Registrar_nav  v-if="user === 'Registrar'"/>
             <QAM_nav  v-if="user === 'QAM'"/>
             <Extension_nav  v-if="user === 'Extension'"/>
             <Research_nav v-if="user === 'Research'"/>
-            <VCAA_navVue v-if="user === 'VCAA'"/> -->
+            <VCs_nav v-if="user === 'VCAA' || user ==='Chancellor'"/> 
 
                
             <section class="flex flex-col justify-center w-full bg-wave-bg bg-bottom bg-no-repeat bg-cover pb-3vw ">

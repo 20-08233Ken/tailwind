@@ -30,12 +30,12 @@ import Registrar from '../Views/Registrar/registrar.vue'
 import Qam from '../Views/QAM/Qam.vue'
 import TechnicalExtension from '../Views/Extension/extension.vue'
 
-import Research from "../Views/Dean/Research.vue";
+import Research from "../Views/Research/Research.vue";
 import Advanced from '../Views/Planning/Indicators/AdvanceEd.vue'
 import Higher from '../Views/Planning/Indicators/HigherEd.vue'
 import ResearchServices from '../Views/Planning/Indicators/ResearchServices.vue'
 
-import validateMain from '../Views/Validate/validate_main.vue'
+import VCs from '../Views/VC/vcs.vue'
 
 const router = createRouter ({
 
@@ -190,10 +190,11 @@ const router = createRouter ({
             component:Higher
 
         },
+       
         {
-            path:'/validateMain',
-            name:'validateMain',
-            component:validateMain
+            path:'/VCs',
+            name:'VCs',
+            component:VCs
         }
      
 

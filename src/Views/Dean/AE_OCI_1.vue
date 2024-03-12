@@ -46,8 +46,6 @@
             <button class="btn   w-6/12" :class="{'isDataNotActive':isDataActive===2}" @click="changeData(2)">
                 Table
             </button>
-
-
         </div>
         <div class="w-full flex flex-col mt-8" v-if="isDataActive === 1">
             <Form @submit="addData">

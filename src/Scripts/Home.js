@@ -19,7 +19,7 @@ import Extension_nav from '../components/Others/Navigation/Extension_nav.vue'
 import VCAA_navVue from '../components/Others/Navigation/VCAA_nav.vue'
 import Research_nav from '../components/Others/Navigation/Research_nav.vue'
 
-
+import VCs_nav from '../components/Others/Navigation/VCs_nav.vue'
 
 import { useCookies } from 'vue3-cookies';
 import { ref } from 'vue'
@@ -59,7 +59,8 @@ export default{
         QAM_nav,
         Extension_nav,
         Research_nav,
-        VCAA_navVue
+        VCAA_navVue,
+        VCs_nav
     },  
       methods:{
         showActive(componentName,tabNumber){
@@ -77,7 +78,7 @@ export default{
         // [4] Planning
         this.cookies
         .set('userCookies','random_key','1hr')
-        .set('userPosition','Planning','1hr');
+        .set('userPosition','Chancellor','1hr');
 
         let userCookies = this.cookies.get('userCookies');
         let userPosition = this.cookies.get('userPosition');
