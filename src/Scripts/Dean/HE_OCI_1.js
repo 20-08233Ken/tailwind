@@ -175,7 +175,6 @@ export default{
 
         handleFileUpload(event){
             this.selectedFile = event.target.files[0]
-
         },
 
         showFile(){
