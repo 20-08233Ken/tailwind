@@ -1,4 +1,6 @@
 import {Form, Field, ErrorMessage} from 'vee-validate'
+import { userPosition } from '../../cookies'
+
 export default{
     data(){
         return{
@@ -211,6 +213,34 @@ export default{
 
     components:{
         Form, Field, ErrorMessage
+    },
+
+    mounted(){
+
+        const holdCookies = userPosition();
+       
+        if(holdCookies === 'VCAA'){
+            // call the API for VCAA
+            // PASS it to sampleData[]
+
+        }else if( holdCookies === 'Planning'){
+            // call the API for VCAA
+            // PASS it to sampleData[]
+
+        }    
+        else if( holdCookies === 'Chancellor'){
+            // call the API for VCAA
+            // PASS it to sampleData[]
+
+        }else if( holdCookies === 'VPAA'){
+            // call the API for VCAA
+            // PASS it to sampleData[]
+
+        }else if( holdCookies === 'IPDO'){
+            // call the API for VCAA
+            // PASS it to sampleData[]
+            
+        }
     }
     
 }

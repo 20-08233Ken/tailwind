@@ -76,6 +76,7 @@ export default{
                     tb_positiom:'passers',
                     tb_engagement:'takers',
                     tb_duration:'23',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Approved'
                 },
                 {
@@ -87,6 +88,7 @@ export default{
                     tb_positiom:'passers',
                     tb_engagement:'takers',
                     tb_duration:'23',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Reject'
                 },
             ],

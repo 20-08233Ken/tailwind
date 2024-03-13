@@ -199,7 +199,7 @@
                         <td class="text-0.8">{{ item.tb_name}}</td>
                         <td class="text-0.8">{{ item.tb_status}}</td>
                         <td class="text-0.8">{{ item.tb_company}}</td>
-                        <td></td>
+                        <td> <v-btn size="small" class="bg-teal-darken-1">  <a :href=item.tb_docs target="_blank">View PDF</a></v-btn></td>
                         <td class="text-0.8">{{ item.tb_approval }}</td>
                         <td class="flex flex-col items-center gap-2 ">
 
@@ -207,7 +207,7 @@
                             <v-dialog max-width="700">
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn size="x-small" block v-bind="activatorProps" color="surface-variant"
-                                        text="Edit" variant="flat" :disabled='item.tb_approval === `Approved`'></v-btn>
+                                        text="Edit" variant="flat" :disabled='item.tb_approval == ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">
@@ -379,7 +379,7 @@
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant"
                                         text="Delete" variant="flat"
-                                        :disabled='item.tb_approval === `Approved`'></v-btn>
+                                        :disabled='item.tb_approval == ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">
