@@ -8,56 +8,7 @@
             <h2 class="font-Subheader text-lg text-Red-Rose">Outcome Indicator 1</h2>
             <h2 class="font-Subheader text-1gray-700">Percentage of first-time licensure exam takers that pass the licensure exams</h2>
 
-            <span>
-                <div class="text-sm breadcrumbs w-full mt-4">
-                    <ul>
-                        <li class="text-gray-500">
-                            <router-link to="/pbb">
-                                <a>PBB</a>
-                            </router-link>
-                        </li> 
-                        <li class="text-gray-500">                   
-                             <router-link to="/PPB_Higher">
-                                <a>PBB Logs</a>
-                            </router-link></li> 
-                        <li class="text-gray-500">
-                            <router-link 
-                                :to="{
-                                    name:'PBB_Summary',
-                                    query:{
-                                        program:'PBB_Summary2'
-                                    }
-                                    }"
-                            >
-                            
-                                <a>Modified Form</a>
-                            </router-link>
-                        </li> 
-                        <li class="text-gray-500">
-                            <router-link 
-                                :to="{
-                                    name:'pbb3',
-                                    query:{
-                                        program:'HigherEd'
-                                    }
-                                    }"
-                            >
-                            
-                                <a>View Data</a>
-                            </router-link>
-                            
-                        </li>
-                        <li class="text-gray-500">
-                       
-                            
-                                <a>Validation</a>
-                        
-                            
-                        </li>
-                    
-                    </ul>
-                </div>
-            </span>
+
 
             <span class=" w-full">
 
@@ -74,8 +25,8 @@
                 
                     <span class="flex w-full  gap-2 py-4">
                     <p>{{ item.id }}</p>
-                    <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()" @click="showID(item.id)"> Approved</v-btn>
-                    <v-btn size="x-small" class="bg-red-darken-3"  onclick="showRejection.showModal()"  @click="showID(item.id)"> Reject</v-btn>
+                    <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()" @click="approvedHEP(item.id)"> Approved</v-btn>
+                    <v-btn size="x-small" class="bg-red-darken-3"  onclick="showRejection.showModal()"  @click="rejectedHEP(item.id)"> Reject</v-btn>
                     </span>
                 </template>
 
@@ -96,7 +47,7 @@
                         Cancel
                     </button>
 
-                    <button class="btn btn-success text-white">
+                    <button class="btn btn-success text-white" @click="ApprovedRequest">
                         Confirm
                     </button>
                 </span>
@@ -131,7 +82,7 @@
                         Cancel
                     </button>
 
-                    <button class="btn btn-success text-white">
+                    <button class="btn btn-success text-white" @click="RejectRequest">
                         Submit
                     </button>
                 </span>

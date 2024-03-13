@@ -192,7 +192,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in sampleData">
-                        <td class="text-0.8">{{ item.tb_id}}</td>
+                        <td class="text-0.8"></td>
                         <td class="text-0.8">{{ item.tb_campus}}</td>
                         <td class="text-0.8">{{ item.tb_apartment}}</td>
                         <td class="text-0.8">{{ item.tb_program}}</td>
@@ -426,10 +426,10 @@
                                                         <v-icon class="text-green-700">mdi-history</v-icon>
                                                     </td>
                                                     <td>
-                                                        <h1>{{ items.approvedBy }}</h1>
+                                                        <h1>{{ items.status }} by {{ items.role }}</h1>
                                                     </td>
                                                     <td>
-                                                        <p><i>{{ items.comment }}</i></p>
+                                                        <p>{{ items.reason }}<br><i>{{ items.remarks }}</i> </p>
                                                     </td>
                                                 </tr>
 
