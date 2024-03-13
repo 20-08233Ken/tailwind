@@ -76,21 +76,38 @@ export default{
         // userCookies Value
         // [1] Dean , [2] Registrar, [3] QAM
         // [4] Planning
-        this.cookies
-        .set('userCookies','random_key','1hr')
-        .set('userPosition','Dean','1hr');
+
+
+        // this.cookies
+        // .set('userCookies','random_key','1hr')
+        // .set('userPosition','Dean','1hr');
+
+        // let userCookies = this.cookies.get('userCookies');
+        // let userPosition = this.cookies.get('userPosition');
+        // console.log("userCookies",userCookies)
+        // console.log("userPosition",userPosition)
+
+        // //
+        // this.user = userPosition
+        // this.userCookies = userCookies
+
+        // console.log(import.meta.env.VITE_SOME_KEY) // "123"
+        // console.log(import.meta.env.VITE_API_TEST) // "123"
+
 
         let userCookies = this.cookies.get('userCookies');
+        let accesstoken = this.cookies.get('userAccessToken');
         let userPosition = this.cookies.get('userPosition');
-        console.log("userCookies",userCookies)
-        console.log("userPosition",userPosition)
-
-        //
-        this.user = userPosition
-        this.userCookies = userCookies
-
-        console.log(import.meta.env.VITE_SOME_KEY) // "123"
-        console.log(import.meta.env.VITE_API_TEST) // "123"
+        let userCollege = this.cookies.get('userCollege');
+        let userCampus = this.cookies.get('userCampus');
+        // console.log(userCookies);
+        // console.log(userPosition);
+        this.user = userPosition;
+        this.userCookies = userCookies;
+  
+        if (this.user == null && this.userCookies == null){
+            this.$router.push('/');
+        }
        
     },
 

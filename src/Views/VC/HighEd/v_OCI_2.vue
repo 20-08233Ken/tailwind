@@ -8,54 +8,7 @@
             <h2 class="font-Subheader text-1gray-700"> Percentage of graduates (2 years prior) that are employed</h2>
 
             <span>
-                <div class="text-sm breadcrumbs w-full mt-4">
-                    <ul>
-                        <li class="text-gray-500">
-                            <router-link to="/pbb">
-                                <a>PBB</a>
-                            </router-link>
-                        </li> 
-                        <li class="text-gray-500">                   
-                             <router-link to="/PPB_Higher">
-                                <a>PBB Logs</a>
-                            </router-link></li> 
-                        <li class="text-gray-500">
-                            <router-link 
-                                :to="{
-                                    name:'PBB_Summary',
-                                    query:{
-                                        program:'PBB_Summary2'
-                                    }
-                                    }"
-                            >
-                            
-                                <a>Modified Form</a>
-                            </router-link>
-                        </li> 
-                        <li class="text-gray-500">
-                            <router-link 
-                                :to="{
-                                    name:'pbb3',
-                                    query:{
-                                        program:'HigherEd'
-                                    }
-                                    }"
-                            >
-                            
-                                <a>View Data</a>
-                            </router-link>
-                            
-                        </li>
-                        <li class="text-gray-500">
-                       
-                            
-                                <a>Validation</a>
-                        
-                            
-                        </li>
-                    
-                    </ul>
-                </div>
+
             </span>
 
             <span class=" w-full">

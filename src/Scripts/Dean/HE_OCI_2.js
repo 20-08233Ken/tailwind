@@ -65,7 +65,7 @@ export default {
                     tb_status:'Status',
                     tb_company:'Company',
                     tb_docs:'https://code.visualstudio.com/docs/languages/html',
-                    tb_approval:'Reject'
+                    tb_approval:'Rejected'
                 },
             ],
             selectedFile1:null,
@@ -75,12 +75,17 @@ export default {
             // For view
             approvedLogs:[
                 {
-                    approvedBy:'Approved By ',
-                    comment:"Comment"
+                    status:'Approved ',
+                    role:'VCAA',
+                    remarks:'remarks',
+                    reason:"Comment"
                 },
                 {
-                    approvedBy:'Approved By ',
-                    comment:"Comment"
+                    status:'Approved ',
+                    role:'VCAA',
+                    remarks:'remarks',
+                    reason:"Comment"
+                    
                 },
             ],
 
