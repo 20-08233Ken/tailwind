@@ -42,6 +42,7 @@ export default{
                     tb_exam_date:'January 23, 2023',
                     tb_passers:'12',
                     tb_takers:'23',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Approved'
                 },
                 {
@@ -52,6 +53,7 @@ export default{
                     tb_exam_date:'January 23, 2023',
                     tb_passers:'12',
                     tb_takers:'23',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Reject'
                 },
             ],

@@ -53,6 +53,7 @@ export default {
                     tb_name:'Name',
                     tb_status:'Status',
                     tb_company:'Company',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Approved'
                 },
                 {
@@ -63,6 +64,7 @@ export default {
                     tb_name:'Name',
                     tb_status:'Status',
                     tb_company:'Company',
+                    tb_docs:'https://code.visualstudio.com/docs/languages/html',
                     tb_approval:'Reject'
                 },
             ],
