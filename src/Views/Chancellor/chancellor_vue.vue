@@ -1,8 +1,7 @@
 <script>
     import VCs from '../../components/Others/Navigation/VCs_nav.vue'
-    import Planning_navVue from '../../components/Others/Navigation/Planning_nav.vue'
+    import Chancellor_navVue from '../../components/Others/Navigation/Chancellor_nav.vue'
 
-    // VCAA
     import v_OCI_1 from './HighEd/v_OCI_1.vue'
     import v_OCI_2 from './HighEd/v_OCI_2.vue'
     import v_OPI_1 from './HighEd/v_OPI_1.vue'
@@ -12,32 +11,21 @@
     import ad_OPI_1 from './AdvEd/v_OPI_1.vue'
     import ad_OPI_2 from './AdvEd/v_OPI_2.vue'
 
-    // Planning
-    import Pl_v_OCI_1 from './HighEd/v_OCI_1.vue'
-    import Pl_v_OCI_2 from './HighEd/v_OCI_2.vue'
-    import Pl_v_OPI_1 from './HighEd/v_OPI_1.vue'
-    import Pl_v_OPI_2 from './HighEd/v_OPI_2.vue'
-
-    import Pl_ad_OCI_1 from './AdvEd/v_OCI_1.vue'
-    import Pl_ad_OPI_1 from './AdvEd/v_OPI_1.vue'
-    import Pl_ad_OPI_2 from './AdvEd/v_OPI_2.vue'
-
-
-
     import OPI1N2Vue from './Extension/OPI_1N2.vue'
     import OC from './Extension/OC.vue'
     import OPI_2 from './Extension/OPI_2.vue'
 
     import Research from './Research.vue'
     import { markRaw } from "vue"
-    import { userPosition } from '../../Scripts/cookies'
 
+    import { userPosition } from '../../Scripts/cookies'
     const mark_v_OCI_1 = markRaw(v_OCI_1)
     const mark_v_OCI_2 = markRaw(v_OCI_2)
     const mark_v_OPI_2 = markRaw(v_OPI_2)
     
 
 export default{
+
     mounted(){
         const holdCookies = userPosition();
         this.user = holdCookies();
@@ -48,7 +36,6 @@ export default{
     },
     components:{
         VCs,
-        Planning_navVue,
         v_OCI_1,
         v_OCI_2,
         v_OPI_1,
@@ -59,7 +46,8 @@ export default{
         OPI1N2Vue,
         OC,
         OPI_2,
-        Research
+        Research,
+        Chancellor_navVue
     },
     data(){
         return{
@@ -81,11 +69,9 @@ export default{
 <template>
 
     <main class="w-full">
-        <VCs v-if="user === 'VCAA'"/>
-        <Planning_navVue v-if="user === 'IPDO'" />
-       
+        <Chancellor_navVue v-if="user === 'Chancellor'"/> 
         <section class="w-full flex gap-16 px-3vw mt-8">
-           
+
             <div class="w-3/12  flex flex-col">
                 <h3 class="w-full flex px-4 py-1 font-Subheader bg-gray-700 text-white">Performace Indicator</h3>
                 <h4 class="w-full  text-white  bg-Red-Darken px-4 py-1">Higher Education</h4>

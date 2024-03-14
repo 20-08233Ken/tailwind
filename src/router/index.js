@@ -40,6 +40,8 @@ import v_FormA from '../Views/VC/Form_A.vue'
 import v_FormA1 from '../Views/VC/Form_A1.vue'
 
 
+import Chancellor from '../Views/Chancellor/chancellor_vue.vue'
+
 const router = createRouter ({
 
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -200,6 +202,12 @@ const router = createRouter ({
             name:'VCs',
             component:VCs
         },
+        {
+            path:'/Chancellor',
+            name:'Chancellor',
+            component:Chancellor
+        },
+        
         {
             path:'/v_FormA',
             name:'v_FormA',

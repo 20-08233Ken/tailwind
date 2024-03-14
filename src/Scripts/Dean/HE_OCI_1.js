@@ -98,13 +98,16 @@ export default {
         formData.append('user_id', userCookies['id']);
 
         try {
-            const response = await axios.post(VITE_API_CREATE_HEP, formData, {
+            const response = await axios.post(import.meta.env.VITE_API_CREATE_HEP, formData, {
                     headers
                 })
                 .then(response => {
                     // this.collegeProgram = response.data;
+                  
                     if (response.data == "Successfully HEP added!") {
-                        this.isDataActive = false;
+                        
+
+
                         // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
                     }
                 })
@@ -115,6 +118,15 @@ export default {
         } catch (error) {
 
         }
+
+ 
+        this.isDataActive = false;
+        this.in_program= "",
+        this.in_examDate= "",
+        this.in_takers= 0,
+        this.in_passers= 0,
+        this.selectedFile =null
+
 
         // }, 2000)
     },
@@ -171,9 +183,9 @@ export default {
       this.selectedFile = event.target.files[0];
     },
 
-    showFile() {
-      this.isDataActive = false;
-    },
+    // showFile() {
+    //   this.isDataActive = false;
+    // },
     changeData(isActive) {
       this.isDataActive = isActive;
     },

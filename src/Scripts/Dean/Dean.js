@@ -17,6 +17,10 @@ export default{
     mounted(){
         const holdCookies = userPosition();
         this.user = holdCookies();
+
+        if (this.user == null && this.userCookies == null){
+            this.$router.push('/');
+        }
     },
     data(){
         return{

@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <nav class="w-full bg-red-700 flex items-center px-20 h-auto sticky top-0 z-40 " id="nav">
-        <ul class="flex text-white gap-2 w-full items-center">
+    <nav class="w-full bg-red-700 flex items-center px-20 h-auto sticky top-0 z-40 ">
+        <ul class="flex text-white gap-2 w-full items-center" id='nav'>
             <li class="py-6 ">
 
                 <drawer/>
@@ -20,60 +20,47 @@
                 <router-link to="/home"> MIS</router-link>
             </li>
 
-            <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden" 
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/profile">Profile</router-link>
-            </li>
-            <li 
+             <li 
                 class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
                 style="font-size: clamp(14px , 2vw , 16px);"
             >
-                <router-link to="/dashboard">Dahsboard</router-link>
+                <router-link to="/Chancellor">Validate</router-link>
             </li>
-            <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"  
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/pbb">PBB</router-link>
-            </li>
-            <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/dataset">Dataset</router-link>
-            </li>
-
-
-            <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/VCs">Validation</router-link>
-            </li>
-                        <!-- <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/FormA">Form A</router-link>
-            </li>
-
-            <li 
-                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
-                style="font-size: clamp(14px , 2vw , 16px);"
-            >
-                <router-link to="/FormA_1">Form A-1</router-link>
-            </li> -->
 
             
+            <!-- <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/v_FormA">Form A</router-link>
+            </li>
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/v_FormA1">Form A-1</router-link>
+            </li> -->
 
+            <!-- <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/registrar">Registrar</router-link>
+            </li>
+
+            <li 
+                class="w-1/12 py-6 hover:bg-red-800 text-center md:hidden sm:hidden xm:hidden"
+                style="font-size: clamp(14px , 2vw , 16px);"
+            >
+                <router-link to="/qam">QAM</router-link>
+            </li> -->
 
         </ul>
     </nav>
 </template>
 
 <style scoped>
+
     #nav .vue-school-active-link{
         color: yellow;
 

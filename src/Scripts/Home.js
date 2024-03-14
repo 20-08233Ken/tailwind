@@ -13,6 +13,7 @@ import Footer from '../Views/Footer.vue'
 import Navigation from '../components/Others/Navigation.vue'
 import Dean_nav from '../components/Others/Navigation/Dean_nav.vue'
 import Planning_nav from '../components/Others/Navigation/Planning_nav.vue'
+
 import Registrar_nav from '../components/Others/Navigation/Registrar_nav.vue'
 import QAM_nav from '../components/Others/Navigation/QAM_nav.vue'
 import Extension_nav from '../components/Others/Navigation/Extension_nav.vue'
@@ -20,6 +21,8 @@ import VCAA_navVue from '../components/Others/Navigation/VCAA_nav.vue'
 import Research_nav from '../components/Others/Navigation/Research_nav.vue'
 
 import VCs_nav from '../components/Others/Navigation/VCs_nav.vue'
+import Chancellor_navVue from '../components/Others/Navigation/Chancellor_nav.vue'
+
 
 import { useCookies } from 'vue3-cookies';
 import { ref } from 'vue'
@@ -60,7 +63,8 @@ export default{
         Extension_nav,
         Research_nav,
         VCAA_navVue,
-        VCs_nav
+        VCs_nav,
+        Chancellor_navVue
     },  
       methods:{
         showActive(componentName,tabNumber){
