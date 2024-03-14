@@ -134,7 +134,7 @@
 
 
                 <span class="w-full flex items-center justify-end gap-2 mt-5">
-                    <button class="btn bg-emerald-600 text-white w-2/12 " @click="showFile()">Add</button>
+                    <button class="btn bg-emerald-600 text-white w-2/12 " type="submit">Add</button>
                 </span>
             </Form>
         </div>
@@ -168,20 +168,20 @@
                     <tr v-for="(item, index) in hepData">
                         <th class="text-0.8"></th>
                         <td class="text-0.8">{{ item.campus }}</td>
-                        <td class="text-0.8">{{ item.department }}</td>
+                        <td class="text-0.8">{{ item.college }}</td>
                         <td class="text-0.8">{{ item.program }}</td>
                         <td class="text-0.8">{{ item.exam_date }}</td>
                         <td class="text-0.8">{{ item.number_of_passers }}</td>
                         <td class="text-0.8">{{ item.number_of_takers }}</td>
                         <td> <v-btn size="small" class="bg-teal-darken-1">  <a :href=item.docs target="_blank">View PDF</a></v-btn></td>
-                        <td class="text-0.8">{{ item.approval }}</td>
+                        <td class="text-0.8">{{ item.status }}</td>
                         <td class="flex flex-col items-center gap-2 px-2">
 
                             <!-- Edit -->
                             <v-dialog max-width="700">
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn size="x-small" block v-bind="activatorProps" color="surface-variant"
-                                        text="Edit" variant="flat" :disabled='item.approval == ``'></v-btn>
+                                        text="Edit" variant="flat" :disabled='item.approval != ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">
@@ -311,7 +311,7 @@
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant"
                                         text="Delete" variant="flat"
-                                        :disabled='item.approval == ``'></v-btn>
+                                        :disabled='item.approval != ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">

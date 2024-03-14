@@ -13,16 +13,22 @@
 
     <span class=" w-full overflow-x-auto">
 
-        <v-data-table :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10" style="width:100%; overflow-x: scroll;">
+        <v-data-table :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10"
+            style="width:100%; overflow-x: scroll;">
 
-           
-            <template v-slot:item.supported_file="{item}" >
+
+            <template v-slot:item.check_box="{ item }">
+
+                    <input type='checkbox'> 
+            </template>
+            <template v-slot:item.supported_file="{ item }">
 
                 <span class="flex w-full  gap-2 py-4">
-                    <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file target="_blank">View PDF</a> </v-btn>
+                    <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
+                            target="_blank">View PDF</a> </v-btn>
                 </span>
-                </template>
-            <template v-slot:item.actions="{item}">
+            </template>
+            <template v-slot:item.actions="{ item }">
                 <span class="flex w-full  gap-2 py-4">
                     <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()"
                         @click="approvedHEP(item.hep_one_id)"> Approved</v-btn>

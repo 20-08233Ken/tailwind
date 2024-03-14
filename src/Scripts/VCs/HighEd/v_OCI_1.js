@@ -1,6 +1,7 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { userPosition } from "../../cookies";
 import { useCookies } from "vue3-cookies";
+import axios from 'axios';
 
 export default {
   setup() {
@@ -10,27 +11,44 @@ export default {
   data() {
     return {
       sampleData: [],
+      hepData: [],
       headers: [
+        {
+          title:'',
+          value:'check_box'
+        },
+        {
+          title: "HEP Code",
+          value: "hep_code",
+          width:'200px'
+        },
         {
           title: "Campus",
           value: "campus",
           class: "table_header",
+          width:'200px'
+          
         },
         {
           title: "Department",
-          value: "department",
+          value: "college",
+          width:'200px'
+        
         },
         {
           title: "Undergraduate Program",
           value: "program",
+          width:'200px'
         },
         {
           title: "Exam date",
           value: "exam_date",
+          width:'200px'
         },
         {
           title: "Number of 1st Time takers",
           value: "number_of_takers",
+          width:'200px'
         },
         {
           title: "Number of 1st Time Passers",
@@ -38,8 +56,8 @@ export default {
         },
         {
           title: "Supporting Documents",
-          value: "file",
-          value: "center",
+          value: "supported_file",
+
         },
         {
           title: "Validation Status",
@@ -67,26 +85,56 @@ export default {
 
   // METHODS 
   methods: {
-    async FetchData(campus, office, user) {
-      try {
-        const response = await axios
-          .post(import.meta.env.VITE_API_HEPLIST, {
-            office: office,
-            campus_id: campus,
-            user_id: user,
-          })
-          .then((response) => {
-            // console.log("hep List:",response.data);
-            this.sampleData = response.data;
-            // if (response.data == "Successfully HEP added!"){
-            //     this.isDataActive = false;
-            // }
-            // console.log(response);
-          })
-          .catch((error) => {
-            console.error("Error fetching hep data", error);
-          });
-      } catch (error) {}
+    async GetHEPData(){
+      let userCookies = this.cookies.get('userCookies');
+      await axios.post(import.meta.env.VITE_API_HEPLIST,{
+        "office": userCookies["office"],
+        "campus_id": userCookies["campus_id"],
+        "user_id": userCookies["id"],
+      }).
+
+      then(response =>{ 
+        
+        if(response.data){
+          this.hepData = response.data;
+          console.log(this.hepData)
+        }
+
+      }).
+      catch(function(error){
+          if(error.response){
+              
+              console.log(error.response.data)
+              console.log(error.response.status)
+
+              if (error.response.data){
+                // call the modal
+                //  this.loginError =false
+                //  this.addTimeout()
+                //  $("errorMessage").val();
+
+                alert(JSON.stringify(error.response.data.message));
+              }
+              // called modal
+              //this.login =false'
+              // this.addTimeout();
+          }else if(error.request){
+
+              console.log(error.request)
+              // called modal
+              //this.login =false'
+              // this.addTimeout();
+          }else{
+              console.log('Error', error.message)
+              // called modal
+              //this.login =false'
+              // this.addTimeout();
+          }
+          console.log(error.config);
+              // called modal
+              //this.login =false'
+              // this.addTimeout();
+      })
     },
 
     approvedHEP(id) {
@@ -114,6 +162,9 @@ export default {
             .then(response => {
 
                 console.log("response:",response);
+                if (response.data == "This request is already approved by VCAA!"){
+                  this.$router.push('/VCs');
+                }
             })
             .catch(error => {
                 console.error('Error fetching hep data', error);
@@ -179,28 +230,12 @@ export default {
     if (this.user == null && this.userCookies == null){
         this.$router.push('/');
     }
-    this.FetchData(userCookies['campus_id'],userCookies['office'],userCookies['id']);
+    this.GetHEPData();
     // this.approved(userCookies);
 
     // const holdCookies = userPosition();
 
     const holdCookies =userPosition;
 
-    if (holdCookies === "VCAA") {
-      // call the API for VCAA
-      // PASS it to sampleData[]
-    } else if (holdCookies === "Planning") {
-      // call the API for VCAA
-      // PASS it to sampleData[]
-    } else if (holdCookies === "Chancellor") {
-      // call the API for VCAA
-      // PASS it to sampleData[]
-    } else if (holdCookies === "VPAA") {
-      // call the API for VCAA
-      // PASS it to sampleData[]
-    } else if (holdCookies === "IPDO") {
-      // call the API for VCAA
-      // PASS it to sampleData[]
-    }
   },
 };
