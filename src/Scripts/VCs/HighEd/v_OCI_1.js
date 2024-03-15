@@ -107,10 +107,7 @@ export default {
       }).
 
       then(response =>{ 
-        console.log(response.data)
-        console.log(userCookies["office"])
-        console.log(userCookies["campus_id"])
-        console.log(userCookies["id"])
+
         if(response.data){
           this.hepData = response.data;
           console.log(this.hepData)
@@ -162,7 +159,7 @@ export default {
     },
 
     showID(id) {
-      console.log(id);
+      // console.log(id);
     },
     toogleCheckBox(id){
       const index = this.selectedIds.indexOf(id);
@@ -170,11 +167,11 @@ export default {
         
         this.selectedIds.push(id);
 
-        console.log(this.selectedIds)
+        // console.log(this.selectedIds)
       } else {
        
         this.selectedIds.splice(index, 1);
-        console.log(this.selectedIds)
+        // console.log(this.selectedIds)
       }
     },
 
@@ -206,9 +203,7 @@ export default {
 
     async RejectRequest(){
         try{
-            console.log("REJECTED");
-            console.log(this.remarks);
-            console.log(this.reasons);
+
             let users_list = this.cookies.get('userCookies');
             const response = await axios.post(import.meta.env.VITE_API_DISAPPROVE_HEP, {
                 "office": users_list.office,

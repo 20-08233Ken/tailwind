@@ -38,6 +38,18 @@ export default {
         },
       ],
       hepData: [],
+      updateData: [
+        {  
+
+            hep_code: null,
+            campus:null,
+            college:null,
+            program: null,
+            exam_date: null,
+            number_of_passers: null,
+            number_of_takers: null,
+        }
+    ],
 
       // Options of Select Program Input
       // Based from API callback
@@ -57,15 +69,7 @@ export default {
 
       selectedID: "",
 
-      forUpdate:[
-        {
-          program:'',
-          exam_date:'',
-          number_of_passers:'',
-          number_of_takers:'',
-
-        }
-      ]
+      forUpdate:[]
     };
   },
   methods: {
@@ -89,7 +93,21 @@ export default {
           });
       } catch (error) {}
     },
-
+    async deleteData(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      const response = await axios
+        .post(import.meta.env.VITE_API_DELETE_HEP, {
+          id: id,
+          user_id: userCookies["id"],
+        })
+        .then((response) => {
+          location.reload();
+        })
+        .catch((error) => {
+          console.error("Error history not found", error);
+        });
+    },
     // Sample Data Entry that will display in table
     async addData() {
       const headers = {
@@ -118,6 +136,7 @@ export default {
             // this.collegeProgram = response.data;
 
             if (response.data == "Successfully HEP added!") {
+              location.reload();
               // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
             }
           })
@@ -135,6 +154,15 @@ export default {
 
       // }, 2000)
     },
+
+    openUpdate(item){
+
+      this.forUpdate = item
+      console.log(this.forUpdate)
+    },
+    submitUpdate(){
+
+    },
     // Validate if the input field is empty
     validateInput(value) {
       if (!value) {
@@ -144,7 +172,7 @@ export default {
       return true;
     },
     submitData() {
-      console.log(this.in_takers);
+    
       if (this.count === true) {
         this.isActive = true;
         this.count = false;
@@ -191,7 +219,7 @@ export default {
               "campus_id": campus_id
           })
           .then(response => {
-            console.log("college:", response.data);
+           
               this.college = response.data;
           })
           .catch(error => {
@@ -201,9 +229,6 @@ export default {
           // add actions here
       }
   },
-
-  
-
 
     handleFileUpload(event) {
       this.selectedFile = event.target.files[0];
@@ -216,9 +241,6 @@ export default {
       this.isDataActive = isActive;
     },
 
-    deleteData(id) {
-      this.selectedID = id;
-    },
 
     async ViewHistory(id) {
       this.selectedID = id;
