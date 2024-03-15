@@ -26,7 +26,8 @@
             <template v-slot:item.actions="{item}">
                 <span class="flex w-full  gap-2 py-4">
                     <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()"
-                        @click="approvedHEP(item.hep_one_id)"> Approved</v-btn>
+                        @click="approvedHEP(item.hep_one_id)" :disabled="item.status != 'For IPDO Approval'"> Approved</v-btn>
+                  
                     <v-btn size="x-small" class="bg-red-darken-3" onclick="showRejection.showModal()"
                         @click="rejectedHEP(item.hep_one_id)"> Reject</v-btn>
                 </span>

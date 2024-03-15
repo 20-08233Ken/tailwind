@@ -315,7 +315,7 @@
                         <v-dialog max-width="700">
                             <template v-slot:activator="{ props: activatorProps }">
                                 <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant" text="View"
-                                    variant="flat"></v-btn>
+                                    variant="flat" @click="ViewHistory(item.hep_one_id)"></v-btn>
                             </template>
 
                             <template v-slot:default="{ isActive }" class="w-full">
@@ -325,18 +325,20 @@
                                             class="font-bold text-lg font-Header w-full bg-gray-700 text-white px-4 py-4">
                                             Approval History</h3>
 
-                                        <table class="mt-4 w-full border-0" id="notifTable">
+                                        <table class="view-table mt-4 w-full border-0" id="notifTable">
 
                                             <tr v-for="(items, index) in approvedLogs">
                                                 <td class="w-1/12">
-                                                    <v-icon class="text-green-700">mdi-history</v-icon>
+                                                    <v-icon :class="{'isApproved':items.status === 'Approved', 'isReject':items.status === 'Returned'}">mdi-history</v-icon>
                                                 </td>
                                                 <td>
-                                                    <h1>{{ items.status }} by {{ items.role }}</h1>
+                                                    <h1 :class="{'isApproved':items.status === 'Approved', 'isReject':items.status === 'Returned'}">{{ items.status }} by {{ items.role }}</h1>
                                                 </td>
                                                 <td>
                                                     <p>{{ items.reasons }}<br><i>{{ items.remarks }}</i> </p>
+                                                    
                                                 </td>
+                                               
                                             </tr>
 
 
