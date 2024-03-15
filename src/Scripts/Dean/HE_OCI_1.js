@@ -1,5 +1,6 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import notification from "../../components/Others/notification.vue";
+import edit_1 from "../../Views/Dean/edit/edit_1.vue";
 import axios from "axios";
 import { useCookies } from "vue3-cookies";
 
@@ -13,6 +14,7 @@ export default {
     Field,
     ErrorMessage,
     notification,
+    edit_1
   },
   data() {
     return {
@@ -54,6 +56,16 @@ export default {
       viewHistory: [],
 
       selectedID: "",
+
+      forUpdate:[
+        {
+          program:'',
+          exam_date:'',
+          number_of_passers:'',
+          number_of_takers:'',
+
+        }
+      ]
     };
   },
   methods: {
@@ -189,6 +201,8 @@ export default {
           // add actions here
       }
   },
+
+  
 
 
     handleFileUpload(event) {
