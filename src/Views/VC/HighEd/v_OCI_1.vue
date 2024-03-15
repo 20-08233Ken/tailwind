@@ -29,7 +29,7 @@
                         @click="approvedHEP(item.hep_one_id)" :disabled="item.status != 'For IPDO Approval'"> Approved</v-btn>
                   
                     <v-btn size="x-small" class="bg-red-darken-3" onclick="showRejection.showModal()"
-                        @click="rejectedHEP(item.hep_one_id)"> Reject</v-btn>
+                        @click="rejectedHEP(item.hep_one_id)" :disabled="item.status != 'For IPDO Approval'"> Reject</v-btn>
                 </span>
             </template>
 
