@@ -28,7 +28,7 @@ export default {
         },
         {
           title: "HEP Code",
-          value: "hep_one_id",
+          value: "hep_code",
           width:'200px'
         },
         {
@@ -107,7 +107,10 @@ export default {
       }).
 
       then(response =>{ 
-        
+        console.log(response.data)
+        console.log(userCookies["office"])
+        console.log(userCookies["campus_id"])
+        console.log(userCookies["id"])
         if(response.data){
           this.hepData = response.data;
           console.log(this.hepData)

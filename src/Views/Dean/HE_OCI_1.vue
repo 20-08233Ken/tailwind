@@ -143,7 +143,7 @@
             <table class="table-zebra table-sm" >
                 <thead>
                     <tr class="bg-gray-700 ">
-                        <th></th>
+                        <th class="text-0.8 text-center text-white font-Subheader border-r-1 border-white">HEP Code</th>
                         <th class="text-0.8 text-center text-white font-Subheader border-r-1 border-white">Campus</th>
                         <th class="text-0.8 text-center text-white font-Subheader border-r-1 border-white">Department
                         </th>
@@ -166,7 +166,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in hepData">
-                        <th class="text-0.8"></th>
+                        <td class="text-0.8">{{ item.hep_code }}</td>
                         <td class="text-0.8">{{ item.campus }}</td>
                         <td class="text-0.8">{{ item.college }}</td>
                         <td class="text-0.8">{{ item.program }}</td>
