@@ -57,4 +57,10 @@
     background-color:rgb(255, 240, 221);
 }
 
+.isApproved{
+    color: rgb(21 128 61);
+}
+
+
+.view-table >tr:nth-child(even) {background-color: #f2f2f2;}
 
