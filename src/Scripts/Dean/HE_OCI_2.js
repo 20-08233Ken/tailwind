@@ -1,14 +1,13 @@
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import notification from '../../components/Others/notification.vue';
-import edit_2 from '../../Views/Dean/edit/edit_2.vue';
+
 
 export default {
     components: {
         Form,
         Field,
         ErrorMessage,
-        notification,
-        edit_2
+        notification
     },
     data() {
         return {
