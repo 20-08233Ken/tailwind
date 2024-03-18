@@ -86,7 +86,7 @@
 
                     <span class="flex w-full justify-end mt-4">
 
-                        <v-btn class="bg-teal-darken-3" > Submit</v-btn>
+                        <v-btn class="bg-teal-darken-3"  type="submit"> Submit</v-btn>
                     </span>
                 </Form>
         </div>
