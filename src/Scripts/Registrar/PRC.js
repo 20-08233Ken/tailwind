@@ -23,7 +23,53 @@ export default {
             isIcon: false,
             isAdd: false,
             id: 0,
-
+            uploadedFile:'',
+            headers:[
+                {
+                    title:'Student Profile',
+                    align:'center',
+                    children:[
+                        {
+                            title:'Student ID'
+                        },
+                        {
+                            title:'Date of Birth'
+                        },
+                        {
+                            title:'Last Name'
+                        },
+                        {
+                            title:'First Name'
+                        },
+                        {
+                            title:'Middle Name'
+                        },
+                        {
+                            title:'Sex'
+                        },
+                        {
+                            title:'Date Graduated'
+                        },
+                    ]
+                },
+                {
+                    title:'Program Name',
+                },
+                {
+                    title:'Program Major'
+                },
+                {
+                    title:'Program Authority to Operate/Graduate',
+                    children:[
+                        {
+                            title:'Authority Number'
+                        },
+                        {
+                            title:'Year Granted'
+                        }
+                    ]
+                }
+            ],
             // Data base from the Account Info of Dean
             data: [
                 {
@@ -100,6 +146,11 @@ export default {
         },
         onClose() {
             this.isActive = false
+        },
+
+        fileHandlePdf(event){
+            this.uploadedFile = event.target.files[0];
+            console.log(this.uploadedFile)
         }
     }
 }

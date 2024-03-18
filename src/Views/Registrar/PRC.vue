@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    
+
     <div v-if="isAdd" role="alert" class="alert alert-success w-5/12 text-white fixed top-20 z-50 transition-transform">
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,16 +62,23 @@
                                 d="M9.807 19L12.193 19 14.129 22.754 16.175 19 18.404 19 15.333 24 18.474 29 16.123 29 14.013 25.07 11.912 29 9.526 29 12.719 23.982z">
                             </path>
                         </svg>
-                        <a class="font-Subheader text-sm" href=".././../assets/files/UII_Name-of-HEI_PRC-List-of-Graduates_2023.xlsx" download="">Download
+                        <a class="font-Subheader text-sm"
+                            href=".././../assets/files/UII_Name-of-HEI_PRC-List-of-Graduates_2023.xlsx"
+                            download="">Download
                             Form
                         </a>
                     </button>
-               
+
 
                 </span>
                 <form class="mt-4">
                     <input type="file" class="file-input file-input-bordered w-full "
-                        style="border: 1px solid #d2d2d2;" />
+                        style="border: 1px solid #d2d2d2;"  @change ='fileHandlePdf'/>
+
+                    <span class="flex w-full justify-end mt-4">
+
+                        <v-btn class="bg-teal-darken-3" > Submit</v-btn>
+                    </span>
                 </form>
             </div>
 
@@ -79,7 +86,14 @@
                 aria-label="Table" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
 
+              <v-data-table :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10"
+                    style="width:100%; overflow-x: scroll;">
 
+                </v-data-table> 
+
+                <!-- <v-data-table>
+                    <v-data-header class="border-1">HEP Code</v-data-header>
+                </v-data-table> -->
             </div>
 
 
@@ -87,7 +101,8 @@
 
     </div>
 </template>
-<style scoped>.active {
+<style scoped>
+.active {
     display: flex;
     flex-direction: column;
 }
@@ -108,4 +123,14 @@
 .error_message {
     color: red;
     font-size: .9rem;
-}</style>
+}
+:deep thead {
+    background-color:	rgb(55 65 81);
+    border: 1px solid white;
+
+}
+:deep th{
+    color: white;
+    border: 1px solid white;
+}
+</style>
