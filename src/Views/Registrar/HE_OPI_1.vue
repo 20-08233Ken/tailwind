@@ -626,6 +626,7 @@
     color: white;
     border: 1px solid white;
     text-align: center;
+    font-size: 0.9rem;
 
 }
 

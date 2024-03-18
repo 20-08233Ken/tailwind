@@ -27,7 +27,8 @@ export default {
       isActive: false,
       isIcon: false,
       isAdd: false,
-      receivedProgam: null,      
+      receivedProgam: null,    
+      search: '',  
       headers: [
         {
           title:'',
@@ -35,19 +36,21 @@ export default {
         },
         {
           title: "HEP Code",
-          value: "hep_code",
+          key: "hep_code",
          
         },
         {
           title: "Campus",
           value: "campus",
-          width:'200px'
+          
+        
           
         },
         {
           title: "Department",
           value: "college",
-          width:'200px'
+          width:'500'
+         
         
         },
         {
