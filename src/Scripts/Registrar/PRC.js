@@ -180,6 +180,7 @@ export default {
       const formData = new FormData();
       formData.append("file", this.uploadedFile);
       formData.append("user_id", userCookies["id"]);
+      formData.append("campus_d", userCookies["campus_id"]);
 
       try {
         const response = await axios
