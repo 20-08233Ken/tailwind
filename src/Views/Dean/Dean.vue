@@ -8,9 +8,9 @@
 <template>
     <main class="w-full flex flex-col items-center">
         <Dean_nav v-if="user == 'Dean'" />
-        <section class='w-full flex justify-between gap-3' v-if="user == 'Dean'">
+        <section class='w-full flex justify-between gap-2' v-if="user == 'Dean'">
 
-            <div class="flex flex-col pl-8 h-dvh " style="width: 20%;">
+            <div class="flex flex-col pl-8 h-dvh w-3/12 " style="width: 20%;">
                 <h3 class="w-full flex  py-3 font-Subheader mt-8">Performace Indicator</h3>
 
                 <h4 class="w-full text-white  bg-Red-Darken px-4 py-1 text-0.9">Higher Education</h4>
@@ -34,14 +34,14 @@
                 </ul>
 
             </div>
-            <div class="flex-1 flex justify-end gap-4" v-if="user == 'Dean'">
-
-                <div class=" flex-1  px-4 mt-8">
+            <div class="w-7/12 flex flex-col gap-4 mt-8" v-if="user == 'Dean'">
+                <component :is="currentComponent"></component>
+                <!-- <div class=" flex-1  px-4 mt-8">
                     <span class="flex flex-1 flex-col   ">
                         <component :is="currentComponent"></component>
                     </span>
 
-                </div>
+                </div> -->
 
             </div>
 
