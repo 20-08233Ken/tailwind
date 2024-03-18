@@ -25,7 +25,7 @@
             </svg>
         </i>
         <span class="flex flex-col justify-center w-9/12">
-            <h1 class="w-full  font-Header text-lg text-white">Percentage of graduate students enrolled in research
+            <h1 class="w-full  font-Header  text-white">Percentage of graduate students enrolled in research
                 degree programs</h1>
         </span>
 
@@ -156,8 +156,11 @@
         <div class="w-full flex flex-col mt-8 overflow-x-auto " v-if="isDataActive === true">
             <v-data-table :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10"
                 style="width:100%; overflow-x: scroll;">
-
             </v-data-table>
+
+
+
+
         </div>
 
         <!-- <div role="tablist" class="tabs tabs-lifted">
@@ -425,5 +428,7 @@
 :deep th {
     color: white;
     border: 1px solid white;
+   
 }
+
 </style>

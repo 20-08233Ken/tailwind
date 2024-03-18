@@ -47,7 +47,7 @@
                 },
             ],
 
-            isHide:false
+            isHide:true
             }
         },
 
@@ -65,7 +65,7 @@
 </script>
 
 <template>
-        <div class="flex justify-end w-auto shadow-card2 relative overflow-x-auto" >
+        <div class="w-2/12 flex justify-end  shadow-card2  overflow-x-auto" >
             <span class="flex flex-col w-full px-4 py-4 " :class="{'isShow':isHide === true, 'notShow':isHide === false}">
                 <calendar/>
                 <h4 class="mt-6 font-Header text-0.9 text-Red-Rose" >Activities</h4>
@@ -80,7 +80,7 @@
                         </svg>
                     </i>
                     <span>
-                        <p class="font-Subheader text-0.9">{{item.activity}}</p>
+                        <p class="font-Subheader text-0.9 ">{{item.activity}}</p>
                         <p class="text-0.8">{{item.date}}</p>
                         <p class="text-0.8 text-orange-600">{{ item.status }}</p>
                     </span>

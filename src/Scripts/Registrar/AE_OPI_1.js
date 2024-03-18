@@ -43,13 +43,19 @@ export default {
                     program: "Bachelor of Science in Electrical Engineer",
                 }
             ],
-            sampleData: [],
+            sampleData: [
+              {
+                campus:'x',
+                department:'y'
+              }
+            ],
 
             headers:[
                 {
                     title:'Campus',
                     value:'campus',
-                    class:'table_header',
+                   
+            
                 },
                 {
                     title:'Department',
