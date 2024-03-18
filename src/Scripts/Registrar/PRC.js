@@ -3,6 +3,7 @@ import { Form, Field, ErrorMessage } from 'vee-validate'
 import notification from '../../components/Others/notification.vue';
 import axios from "axios";
 import { useCookies } from "vue3-cookies";
+import Swal from 'sweetalert2'
 
 export default {
   setup() {
@@ -170,6 +171,7 @@ export default {
     },
 
     async SaveRecord() {
+
       const headers = {
         "Content-Type": "multipart/form-data",
       };
@@ -185,8 +187,13 @@ export default {
             headers,
           })
           .then((response) => {
-           
-           
+            // Swal.fire({
+            //     title: 'Status ',
+            //     text: 'Uploaded Successfully',
+            //     icon: 'sucess',
+            //     confirmButtonText: 'OK'
+            //   })
+            location.reload();
             // console.log(response.data);
             // if (response.data == "Successfully HEP added!") {
             //   location.reload();
@@ -194,8 +201,23 @@ export default {
           })
           .catch((error) => {
             console.error("Error fetching file", error);
+
+            Swal.fire({
+                title: 'Error ',
+                text: 'Failed to upload file',
+                icon: 'error',
+                confirmButtonText: 'OK'
+              })
+           
           });
-      } catch (error) {}
+      } catch (error) {
+        Swal.fire({
+            title: 'Error ',
+            text: 'Failed to upload file',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
+      }
     },
     async fecthHEPData() {
       try {
