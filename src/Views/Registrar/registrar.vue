@@ -7,7 +7,8 @@
 
         <Registrar_nav v-if="user == 'Registrar'" />
 
-        <section class="w-full flex  justify-between  gap-8" v-if="user == 'Registrar'">
+        <section class="w-full flex  justify-between  gap-2" v-if="user == 'Registrar'">
+
             <div class="flex flex-col w-3/12  pl-8 h-dvh">
 
                 <h3 class="w-full flex  py-3 font-Subheader mt-8">Performace Indicator</h3>
@@ -37,8 +38,8 @@
 
             <div class="w-7/12 flex justify-end gap-4">
 
-                <div class="w-full flex  px-16 py-16 mt-4">
-                    <span class="flex w-full flex-col   ">
+                <div class=" flex-1  px-16 py-16 mt-4">
+                    <span class="flex-1 flex flex-col   ">
                         <component :is="currentComponent"></component>
                     </span>
 

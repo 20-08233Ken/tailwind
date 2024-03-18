@@ -29,17 +29,16 @@
         </span>
     </div>
 
-
     <div class="w-full overflow-x-auto shadow-card2 mt-4 px-8 py-4 rounded-lg">
         <p class="w-full text-center text-gray-400">Higher Education Program: Outcome Indicator 1</p>
         <p class="w-full text-center text-gray-400">College of Engineering</p>
 
-        <div class="w-full flex justify-center   gap-2 mt-10">
-            <button class="btn   w-6/12" :class="{ 'isDataActive': isDataActive === true }" @click="changeData(true)">
+        <div class="w-full flex justify-center gap-2 mt-10">
+            <button class="btn font-Subheader w-6/12" :class="{ 'isDataActive': isDataActive === true }" @click="changeData(true)">
                 Table
             </button>
 
-            <button class="btn   w-6/12" :class="{ 'isDataNotActive': isDataActive === false }"
+            <button class="btn font-Subheader  w-6/12" :class="{ 'isDataNotActive': isDataActive === false }"
                 @click="changeData(false)">
                 Form
             </button>
@@ -146,8 +145,10 @@
 
                 <template v-slot:item.supported_file="{ item }">
                     <span class="flex w-full  gap-2 py-4">
-                        <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
-                                target="_blank">View PDF</a> </v-btn>
+                        <!-- <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
+                                target="_blank">View PDF</a> </v-btn> -->
+
+                        <v-btn size="x-small" class="bg-light-blue-darken-3" @click="DownloadFile(item.hep_one_id)"> </v-btn>
                     </span>
                 </template>
                 <template v-slot:item.actions="{ item }">
@@ -328,6 +329,7 @@
                                         <table class="view-table mt-4 w-full border-0" id="notifTable">
 
                                             <tr v-for="(items, index) in approvedLogs">
+                                                
                                                 <td class="w-1/12">
                                                     <v-icon :class="{'isApproved':items.status === 'Approved', 'isReject':items.status === 'Returned'}">mdi-history</v-icon>
                                                 </td>
@@ -336,6 +338,10 @@
                                                 </td>
                                                 <td>
                                                     <p>{{ items.reasons }}<br><i>{{ items.remarks }}</i> </p>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <p>{{ items.created_at }}</p>
                                                     
                                                 </td>
                                                
