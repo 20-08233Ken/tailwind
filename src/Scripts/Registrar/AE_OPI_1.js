@@ -22,6 +22,7 @@ export default {
             isIcon: false,
             isAdd: false,
             id: 0,
+            isDataActive: true,
 
             // Data base from the Account Info of Dean
             data: [
@@ -30,7 +31,6 @@ export default {
                     in_department: "College of Engineering"
                 }
             ],
-
             // Options of Select Program Input
             collegeProgram: [
                 {
@@ -43,9 +43,51 @@ export default {
                     program: "Bachelor of Science in Electrical Engineer",
                 }
             ],
-            sampleData: [
+            sampleData: [],
 
-            ]
+            headers:[
+                {
+                    title:'Campus',
+                    value:'campus',
+                    class:'table_header',
+                },
+                {
+                    title:'Department',
+                    value:'department',
+                },
+                {
+                    title:'Undergraduate Program',
+                    value:'program',
+                },
+                {
+                    title:'No. of Enrollees for 1st Semester',
+                    align:'center',
+                    children:[
+                        {
+                            title:'Thesis/Dissertation Requiring Degree',
+                            value:'thesis',
+                        },
+                        {
+                            title:'Not Thesis/Dissertation Requiring Degree',
+                            value:'not_thesis',
+                        }
+                    ]
+                },
+             
+                {
+                    title:'Supporting Documents',
+                    value:'sup_doc',
+                    align:'center'
+                },
+                {
+                    title:'Validation Status',
+                    value:'v_status',
+                },{
+                    title:"Actions",
+                    value:'actions'
+                }
+                
+            ],
 
         }
     },
@@ -58,6 +100,9 @@ export default {
             return true
 
         },
+        changeData(isActive) {
+            this.isDataActive = isActive;
+          },
         addData() {
 
 
