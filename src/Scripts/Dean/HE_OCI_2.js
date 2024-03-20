@@ -35,6 +35,13 @@ export default {
       disableSubmit: false,
       search: "",
       myLoading: false,
+      myLoading2: false,
+      forUpdate:[
+      ],
+   
+      up_selectedFile1:null,
+      up_selectedFile2:null,
+
       headersRegistrar: [
         {
           title: "Student Profile",
@@ -105,39 +112,39 @@ export default {
         },
         {
           title: "Campus",
-          value: "campus",
+          key: "campus",
         },
         {
           title: "Department",
-          value: "college",
+          key: "college",
         },
         {
           title: "Undergraduate Program",
-          value: "program",
+          key: "program",
         },
         {
           title: "Name",
-          value: "student_fullname",
+          key: "student_fullname",
         },
         {
           title: "Status",
-          value: "graduate_tracer_status",
+          key: "graduate_tracer_status",
         },
         {
           title: "Companys Business / Type of Business",
-          value: "business",
+          key: "business",
         },
         {
           title: "Supporting Documents",
-          value: "graduate_files",
+          key: "graduate_files",
         },
         {
           title: "Validation Status",
-          value: "status",
+          key: "status",
         },
         {
           title: "Actions",
-          value: "actions",
+          key: "actions",
         },
       ],
       deansData: [],
@@ -186,22 +193,51 @@ export default {
 
       // For view
       approvedLogs: [
-        {
-          status: "Approved ",
-          role: "VCAA",
-          remarks: "remarks",
-          reason: "Comment",
-        },
-        {
-          status: "Approved ",
-          role: "VCAA",
-          remarks: "remarks",
-          reason: "Comment",
-        },
+
       ],
     };
   },
   methods: {
+    // Updates
+    openUpdate(item){
+      this.forUpdate = item
+   
+    },
+
+    updateFile1(event){
+      this.up_selectedFile1 = event.target.files[0];
+    },
+
+    updateFile2(event){
+      this.up_selectedFile2 = event.target.files[0];
+    },
+
+
+    updateRecord(){
+      // add api call
+    },
+
+
+    // HISTORY
+async ViewHistory(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      const response = await axios
+        .post(import.meta.env.VITE_API_HEP_HISTORY_TWO, {
+          id: id,
+          user_id: userCookies["id"],
+        })
+        .then((response) => {
+   
+          this.approvedLogs = response.data;
+        })
+        .catch((error) => {
+          console.error("Error history not found", error);
+        });
+    },
+    
+
+    // Data validation
     validateData(value) {
       if (!value) {
         return "This field is required";
@@ -296,12 +332,12 @@ export default {
           .catch((error) => {
             console.error("Error fetching campus", error);
 
-            console.log(formData)
+            
             
           });
       } catch (error) {
 
-        console.log('test')
+        
       }
 
       
@@ -333,11 +369,9 @@ export default {
             this.registrarData = response.data;
             this.myLoading = true;
 
-            if (this.registrarData.length === 0) {
-              console.log("Empty");
+            if (this.registrarData.length === 0) {   
               this.disableSubmit = true;
-            } else {
-              console.log("Not empty");
+            } else {        
               this.disableSubmit = false;
             }
           })
@@ -363,14 +397,19 @@ export default {
             user_id: user_id,
           })
           .then((response) => {
+            this.myLoading2 = true;
             this.deansData = response.data;
-            console.log("Deans: ",response.data);
+            
             // if (response.data == "Successfully HEP added!"){
             //     this.isDataActive = false;
             // }
           })
           .catch((error) => {
             console.error("Error fetching hep data", error);
+          })
+          
+          .finally(() => {
+            this.myLoading2 = false
           });
       } catch (error) {}
     },
@@ -444,7 +483,7 @@ export default {
     changeData(isActive) {
       this.isDataActive = isActive;
 
-      console.log(this.isDataActive);
+
     },
     validateInput(value) {
       if (!value) {
@@ -465,7 +504,7 @@ export default {
     },
 
     deleteData(id) {
-      console.log(id);
+     
     },
   },
 
