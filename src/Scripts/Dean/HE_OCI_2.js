@@ -414,7 +414,6 @@ async ViewHistory(id) {
       } catch (error) {}
     },
 
-  
     // College Program
 
     async fetchProgram_Data(college_id) {
@@ -503,10 +502,23 @@ async ViewHistory(id) {
       }
     },
 
-    deleteData(id) {
-     
+    async deleteData(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      const response = await axios
+        .post(import.meta.env.VITE_API_REMOVE_TWO_HEP, {
+          id: id,
+          user_id: userCookies["id"],
+        })
+        .then((response) => {
+          location.reload();
+        })
+        .catch((error) => {
+          console.error("Error history not found", error);
+        });
     },
   },
+ 
 
   mounted() {
     // call here
