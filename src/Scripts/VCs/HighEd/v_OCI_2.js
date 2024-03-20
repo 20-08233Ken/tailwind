@@ -289,6 +289,7 @@ export default {
           });
       } catch (error) {
         // add actions here
+        console.log(error)
       }
     },
 
@@ -303,6 +304,7 @@ export default {
           .then((response) => {
      
             this.approvedLogs = response.data;
+            console.log(this.approvedLogs)
           })
           .catch((error) => {
             console.error("Error history not found", error);

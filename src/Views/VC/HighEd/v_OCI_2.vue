@@ -124,20 +124,21 @@
                 <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full"
                     style="border:  1px solid #d2d2d2;" />
                 <ErrorMessage name="otherReason" class="error_message" />
-            </Form>
+            
 
 
-            <form method="dialog">
                 <span class="w-full flex justify-end gap-4 mt-4">
-                    <button class="btn bg-white border-0 shadow-0">
-                        Cancel
-                    </button>
+                    <form method="dialog">
 
-                    <button class="btn btn-success text-white" type="submit">
+                        <button class="btn bg-white border-0 shadow-0">
+                            Cancel
+                        </button>
+                    </form>
+                    <button class="btn btn-success text-white">
                         Submit
                     </button>
                 </span>
-            </form>
+        </Form>
 
         </div>
     </dialog>
