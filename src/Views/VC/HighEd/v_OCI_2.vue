@@ -3,22 +3,22 @@
 </script>
 
 <template>
-    <h1 class="font-Header text-3xl text-Red-Rose">Higher Education Program</h1>
+    <h1 class="font-Header text-2xl text-Red-Rose">Higher Education Program</h1>
     <h2 class="font-Subheader text-lg text-Red-Rose">Outcome Indicator 2</h2>
-    <h2 class="font-Subheader text-1gray-700"> Percentage of graduates (2 years prior) that are employed</h2>
+    <h2 class="font-Subheader text-gray-700 text-0.9"> Percentage of graduates (2 years prior) that are employed</h2>
 
     <span>
 
     </span>
 
-    <span class=" w-full">
+    <span class=" w-full mt-4">
 
         <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headers" :items="hepData" class="elevation-1" items-per-page="10">
 
             <template v-slot:item.actions="{item}">
 
                 <span class="flex w-full  gap-2 py-4">
-                    <span class="flex w-full  gap-2 py-4">
+                    <span class="flex w-full flex-col  gap-2 py-4">
                         <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()"
                             @click="approvedHEP(item.hep_two_id)"
                             :disabled="item.status != 'For IPDO Approval' && this.user == 'IPDO'"> Approved</v-btn>
@@ -30,7 +30,7 @@
                         <v-dialog max-width="700">
                             <template v-slot:activator="{ props: activatorProps }">
                                 <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant" text="View"
-                                    variant="flat" @click="ViewHistory(item.hep_one_id)"></v-btn>
+                                    variant="flat" @click="ViewHistory(item.hep_two_id)"></v-btn>
                             </template>
 
                             <template v-slot:default="{ isActive }" class="w-full">

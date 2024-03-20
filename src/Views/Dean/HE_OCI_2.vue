@@ -232,7 +232,7 @@
                                             Edit Record</h3>
                                         <p>{{ item.tb_id }}</p>
 
-                                        <Form @submit="">
+                                        <Form @submit="submitUpdate">
 
                                             <p class="text-0.9 font-Subheader text-gray-500 mt-4">Campus</p>
                                             <Field type="text" name='campus' placeholder="Type here" disabled
@@ -374,18 +374,20 @@
                                                 </tbody>
                                             </table>
 
-                                        </Form>
-
-                                        <v-card-actions>
+                                            <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <span class="w-full flex items-center justify-end gap-4 mt-5">
 
 
                                                 <v-btn text="Close" @click="isActive.value = false"></v-btn>
                                                 <button
-                                                    class="btn btn-accent  w-2/12 text-white border-0">Update</button>
+                                                    class="btn btn-accent  w-2/12 text-white border-0" type="submit">Update</button>
                                             </span>
                                         </v-card-actions>
+
+                                        </Form>
+
+
                                     </v-card>
                                 </template>
                             </v-dialog>

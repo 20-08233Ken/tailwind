@@ -517,6 +517,47 @@ async ViewHistory(id) {
           console.error("Error history not found", error);
         });
     },
+
+    async submitUpdate(){
+
+      const headers = {
+        "Content-Type": "multipart/form-data",
+      };
+      let userCookies = this.cookies.get("userCookies");
+      // Form Data
+      const formEditData = new FormData();
+      formEditData.append("official_list_file", this.up_selectedFile1);
+      formEditData.append("graduate_tracer_study_file", this.up_selectedFile2);
+      formEditData.append("program_id", this.forUpdate.in_program);
+      formEditData.append("lastname", this.forUpdate.student_lastname);
+      formEditData.append("middlename", this.forUpdate.student_middlename);
+      formEditData.append("firstname", this.forUpdate.student_firstname);
+      formEditData.append("graduate_tracer_status", this.forUpdate.graduate_tracer_status);
+      formEditData.append("business", this.forUpdate.in_business);
+      formEditData.append("campus_id", userCookies["campus_id"]);
+      formEditData.append("college_id", userCookies["college_id"]);
+      formEditData.append("user_id", userCookies["id"]);
+
+      try {
+        const response = await axios
+          .post(import.meta.env.VITE_API_UPDATE_TWO_HEP, formEditData, {
+            headers,
+          })
+          .then((response) => {
+            // this.collegeProgram = response.data;
+
+            if (response.data == "Successfully HEP updated!") {
+              location.reload();
+              // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching campus", error);
+          });
+      } catch (error) {}
+
+    },
+
   },
  
 
