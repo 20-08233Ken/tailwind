@@ -33,7 +33,7 @@
                 </span>
             </template>
             <template v-slot:item.actions="{ item }">
-                <span class="flex w-full  gap-2 py-4">
+                <span class="flex w-full flex-col  gap-2 py-4">
                     <v-btn size="x-small" class="bg-teal-darken-3" onclick="showApproval.showModal()"
                         @click="approvedHEP(item.hep_one_id)" v-if="user != 'Chancellor'"> Approved</v-btn>
                     <v-btn size="x-small" class="bg-red-darken-3" onclick="showRejection.showModal()"
