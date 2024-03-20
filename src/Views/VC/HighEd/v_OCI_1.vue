@@ -4,14 +4,14 @@
 </script>
 
 <template>
-    <h1 class="font-Header text-3xl text-Red-Rose">Higher Education Program</h1>
+    <h1 class="font-Header text-2xl text-Red-Rose">Higher Education Program</h1>
     <h2 class="font-Subheader text-lg text-Red-Rose">Outcome Indicator 1</h2>
-    <h2 class="font-Subheader text-1gray-700">Percentage of first-time licensure exam takers that pass the licensure
+    <h2 class="font-Subheader text-gray-700 text-0.9">Percentage of first-time licensure exam takers that pass the licensure
         exams</h2>
 
 
 
-    <span class=" w-full overflow-x-auto">
+    <span class=" w-full overflow-x-auto mt-4">
 
         <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10"
             style="width:100%; overflow-x: scroll;">
