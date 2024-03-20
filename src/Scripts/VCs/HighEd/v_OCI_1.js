@@ -5,14 +5,15 @@ import axios from 'axios';
 
 export default {
   
-  mounted(){
-    const holdCookies = userPosition();
-    this.user = holdCookies();
+//   mounted(){
+//     const holdCookies = userPosition();
+//     this.user = holdCookies();
 
-    if (this.user == null && this.userCookies == null){
-        this.$router.push('/');
-    }
-},
+//     if (this.user == null && this.userCookies == null){
+//         this.$router.push('/');
+//     }
+// }
+// ,
   setup() {
     const { cookies } = useCookies();
     return { cookies };
