@@ -297,14 +297,14 @@ export default {
         this.selectedID = id;
         let userCookies = this.cookies.get("userCookies");
         const response = await axios
-          .post(import.meta.env.VITE_API_HEP_HISTORY, {
+          .post(import.meta.env.VITE_API_HEP_HISTORY_TWO, {
             id: id,
             user_id: userCookies["id"],
           })
           .then((response) => {
      
             this.approvedLogs = response.data;
-          
+
           })
           .catch((error) => {
             console.error("Error history not found", error);
