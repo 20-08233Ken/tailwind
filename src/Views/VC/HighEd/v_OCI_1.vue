@@ -121,14 +121,14 @@
 
             <Form @submit="RejectRequest">
                 <p class="py-4 text-0.9">Reasons </p>
-                <Field as="select" placeholder="Type here" name="reason" class="select w-full"
+                <Field as="select" placeholder="Type here" name="reason" class="select w-full" v-model="reasons"
                     style="border:  1px solid #d2d2d2;" :rules="validateInput">
                     <option v-for=" x in reasonOpt" :value="x.reason">{{ x.reason }}</option>
                 </Field>
                 <ErrorMessage name="reason" class="error_message" />
 
                 <p class="py-4 text-0.9">If others, please specify </p>
-                <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full"
+                <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full" v-model="remarks"
                     style="border:  1px solid #d2d2d2;" :rules="validateInput" />
                 <ErrorMessage name="otherReason" class="error_message" />
                 <span class="w-full flex justify-end gap-4 mt-4">

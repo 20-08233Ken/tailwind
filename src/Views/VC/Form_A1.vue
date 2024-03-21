@@ -1,5 +1,6 @@
 <script>
 import VCs from '../../components/Others/Navigation/VCs_nav.vue'
+import Planning_navVue from '../../components/Others/Navigation/Planning_nav.vue';
 
 export default {
     return() {
@@ -8,7 +9,8 @@ export default {
         }
     },
     components: {
-        VCs
+        VCs,
+        Planning_navVue
     }
 }
 
@@ -16,7 +18,7 @@ export default {
 
 <template>
     <main class="w-full">
-        <VCs />
+        <Planning_navVue />
 
         <section class='w-full'>
             <div class="w-full flex justify-center">

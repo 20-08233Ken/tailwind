@@ -230,6 +230,7 @@ async ViewHistory(id) {
         .then((response) => {
    
           this.approvedLogs = response.data;
+          console.log(JSON.stringify(  this.approvedLogs))
         })
         .catch((error) => {
           console.error("Error history not found", error);
