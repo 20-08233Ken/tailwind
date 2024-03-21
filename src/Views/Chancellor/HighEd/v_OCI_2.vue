@@ -12,17 +12,29 @@
     </span>
 
     <span class=" w-full">
-        <span class="w-full flex justify-end my-4">
+        <span class="w-full flex items-center justify-end my-4 gap-2">
+            <v-btn size="small"  elevation="0" class="bg-grey-lighten-3">
+                <v-icon>mdi-refresh</v-icon>
+                <p class="ml-3">Reload Table</p>
+            </v-btn>
             <v-btn size="small" class="bg-teal-darken-3" onclick="showApproval.showModal()"
                 :disabled="selectedIds == ''"> Approved</v-btn>
         </span>
-        <v-data-table :headers="headers" :items="hepData" class="elevation-1" items-per-page="10">
+        <v-data-table :headers="headersDean" :items="hepData" class="elevation-1" items-per-page="10">
 
             <template v-slot:item.check_box="{ item }" v-if="user === 'Chancellor'">
                 <input type='checkbox' :id="item.hep_two_id" :value="item.hep_two_id"
                     @change="toogleCheckBox(item.hep_two_id)">
 
 
+            </template>
+
+            <template v-slot:item.graduate_files="{ item }">
+                <div class="flex flex-col gap-2">
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View PDF</v-btn>
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFileXLS(item.hep_two_id, item.official_list)">View Excel</v-btn>
+
+                </div>
             </template>
 
             <template v-slot:item.actions="{item}">
@@ -126,8 +138,8 @@
                 <ErrorMessage name="reason" class="error_message" />
 
                 <p class="py-4 text-0.9">If others, please specify </p>
-                <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full"  v-model="remarks"
-                    style="border:  1px solid #d2d2d2;" />
+                <Field type="text" placeholder="Type here" name="otherReason" class="input  input-bordered w-full"
+                    v-model="remarks" style="border:  1px solid #d2d2d2;" />
                 <ErrorMessage name="otherReason" class="error_message" />
             </Form>
 

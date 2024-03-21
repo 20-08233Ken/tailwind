@@ -12,18 +12,31 @@
     </span>
 
     <span class=" w-full mt-4">
-
-        <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headers" :items="hepData" class="elevation-1" items-per-page="10">
+        <span class="w-full flex items-center justify-end my-4 gap-2">
+            <v-btn size="small"  elevation="0" class="bg-teal-darken-3">
+                <v-icon>mdi-refresh</v-icon>
+                <p class="ml-3">Reload Table</p>
+            </v-btn>
+        </span>
+        <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headersDean" :items="hepData" class="elevation-1" items-per-page="10">
             <template v-slot:item.graduate_files="{item}">
-                <span class="flex w-full  gap-2 py-4">
+
+                <div class="flex flex-col gap-2">
+                  
                     <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View PDF</v-btn>
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFileXLS(item.hep_two_id, item.official_list)">View Excel</v-btn>
+
+                </div>
+                <!-- <span class="flex w-full  gap-2 py-4">
                 </span>
-            </template>
-            <template v-slot:item.official_list="{item}">
                 <span class="flex w-full  gap-2 py-4">
-                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View PDF</v-btn>
-                </span>
+                </span> -->
             </template>
+            <!-- <template v-slot:item.official_list="{item}">
+                <span class="flex w-full  gap-2 py-4">
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View Excel</v-btn>
+                </span>
+            </template> -->
 
           
             <template v-slot:item.actions="{item}">

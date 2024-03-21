@@ -12,7 +12,12 @@
 
 
     <span class=" w-full overflow-x-auto mt-4">
-
+        <span class="w-full flex items-center justify-end my-4 gap-2">
+            <v-btn size="small"  elevation="0" class="bg-teal-darken-3">
+                <v-icon>mdi-refresh</v-icon>
+                <p class="ml-3">Reload Table</p>
+            </v-btn>
+        </span>
         <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headers" :items="hepData" class="elevation-1 " items-per-page="10"
             style="width:100%; overflow-x: scroll;">
 
