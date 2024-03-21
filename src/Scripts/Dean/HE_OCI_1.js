@@ -4,6 +4,8 @@ import edit_1 from "../../Views/Dean/edit/edit_1.vue";
 import axios from "axios";
 import { useCookies } from "vue3-cookies";
 
+import Swal from 'sweetalert2'
+
 export default {
   setup() {
     const { cookies } = useCookies();
@@ -115,6 +117,7 @@ export default {
       college: [],
       campus: [],
       selectedFile: null,
+      selectedFileName:null,
       isDataActive: true,
       // For View Button
       approvedLogs: [],
@@ -170,13 +173,7 @@ export default {
     },
     // Sample Data Entry that will display in table
     async addData() {
-      this.loading = true;
-      setTimeout(() => {
-        // Simulated data fetching completion
-        // Once data is fetched, set loading to false
-        this.loading = false;
-      }, 8000);
-      console.log(this.loading)
+  
       const headers = {
         "Content-Type": "multipart/form-data",
       };
@@ -330,10 +327,61 @@ export default {
       }
   },
 
+  // Upload PDF File
     handleFileUpload(event) {
-      this.selectedFile = event.target.files[0];
+  
+
+      const filename = event.target.files[0].name
+      const fileExtension = filename.split('.').pop().toLowerCase()
+
+      if( fileExtension != 'pdf'){
+        
+        Swal.fire({
+          title: 'Error ',
+          text: "Invalid File Type",
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+
+        event.target.value=''
+      }else{
+        this.selectedFile = event.target.files[0];
+        // this.selectedFileName = event.target.files[0].name
+        // console.log(JSON.stringify(this.selectedFileName))
+      }
+      
     },
 
+    // View File
+    async viewFile(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      await axios
+        .post(import.meta.env.VITE_API_FETCH_PDF, {
+          id: id,
+          user_id: userCookies["id"],
+          responseType: 'arraybuffer' // Set the response type to arraybuffer
+        })
+        .then(response => {
+          // Create a Blob object from the response data
+          const blob = new Blob([response.data], { type: 'application/pdf' });
+        
+          // Create a URL for the Blob object
+          const url = URL.createObjectURL(blob);
+        
+          // Open the URL in a new tab
+          window.open(url, '_blank');
+        })
+        .catch(error => {
+          console.error('Error fetching PDF:', error);
+        });
+ 
+    },
+
+    removeFiles(){
+        this.selectedFile = null
+        console.log(this.selectedFile)
+    },
     // showFile() {
     //   this.isDataActive = false;
     // },
@@ -341,23 +389,6 @@ export default {
       this.isDataActive = isActive;
     },
 
-
-    // async ViewHistory(id) {
-    //   this.selectedID = id;
-    //   let userCookies = this.cookies.get("userCookies");
-    //   const response = await axios
-    //     .post(import.meta.env.VITE_API_HEP_HISTORY, {
-    //       id: id,
-    //       user_id: userCookies["id"],
-    //     })
-    //     .then((response) => {
-   
-    //       this.viewHistory = response.data;
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error history not found", error);
-    //     });
-    // },
 
     async ViewHistory(id) {
       this.selectedID = id;

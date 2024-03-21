@@ -150,17 +150,7 @@ export default {
       deansData: [],
 
       sampleDeansData: [
-        // {
-        //   hep_code:'1',
-        //   campus:'2',
-        //   department:'3',
-        //   program:'4',
-        //   name:'5',
-        //   status:'6',
-        //   business:'7',
-        //   sup_doc:'8',
-        //   v_status:'9'
-        // }
+
       ],
 
       // Data base from the Account Info of Dean
@@ -435,50 +425,77 @@ async ViewHistory(id) {
       }
     },
 
-    //   async fecthHEPData() {
 
-    //     try {
-
-    //       let userCookies = this.cookies.get("userCookies");
-    //       const response = await axios
-    //         .post(import.meta.env.VITE_API_DISPLAY_REGISTRAR_DATA, {
-    //           user_id: userCookies["id"],
-    //           campus_id: userCookies["campus_id"],
-    //         })
-    //         .then((response) => {
-    //           console.log("fecthHEPData:", response.data);
-
-    //           this.myLoading = true
-    //           this.registrarData = response.data;
-
-    //             if(this.registrarData.length === 0){
-    //               console.log("Empty")
-    //               this.disableSubmit = true;
-    //             }else{
-    //               console.log('Not empty')
-    //               this.disableSubmit = false;
-    //             }
-    //         })
-    //         .catch((error) => {
-    //           console.error("Error fetching hep Data", error);
-    //         })
-
-    //         .finally(() =>{
-    //           this.myLoading = false
-    //         })
-    //         ;
-    //     } catch (error) {
-    //       // add actions here
-    //     }
-    // },
-
+    // Uploading File
     handleFileUpload(event) {
-      this.graduate_tracer_study_file = event.target.files[0];
+      // this.graduate_tracer_study_file = event.target.files[0];
+
+      const filename = event.target.files[0].name
+      const fileExtension = filename.split('.').pop().toLowerCase()
+      if( fileExtension != 'pdf'){
+        
+        Swal.fire({
+          title: 'Error ',
+          text: "Invalid File Type",
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+
+        event.target.value=''
+      }else{
+        this.graduate_tracer_study_file = event.target.files[0];
+
+      }
+
+
     },
     handleFileUpload2(event) {
-      this.official_list_file = event.target.files[0];
+      // this.official_list_file = event.target.files[0];
+      const filename = event.target.files[0].name
+      const fileExtension = filename.split('.').pop().toLowerCase()
+      if( fileExtension != 'xlsx'){
+        
+        Swal.fire({
+          title: 'Error ',
+          text: "Invalid File Type",
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+
+        event.target.value=''
+      }else{
+        this.official_list_file = event.target.files[0];
+
+      }
+
     },
 
+
+    //Viewing File
+    async viewFilePDF(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      await axios
+        .post(import.meta.env.VITE_API_FETCH_PDF, {
+          id: id,
+          user_id: userCookies["id"],
+          responseType: 'arraybuffer' // Set the response type to arraybuffer
+        })
+        .then(response => {
+          // Create a Blob object from the response data
+          const blob = new Blob([response.data], { type: 'application/pdf' });
+        
+          // Create a URL for the Blob object
+          const url = URL.createObjectURL(blob);
+        
+          // Open the URL in a new tab
+          window.open(url, '_blank');
+        })
+        .catch(error => {
+          console.error('Error fetching PDF:', error);
+        });
+ 
+    },
 
     changeData(isActive) {
       this.isDataActive = isActive;
@@ -519,7 +536,7 @@ async ViewHistory(id) {
         });
     },
 
-    async submitUpdate(){
+    async submitUpdate(id){
 
       const headers = {
         "Content-Type": "multipart/form-data",
@@ -547,10 +564,24 @@ async ViewHistory(id) {
           .then((response) => {
             // this.collegeProgram = response.data;
 
-            if (response.data == "Successfully HEP updated!") {
-              location.reload();
+            if (response.data == "Student Not Found ") {
+
+              Swal.fire({
+                title: 'Error ',
+                text: "Student not found",
+                icon: 'error',
+                confirmButtonText: 'OK'
+              })
               // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
             }
+            else if (response.data == "Successfully HEP updated!") {
+                location.reload();
+              // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
+            }
+            // if (response.data == "Successfully HEP updated!") {
+            //   location.reload();
+            //   // this.FetchData(userCookies["userPosition"],userCookies['campus_id'],userCookies['id']);
+            // }
           })
           .catch((error) => {
             console.error("Error fetching campus", error);

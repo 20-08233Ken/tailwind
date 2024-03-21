@@ -161,7 +161,7 @@
                             <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1
                             </td>
                             <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">
-                                Graduate Tracer Study</td>
+                                Graduate Tracer Study <span class="text-Red-Rose font-Header">(.pdf)</span></td>
                             <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
                                 <input type="file" class="ml-5" @change="handleFileUpload">
                             </td>
@@ -170,7 +170,7 @@
                             <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">2
                             </td>
                             <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">
-                                Official list of FY 2021 Graduates</td>
+                                Official list of FY 2021 Graduates <span class="text-Red-Rose font-Header">(.xlsx)</span></td>
                             <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
                                 <input type="file" class="ml-5" @change="handleFileUpload2">
                             </td>
@@ -203,12 +203,12 @@
                         <span class="flex w-full flex-col  gap-2 py-4">
                             <!-- <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
                                 target="_blank">View PDF</a> </v-btn> -->
-                            <v-btn size="x-small" class="bg-light-blue-darken-3" @click="DownloadFile(item.hep_one_id)">
-                                <a :href="item.graduate_files">Graduate Tracer Study</a>
+                            <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">
+                              Graduate Tracer Study
                             </v-btn>
 
-                            <v-btn size="x-small" class="bg-light-blue-darken-3" @click="DownloadFile(item.hep_one_id)">
-                                <a :href="item.official_list">Official List of Graduates</a> 
+                            <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFile(item.hep_two_id)">
+                               Official List of Graduates
                             </v-btn>
                         </span>
                     </template>
@@ -220,7 +220,7 @@
                             <v-dialog max-width="700">
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn size="x-small" block v-bind="activatorProps" color="surface-variant"
-                                        text="Edit" variant="flat" @click="openUpdate(item)" :disabled='item.approval != `Returned`'
+                                        text="Edit" variant="flat" @click="openUpdate(item)" :disabled='item.status != `Returned`'
                                        ></v-btn>
 
                                         <!-- ></v-btn> -->
@@ -232,7 +232,7 @@
                                             Edit Record</h3>
                                         <p>{{ item.tb_id }}</p>
 
-                                        <Form @submit="submitUpdate">
+                                        <Form @submit="submitUpdate(item.hep_two_id)">
 
                                             <p class="text-0.9 font-Subheader text-gray-500 mt-4">Campus</p>
                                             <Field type="text" name='campus' placeholder="Type here" disabled
@@ -397,7 +397,7 @@
 
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant"
-                                        text="Delete" variant="flat" :disabled='item.approval != ``'></v-btn>
+                                        text="Delete" variant="flat" :disabled='item.status != ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">

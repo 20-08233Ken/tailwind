@@ -35,18 +35,18 @@
     </div>
 
     <div class="w-full flex justify-center gap-2 ">
-            <v-btn class="btn font-Subheader flex-1" :class="{ 'isDataActive': isDataActive === true }"
-                @click="changeData(true)">
-                <v-icon>mdi-table</v-icon>
-                Table
-            </v-btn>
+        <v-btn class="btn font-Subheader flex-1" :class="{ 'isDataActive': isDataActive === true }"
+            @click="changeData(true)">
+            <v-icon>mdi-table</v-icon>
+            Table
+        </v-btn>
 
-            <v-btn class="btn font-Subheader flex-1" :class="{ 'isDataNotActive': isDataActive === false }"
-                @click="changeData(false)">
-                <v-icon>mdi-form-select</v-icon>
-                Form
-            </v-btn>
-        </div>
+        <v-btn class="btn font-Subheader flex-1" :class="{ 'isDataNotActive': isDataActive === false }"
+            @click="changeData(false)">
+            <v-icon>mdi-form-select</v-icon>
+            Form
+        </v-btn>
+    </div>
     <div class="w-full overflow-x-auto shadow-card2  px-8 rounded-lg">
         <div class="w-full flex flex-col mt-8 " v-if="isDataActive === false">
             <Form @submit="addData">
@@ -106,7 +106,7 @@
                                 <th class="border-2 text-white"></th>
                                 <th class="border-2 text-white text-center text-0.9 font-Subheader ">
                                     Required Files</th>
-                                <th class="border-2 text-white text-center text-0.9 font-Subheader ">
+                                <th class="border-2 text-white text-center text-0.9 font-Subheader " colspan="2">
                                     Upload Files
                                 </th>
                                 <th>
@@ -117,16 +117,17 @@
 
                         <tbody>
                             <tr>
-                                <td class="w-2/12 border-2 text-0.9 text-Subheader text-gray-700 ">1
+                                <td class="w-1/12 border-2 text-0.9 text-Subheader text-gray-700 ">1
                                 </td>
                                 <td class="w-7/12 px-3 border-2 text-0.9 text-Subheader text-gray-700">
-                                    PRC Official Results</td>
-                                <td class="w-3/12 border-2 text-0.9 text-Subheader text-gray-700 ">
-                                    <input type="file" class="ml-5" accept=".pdf" @change="handleFileUpload">
-                                </td>
-                                <td>
+                                    PRC Official Results <span class="text-Red-Rose font-Header">(.pdf)</span></td>
+                                <td class="flex-1 text-0.9 text-Subheader text-gray-700  px-4">
+                                    <input type="file" class="ml-5" accept=".pdf" @change="handleFileUpload" >
 
                                 </td>
+                                <!-- <td class="px-4" v-if="selectedFileName != null">                  
+                                    <v-btn class="rounded-full font-Subheader bg-red-darken-4 text-0.8" size="small" @click="removeFiles" >Remove file</v-btn>
+                                </td> -->
                             </tr>
 
                         </tbody>
@@ -163,8 +164,7 @@
                             <!-- <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
                                 target="_blank">View PDF</a> </v-btn> -->
 
-                            <v-btn size="x-small" class="bg-light-blue-darken-3" @click="DownloadFile(item.hep_one_id)">
-                            </v-btn>
+                                <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFile(item.hep_one_id)">View PDF</v-btn>
                         </span>
                     </template>
                     <template v-slot:item.actions="{ item }">
@@ -174,8 +174,10 @@
                             <v-dialog max-width="700">
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn size="x-small" block v-bind="activatorProps" color="surface-variant"
-                                        text="Edit" variant="flat" :disabled='item.approval != `Returned`'
+                                        text="Edit" variant="flat" :disabled='item.status != `Returned`'
                                         @click="openUpdate(item)"></v-btn>
+
+                                    {{item.approval }}
                                 </template>
 
                                 <template v-slot:default="{ isActive }">
@@ -308,7 +310,7 @@
 
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn block size="x-small" v-bind="activatorProps" color="surface-variant"
-                                        text="Delete" variant="flat" :disabled='item.approval != ``'></v-btn>
+                                        text="Delete" variant="flat" :disabled='item.status != ``'></v-btn>
                                 </template>
 
                                 <template v-slot:default="{ isActive }">
