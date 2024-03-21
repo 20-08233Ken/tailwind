@@ -161,9 +161,6 @@
 
                     <template v-slot:item.supported_file="{ item }">
                         <span class="flex w-full  gap-2 py-4">
-                            <!-- <v-btn size="x-small" class="bg-light-blue-darken-3"><a :href=item.supported_file
-                                target="_blank">View PDF</a> </v-btn> -->
-
                                 <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFile(item.hep_one_id)">View PDF</v-btn>
                         </span>
                     </template>
