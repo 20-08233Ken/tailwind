@@ -14,7 +14,18 @@
     <span class=" w-full mt-4">
 
         <v-data-table   loading-text="Loading... Please wait" :loading="myLoading" :headers="headers" :items="hepData" class="elevation-1" items-per-page="10">
+            <template v-slot:item.graduate_files="{item}">
+                <span class="flex w-full  gap-2 py-4">
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View PDF</v-btn>
+                </span>
+            </template>
+            <template v-slot:item.official_list="{item}">
+                <span class="flex w-full  gap-2 py-4">
+                    <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFilePDF(item.hep_two_id)">View PDF</v-btn>
+                </span>
+            </template>
 
+          
             <template v-slot:item.actions="{item}">
 
                 <span class="flex w-full  gap-2 py-4">

@@ -163,13 +163,20 @@ export default {
           value: "business",
         },
         {
-          title: "Graduate Tracer Study",
-          value: "graduate_files",
+          title:'Supported Documents',
+          align:'center',
+          children:[
+            {
+              title: "Graduate Tracer Study",
+              value: "graduate_files",
+            },
+            {
+              title: "Official List of Graduate",
+              value: "official_list",
+            },
+          ]
         },
-        {
-          title: "Official List of Graduate",
-          value: "official_list",
-        },
+
         {
           title: "Validation Status",
           value: "status",
@@ -217,6 +224,8 @@ export default {
           if (response.data) {
             this.myLoading = true;
             this.hepData = response.data;
+
+            console.log(JSON.stringify(this.hepData));
           }
         })
         .catch(function (error) {
@@ -289,27 +298,49 @@ export default {
           });
       } catch (error) {
         // add actions here
-        console.log(error)
+        console.log(error);
       }
     },
 
     async ViewHistory(id) {
-        this.selectedID = id;
-        let userCookies = this.cookies.get("userCookies");
-        const response = await axios
-          .post(import.meta.env.VITE_API_HEP_HISTORY_TWO, {
-            id: id,
-            user_id: userCookies["id"],
-          })
-          .then((response) => {
-     
-            this.approvedLogs = response.data;
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      const response = await axios
+        .post(import.meta.env.VITE_API_HEP_HISTORY_TWO, {
+          id: id,
+          user_id: userCookies["id"],
+        })
+        .then((response) => {
+          this.approvedLogs = response.data;
+        })
+        .catch((error) => {
+          console.error("Error history not found", error);
+        });
+    },
 
-          })
-          .catch((error) => {
-            console.error("Error history not found", error);
-          });
-      },
+    async viewFilePDF(id) {
+      this.selectedID = id;
+      let userCookies = this.cookies.get("userCookies");
+      await axios
+        .post(import.meta.env.VITE_API_FETCH_PDF, {
+          id: id,
+          user_id: userCookies["id"],
+          responseType: "arraybuffer", // Set the response type to arraybuffer
+        })
+        .then((response) => {
+          // Create a Blob object from the response data
+          const blob = new Blob([response.data], { type: "application/pdf" });
+
+          // Create a URL for the Blob object
+          const url = URL.createObjectURL(blob);
+
+          // Open the URL in a new tab
+          window.open(url, "_blank");
+        })
+        .catch((error) => {
+          console.error("Error fetching PDF:", error);
+        });
+    },
   },
 
   mounted() {
