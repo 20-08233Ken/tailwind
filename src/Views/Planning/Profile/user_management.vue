@@ -1,8 +1,10 @@
 <script>
 import addUser from "./addUser.vue";
+import manageUser from './manage.vue'
 import confirmDelete from "./confirmDelete.vue";
 import { Form, ErrorMessage, Field } from "vee-validate";
 import Swal from 'sweetalert2'
+
 export default {
   components: {
     addUser,
@@ -10,6 +12,7 @@ export default {
     Form,
     ErrorMessage,
     Field,
+    manageUser
   },
   data() {
     return {
@@ -164,6 +167,7 @@ export default {
       ],
 
       enableCollege: false,
+      userComponent:1,
     };
   },
 
@@ -191,6 +195,10 @@ export default {
         confirmButtonText: "OK",
       });
     },
+
+    changeComponent(id){
+        this.userComponent = id
+    }
   },
 };
 </script>
@@ -203,20 +211,57 @@ export default {
       management, permissions configuration, and access control.
     </p>
 
-    <span class="flex mt-4 justify-between">
+    <span class="flex mt-4 justify-end gap-2">
       <addUser />
+      
+      <!-- Table  -->
+      <v-btn
+        v-bind="activatorProps"
+        color="surface-variant"
+        text="Management"
+        variant="flat"
+        class='flex '
+        @click='changeComponent(1)'
+      >
+    
+      <v-icon class='mr-2'>
+        mdi-table
+      </v-icon>
+      Table
+    </v-btn>
+
+   <!-- Management -->
+    <v-btn
+        v-bind="activatorProps"
+        color="surface-variant"
+        text="Management"
+        variant="flat"
+        class='flex '
+        @click='changeComponent(2)'
+      >
+    
+      <v-icon class='mr-2'>
+        mdi-cogs
+      </v-icon>
+      Management
+    </v-btn>
+
+
 
       <!-- <confirmDelete/> -->
     </span>
 
-    <v-data-table
+    <!-- <Table/> -->
+    <div class='w-full' v-if='userComponent === 1'> 
+
+        <v-data-table
       :headers="headers"
       :items="allUserData"
       class="elevation-1 mt-4"
       items-per-page="10"
       loading-text="Loading... Please wait"
       style="width: 100%; overflow-x: scroll"
-    >
+        >
       <template v-slot:item.action="{ item }">
         <span class="flex items-center">
           <!-- Edit User -->
@@ -528,6 +573,12 @@ export default {
         </span>
       </template>
     </v-data-table>
+    </div>
+
+    <!-- <Management/> --> 
+    <div class='w-ful flex-col' v-if='userComponent === 1'>
+        <h1></h1>
+    </div>
   </div>
 </template>
 

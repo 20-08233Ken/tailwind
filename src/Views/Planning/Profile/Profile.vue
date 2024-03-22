@@ -5,7 +5,7 @@
 
 
 <template>
-    <main class="w-full flex flex-col bg-grey-2 pb-6vw">
+    <main class="w-full flex flex-col bg-white pb-6vw">
 
         <Planning_nav v-if="user === 'Planning'"/>
         <Planning_nav v-if="user === 'IPDO'"/>
@@ -17,16 +17,26 @@
                         <h1 class="w-7/12 font-Header text-3xl text-Red-Darken" @click="showComponent('MainProfile')">OFFICE OF INSTITUTIONAL PLANNING AND DEVELOPMENT</h1>
                       
 
-                        <span class="flex gap-4 items-center">
+                        <span class="flex gap-6 items-center">
                             <notification />
+                            <!-- <v-btn elevation='1' class='rounded-full' >
+                                <v-icon>mdi-cogs</v-icon>
+                            </v-btn> -->
+                        <button class='bg-gray-100'>
+                            <v-icon  color="teal-darken-2">mdi-account-plus</v-icon>
+                        </button>
 
+                        <button>
+                            <v-icon  color="teal-darken-2">mdi-cogs</v-icon>
+                        </button>
+<!-- 
                             <button class="text-white bg-emerald-500 px-2 py-2 rounded-full" @click="showComponent('user_management')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
                                 </svg>
                             </button>
 
-                            <activities />
+                            <activities /> -->
                         </span>
                     </span>
                     <p class="font-Subheader mt-3 text-lg">Campus: Central</p>
