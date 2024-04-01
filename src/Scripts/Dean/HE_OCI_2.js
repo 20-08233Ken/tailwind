@@ -382,11 +382,11 @@ async ViewHistory(id) {
     },
 
     // FETCHING DEANS DATA
-    async FetchData(office, campus, user_id) {
+    async FetchData(position, campus, user_id) {
       try {
         const response = await axios
           .post(import.meta.env.VITE_API_APPROVE_DISPLAY_TWO_HEP, {
-            office: office,
+            position: position,
             campus_id: campus,
             user_id: user_id,
           })
@@ -655,7 +655,7 @@ async ViewHistory(id) {
     this.FetchRegistrarhepData();
     this.fetchProgram_Data(userCookies["college_id"]);
     this.FetchData(
-      userCookies["office"],
+      userCookies["position"],
       userCookies["campus_id"],
       userCookies["id"],
     );

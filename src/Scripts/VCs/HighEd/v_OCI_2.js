@@ -259,7 +259,7 @@ export default {
       let userCookies = this.cookies.get("userCookies");
       await axios
         .post(import.meta.env.VITE_API_APPROVE_DISPLAY_TWO_HEP, {
-          office: userCookies["office"],
+          position: userCookies["position"],
           campus_id: userCookies["campus_id"],
           user_id: userCookies["id"],
         })
@@ -267,21 +267,19 @@ export default {
           if (response.data) {
             this.myLoading = true;
             this.hepData = response.data;
-
-            console.log(JSON.stringify(this.hepData));
           }
         })
         .catch(function (error) {
           if (error.response) {
-            if (error.response.data) {
-              alert(JSON.stringify(error.response.data.message));
-            }
+            // if (error.response.data) {
+            //   alert(JSON.stringify(error.response.data.message));
+            // }
           } else if (error.request) {
-            console.log(error.request);
+            // console.log(error.request);
           } else {
-            console.log("Error", error.message);
+            // console.log("Error", error.message);
           }
-          console.log(error.config);
+          // console.log(error.config);
         })
 
         .finally(() => {
@@ -301,7 +299,7 @@ export default {
         let users_list = this.cookies.get("userCookies");
         const response = await axios
           .post(import.meta.env.VITE_API_APPROVE_HEP_TWO, {
-            office: users_list.office,
+            position: users_list.position,
             campus_id: users_list.campus_id,
             user_id: users_list.id,
             id: this.selectedID,
@@ -326,7 +324,7 @@ export default {
         let users_list = this.cookies.get("userCookies");
         const response = await axios
           .post(import.meta.env.VITE_API_DISAPPROVE_HEP_TWO, {
-            office: users_list.office,
+            position: users_list.position,
             campus_id: users_list.campus_id,
             user_id: users_list.id,
             id: this.selectedID,
@@ -341,7 +339,7 @@ export default {
           });
       } catch (error) {
         // add actions here
-        console.log(error);
+        // console.log(error);
       }
     },
 
@@ -388,7 +386,7 @@ export default {
 
     //Viewing File xls
     async viewFileXLS(id, filename) {
-      console.log(filename);
+      // console.log(filename);
       this.selectedID = id;
       let userCookies = this.cookies.get("userCookies");
       await axios

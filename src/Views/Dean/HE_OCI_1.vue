@@ -92,7 +92,7 @@
                                         <h3
                                             class="font-bold text-lg font-Header w-full bg-gray-700 text-white px-4 py-4 ">
                                             Edit Record</h3>
-                                        <p>{{ item.tb_id }}</p>
+                                     
 
                                         <Form class="mt-4" @submit="submitUpdate">
 

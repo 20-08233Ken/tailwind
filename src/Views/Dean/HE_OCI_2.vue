@@ -226,7 +226,7 @@
                             <v-dialog max-width="700">
                                 <template v-slot:activator="{ props: activatorProps }">
                                     <v-btn size="x-small" block v-bind="activatorProps" color="surface-variant"
-                                        text="Edit" variant="flat" @click="openUpdate(item)" :disabled='item.status != `Returned`'
+                                        text="Edit" variant="flat" @click="openUpdate(item)" :disabled='item.status != `Returned to Dean`'
                                        ></v-btn>
 
                                         <!-- ></v-btn> -->
@@ -495,5 +495,10 @@
 </template>
 
 <style scoped>
-@import url('../../style/Dean/HE_OCI_2_style.css');
+    @import url('../../style/Dean/HE_OCI_2_style.css');
+
+    :deep(.v-table > .v-table__wrapper > table > tbody > tr > th, .v-table > .v-table__wrapper > table > thead > tr > th, .v-table > .v-table__wrapper > table > tfoot > tr > th){
+        border: 1px solid white;
+        
+    }
 </style>

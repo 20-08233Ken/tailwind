@@ -250,18 +250,24 @@ export default {
   },
 
   methods: {
+    validateInput(value) {
+      if (!value) {
+        return "This field is required";
+      }
+
+      return true;
+    },
     async GetHEPData() {
       let userCookies = this.cookies.get("userCookies");
       await axios
         .post(import.meta.env.VITE_API_APPROVE_DISPLAY_TWO_HEP, {
-          office: userCookies["office"],
+          position: userCookies["position"],
           campus_id: userCookies["campus_id"],
           user_id: userCookies["id"],
         })
         .then((response) => {
           if (response.data) {
             this.hepData = response.data;
-            console.log(JSON.stringify(this.hepData))
           }
         })
         .catch(function (error) {
@@ -288,7 +294,7 @@ export default {
             //this.login =false'
             // this.addTimeout();
           }
-          console.log(error.config);
+          // console.log(error.config);
           // called modal
           //this.login =false'
           // this.addTimeout();
@@ -318,7 +324,7 @@ export default {
         let users_list = this.cookies.get("userCookies");
         const response = await axios
           .post(import.meta.env.VITE_API_CHANCELLOR_APPROVE_HEP_TWO, {
-            office: users_list.office,
+            position: users_list.position,
             campus_id: users_list.campus_id,
             user_id: users_list.id,
             id: this.selectedIds,
@@ -343,7 +349,7 @@ export default {
         let users_list = this.cookies.get("userCookies");
         const response = await axios
           .post(import.meta.env.VITE_API_CHANCELLOR_APPROVE_HEP_TWO, {
-            office: users_list.office,
+            position: users_list.position,
             campus_id: users_list.campus_id,
             user_id: users_list.id,
             id: this.selectedID,
