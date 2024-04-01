@@ -118,18 +118,18 @@ export default {
       selectedID: "",
       forUpdate: [],
       editselectedFile: null,
-      userOffice:null,
+      userposition:null,
       userCampus:null,
       userID:null,
     };
   },
   methods: {
     // fetch data
-    async FetchData(office, campus, user_id) {
+    async FetchData(position, campus, user_id) {
       try {
         const response = await axios
           .post(import.meta.env.VITE_API_HEPLIST, {
-            office: office,
+            position: position,
             campus_id: campus,
             user_id: user_id,
 
@@ -485,17 +485,11 @@ export default {
     if (this.user == null && this.userCookies == null) {
       this.$router.push("/");
     }
-    this.userOffice=  userCookies["office"]
+    this.userposition= userCookies["position"]
     this.userCampus= userCookies["campus_id"]
     this.userID= userCookies["id"]
 
-    this.fetchProgram_Data(userCookies["college_id"], userCampus, userCollege);
-    this.FetchData(
-      userCookies["office"],
-      userCookies["campus_id"],
-      userCookies["id"],
-      userCollege,
-      userCampus
-    );
+    this.fetchProgram_Data(userCookies["college_id"]);
+    this.FetchData(userCookies["position"], userCookies["campus_id"],userCookies["id"]);
   },
 };

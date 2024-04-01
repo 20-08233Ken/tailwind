@@ -103,7 +103,7 @@ export default {
     async GetHEPData(){
       let userCookies = this.cookies.get('userCookies');
       await axios.post(import.meta.env.VITE_API_HEPLIST,{
-        "office": userCookies["office"],
+        "position": userCookies["position"],
         "campus_id": userCookies["campus_id"],
         "user_id": userCookies["id"],
       }).
@@ -120,30 +120,30 @@ export default {
       catch(function(error){
           if(error.response){
               
-              if (error.response.data){
+              // if (error.response.data){
                 // call the modal
                 //  this.loginError =false
                 //  this.addTimeout()
                 //  $("errorMessage").val();
 
-                alert(JSON.stringify(error.response.data.message));
-              }
+              //   alert(JSON.stringify(error.response.data.message));
+              // }
               // called modal
               //this.login =false'
               // this.addTimeout();
           }else if(error.request){
 
-              console.log(error.request)
+              // console.log(error.request)
               // called modal
               //this.login =false'
               // this.addTimeout();
           }else{
-              console.log('Error', error.message)
+              // console.log('Error', error.message)
               // called modal
               //this.login =false'
               // this.addTimeout();
           }
-          console.log(error.config);
+          // console.log(error.config);
               // called modal
               //this.login =false'
               // this.addTimeout();
@@ -183,18 +183,18 @@ export default {
         try{
             let users_list = this.cookies.get('userCookies');
             const response = await axios.post(import.meta.env.VITE_API_APPROVE_HEP, {
-                "office": users_list.office,
+                "position": users_list.position,
                 "campus_id": users_list.campus_id,
                 "user_id": users_list.id,
                 "id":   this.selectedID
             })
             .then(response => {
-              location.reload();
-                console.log("response:",response);
                 if (response.data == "This request is already approved by VCAA!"){
                   
                   this.$router.push('/VCs');
                 }
+                
+              location.reload();
             })
             .catch(error => {
                 console.error('Error fetching hep data', error);
@@ -210,7 +210,7 @@ export default {
 
             let users_list = this.cookies.get('userCookies');
             const response = await axios.post(import.meta.env.VITE_API_DISAPPROVE_HEP, {
-                "office": users_list.office,
+                "position": users_list.position,
                 "campus_id": users_list.campus_id,
                 "user_id": users_list.id,
                 "id":   this.selectedID,
@@ -230,7 +230,6 @@ export default {
         }
     },
 
-
     async ViewHistory(id) {
       this.selectedID = id;
       let userCookies = this.cookies.get("userCookies");
@@ -247,6 +246,7 @@ export default {
           console.error("Error history not found", error);
         });
     },
+
     validateInput(value) {
       if (!value) {
         return "This field is required";
