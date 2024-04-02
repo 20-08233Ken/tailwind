@@ -36,6 +36,7 @@ export default {
             headers:[
                 {
                     title:'Details of Research Outputs',
+                    align:'center',
                     children:[
                         {
                             title:'Research Title'
@@ -48,6 +49,7 @@ export default {
                         },
                         {
                             title:'Duration of Research',
+                            align:'center',
                             children:[
                                 {
                                     title:'Date Started'
@@ -61,6 +63,7 @@ export default {
                 },
                 {
                     title:'Details of Presentation',
+                    align:'center',
                     children:[
                         {
                             title:'Title of Forum'
@@ -78,6 +81,7 @@ export default {
                 },
                 {
                     title:'Details of Publication',
+                    align:'center',
                     children:[
                         {
                             title:'Published Title'
@@ -101,6 +105,7 @@ export default {
                 },
                 {
                     title:'Details of Utilized Output',
+                    align:'center',
                     children:[
                         {
                             title:'Product Name / Methods / Process / Technology'
@@ -118,8 +123,10 @@ export default {
             // Input
             campus:null,
             sdg:null,
-            researchers:[]
-
+            researchers:[
+                ''
+            ],
+            count:1
         }
     },
     components: {
@@ -145,6 +152,19 @@ export default {
 
         deleteData(id){
             console.log(id)
+        },
+
+        addField(){
+            this.researchers.push('')
+            this.count++
+        },
+
+        deleteField(index){
+            if (index === 1){
+                this.researchers.splice(index, 1);
+                this.count--
+            }
+           
         }
     }
 }
