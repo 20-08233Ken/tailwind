@@ -11,6 +11,10 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import HE_OCI_1 from './HE_OCI_1.vue'
 import HE_OCI_2 from './HE_OCI_2.vue'
 
+import { markRaw } from "vue"
+
+const raw_HE_OCI_1 = markRaw(HE_OCI_1)
+
 export default {
 
   setup() {
