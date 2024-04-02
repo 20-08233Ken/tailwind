@@ -60,8 +60,6 @@
             <v-data-table-server :headers="headersRegistrar" :items="registrarData" class="elevation-1 "
                 items-per-page="10" :items-length="0" :loading="myLoading" loading-text="Loading... Please wait"
                 style="width:100%;">
-
-
             </v-data-table-server>
         </div>
 
