@@ -13,12 +13,14 @@ export default {
     return {
       headers: [
         {
-          title: "Name",
+          title: "Location",
           value: "campus_name",
+          sortable: true,
         },
         {
           title: "Campus",
           value: "campus",
+          sortable: true,
         },
         {
           title: "Action",
@@ -205,7 +207,7 @@ export default {
             <Field type="text" name="campus" placeholder="Type here" class="input mt-2 input-bordered w-full"
               style="border: 1px solid #d2d2d2" v-model="newCampus.campus" />
 
-            <p class="text-0.9 font-Subheader text-gray-500 mt-4">Name</p>
+            <p class="text-0.9 font-Subheader text-gray-500 mt-4">Location</p>
             <Field type="text" name="campus_name" placeholder="Type here" class="input mt-2 input-bordered w-full"
               style="border: 1px solid #d2d2d2" v-model="newCampus.campus_name" />
 
@@ -222,7 +224,7 @@ export default {
     </v-dialog>
   </div>
 
-  <v-data-table :headers="headers" :items="CampusData" loading-text="Loading... Please wait" :loading="myLoading">
+  <v-data-table :headers="headers" :items="CampusData"  loading-text="Loading... Please wait" :loading="myLoading">
     <template v-slot:item.action="{ item }">
       <span class="w-full flex items-center justify-center gap-3">
         <v-dialog max-width="500">
@@ -240,12 +242,12 @@ export default {
 
               <Form class="mt-4 px-3" @submit="submitUpdate">
 
-                <p class="text-0.9 font-Subheader text-gray-500">Name</p>
+                <p class="text-0.9 font-Subheader text-gray-500">Location</p>
                 <Field type="text" name="campus_name" placeholder="Type here" class="input mt-2 input-bordered w-full"
                   style="border: 1px solid #d2d2d2" v-model="forUpdate.campus_name" />
 
 
-                <p class="text-0.9 font-Subheader text-gray-500">Campus Name</p>
+                <p class="text-0.9 font-Subheader text-gray-500">Campus</p>
                 <Field type="text" name="campus" placeholder="Type here" class="input mt-2 input-bordered w-full"
                   style="border: 1px solid #d2d2d2" v-model="forUpdate.campus" />
 
