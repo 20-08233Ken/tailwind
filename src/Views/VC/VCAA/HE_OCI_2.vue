@@ -14,7 +14,8 @@ export default {
             isActive: 1,
             isDataActive: 0,
             search: "",
-            myLoading: false,
+            myLoading: true,
+            myLoading2: true,
             in_program: "",
             in_fname: "",
             in_mname: "",
@@ -210,7 +211,7 @@ export default {
                         user_id: user_id,
                     })
                     .then((response) => {
-                        
+                        this.myLoading2 = false;
                         this.deansData = response.data;
                      
                         // if (response.data == "Successfully HEP added!"){
@@ -222,7 +223,7 @@ export default {
                     })
 
                     .finally(() => {
-                      
+                       
                     });
             } catch (error) { }
         },
@@ -565,6 +566,7 @@ export default {
         let userCampus = this.cookies.get("userCampus");
         this.user = userPosition;
         this.userCookies = userCookies;
+        this.userCampus = userCookies["campus_id"]
         this.data[0].in_campus = userCampus;
         this.data[0].in_department = userCollege;
 
@@ -630,7 +632,7 @@ export default {
     <span class="w-full flex flex-col" v-if="isDataActive === 1">
 
         <v-data-table :headers="headersDean" :items="deansData" class="elevation-1 " items-per-page="10"
-            :loading="myLoading" loading-text="Loading... Please wait" :search="search"
+            :loading="myLoading2" loading-text="Loading... Please wait" :search="search"
             style="width:100%; overflow-x: scroll;">
 
             <template v-slot:item.graduate_files="{ item }">

@@ -19,6 +19,7 @@ export default {
 
 
   },
+
   data() {
     return {
       currentComponent: null,
@@ -35,7 +36,7 @@ export default {
 
       receivedProgam: null,
       search: "",
-      myLoading: false,
+      myLoading: true,
 
       headers: [
         {
@@ -91,8 +92,8 @@ export default {
       // Data base from the Account Info of Dean
       data: [
         {
-          in_campus: "Alangilan Campus",
-          in_department: "College of Engineering",
+          in_campus: "",
+          in_department: "",
         },
       ],
       hepData: [],
@@ -128,6 +129,7 @@ export default {
       userID:null,
     };
   },
+
   methods: {
     validateInput(value) {
       if (!value) {
@@ -160,7 +162,7 @@ export default {
     async FetchData(position, campus, user_id) {
       try {
         const response = await axios
-          .post(import.meta.env.VITE_API_HEPLIST, {
+          .post(import.meta.env.VITE_API_VCAA_HEPLIST, {
             position: position,
             campus_id: campus,
             user_id: user_id,
@@ -170,7 +172,6 @@ export default {
           .then((response) => {
             this.myLoading = true;
             this.hepData = response.data;
-            console.log('Lpoaded')
             // if (response.data == "Successfully HEP added!"){
             //     this.isDataActive = false;
             // }
@@ -215,10 +216,8 @@ export default {
       // Form Data
       const formData = new FormData();
       formData.append("supported_file", this.selectedFile);
-      // formData.append('campus_id', this.data[0].in_campus);
-      // formData.append('college_id',this.data[0].in_department);
       formData.append("program_id", this.in_program);
-      formData.append("exam_date", this.in_examDate);
+      formData.append("exam_date", this.exam_date);
       formData.append("number_of_takers", this.in_takers);
       formData.append("number_of_passers", this.in_passers);
       formData.append("campus_id", userCookies["campus_id"]);
@@ -402,7 +401,6 @@ export default {
 
     removeFiles() {
       this.selectedFile = null;
-      console.log(this.selectedFile);
     },
     // showFile() {
     //   this.isDataActive = false;
@@ -421,7 +419,6 @@ export default {
         })
         .then((response) => {
           this.approvedLogs = response.data;
-          console.log(this.approvedLogs);
         })
         .catch((error) => {
           console.error("Error history not found", error);
@@ -458,12 +455,7 @@ export default {
     },
   },
 
-
   mounted() {
-    // call here
-    // this.fetchProgram_Data()
-
-
     let userCookies = this.cookies.get("userCookies");
     let accesstoken = this.cookies.get("userAccessToken");
     let userPosition = this.cookies.get("userPosition");
@@ -473,6 +465,8 @@ export default {
     this.userCookies = userCookies;
     this.data[0].in_campus = userCampus;
     this.data[0].in_department = userCollege;
+    console.log(userCampus);
+    console.log(userCollege);
 
     if (this.user == null && this.userCookies == null) {
       this.$router.push("/");
@@ -507,8 +501,9 @@ export default {
                 :class="{ isBtnActive: isDataActive === 1 }">
                 <v-icon>mdi-table</v-icon>Table
             </button>
-            <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(2)"
-                :class="{ isBtnActive: isDataActive === 2 }">
+            <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(2)" 
+            v-if="(this.userCampus < 6 && this.userCampus >=1)"
+                :class="{ isBtnActive: isDataActive === 2 }" >
                 <v-icon>mdi-form-select</v-icon> Form
             </button>
         </span>
@@ -751,20 +746,20 @@ export default {
 
     <!-- Form -->
     <span class="w-full flex flex-col px-4 mt-8" v-if="isDataActive === 2">
-        <Form>
+        <Form @submit="addData">
             <p class="text-0.9 font-Subheader text-gray-500">Campus</p>
-            <Field type="text" name="campus" placeholder="Type here" disabled class="input mt-2 input-bordered w-full"
-                style="border: 1px solid #d2d2d2" :rules="validateInput" />
+            <Field type="text" name="campus_id" placeholder="Type here" disabled class="input mt-2 input-bordered w-full"
+                style="border: 1px solid #d2d2d2" :rules="validateInput"   v-model="data[0].in_campus"/>
 
             <p class="text-0.9 font-Subheader text-gray-500 mt-6">
                 Department
             </p>
-            <Field type="text" placeholder="Type here" name="department" disabled
-                class="input mt-2 input-bordered w-full" style="border: 1px solid #d2d2d2" :rules="validateInput" />
+            <Field type="text" placeholder="Type here" name="college_id" disabled
+                class="input mt-2 input-bordered w-full" style="border: 1px solid #d2d2d2" :rules="validateInput"   v-model="data[0].in_department"/>
 
             <p class="text-0.9 font-Subheader text-gray-500 mt-6">Program</p>
             <Field as="select" class="select select-bordered w-full mt-2" style="border: 1px solid #d2d2d2"
-                name="program" :rules="validateInput">
+                name="in_program" :rules="validateInput"   v-model="in_program">
                 <option disabled selected>Select Program ...</option>
                 <option v-for="x in collegeProgram" :value="x.id">
                     {{ x.program }}
@@ -776,22 +771,22 @@ export default {
                 Exam Date
             </p>
             <Field type="date" placeholder="Type here" class="input mt-2 input-bordered w-full" name="exam_date"
-                style="border: 1px solid #d2d2d2" :rules="validateInput" />
+                style="border: 1px solid #d2d2d2" :rules="validateInput"  v-model="in_examDate" />
             <ErrorMessage name="exam_date" class="error_message" />
 
             <p class="text-0.9 font-Subheader text-gray-500 mt-6">
                 Number of First-time Takers
             </p>
             <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full" defa
-                style="border: 1px solid #d2d2d2" name="no_takers" :rules="checkNegative" />
-            <ErrorMessage name="no_takers" class="error_message" />
+                style="border: 1px solid #d2d2d2" name="in_takers" :rules="checkNegative"   v-model="in_takers"  />
+            <ErrorMessage name="in_takers" class="error_message" />
 
             <p class="text-0.9 font-Subheader text-gray-500 mt-6">
                 Number of First-time Passers
             </p>
             <Field type="number" placeholder="Type here" class="input mt-2 input-bordered w-full"
-                style="border: 1px solid #d2d2d2" name="no_passers" :rules="checkNegative" />
-            <ErrorMessage name="no_passers" class="error_message" />
+                style="border: 1px solid #d2d2d2" name="in_passers" :rules="checkNegative" v-model="in_passers"/>
+            <ErrorMessage name="in_passers" class="error_message" />
 
             <span class="flex items-center mt-6 gap-2">
                 <p class="text-0.9 font-Subheader text-gray-500">
@@ -847,7 +842,6 @@ export default {
         </Form>
     </span>
 </template>
-
 
 <style scoped>
 .isActive {
