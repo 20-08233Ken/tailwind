@@ -62,14 +62,11 @@
                 style="width: 100%; overflow-x: scroll"
         >
           <template v-slot:item.supported_file="{ item }">
+
             <span class="flex w-full gap-2 py-4">
-              <v-btn
-                size="x-small"
-                class="bg-light-blue-darken-3"
-                @click="viewFile(item.hep_one_id)"
-                >View PDF</v-btn
-              >
+              <v-btn size="x-small" class="bg-light-blue-darken-3" @click="viewFile(item.hep_one_id)">View PDF</v-btn>
             </span>
+
           </template>
           <template v-slot:item.actions="{ item }">
             <span class="flex w-full flex-col gap-2 py-4">
@@ -333,7 +330,7 @@
               </v-dialog>
 
               <!-- View -->
-              <v-dialog max-width="700">
+              <v-dialog max-width="800">
                 <template v-slot:activator="{ props: activatorProps }">
                   <v-btn
                     block
@@ -348,49 +345,44 @@
 
                 <template v-slot:default="{ isActive }" class="w-full">
                   <v-card>
-                    <div class="w-full px-4 py-4">
+                    <div class="w-full px-4 py-4 flex flex-col items-center">
                       <h3
                         class="font-bold text-lg font-Header w-full bg-gray-700 text-white px-4 py-4"
                       >
                         Approval History
                       </h3>
 
-                      <table
-                        class="view-table mt-4 w-full border-0"
-                        id="notifTable"
-                      >
-                        <tr v-for="(items, index) in approvedLogs">
-                          <td class="w-1/12">
-                            <v-icon
-                              :class="{
-                                isApproved: items.status === 'Approved',
-                                isReject: items.status === 'Returned',
-                              }"
-                              >mdi-history</v-icon
-                            >
-                          </td>
-                          <td>
-                            <h1
-                              :class="{
-                                isApproved: items.status === 'Approved',
-                                isReject: items.status === 'Returned',
-                              }"
-                            >
-                              {{ items.status }} by {{ items.role }}
-                            </h1>
-                          </td>
-                          <td>
-                            <p>
-                              {{ items.reasons }}<br /><i>{{
-                                items.remarks
-                              }}</i>
-                            </p>
-                          </td>
-                          <td>
-                            <p>{{ items.created_at }}</p>
-                          </td>
-                        </tr>
-                      </table>
+                      <span class="w-full px-4">
+ 
+                        <table
+                          class="view-table mt-4 w-full border-0"
+                          id="notifTable"
+                        >
+                          <tr v-for="(items, index) in approvedLogs">
+                        
+                            <td class="py-3">
+                              <v-icon :class="{isApproved: items.status === 'Approved', isReject: items.status === 'Returned',}">mdi-history</v-icon>
+                            </td>
+
+                            <td>
+                              <h1 class="text-sm" :class="{ isApproved: items.status === 'Approved', isReject: items.status === 'Returned',}">
+                                {{ items.status }} by {{ items.role }}
+                              </h1>
+
+                              {{ items.role }}
+
+                           
+                            </td>
+
+                            <td>
+                              <p class="text-sm"> {{ items.reasons }}<br /><i>{{ items.remarks}}</i> </p>
+                            </td>
+                            <td>
+                              <p class="text-sm">{{ items.created_at }}</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </span>
                     </div>
                     <v-card-actions>
                       <v-spacer></v-spacer>
