@@ -3,6 +3,7 @@ import notification from "../../components/Others/notification.vue";
 import edit_1 from "../../Views/Dean/edit/edit_1.vue";
 import axios from "axios";
 import { useCookies } from "vue3-cookies";
+import PDFViewer from 'pdf-viewer-vue'
 
 import Swal from "sweetalert2";
 
@@ -17,6 +18,7 @@ export default {
     ErrorMessage,
     notification,
     edit_1,
+    PDFViewer
   },
   data() {
     return {
@@ -32,6 +34,10 @@ export default {
       receivedProgam: null,
       search: "",
       myLoading: true,
+      pdfUrl:'',
+
+      base64: '<BASE64_ENCODED_PDF>',
+      pdfBase64:'',
       headers: [
         {
           title: "",
@@ -383,22 +389,17 @@ export default {
         .post(import.meta.env.VITE_API_FETCH_PDF, {
           id: id,
           user_id: userCookies["id"],
-          responseType: "arraybuffer", // Set the response type to arraybuffer
+          // responseType: 'arraybuffer',
         })
         .then((response) => {
-          // Create a Blob object from the response data
-          const blob = new Blob([response.data], { type: "application/pdf" });
+          this.pdfBase64 = `data:application/pdf;base64,${response.data.pdfBase64}`;
 
-          // Create a URL for the Blob object
-          const url = URL.createObjectURL(blob);
-
-          // Open the URL in a new tab
-          window.open(url, "_blank");
         })
         .catch((error) => {
-          console.error("Error fetching PDF:", error);
+          console.error('Error loading PDF:', error);
         });
     },
+
 
     removeFiles() {
       this.selectedFile = null;
