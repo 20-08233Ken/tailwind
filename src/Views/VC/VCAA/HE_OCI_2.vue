@@ -589,12 +589,11 @@ export default {
     <span class="w-full flex shadow-card2 py-5 px-8 gap-4 bg-gray-700 mt-8">
         <span class="flex flex-col justify-center w-9/12">
             <h1 class="w-full font-Header text-white">
-                Percentage of first-time licensure exam takers that pass the
-                licensure exams
+                Percentage of graduates (2 years prior) that are employed
             </h1>
 
             <p class="w-full text-sm text-gray-400">
-                Higher Education Program: Outcome Indicator 1
+                Higher Education Program: Outcome Indicator 2
             </p>
             <p class="w-full text-sm text-gray-400">College of Engineering</p>
         </span>
@@ -602,15 +601,15 @@ export default {
         <span class="flex w-3/12 items-center justify-end gap-3">
             <!-- <notification /> -->
             <button class="btn btn-sm w-5/12 font-Subheader text-xs" @click="changeData(0)"
-                :class="{ isBtnActive: isDataActive === 0 }">
+                :class="{ isBtnActive: isDataActive === 0 ,notBtnActive:isDataActive !=0}">
                 <v-icon>mdi-account</v-icon>Registrar
             </button>
             <button class="btn btn-sm w-5/12 font-Subheader text-xs" @click="changeData(1)"
-                :class="{ isBtnActive: isDataActive === 1 }">
+                :class="{ isBtnActive: isDataActive === 1,notBtnActive:isDataActive !=1 }">
                 <v-icon>mdi-table</v-icon>Table
             </button>
             <button class="btn btn-sm w-5/12 font-Subheader text-xs" @click="changeData(2)"
-                :class="{ isBtnActive: isDataActive === 2 }">
+                :class="{ isBtnActive: isDataActive === 2,notBtnActive:isDataActive !=2}">
                 <v-icon>mdi-form-select</v-icon> Form
             </button>
         </span>
@@ -1062,6 +1061,11 @@ export default {
 }
 
 .isBtnActive {
+    background-color: white;
+    color: #111827;
+}
+
+.notBtnActive {
     background-color: #6b7280;
     color: white;
 }
