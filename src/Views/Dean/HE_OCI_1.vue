@@ -21,14 +21,14 @@
       <button
         class="btn btn-sm w-4/12 font-Subheader text-xs"
         @click="changeData(1)"
-        :class="{ isBtnActive: isDataActive === 1 }"
+        :class="{ isBtnActive: isDataActive === 2 }"
       >
         <v-icon>mdi-table</v-icon>Table
       </button>
       <button
         class="btn btn-sm w-4/12 font-Subheader text-xs"
         @click="changeData(2)"
-        :class="{ isBtnActive: isDataActive === 2 }"
+        :class="{ isBtnActive: isDataActive === 1 }"
       >
         <v-icon>mdi-form-select</v-icon> Form
       </button>

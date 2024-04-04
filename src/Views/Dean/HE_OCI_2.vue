@@ -19,16 +19,16 @@
 
             <span class="flex w-3/12 items-center justify-end gap-3">
 
-                <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(1)" :class="{ isBtnActive: isDataActive === 1 }">
+                <button class=" btn btn-sm w-4/12 font-Subheader text-xs"  @click="changeData(1)" :class="{ isBtnActive: isDataActive === 1 , notBtnActive:isDataActive !=1 }">
                     <v-icon>mdi-form-select</v-icon> Registrar
                 </button>
 
-                <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(3)":class="{ isBtnActive: isDataActive === 3 }">
-                    <v-icon>mdi-table</v-icon>Table
+                <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(2)" :class="{ isBtnActive: isDataActive === 2, notBtnActive:isDataActive !=2}">
+                    <v-icon>mdi-form-select</v-icon> Form
                 </button>
 
-                <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(2)" :class="{ isBtnActive: isDataActive === 2 }">
-                    <v-icon>mdi-form-select</v-icon> Form
+                <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(3)":class="{ isBtnActive: isDataActive === 3, notBtnActive:isDataActive !=3}">
+                    <v-icon>mdi-table</v-icon>Table
                 </button>
                 
             </span>
@@ -499,6 +499,16 @@
     }
 
     .isBtnActive {
+        background-color: #6b7280;
+        color: white;
+    }
+
+    .isBtnActive {
+        background-color: white;
+        color: #111827;
+    }
+
+    .notBtnActive{
         background-color: #6b7280;
         color: white;
     }

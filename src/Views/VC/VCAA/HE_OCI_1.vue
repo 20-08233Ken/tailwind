@@ -497,12 +497,12 @@ export default {
         <span class="flex w-3/12 items-center justify-end gap-3">
             <!-- <notification /> -->
             <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(1)"
-                :class="{ isBtnActive: isDataActive === 1 }">
+                :class="{ isBtnActive: isDataActive === 2 }">
                 <v-icon>mdi-table</v-icon>Table
             </button>
             <button class="btn btn-sm w-4/12 font-Subheader text-xs" @click="changeData(2)" 
             v-if="(this.userCampus < 6 && this.userCampus >=1)"
-                :class="{ isBtnActive: isDataActive === 2 }" >
+                :class="{ isBtnActive: isDataActive === 1 }" >
                 <v-icon>mdi-form-select</v-icon> Form
             </button>
         </span>
