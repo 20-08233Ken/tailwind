@@ -186,6 +186,10 @@ export default {
     // ],
     headersDean: [
       {
+        title:'',
+        value:'check_box'
+      },
+      {
         title: "HEP Code",
         key: "hep_code",
       },
