@@ -234,8 +234,8 @@ export default {
             
           
             if (response.data == "Successfully HEP added!") {
-              // location.reload();
-              // console.log('added')
+
+        
               this.isDataActive = 1
               Swal.fire({
                 title: "Success",
@@ -369,8 +369,7 @@ export default {
         event.target.value = "";
       } else {
         this.selectedFile = event.target.files[0];
-        // this.selectedFileName = event.target.files[0].name
-        // console.log(JSON.stringify(this.selectedFileName))
+
       }
     },
 
@@ -465,8 +464,8 @@ export default {
     this.userCookies = userCookies;
     this.data[0].in_campus = userCampus;
     this.data[0].in_department = userCollege;
-    console.log(userCampus);
-    console.log(userCollege);
+
+    
 
     if (this.user == null && this.userCookies == null) {
       this.$router.push("/");
